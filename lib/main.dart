@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/config/routes.dart';
 
-void main()
-{
+void main() {
   runApp(const PalestineApp());
 }
 
@@ -17,8 +17,8 @@ class _PalestineAppState extends State<PalestineApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(appBar: AppBar(),),
+      initialRoute: "/",
+      onGenerateRoute: (settings) => AppRoutes.onGenerate(settings),
     );
   }
 }
-
