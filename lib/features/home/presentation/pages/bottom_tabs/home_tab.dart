@@ -6,6 +6,7 @@ import 'package:google_solution_challenge_2024/features/home/presentation/manage
 import '../../widgets/category_card.dart';
 import '../../widgets/help_card.dart';
 import '../../widgets/news_card.dart';
+import '../../widgets/post_card.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
@@ -21,7 +22,7 @@ class HomeTab extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: HomeCubit.get(context).screenWidth(context) * .02,
-                  vertical: HomeCubit.get(context).screenWidth(context) * .04),
+                  vertical: HomeCubit.get(context).screenWidth(context) * .02),
               child: const Row(
                 children: [
                   CategoryCard(
@@ -31,17 +32,20 @@ class HomeTab extends StatelessWidget {
                   CategoryCard(
                       text: "Information & Safety",
                       image: AppImages.informationSafety),
+                  CategoryCard(
+                      text: "more", image: AppImages.more),
                 ],
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15.0),
-            child: Text(
-              "Help",
-              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.symmetric(
+          //       horizontal: HomeCubit.get(context).screenWidth(context) * .03),
+          //   child: const Text(
+          //     "Volunteer",
+          //     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
+          //   ),
+          // ),
           Swiper(
             // duration: 80,
             // autoplay: true,
@@ -74,11 +78,11 @@ class HomeTab extends StatelessWidget {
                 const Row(
                   children: [
                     Expanded(
-                        child: CategoryCard(
-                            text: "Lost", image: AppImages.family)),
+                        child:
+                            CategoryCard(text: "Lost", image: AppImages.lost)),
                     Expanded(
                         child: CategoryCard(
-                            text: "Lost", image: AppImages.family)),
+                            text: "Found", image: AppImages.faceScan)),
                   ],
                 ),
               ],
@@ -105,10 +109,11 @@ class HomeTab extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CategoryCard(
-                            text: "Lost", image: AppImages.family)),
+                            text: "Medical", image: AppImages.medical)),
                     Expanded(
                         child: CategoryCard(
-                            text: "Lost", image: AppImages.family)),
+                            text: "Offline Resources",
+                            image: AppImages.offlineResources)),
                   ],
                 ),
               ],
@@ -143,7 +148,7 @@ class HomeTab extends StatelessWidget {
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
           AspectRatio(
-            aspectRatio: 6 / 3.8,
+            aspectRatio: 6 / 4.2,
             child: PageView(
               scrollDirection: Axis.horizontal,
               controller: HomeCubit.get(context).pageController,
@@ -185,13 +190,13 @@ class HomeTab extends StatelessWidget {
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
           AspectRatio(
-            aspectRatio: 6 / 3.8,
+            aspectRatio: 6 / 4.5,
             child: PageView(
               scrollDirection: Axis.horizontal,
               controller: HomeCubit.get(context).pageController,
               children: List.generate(
                 4,
-                (index) => NewsCard(index),
+                (index) => const PostCard(),
               ),
             ),
           ),

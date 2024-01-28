@@ -56,7 +56,7 @@ class NewsCard extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        "article.title ??",
+                        "Palestine",
                         style: Theme.of(context).textTheme.titleLarge,
                         maxLines: 2,
                       ),
@@ -64,18 +64,18 @@ class NewsCard extends StatelessWidget {
                         height: 3,
                       ),
                       Text(
-                        "article.description ?? ",
+                        "don't worry my brother",
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(
                         height: 3,
                       ),
                       Text(
-                        "article.author ??",
+                        "eman pepars",
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       Text(
-                        "article.publishedAt?.substring(0, 10) ?? ",
+                        "10/12/2023 ",
                         style: Theme.of(context).textTheme.bodySmall,
                         textAlign: TextAlign.end,
                       ),

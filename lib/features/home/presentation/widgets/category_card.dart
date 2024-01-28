@@ -13,7 +13,7 @@ class CategoryCard extends StatelessWidget {
     return Card(
       elevation: 10,
       child: Container(
-        width: HomeCubit.get(context).screenWidth(context) * .3,
+        width: HomeCubit.get(context).screenWidth(context) * .4,
         height: HomeCubit.get(context).screenHeight(context) * .18,
         padding: const EdgeInsets.all(10),
         decoration: const BoxDecoration(

@@ -16,6 +16,9 @@ class HomeCubit extends Cubit<HomeStates> {
   PageController pageController =
   PageController(initialPage: 1, viewportFraction: 0.95);
 
+  PageController postPageController =
+  PageController(initialPage: 1, viewportFraction: 0.95);
+
   final List<Widget> widgetOptions = [
     const HomeTab(),
     const SearchTab(),

@@ -33,10 +33,10 @@ class HelpCard extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25)),
+                    topLeft: Radius.circular(18),
+                    topRight: Radius.circular(18)),
                 child: Image.asset(
-                  AppImages.family,
+                  AppImages.education,
                   height: 180,
                   fit: BoxFit.fill,
                 ),
@@ -44,16 +44,34 @@ class HelpCard extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "help .title ",
-                    maxLines: 2,
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Education",
+                        maxLines: 2,
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w900),
+                      ),
+                      Text(
+                        "don't worry my brother ",
+                        maxLines: 2,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                    ],
                   ),
                   SizedBox(
-                    height: 60,
-                    width: 120,
+                    height: 50,
+                    width: 100,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
+                          elevation: 4,
                           backgroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                10.0), // Adjust the radius as needed
+                          ),
                         ),
                         onPressed: () {},
                         child: const Icon(
