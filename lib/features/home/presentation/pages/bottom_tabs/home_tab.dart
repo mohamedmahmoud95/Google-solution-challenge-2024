@@ -82,7 +82,7 @@ class HomeTab extends StatelessWidget {
                             CategoryCard(text: "Lost", image: AppImages.lost)),
                     Expanded(
                         child: CategoryCard(
-                            text: "Found", image: AppImages.faceScan)),
+                            text: "Found", image: AppImages.faceScan),),
                   ],
                 ),
               ],
