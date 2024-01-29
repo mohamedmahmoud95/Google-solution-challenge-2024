@@ -2,6 +2,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
+import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_and_found_screen.dart';
 
 import '../../widgets/category_card.dart';
 import '../../widgets/help_card.dart';
@@ -75,14 +76,20 @@ class HomeTab extends StatelessWidget {
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
                 ),
-                const Row(
+                 Row(
                   children: [
                     Expanded(
                         child:
-                            CategoryCard(text: "Lost", image: AppImages.lost)),
+                            CategoryCard(text: "Lost", image: AppImages.lost,
+                              onPressed: (){
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => LostAndFoundScreen()));
+                              },)),
                     Expanded(
                         child: CategoryCard(
-                            text: "Found", image: AppImages.faceScan),),
+                            text: "Found", image: AppImages.faceScan,
+                          onPressed: (){
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => LostAndFoundScreen()));
+                          },)),
                   ],
                 ),
               ],
