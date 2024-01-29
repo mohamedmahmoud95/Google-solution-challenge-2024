@@ -1,71 +1,128 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
+import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            elevation: 10,
-            leading: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-                color: Colors.black12,
+    return BlocProvider(
+      create: (BuildContext context) => HomeCubit(),
+      child: BlocConsumer<HomeCubit, HomeStates>(
+        listener: (BuildContext context, state) {},
+        builder: (context, state) => Scaffold(
+          backgroundColor: Colors.white,
+          drawer: Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                const DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                  ),
+                  child: Text(
+                    'Drawer Header',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Item 1'),
+                  onTap: () {
+                    // Add your logic for when item 1 is tapped
+                  },
+                ),
+                ListTile(
+                  title: const Text('Item 2'),
+                  onTap: () {
+                    // Add your logic for when item 2 is tapped
+                  },
+                ),
+              ],
+            ),
+          ),
+          body: CustomScrollView(
+            slivers: [
+              const SliverAppBar(
+                backgroundColor: Colors.white,
+                title: SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "welcome back",
+                        style: TextStyle(fontSize: 10),
+                        textAlign: TextAlign.start,
+                      ),
+                      Text(
+                        "Mohamed!",
+                        style: TextStyle(fontWeight: FontWeight.w900),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-              margin: EdgeInsets.symmetric(
-                  horizontal: screenWidth * .01, vertical: screenHeight * .008),
-              child: const Icon(Icons.person),
-            ),
-            title: const Text(
-              "Hi Mohamed!",
-            ),
-            actions: [
-              Card(
-                  color: Colors.white,
-                  elevation: 4,
-                  child: IconButton(
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed: () {},
-                    icon: const Icon(Icons.message),
-                  )),
-              Card(
-                  color: Colors.white,
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  elevation: 4,
-                  child: IconButton(
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onPressed: () {},
-                    icon: const Icon(Icons.group_add_rounded),
-                  )),
+              SliverFillRemaining(
+                child: HomeCubit.get(context)
+                    .widgetOptions[HomeCubit.get(context).selectedIndex],
+              )
             ],
           ),
-          const SliverFillRemaining(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [],
-              ),
-            ),
-          )
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.category_outlined),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.category_outlined),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.category_outlined),label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.category_outlined),label: ""),
-        ],
+          // bottomNavigationBar: BottomAppBar(
+          //   shape: const CircularNotchedRectangle(),
+          //   notchMargin: 8.0,
+          //   child: Row(
+          //     mainAxisSize: MainAxisSize.max,
+          //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //     children: <Widget>[
+          //       IconButton(
+          //         icon: const Icon(Icons.home),
+          //         onPressed: () {
+          //           HomeCubit.get(context).onNavItemTapped(0);
+          //         },
+          //       ),
+          //       IconButton(
+          //         icon: const Icon(Icons.search),
+          //         onPressed: () {
+          //           HomeCubit.get(context).onNavItemTapped(1);
+          //         },
+          //       ),
+          //       const SizedBox(width: 40.0),
+          //       // This empty space is for the FAB
+          //       IconButton(
+          //         icon: const Icon(Icons.favorite),
+          //         onPressed: () {
+          //           HomeCubit.get(context).onNavItemTapped(2);
+          //         },
+          //       ),
+          //       IconButton(
+          //         icon: const Icon(Icons.person),
+          //         onPressed: () {
+          //           HomeCubit.get(context).onNavItemTapped(3);
+          //         },
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // floatingActionButtonLocation:
+          //     FloatingActionButtonLocation.centerDocked,
+          // floatingActionButton: FloatingActionButton(
+          //   shape: RoundedRectangleBorder(
+          //     borderRadius: BorderRadius.circular(50.0),
+          //   ),
+          //   onPressed: () {
+          //     // Add your FAB action here
+          //   },
+          //   elevation: 2.0,
+          //   child: const Icon(Icons.add),
+          // ),
+        ),
       ),
     );
   }
