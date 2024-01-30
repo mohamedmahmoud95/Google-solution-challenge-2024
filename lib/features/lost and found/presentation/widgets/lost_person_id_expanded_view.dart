@@ -34,9 +34,11 @@ LostPerson raslan = LostPerson(
   lastSeenLocation: "Eng ASU",
 );
 
-class LostPersonId extends StatelessWidget {
+List<LostPerson> lostPeople = [raslan,raslan,raslan,raslan,raslan,raslan,raslan];
+
+class LostPersonIdExpandedView extends StatelessWidget {
   final LostPerson person;
-  const LostPersonId({super.key, required this.person});
+  const LostPersonIdExpandedView({super.key, required this.person});
 
   @override
   Widget build(BuildContext context) {

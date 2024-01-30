@@ -6,8 +6,15 @@ import 'package:google_solution_challenge_2024/features/lost%20and%20found/prese
 
 import '../widgets/subscreen_card.dart';
 
-class LostAndFoundScreen extends StatelessWidget {
-  LostAndFoundScreen({super.key});
+class LostAndFoundScreen extends StatefulWidget {
+  const LostAndFoundScreen({super.key});
+
+  @override
+  State<LostAndFoundScreen> createState() => _LostAndFoundScreenState();
+}
+
+class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
+  bool compactMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +30,14 @@ class LostAndFoundScreen extends StatelessWidget {
         backgroundColor: AppColors.green,
         automaticallyImplyLeading: true,
         title: const Text("Get back together", style: TextStyle(fontSize: 25, color: AppColors.white, fontWeight: FontWeight.w600),),
+        actions: [
+          IconButton(onPressed: (){
+            setState(() {
+              compactMode = !compactMode;
+            });
+    },
+        icon: Icon(compactMode? Icons.list_outlined: Icons.grid_view_outlined, color: AppColors.white,),),
+        ],
         bottom: const TabBar(
           indicatorColor: AppColors.white,
           indicatorSize: TabBarIndicatorSize.tab,
@@ -33,10 +48,10 @@ class LostAndFoundScreen extends StatelessWidget {
 
         ),
       ),
-      body: const TabBarView(
+      body:  TabBarView(
         children: [
           LostTab(),
-          FoundTab(),
+          FoundTab(compactMode: compactMode,),
         ],
 
       ),

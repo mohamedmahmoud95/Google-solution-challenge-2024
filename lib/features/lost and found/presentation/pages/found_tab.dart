@@ -1,33 +1,49 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/lost_person_id.dart';
+import '../widgets/lost_person_id_compact_view.dart';
+import '../widgets/lost_person_id_expanded_view.dart';
 import '../widgets/search_bar.dart';
 
-class FoundTab extends StatelessWidget {
-  const FoundTab({super.key});
+class FoundTab extends StatefulWidget {
+  bool compactMode;
+   FoundTab({super.key, required this.compactMode});
+
+  @override
+  State<FoundTab> createState() => _FoundTabState();
+}
+
+class _FoundTabState extends State<FoundTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
+    return
+         SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child:
 
-        CustomSearchBar(),
-        SingleChildScrollView(
-          child: Column(
+          Wrap(
+            direction: Axis.horizontal,
+            alignment: WrapAlignment.center,
+            spacing: 10,
+            runSpacing: 10,
+
             children: [
-              LostPersonId(
-                person: raslan,
+
+              const CustomSearchBar(),
+
+              ...lostPeople.map((person) => widget.compactMode?
+              LostPersonIdCompactView(
+                person: person,
+              ):
+
+              LostPersonIdExpandedView(
+                person: person,
               ),
-              LostPersonId(
-                person: raslan,
-              ),
-              LostPersonId(
-                person: raslan,
-              ),
+              ).toList(),
             ],
           ),
-        ),
-      ],
-    );
+
+        );
+
   }
 }
