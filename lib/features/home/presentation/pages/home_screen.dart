@@ -50,6 +50,7 @@ class HomeScreen extends StatelessWidget {
               const SliverAppBar(
                 floating: true,
                 snap: true,
+                //غيره من هنا
                 pinned: true,
                 elevation: 0,
                 backgroundColor: Colors.white,
