@@ -27,14 +27,18 @@ class NewsCard extends StatelessWidget {
           return Transform.rotate(
             angle: pi * 180,
             child: Hero(
-              tag: "news_tag",
+              tag: "news_tag$index",
               child: Card(
                 elevation: 5,
                 shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                     borderSide: const BorderSide(color: Colors.transparent)),
                 child: Container(
-                  padding: const EdgeInsets.all(18),
+                  padding: EdgeInsets.symmetric(
+                      horizontal:
+                          HomeCubit.get(context).screenWidth(context) * .03,
+                      vertical:
+                          HomeCubit.get(context).screenHeight(context) * .01),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -48,27 +52,29 @@ class NewsCard extends StatelessWidget {
                             topRight: Radius.circular(25)),
                         child: Image.asset(
                           AppImages.family,
-                          height: 200,
+                          height:
+                              HomeCubit.get(context).screenHeight(context) * .3,
                           fit: BoxFit.fill,
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height:
+                            HomeCubit.get(context).screenHeight(context) * .02,
                       ),
                       Text(
                         "Palestine",
                         style: Theme.of(context).textTheme.titleLarge,
                         maxLines: 2,
                       ),
-                      const SizedBox(
-                        height: 3,
+                       SizedBox(
+                        height: HomeCubit.get(context).screenHeight(context) * .003,
                       ),
                       Text(
                         "don't worry my brother",
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      const SizedBox(
-                        height: 3,
+                       SizedBox(
+                        height:HomeCubit.get(context).screenHeight(context) * .003,
                       ),
                       Text(
                         "eman pepars",

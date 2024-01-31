@@ -5,7 +5,9 @@ import '../../../../config/routes.dart';
 import '../manager/cubit.dart';
 
 class PostCard extends StatelessWidget {
-  const PostCard({super.key});
+  final int index;
+
+  const PostCard({required this.index, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class PostCard extends StatelessWidget {
       child: AnimatedBuilder(
         animation: HomeCubit.get(context).postPageController,
         builder: (BuildContext context, Widget? child) => Hero(
-          tag: "post",
+          tag: "post$index",
           child: Card(
             color: Colors.white,
             elevation: 5,
@@ -33,20 +35,25 @@ class PostCard extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
-
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal:
+                            HomeCubit.get(context).screenWidth(context) * .01,
+                        vertical:
+                            HomeCubit.get(context).screenHeight(context) * .01),
                     child: Row(
                       children: [
-                        CircleAvatar(
+                        const CircleAvatar(
                           backgroundImage: AssetImage(AppImages.mentalHealth),
                         ),
-                        SizedBox(width: 8.0),
-                        Column(
+                        SizedBox(
+                            width: HomeCubit.get(context).screenWidth(context) *
+                                .01),
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -64,25 +71,36 @@ class PostCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text(
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal:
+                            HomeCubit.get(context).screenWidth(context) * .02,
+                        vertical:
+                            HomeCubit.get(context).screenHeight(context) * .02),
+                    child: const Text(
                       "Don't Worry My Brother",
                       style:
                           TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: EdgeInsets.symmetric(
+                      horizontal:
+                          HomeCubit.get(context).screenWidth(context) * .02,
+                    ),
                     child: Image.asset(
                       AppImages.family,
-                      height: 180,
+                      height: HomeCubit.get(context).screenHeight(context) * .3,
                       width: double.infinity,
                       fit: BoxFit.fill,
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.symmetric(
+                        horizontal:
+                            HomeCubit.get(context).screenWidth(context) * .02,
+                        vertical:
+                            HomeCubit.get(context).screenHeight(context) * .02),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -94,24 +112,33 @@ class PostCard extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                                 onPressed: () {}),
-                            const SizedBox(width: 4),
+                            SizedBox(
+                                width: HomeCubit.get(context)
+                                        .screenWidth(context) *
+                                    .01),
                             const Text("5 like",
                                 style: TextStyle(color: Colors.grey)),
                           ],
                         ),
-                        const Row(
+                        Row(
                           children: [
-                            WriteCommentWidget(numOfComments: 4),
-                            SizedBox(width: 4),
-                            Text("0 comment",
+                            const WriteCommentWidget(numOfComments: 4),
+                            SizedBox(
+                                width: HomeCubit.get(context)
+                                        .screenWidth(context) *
+                                    .01),
+                            const Text("0 comment",
                                 style: TextStyle(color: Colors.grey)),
                           ],
                         ),
-                        const Row(
+                        Row(
                           children: [
-                            SharePostWidget(numOfShares: 0),
-                            SizedBox(width: 4),
-                            Text("6 share",
+                            const SharePostWidget(numOfShares: 0),
+                            SizedBox(
+                                width: HomeCubit.get(context)
+                                        .screenWidth(context) *
+                                    .01),
+                            const Text("6 share",
                                 style: TextStyle(color: Colors.grey)),
                           ],
                         ),
