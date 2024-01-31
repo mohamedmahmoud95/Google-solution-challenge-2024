@@ -25,7 +25,7 @@ class LostPersonIdCompactView extends StatelessWidget {
                     children: [
 
                       Container(
-                        height: ScreenUtils.getScreenHeight(context)/6,
+                        height:  ScreenUtils.getScreenWidth(context)/2.65,
                         width: ScreenUtils.getScreenWidth(context)/2.65,
                         decoration: BoxDecoration(
                           image: DecorationImage(
