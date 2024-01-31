@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
           drawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
-              children: <Widget>[
+              children: [
                 const DrawerHeader(
                   decoration: BoxDecoration(
                     color: Colors.blue,
@@ -48,6 +48,9 @@ class HomeScreen extends StatelessWidget {
           body: CustomScrollView(
             slivers: [
               const SliverAppBar(
+                floating: true,
+                snap: true,
+                elevation: 0,
                 backgroundColor: Colors.white,
                 title: SizedBox(
                   width: double.infinity,
@@ -68,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SliverFillRemaining(
+              SliverToBoxAdapter(
                 child: HomeCubit.get(context)
                     .widgetOptions[HomeCubit.get(context).selectedIndex],
               )
