@@ -24,7 +24,7 @@ class CustomSearchBar extends StatelessWidget {
             ),
             hintText: "search...",
             prefixIcon: const Icon(Icons.search_sharp),
-            suffixIcon: const Icon(Icons.image_search_rounded),
+            suffixIcon: Padding( padding: const EdgeInsets.all(8),child: SizedBox(height: 10, child: Image.asset("assets/images/face_scan.png"))),
           ),
         ),
       ),
