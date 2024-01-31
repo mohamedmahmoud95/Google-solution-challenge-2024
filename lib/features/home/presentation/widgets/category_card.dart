@@ -5,26 +5,23 @@ import '../manager/cubit.dart';
 class CategoryCard extends StatelessWidget {
   final String image;
   final String text;
-  final Function? onPressed;
+  final Function()? onTap;
 
   const CategoryCard(
-      {required this.text,
-      required this.image,
-      super.key,
-        this.onPressed});
+      {required this.text, required this.image, super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        onPressed!();
-      },
+      onTap: onTap,
       child: Card(
         elevation: 10,
         child: Container(
           width: HomeCubit.get(context).screenWidth(context) * .4,
           height: HomeCubit.get(context).screenHeight(context) * .18,
-          padding: const EdgeInsets.all(10),
+          padding: EdgeInsets.symmetric(
+              horizontal: HomeCubit.get(context).screenWidth(context) * .01,
+              vertical: HomeCubit.get(context).screenHeight(context) * .009),
           decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(10))),
@@ -37,12 +34,14 @@ class CategoryCard extends StatelessWidget {
                 height: HomeCubit.get(context).screenHeight(context) * 0.1,
               ),
               SizedBox(
-                height: HomeCubit.get(context).screenHeight(context) * .001,
-              ),
-              Text(
-                text,
-                style: const TextStyle(fontWeight: FontWeight.w900),
-                textAlign: TextAlign.center,
+                width: HomeCubit.get(context).screenWidth(context) * .25,
+                child: Text(
+                  text,
+                  style: const TextStyle(fontWeight: FontWeight.w900),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                ),
               ),
             ],
           ),
