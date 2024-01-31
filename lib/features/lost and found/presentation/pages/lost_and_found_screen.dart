@@ -63,7 +63,7 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
         ),
         body: TabBarView(
           children: [
-            LostTab(),
+            LostTab( compactMode: compactMode,),
             FoundTab(
               compactMode: compactMode,
             ),

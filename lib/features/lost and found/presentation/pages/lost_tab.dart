@@ -1,16 +1,41 @@
 import 'package:flutter/cupertino.dart';
 
+import '../widgets/lost_person_id_compact_view.dart';
+import '../widgets/lost_person_id_expanded_view.dart';
+import '../widgets/search_bar.dart';
+
 class LostTab extends StatelessWidget {
-  const LostTab({super.key});
+  bool compactMode;
+  LostTab({super.key, required this.compactMode});
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
+      scrollDirection: Axis.vertical,
+      child:
+      Wrap(
+        direction: Axis.horizontal,
+        alignment: WrapAlignment.center,
+        spacing: 10,
+        runSpacing: 10,
+
         children: [
 
+          const CustomSearchBar(),
+
+          ...lostPeople.map((person) => compactMode?
+          LostPersonIdCompactView(
+            person: person,
+          ):
+
+          LostPersonIdExpandedView(
+            person: person,
+          ),
+          ).toList(),
         ],
       ),
+
     );
+
   }
 }
