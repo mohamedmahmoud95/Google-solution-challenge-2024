@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import '../../services.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Container(
@@ -24,7 +24,16 @@ class CustomSearchBar extends StatelessWidget {
             ),
             hintText: "search...",
             prefixIcon: const Icon(Icons.search_sharp),
-            suffixIcon: Padding( padding: const EdgeInsets.all(8),child: SizedBox(height: 10, child: Image.asset("assets/images/face_scan.png"))),
+            suffixIcon: InkWell (
+                onTap:(){
+                  getImage();
+                //  pickImage();
+                },
+                child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: SizedBox(
+                    height: 10,
+                    child: Image.asset("assets/images/face_scan.png")))),
           ),
         ),
       ),

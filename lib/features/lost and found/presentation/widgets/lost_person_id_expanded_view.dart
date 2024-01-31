@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -69,11 +70,20 @@ class LostPersonIdExpandedView extends StatelessWidget {
                         height: 10,
                       ),
 
+                       SizedBox(
+                        width: 100,
+                      child:
+
                       Text(
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
                         "${person.firstName}",
                         style: const TextStyle(
                             fontWeight: FontWeight.w500, fontSize: 15),
-                        maxLines: 2,
+
+
+                      ),
                       ),
                     ],
                   ),
@@ -92,17 +102,31 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               color: AppColors.darkerGrey,
                               size: 20,
                             ),
-                            const Text(
-                              " Full name: ",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 15),
-                            ),
-                            Text(
+                    SizedBox(
+                      width: ScreenUtils.getScreenWidth(context)/5.5,
+                      child:
+
+                      Text(
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.start,
+                        maxLines: 2,
+                              " Full Name: ",
+                              style: TextStyle(fontWeight: FontWeight.w500,
+                                   fontSize: 12),
+                            ),),
+
+                    SizedBox(
+                      width: ScreenUtils.getScreenWidth(context)/3,
+                      child:
+
+                      Text(
+                        overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.start,
+                        maxLines: 2,
                               "${person.firstName} ${person.lastName}",
                               style: const TextStyle(
                                   fontWeight: FontWeight.w500, fontSize: 12),
-                              maxLines: 2,
-                            ),
+                            ),),
                           ],
                         ),
                         Row(
@@ -112,11 +136,18 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               color: AppColors.darkerGrey,
                               size: 20,
                             ),
-                            Text(
-                              " Last seen at: ${person.lastSeenLocation}",
+                            SizedBox(
+                              width: ScreenUtils.getScreenWidth(context)/2,
+                              child:
+
+                              Text(
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.start,
+                                maxLines: 2,
+                              " Last Seen at: ${person.lastSeenLocation}",
                               style: const TextStyle(
                                   fontWeight: FontWeight.w500, fontSize: 12),
-                              maxLines: 2,
+                              ),
                             ),
                           ],
                         ),
@@ -127,11 +158,19 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               color: AppColors.darkerGrey,
                               size: 20,
                             ),
-                            Text(
+                            SizedBox(
+                              width: ScreenUtils.getScreenWidth(context)/2,
+                              height: 20,
+                              child:
+
+                              Text(
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.start,
+                                maxLines: 2,
                               " Age: ${person.age}",
                               style: const TextStyle(
                                   fontWeight: FontWeight.w500, fontSize: 12),
-                            ),
+                            ),),
                           ],
                         ),
                         Row(
@@ -141,13 +180,21 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               color: AppColors.darkerGrey,
                               size: 20,
                             ),
-                            Text(
-                              " National id: ${person.nationalId}",
+                            SizedBox(
+                              width: ScreenUtils.getScreenWidth(context)/2,
+                              //height: 40,
+                              child:
+
+                              Text(
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.start,
+                                maxLines: 2,
+                              " Id: ${person.nationalId}",
                               style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 12,
-                                  overflow: TextOverflow.ellipsis),
-                              maxLines: 2,
+                                  ),
+                              ),
                             ),
                           ],
                         ),
@@ -158,11 +205,20 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               color: AppColors.darkerGrey,
                               size: 20,
                             ),
-                            Text(
-                              " registered address: ${person.address}",
+                            SizedBox(
+                              width: ScreenUtils.getScreenWidth(context)/2,
+                              height: 30,
+
+                              child:
+
+                              Text(
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.start,
+                                maxLines: 2,
+                              " Registered Address: ${person.address}",
                               style: const TextStyle(
                                   fontWeight: FontWeight.w500, fontSize: 12),
-                              maxLines: 2,
+                              ),
                             ),
                           ],
                         ),
