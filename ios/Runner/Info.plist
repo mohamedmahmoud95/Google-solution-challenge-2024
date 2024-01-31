@@ -4,6 +4,14 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSCameraUsageDescription</key>
+    <string>This app requires access to your camera to take photos and videos.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app requires access to your photo library to select photos and videos.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app requires access to your microphone to record audio.</string>
+    <key>NSAppleMusicUsageDescription</key>
+    <string>This app requires access to your music library to play audio.</string>
 	<key>CFBundleDisplayName</key>
 	<string>Google Solution Challenge 2024</string>
 	<key>CFBundleExecutable</key>
