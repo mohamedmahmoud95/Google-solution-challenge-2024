@@ -33,8 +33,7 @@ class HomeTab extends StatelessWidget {
                   CategoryCard(
                       text: "Information & Safety",
                       image: AppImages.informationSafety),
-                  CategoryCard(
-                      text: "more", image: AppImages.more),
+                  CategoryCard(text: "more", image: AppImages.more),
                 ],
               ),
             ),
@@ -76,20 +75,26 @@ class HomeTab extends StatelessWidget {
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
-                        child:
-                            CategoryCard(text: "Lost", image: AppImages.lost,
-                              onPressed: (){
-                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => LostAndFoundScreen()));
-                              },)),
+                        child: CategoryCard(
+                      text: "Lost",
+                      image: AppImages.lost,
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LostAndFoundScreen()));
+                      },
+                    )),
                     Expanded(
                         child: CategoryCard(
-                            text: "Found", image: AppImages.faceScan,
-                          onPressed: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => LostAndFoundScreen()));
-                          },)),
+                      text: "Found",
+                      image: AppImages.faceScan,
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const LostAndFoundScreen()));
+                      },
+                    )),
                   ],
                 ),
               ],
@@ -107,7 +112,10 @@ class HomeTab extends StatelessWidget {
               children: [
                 const Text(
                   "Seek Help",
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
+                  style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 25,
+                  ),
                 ),
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
@@ -115,12 +123,17 @@ class HomeTab extends StatelessWidget {
                 const Row(
                   children: [
                     Expanded(
-                        child: CategoryCard(
-                            text: "Medical", image: AppImages.medical)),
+                      child: CategoryCard(
+                        text: "Medical",
+                        image: AppImages.medical,
+                      ),
+                    ),
                     Expanded(
-                        child: CategoryCard(
-                            text: "Offline Resources",
-                            image: AppImages.offlineResources)),
+                      child: CategoryCard(
+                        text: "Offline Resources",
+                        image: AppImages.offlineResources,
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -155,7 +168,9 @@ class HomeTab extends StatelessWidget {
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
           AspectRatio(
-            aspectRatio: 6 / 4.2,
+            aspectRatio: HomeCubit.get(context).screenWidth(context) *
+                2.1 /
+                HomeCubit.get(context).screenHeight(context),
             child: PageView(
               scrollDirection: Axis.horizontal,
               controller: HomeCubit.get(context).pageController,
@@ -197,13 +212,17 @@ class HomeTab extends StatelessWidget {
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
           AspectRatio(
-            aspectRatio: 6 / 4.5,
+            aspectRatio: HomeCubit.get(context).screenWidth(context) *
+                1.8409 /
+                HomeCubit.get(context).screenHeight(context),
             child: PageView(
               scrollDirection: Axis.horizontal,
               controller: HomeCubit.get(context).pageController,
               children: List.generate(
                 4,
-                (index) => const PostCard(),
+                (index) => PostCard(
+                  index: index,
+                ),
               ),
             ),
           ),
