@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "498128936884",
+    "project_id": "solutionchallenge2024-fcb4d",
+    "storage_bucket": "solutionchallenge2024-fcb4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498128936884:android:c688ebe1b89cdd90cfdce1",
+        "android_client_info": {
+          "package_name": "com.example.google_solution_challenge_2024"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlQtYTNMGfiGW8A2kR28BNBMNgcX-w5Fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
