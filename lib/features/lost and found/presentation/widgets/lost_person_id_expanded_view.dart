@@ -12,6 +12,7 @@ class LostPerson {
   String? nationalId;
   String? address; //registered address on the found national id card (if found)
   String? lastSeenLocation;
+  String? careGiverPhoneNumber;
 
   LostPerson({
     this.firstName,
@@ -21,6 +22,7 @@ class LostPerson {
     this.nationalId,
     this.address,
     this.lastSeenLocation,
+    this.careGiverPhoneNumber,
   });
 }
 
