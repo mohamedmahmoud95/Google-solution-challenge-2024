@@ -76,57 +76,9 @@ class HomeScreen extends StatelessWidget {
               SliverToBoxAdapter(
                 child: HomeCubit.get(context)
                     .widgetOptions[HomeCubit.get(context).selectedIndex],
-              )
+              ),
             ],
           ),
-          // bottomNavigationBar: BottomAppBar(
-          //   shape: const CircularNotchedRectangle(),
-          //   notchMargin: 8.0,
-          //   child: Row(
-          //     mainAxisSize: MainAxisSize.max,
-          //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //     children: <Widget>[
-          //       IconButton(
-          //         icon: const Icon(Icons.home),
-          //         onPressed: () {
-          //           HomeCubit.get(context).onNavItemTapped(0);
-          //         },
-          //       ),
-          //       IconButton(
-          //         icon: const Icon(Icons.search),
-          //         onPressed: () {
-          //           HomeCubit.get(context).onNavItemTapped(1);
-          //         },
-          //       ),
-          //       const SizedBox(width: 40.0),
-          //       // This empty space is for the FAB
-          //       IconButton(
-          //         icon: const Icon(Icons.favorite),
-          //         onPressed: () {
-          //           HomeCubit.get(context).onNavItemTapped(2);
-          //         },
-          //       ),
-          //       IconButton(
-          //         icon: const Icon(Icons.person),
-          //         onPressed: () {
-          //           HomeCubit.get(context).onNavItemTapped(3);
-          //         },
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // floatingActionButtonLocation:
-          //     FloatingActionButtonLocation.centerDocked,
-          // floatingActionButton: FloatingActionButton(
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(50.0),
-          //   ),
-          //   onPressed: () {
-          //     // Add your FAB action here
-          //   },
-          //   elevation: 2.0,
-          //   child: const Icon(Icons.add),
-          // ),
         ),
       ),
     );

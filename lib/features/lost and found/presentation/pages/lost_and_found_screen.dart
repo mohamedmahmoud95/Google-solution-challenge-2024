@@ -69,14 +69,14 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
             ),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColors.green,
-          onPressed: () {},
-          child: const Icon(
-            Icons.add,
-            color: AppColors.white,
-          ),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: AppColors.green,
+        //   onPressed: () {},
+        //   child: const Icon(
+        //     Icons.add,
+        //     color: AppColors.white,
+        //   ),
+        // ),
       ),
     );
   }
