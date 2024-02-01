@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
+import '../../../../core/utils/app_colors.dart';
 import '../widgets/lost_person_id_compact_view.dart';
 import '../widgets/lost_person_id_expanded_view.dart';
 import '../widgets/search_bar.dart';
@@ -10,7 +12,11 @@ class LostTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return
+      Scaffold(
+        backgroundColor: Colors.green.shade50,
+
+        body: SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child:
       Wrap(
@@ -34,7 +40,15 @@ class LostTab extends StatelessWidget {
           ).toList(),
         ],
       ),
-
+        ),
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: AppColors.green,
+          onPressed: () {},
+          child: const Icon(
+            Icons.add,
+            color: AppColors.white,
+          ),
+        ),
     );
 
   }
