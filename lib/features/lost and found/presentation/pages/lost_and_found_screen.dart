@@ -19,7 +19,7 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.green.shade50,
+        backgroundColor: AppColors.backgroundBlack,
         appBar: AppBar(
           leading: const BackButton(
             color: AppColors.white,

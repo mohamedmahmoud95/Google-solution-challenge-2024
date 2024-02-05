@@ -19,7 +19,7 @@ class _FoundTabState extends State<FoundTab> {
   Widget build(BuildContext context) {
     return
     Scaffold(
-      backgroundColor: Colors.green.shade50,
+      backgroundColor: AppColors.backgroundBlack,
       body:
          SingleChildScrollView(
           scrollDirection: Axis.vertical,

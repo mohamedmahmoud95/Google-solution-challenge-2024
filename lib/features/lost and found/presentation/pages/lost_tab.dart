@@ -12,7 +12,7 @@ class LostTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green.shade50,
+      backgroundColor: AppColors.backgroundBlack,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Wrap(
