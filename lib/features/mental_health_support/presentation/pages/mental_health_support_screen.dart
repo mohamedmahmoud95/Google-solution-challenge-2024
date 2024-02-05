@@ -1,11 +1,9 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
-import 'package:google_solution_challenge_2024/features/home/presentation/widgets/category_card.dart';
+import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/service_card.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/sessions_card.dart';
-
-import '../../../home/presentation/widgets/help_card.dart';
 
 class MentalHealthSupportScreen extends StatefulWidget {
   const MentalHealthSupportScreen({super.key});
@@ -29,21 +27,50 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Swiper(
-              // duration: 80,
-              // autoplay: true,
-              viewportFraction: 0,
-              itemBuilder: (BuildContext context, int index) {
-                return SessionCard(index);
-              },
-              itemCount: 1,
-              itemWidth: double.infinity,
-              itemHeight: 300.0,
-              layout: SwiperLayout.TINDER,
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Container(
+                    height: ScreenUtils.getScreenHeight(context) / 3,
+                    width:  ScreenUtils.getScreenWidth(context) - 50,
+                    child: Swiper(
+                      // duration: 80,
+                      // autoplay: true,
+                      viewportFraction: 0,
+                      itemBuilder: (BuildContext context, int index) {
+                        return SessionCard(index);
+                      },
+                      itemCount: 1,
+                      itemWidth: double.infinity,
+                      itemHeight: ScreenUtils.getScreenHeight(context) / 3,
+                      layout: SwiperLayout.TINDER,
+                    ),
+                  ),
+                  Container(
+                    height: ScreenUtils.getScreenHeight(context) / 3,
+                    width: ScreenUtils.getScreenWidth(context) - 50,
+                    child: Swiper(
+                      // duration: 80,
+                      // autoplay: true,
+                      viewportFraction: 0,
+                      itemBuilder: (BuildContext context, int index) {
+                        return SessionCard(index);
+                      },
+                      itemCount: 1,
+                      itemWidth: double.infinity,
+                      itemHeight: ScreenUtils.getScreenHeight(context) / 3,
+                      layout: SwiperLayout.TINDER,
+                    ),
+                  ),
+                ],
+              ),
             ),
+
             const SizedBox(
               height: 10,
             ),
+
             seekHelpSection(),
             const SizedBox(
               height: 10,
@@ -119,8 +146,6 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
                 layout: SwiperLayout.TINDER,
               ),
             ),
-
-
             Container(
               height: 210,
               width: 180,
@@ -143,7 +168,6 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
                 layout: SwiperLayout.TINDER,
               ),
             ),
-
           ],
         ),
       ],

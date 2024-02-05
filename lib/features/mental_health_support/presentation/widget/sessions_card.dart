@@ -57,13 +57,13 @@ class SessionCard extends StatelessWidget {
                         "breathing exercise for PTSD",
                         maxLines: 2,
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400),
+                            fontSize: 16, fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
                   SizedBox(
                     height: 50,
-                    width: 100,
+                    width: 80,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           elevation: 4,
