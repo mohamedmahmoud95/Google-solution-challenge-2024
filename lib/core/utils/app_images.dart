@@ -15,4 +15,8 @@ class AppImages {
 
   static const String lost = "${Constants.baseImageUrl}/lost.png";
   static const String faceScan = "${Constants.baseImageUrl}/face_scan.png";
+  static const String mentalHealthSupport = "${Constants.baseImageUrl}/mental_health.png";
+  static const String groupTherapy = "${Constants.baseImageUrl}/group_therapy.png";
+  static const String video = "${Constants.baseImageUrl}/video.png";
+
 }

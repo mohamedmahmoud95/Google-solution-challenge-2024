@@ -50,7 +50,8 @@ class LostPersonIdExpandedView extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Card(
           elevation: 0.5,
-          color: Colors.green.shade100,
+          color:  Theme.of(context).primaryColorDark,
+          // color: Colors.green.shade100,
           child: Padding(
             padding: const EdgeInsets.all(8),
             child: SingleChildScrollView(
@@ -82,6 +83,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
                         maxLines: 2,
                         "${person.firstName}",
                         style: const TextStyle(
+
                             fontWeight: FontWeight.w500, fontSize: 15),
 
 

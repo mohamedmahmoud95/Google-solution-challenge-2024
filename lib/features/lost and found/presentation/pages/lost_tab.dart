@@ -12,7 +12,7 @@ class LostTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundBlack,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Wrap(
@@ -37,8 +37,8 @@ class LostTab extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.green,
-        onPressed: () {},
+        backgroundColor: Theme.of(context).primaryColorDark,
+      onPressed: () {},
         child: const Icon(
           Icons.add,
           color: AppColors.white,
