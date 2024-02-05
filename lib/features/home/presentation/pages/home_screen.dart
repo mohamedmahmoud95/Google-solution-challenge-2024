@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/config/routes.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
 
@@ -31,8 +33,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: const Text('Item 1'),
+                  title: const Text('Settings'),
                   onTap: () {
+                    Navigator.pushNamed(context, Routes.settings);
                     // Add your logic for when item 1 is tapped
                   },
                 ),
@@ -47,7 +50,7 @@ class HomeScreen extends StatelessWidget {
           ),
           body: CustomScrollView(
             slivers: [
-              const SliverAppBar(
+              SliverAppBar(
                 floating: true,
                 snap: true,
                 //غيره من هنا
@@ -60,12 +63,12 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "welcome back",
-                        style: TextStyle(fontSize: 10),
+                        "welcome back".tr(),
+                        style: const TextStyle(fontSize: 10),
                         textAlign: TextAlign.start,
                       ),
-                      Text(
-                        "Mohamed!",
+                      const Text(
+                        "Mohamed",
                         style: TextStyle(fontWeight: FontWeight.w900),
                         textAlign: TextAlign.start,
                       ),
@@ -79,54 +82,6 @@ class HomeScreen extends StatelessWidget {
               )
             ],
           ),
-          // bottomNavigationBar: BottomAppBar(
-          //   shape: const CircularNotchedRectangle(),
-          //   notchMargin: 8.0,
-          //   child: Row(
-          //     mainAxisSize: MainAxisSize.max,
-          //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-          //     children: <Widget>[
-          //       IconButton(
-          //         icon: const Icon(Icons.home),
-          //         onPressed: () {
-          //           HomeCubit.get(context).onNavItemTapped(0);
-          //         },
-          //       ),
-          //       IconButton(
-          //         icon: const Icon(Icons.search),
-          //         onPressed: () {
-          //           HomeCubit.get(context).onNavItemTapped(1);
-          //         },
-          //       ),
-          //       const SizedBox(width: 40.0),
-          //       // This empty space is for the FAB
-          //       IconButton(
-          //         icon: const Icon(Icons.favorite),
-          //         onPressed: () {
-          //           HomeCubit.get(context).onNavItemTapped(2);
-          //         },
-          //       ),
-          //       IconButton(
-          //         icon: const Icon(Icons.person),
-          //         onPressed: () {
-          //           HomeCubit.get(context).onNavItemTapped(3);
-          //         },
-          //       ),
-          //     ],
-          //   ),
-          // ),
-          // floatingActionButtonLocation:
-          //     FloatingActionButtonLocation.centerDocked,
-          // floatingActionButton: FloatingActionButton(
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.circular(50.0),
-          //   ),
-          //   onPressed: () {
-          //     // Add your FAB action here
-          //   },
-          //   elevation: 2.0,
-          //   child: const Icon(Icons.add),
-          // ),
         ),
       ),
     );

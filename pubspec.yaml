@@ -16,6 +16,7 @@ dependencies:
   equatable: ^2.0.5
   image_picker: ^1.0.7
   provider: ^6.1.1
+  easy_localization: ^3.0.3
 
 
 dev_dependencies:
@@ -34,6 +35,7 @@ flutter:
   assets:
    - assets/images/
    - assets/images/Mohamed Raslan.png
+   - assets/translations/
 
   # fonts:
   #   - family: Schyler
