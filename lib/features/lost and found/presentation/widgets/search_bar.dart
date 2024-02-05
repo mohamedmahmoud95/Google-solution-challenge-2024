@@ -24,7 +24,7 @@ class CustomSearchBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             hintText: "search...",
-            prefixIcon: const Icon(FontAwesomeIcons.magnifyingGlass),
+            prefixIcon: const Icon(FontAwesomeIcons.magnifyingGlass,),
             suffixIcon: InkWell (
                 onTap:(){
                   getImage();

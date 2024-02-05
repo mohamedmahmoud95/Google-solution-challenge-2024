@@ -24,10 +24,14 @@ class HomeTab extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal: HomeCubit.get(context).screenWidth(context) * .02,
                   vertical: HomeCubit.get(context).screenWidth(context) * .02),
-              child: const Row(
+              child:  Row(
                 children: [
                   CategoryCard(
-                      text: "Mental Health", image: AppImages.mentalHealth),
+                      text: "Mental Health", image: AppImages.mentalHealth,
+                    onTap: (){
+                        Navigator.of(context).pushNamed('mentalHealthSupport');
+                   //   builder: (context) => const LostAndFoundScreen()));
+                        },),
                   CategoryCard(
                       text: "Get Back Together", image: AppImages.family),
                   CategoryCard(
@@ -82,8 +86,7 @@ class HomeTab extends StatelessWidget {
                       text: "Lost",
                       image: AppImages.lost,
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const LostAndFoundScreen()));
+                        Navigator.of(context).pushNamed('lostAndFound');
                       },
                     )),
                     Expanded(
@@ -91,8 +94,7 @@ class HomeTab extends StatelessWidget {
                       text: "Found",
                       image: AppImages.faceScan,
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const LostAndFoundScreen()));
+                        Navigator.of(context).pushNamed('lostAndFound');
                       },
                     )),
                   ],

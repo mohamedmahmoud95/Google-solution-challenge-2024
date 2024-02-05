@@ -19,7 +19,7 @@ class _FoundTabState extends State<FoundTab> {
   Widget build(BuildContext context) {
     return
     Scaffold(
-      backgroundColor: Colors.green.shade50,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body:
          SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -46,7 +46,7 @@ class _FoundTabState extends State<FoundTab> {
             ],
           ),),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.green,
+        backgroundColor: Theme.of(context).primaryColorDark,
         onPressed: () {},
         child: const Icon(
           Icons.add,
