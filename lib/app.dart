@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'config/routes.dart';
+import 'core/utils/app_themes.dart';
 
 class PalestineApp extends StatefulWidget {
   const PalestineApp({super.key});
@@ -19,6 +20,8 @@ class _PalestineAppState extends State<PalestineApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
 
+      /// --- theme ---///
+      theme: ZaitonLightTheme,
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       onGenerateRoute: (settings) => AppRoutes.onGenerate(settings),
