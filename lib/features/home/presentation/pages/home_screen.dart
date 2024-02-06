@@ -5,6 +5,8 @@ import 'package:google_solution_challenge_2024/config/routes.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
 
+import '../../../../core/utils/app_colors.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -22,7 +24,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                     color: AppColors.green,
                   ),
                   child: Text(
                     'Drawer Header',
@@ -33,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: const Text('Settings'),
+                  title:  Text('Settings'.tr()),
                   onTap: () {
                     Navigator.pushNamed(context, Routes.settings);
                     // Add your logic for when item 1 is tapped
