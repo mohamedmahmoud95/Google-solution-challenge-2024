@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import '../../services.dart';
@@ -23,7 +24,7 @@ class CustomSearchBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             hintText: "search...",
-            prefixIcon: const Icon(Icons.search_sharp),
+            prefixIcon: const Icon(FontAwesomeIcons.magnifyingGlass,),
             suffixIcon: InkWell (
                 onTap:(){
                   getImage();

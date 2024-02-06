@@ -12,6 +12,7 @@ class LostPerson {
   String? nationalId;
   String? address; //registered address on the found national id card (if found)
   String? lastSeenLocation;
+  String? careGiverPhoneNumber;
 
   LostPerson({
     this.firstName,
@@ -21,6 +22,7 @@ class LostPerson {
     this.nationalId,
     this.address,
     this.lastSeenLocation,
+    this.careGiverPhoneNumber,
   });
 }
 
@@ -48,7 +50,8 @@ class LostPersonIdExpandedView extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Card(
           elevation: 0.5,
-          color: Colors.green.shade100,
+          color:  Theme.of(context).primaryColorDark,
+          // color: Colors.green.shade100,
           child: Padding(
             padding: const EdgeInsets.all(8),
             child: SingleChildScrollView(
@@ -80,6 +83,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
                         maxLines: 2,
                         "${person.firstName}",
                         style: const TextStyle(
+
                             fontWeight: FontWeight.w500, fontSize: 15),
 
 

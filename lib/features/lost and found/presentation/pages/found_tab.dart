@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/app_colors.dart';
 import '../widgets/lost_person_id_compact_view.dart';
 import '../widgets/lost_person_id_expanded_view.dart';
 import '../widgets/search_bar.dart';
@@ -17,6 +18,9 @@ class _FoundTabState extends State<FoundTab> {
   @override
   Widget build(BuildContext context) {
     return
+    Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      body:
          SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child:
@@ -40,8 +44,15 @@ class _FoundTabState extends State<FoundTab> {
               ),
               ).toList(),
             ],
-          ),
-
+          ),),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColorDark,
+        onPressed: () {},
+        child: const Icon(
+          Icons.add,
+          color: AppColors.white,
+        ),
+      ),
         );
 
   }

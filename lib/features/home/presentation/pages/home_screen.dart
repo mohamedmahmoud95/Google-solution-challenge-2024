@@ -79,7 +79,7 @@ class HomeScreen extends StatelessWidget {
               SliverToBoxAdapter(
                 child: HomeCubit.get(context)
                     .widgetOptions[HomeCubit.get(context).selectedIndex],
-              )
+              ),
             ],
           ),
         ),
