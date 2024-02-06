@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/config/routes.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
 
@@ -31,8 +33,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: const Text('Item 1'),
+                  title: const Text('Settings'),
                   onTap: () {
+                    Navigator.pushNamed(context, Routes.settings);
                     // Add your logic for when item 1 is tapped
                   },
                 ),
@@ -47,7 +50,7 @@ class HomeScreen extends StatelessWidget {
           ),
           body: CustomScrollView(
             slivers: [
-              const SliverAppBar(
+              SliverAppBar(
                 floating: true,
                 snap: true,
                 //غيره من هنا
@@ -60,12 +63,12 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "welcome back",
-                        style: TextStyle(fontSize: 10),
+                        "welcome back".tr(),
+                        style: const TextStyle(fontSize: 10),
                         textAlign: TextAlign.start,
                       ),
-                      Text(
-                        "Mohamed!",
+                      const Text(
+                        "Mohamed",
                         style: TextStyle(fontWeight: FontWeight.w900),
                         textAlign: TextAlign.start,
                       ),
