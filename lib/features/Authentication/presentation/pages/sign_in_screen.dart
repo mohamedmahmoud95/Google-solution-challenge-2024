@@ -9,6 +9,10 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool passwordIsVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
         children: [
 
           emailTextField(),
+          passwordTextField(),
 
         ],
       ),
@@ -30,8 +35,43 @@ class _SignInScreenState extends State<SignInScreen> {
       padding: EdgeInsets.all(30),
         child:
         TextField(
-
+          controller: emailController,
+          style: const TextStyle(fontSize: 20),
+          decoration: InputDecoration(
+            hintText: "Email",
+            hintStyle: TextStyle(color: Colors.grey.shade600
+            )
+          ),
+          textInputAction: TextInputAction.next,
+          keyboardType: TextInputType.emailAddress,
         ),
+    );
+  }
+
+  Widget passwordTextField(){
+    return Padding(
+      padding: const EdgeInsets.all(30),
+      child:
+      TextField(
+        controller: passwordController,
+        style: const TextStyle(fontSize: 20),
+        obscureText: !passwordIsVisible,
+        decoration: InputDecoration(
+            suffix: GestureDetector(
+                onTap: (){
+                  setState(() {
+                    passwordIsVisible = !passwordIsVisible;
+                  });
+                },
+                child: Icon(passwordIsVisible? Icons.visibility_outlined:Icons.visibility_off_outlined)),
+            hintText: "Password",
+            hintStyle: TextStyle(color: Colors.grey.shade600
+            )
+        ),
+        textInputAction: TextInputAction.next,
+        keyboardType: TextInputType.text,
+
+      ),
     );
   }
 }

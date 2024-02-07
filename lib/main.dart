@@ -19,7 +19,7 @@ class _PalestineAppState extends State<PalestineApp> {
     return MaterialApp(
       theme: ZaitonLightTheme,
       debugShowCheckedModeBanner: false,
-      initialRoute: "/",
+      initialRoute: "signIn",
       onGenerateRoute: (settings) => AppRoutes.onGenerate(settings),
     );
   }
