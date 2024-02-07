@@ -21,6 +21,9 @@ dependencies:
   cloud_firestore: ^4.15.2
   font_awesome_flutter: ^10.7.0
   google_fonts: ^6.1.0
+  dartz: ^0.10.1
+  flutter_screenutil: ^5.9.0
+  dio: ^5.4.0
 
 
 dev_dependencies:

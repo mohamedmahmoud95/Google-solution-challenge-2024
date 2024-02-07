@@ -11,8 +11,6 @@ class Routes {
   static const String signIn = "signIn";
   static const String mentalHealthSupport = "mentalHealthSupport";
   static const String lostAndFound = "lostAndFound";
-
-
 }
 
 class AppRoutes {
@@ -25,9 +23,11 @@ class AppRoutes {
       case Routes.signIn:
         return MaterialPageRoute(builder: (context) => const SignInScreen());
       case Routes.mentalHealthSupport:
-        return MaterialPageRoute(builder: (context) => const MentalHealthSupportScreen());
+        return MaterialPageRoute(
+            builder: (context) => const MentalHealthSupportScreen());
       case Routes.lostAndFound:
-        return MaterialPageRoute(builder: (context) => const LostAndFoundScreen());
+        return MaterialPageRoute(
+            builder: (context) => const LostAndFoundScreen());
 
       default:
         return MaterialPageRoute(
