@@ -124,7 +124,7 @@ class _SignInScreenState extends State<SignInScreen> {
             controller: emailController,
             style: const TextStyle(fontSize: 20),
             decoration: InputDecoration(
-                hintText: "Email",
+               // hintText: "Email",
                 hintStyle: TextStyle(color: Colors.grey.shade600)),
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
@@ -136,7 +136,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget passwordTextField() {
     return Padding(
-      padding: const EdgeInsets.all(30),
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -161,7 +161,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: Icon(passwordIsVisible
                         ? Icons.visibility_outlined
                         : Icons.visibility_off_outlined)),
-                hintText: "Password",
+                //hintText: "Password",
                 hintStyle: TextStyle(color: Colors.grey.shade600)),
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.text,
@@ -198,7 +198,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget signUpInstead() {
     return Padding(
-      padding: const EdgeInsets.all(30),
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -212,6 +212,7 @@ class _SignInScreenState extends State<SignInScreen> {
           GestureDetector(
             onTap: () {
               //Navigate to sign up screen
+              Navigator.of(context).pushNamed('signUp');
             },
             child: const Text(
               "Sign up",
