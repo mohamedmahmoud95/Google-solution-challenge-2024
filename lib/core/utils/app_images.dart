@@ -18,5 +18,6 @@ class AppImages {
   static const String mentalHealthSupport = "${Constants.baseImageUrl}/mental_health.png";
   static const String groupTherapy = "${Constants.baseImageUrl}/group_therapy.png";
   static const String video = "${Constants.baseImageUrl}/video.png";
+  static const String logo = "${Constants.baseImageUrl}/logo.png";
 
 }
