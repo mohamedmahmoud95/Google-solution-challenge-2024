@@ -1,4 +1,5 @@
 import 'package:card_swiper/card_swiper.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
@@ -24,32 +25,25 @@ class HomeTab extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal: HomeCubit.get(context).screenWidth(context) * .02,
                   vertical: HomeCubit.get(context).screenWidth(context) * .02),
+
               child:  Row(
                 children: [
                   CategoryCard(
-                      text: "Mental Health", image: AppImages.mentalHealth,
+                      text: "Mental Health".tr(), image: AppImages.mentalHealth,
                     onTap: (){
                         Navigator.of(context).pushNamed('mentalHealthSupport');
                    //   builder: (context) => const LostAndFoundScreen()));
                         },),
                   CategoryCard(
-                      text: "Get Back Together", image: AppImages.family),
+                      text: "Get Back Together".tr(), image: AppImages.family),
                   CategoryCard(
-                      text: "Information & Safety",
+                      text: "Information & Safety".tr(),
                       image: AppImages.informationSafety),
-                  CategoryCard(text: "more", image: AppImages.more),
+                  CategoryCard(text: "more".tr(), image: AppImages.more),
                 ],
               ),
             ),
           ),
-          // Padding(
-          //   padding: EdgeInsets.symmetric(
-          //       horizontal: HomeCubit.get(context).screenWidth(context) * .03),
-          //   child: const Text(
-          //     "Volunteer",
-          //     style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
-          //   ),
-          // ),
           Swiper(
             // duration: 80,
             // autoplay: true,
@@ -72,9 +66,10 @@ class HomeTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Get Back Together",
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
+                Text(
+                  "Get Back Together".tr(),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w900, fontSize: 25),
                 ),
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
@@ -83,7 +78,7 @@ class HomeTab extends StatelessWidget {
                   children: [
                     Expanded(
                         child: CategoryCard(
-                      text: "Lost",
+                      text: "Lost".tr(),
                       image: AppImages.lost,
                       onTap: () {
                         Navigator.of(context).pushNamed('lostAndFound');
@@ -91,7 +86,7 @@ class HomeTab extends StatelessWidget {
                     )),
                     Expanded(
                         child: CategoryCard(
-                      text: "Found",
+                      text: "Found".tr(),
                       image: AppImages.faceScan,
                       onTap: () {
                         Navigator.of(context).pushNamed('lostAndFound');
@@ -112,9 +107,9 @@ class HomeTab extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  "Seek Help",
-                  style: TextStyle(
+                Text(
+                  "Seek Help".tr(),
+                  style: const TextStyle(
                     fontWeight: FontWeight.w900,
                     fontSize: 25,
                   ),
@@ -122,17 +117,17 @@ class HomeTab extends StatelessWidget {
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
                 ),
-                const Row(
+                Row(
                   children: [
                     Expanded(
                       child: CategoryCard(
-                        text: "Medical",
+                        text: "Medical".tr(),
                         image: AppImages.medical,
                       ),
                     ),
                     Expanded(
                       child: CategoryCard(
-                        text: "Offline Resources",
+                        text: "Offline Resources".tr(),
                         image: AppImages.offlineResources,
                       ),
                     ),
@@ -150,17 +145,18 @@ class HomeTab extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Articles",
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
+                Text(
+                  "Articles".tr(),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w900, fontSize: 25),
                 ),
                 InkWell(
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
                   onTap: () {},
-                  child: const Text(
-                    "see more",
+                  child: Text(
+                    "see more".tr(),
                   ),
                 ),
               ],
@@ -169,10 +165,8 @@ class HomeTab extends StatelessWidget {
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
-          AspectRatio(
-            aspectRatio: HomeCubit.get(context).screenWidth(context) *
-                2.1 /
-                HomeCubit.get(context).screenHeight(context),
+          SizedBox(
+            height: HomeCubit.get(context).screenHeight(context) * .5,
             child: PageView(
               scrollDirection: Axis.horizontal,
               controller: HomeCubit.get(context).pageController,
@@ -194,17 +188,18 @@ class HomeTab extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  "Posts",
-                  style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
+                Text(
+                  "Posts".tr(),
+                  style: const TextStyle(
+                      fontWeight: FontWeight.w900, fontSize: 25),
                 ),
                 InkWell(
                   hoverColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
                   onTap: () {},
-                  child: const Text(
-                    "see more",
+                  child:  Text(
+                    "see more".tr(),
                   ),
                 ),
               ],
@@ -213,10 +208,14 @@ class HomeTab extends StatelessWidget {
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
-          AspectRatio(
-            aspectRatio: HomeCubit.get(context).screenWidth(context) *
-                1.8409 /
-                HomeCubit.get(context).screenHeight(context),
+          const Card(
+            // child: Image(image: AssetImage("")),
+          ),
+          SizedBox(
+            height: HomeCubit.get(context).screenHeight(context) * .001,
+          ),
+          SizedBox(
+            height: HomeCubit.get(context).screenHeight(context) * .576,
             child: PageView(
               scrollDirection: Axis.horizontal,
               controller: HomeCubit.get(context).pageController,

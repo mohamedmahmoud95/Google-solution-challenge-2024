@@ -1,7 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/config/routes.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
+
+import '../../../../core/utils/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,10 +21,10 @@ class HomeScreen extends StatelessWidget {
           drawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
-              children: <Widget>[
+              children: [
                 const DrawerHeader(
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                     color: AppColors.green,
                   ),
                   child: Text(
                     'Drawer Header',
@@ -31,8 +35,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 ListTile(
-                  title: const Text('Item 1'),
+                  title:  Text('Settings'.tr()),
                   onTap: () {
+                    Navigator.pushNamed(context, Routes.settings);
                     // Add your logic for when item 1 is tapped
                   },
                 ),
@@ -47,7 +52,12 @@ class HomeScreen extends StatelessWidget {
           ),
           body: CustomScrollView(
             slivers: [
-              const SliverAppBar(
+              SliverAppBar(
+                floating: true,
+                snap: true,
+                //غيره من هنا
+                pinned: true,
+                elevation: 0,
                 backgroundColor: Colors.white,
                 title: SizedBox(
                   width: double.infinity,
@@ -55,12 +65,12 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "welcome back",
-                        style: TextStyle(fontSize: 10),
+                        "welcome back".tr(),
+                        style: const TextStyle(fontSize: 10),
                         textAlign: TextAlign.start,
                       ),
-                      Text(
-                        "Mohamed!",
+                      const Text(
+                        "Mohamed",
                         style: TextStyle(fontWeight: FontWeight.w900),
                         textAlign: TextAlign.start,
                       ),
@@ -68,7 +78,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SliverFillRemaining(
+              SliverToBoxAdapter(
                 child: HomeCubit.get(context)
                     .widgetOptions[HomeCubit.get(context).selectedIndex],
               ),

@@ -15,7 +15,7 @@ class CategoryCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Card(
-        elevation: 10,
+        elevation: 8,
         child: Container(
           width: HomeCubit.get(context).screenWidth(context) * .4,
           height: HomeCubit.get(context).screenHeight(context) * .18,
