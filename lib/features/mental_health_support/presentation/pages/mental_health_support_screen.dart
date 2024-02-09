@@ -86,7 +86,7 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
   }
 
   Widget seekHelpSection() {
-    return Column(
+    return const Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(

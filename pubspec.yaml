@@ -22,6 +22,9 @@ dependencies:
   cloud_firestore: ^4.15.2
   font_awesome_flutter: ^10.7.0
   google_fonts: ^6.1.0
+  dartz: ^0.10.1
+  flutter_screenutil: ^5.9.0
+  dio: ^5.4.0
   shared_preferences: ^2.2.2
 
 
@@ -42,6 +45,7 @@ flutter:
    - assets/images/
    - assets/images/Mohamed Raslan.png
    - assets/translations/
+
 
   # fonts:
   #   - family: Schyler
