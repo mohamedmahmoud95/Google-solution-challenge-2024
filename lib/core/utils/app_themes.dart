@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 ThemeData ZaitonDarkTheme = ThemeData(
   scaffoldBackgroundColor: const Color(0xFF2f3e46),
-  cardColor: const Color(0xFF84a98c),
-  primaryColorLight: const Color(0xFF52796f),
   primaryColorDark: const Color(0xFF354f52),
+  primaryColorLight: const Color(0xFF52796f),
+  cardColor: const Color(0xFF84a98c),
   highlightColor: const Color(0xFFcad2c5),
 
 );
