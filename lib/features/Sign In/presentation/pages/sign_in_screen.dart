@@ -103,7 +103,7 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Text(
       "Login",
       style: TextStyle(
-          fontSize: 30, color: AppColors.mainGrey, fontWeight: FontWeight.w600),
+          fontSize: 30, color: AppColors.grey4, fontWeight: FontWeight.w600),
     ));
   }
 
@@ -117,7 +117,7 @@ class _SignInScreenState extends State<SignInScreen> {
             "E-Mail",
             style: TextStyle(
                 fontSize: 20,
-                color: AppColors.mainGrey,
+                color: AppColors.grey4,
                 fontWeight: FontWeight.w600),
           ),
           TextField(
@@ -144,7 +144,7 @@ class _SignInScreenState extends State<SignInScreen> {
             "Password",
             style: TextStyle(
               fontSize: 20,
-              color: AppColors.grey,
+              color: AppColors.grey4,
             ),
           ),
           TextField(
@@ -206,7 +206,7 @@ class _SignInScreenState extends State<SignInScreen> {
             "Don't have an account yet?",
             style: TextStyle(
               fontSize: 20,
-              color: AppColors.mainGrey,
+              color: AppColors.grey4,
             ),
           ),
           GestureDetector(
@@ -218,7 +218,7 @@ class _SignInScreenState extends State<SignInScreen> {
               "Sign up",
               style: TextStyle(
                 fontSize: 20,
-                color: AppColors.grey,
+                color: AppColors.grey4,
                 fontWeight: FontWeight.w500,
               ),
             ),

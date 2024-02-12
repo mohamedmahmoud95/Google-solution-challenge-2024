@@ -101,7 +101,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Text(
           "Login",
           style: TextStyle(
-              fontSize: 30, color: AppColors.mainGrey, fontWeight: FontWeight.w600),
+              fontSize: 30, color: AppColors.grey4, fontWeight: FontWeight.w600),
         ));
   }
 
@@ -115,7 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             "Full name",
             style: TextStyle(
                 fontSize: 20,
-                color: AppColors.mainGrey,
+                color: AppColors.grey4,
                 fontWeight: FontWeight.w600),
           ),
           TextField(
@@ -141,7 +141,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             "E-Mail",
             style: TextStyle(
                 fontSize: 20,
-                color: AppColors.mainGrey,
+                color: AppColors.grey4,
                 fontWeight: FontWeight.w600),
           ),
           TextField(
@@ -168,7 +168,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             "Password",
             style: TextStyle(
               fontSize: 20,
-              color: AppColors.grey,
+              color: AppColors.grey4,
             ),
           ),
           TextField(
@@ -230,7 +230,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             "Already have an account?",
             style: TextStyle(
               fontSize: 20,
-              color: AppColors.mainGrey,
+              color: AppColors.grey4,
             ),
           ),
           GestureDetector(
@@ -242,7 +242,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               "Sign In",
               style: TextStyle(
                 fontSize: 20,
-                color: AppColors.grey,
+                color: AppColors.grey4,
                 fontWeight: FontWeight.w500,
               ),
             ),
