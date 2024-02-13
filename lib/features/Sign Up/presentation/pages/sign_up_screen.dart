@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_solution_challenge_2024/core/reusable%20widget/app%20logo/app_logo.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+
+import '../../../../core/reusable widget/app_logo/app_logo.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
