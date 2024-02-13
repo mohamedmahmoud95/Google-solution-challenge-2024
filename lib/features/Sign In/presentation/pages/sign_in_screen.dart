@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/app%20logo/app_logo.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -152,11 +149,13 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  void signIn() {}
+  void signIn() {
+    Navigator.of(context).pushReplacementNamed('home');
+  }
 
   Widget signUpInstead() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

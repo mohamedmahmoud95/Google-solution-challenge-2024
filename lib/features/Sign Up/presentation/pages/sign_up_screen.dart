@@ -30,7 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 50,
             ),
-            AppLogo(showName: true,),
+            const AppLogo(showName: true,),
 
             fullNameTextField(),
             emailTextField(),
@@ -173,11 +173,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void signUp() {}
+  void signUp() {
+    Navigator.of(context).pushReplacementNamed('home');
+  }
 
   Widget signInInstead() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
