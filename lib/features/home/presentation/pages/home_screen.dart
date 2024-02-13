@@ -17,7 +17,7 @@ class HomeScreen extends StatelessWidget {
       child: BlocConsumer<HomeCubit, HomeStates>(
         listener: (BuildContext context, state) {},
         builder: (context, state) => Scaffold(
-          backgroundColor: Colors.white,
+          backgroundColor: AppColors.oliveGreen1,
           drawer: Drawer(
             child: ListView(
               padding: EdgeInsets.zero,
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                 //غيره من هنا
                 pinned: true,
                 elevation: 0,
-                backgroundColor: Colors.white,
+                backgroundColor: AppColors.oliveGreen1,
                 title: SizedBox(
                   width: double.infinity,
                   child: Column(

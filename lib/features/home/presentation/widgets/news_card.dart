@@ -1,7 +1,9 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 
 import '../../../../config/routes.dart';
@@ -28,8 +30,8 @@ class NewsCard extends StatelessWidget {
             angle: pi * 180,
             child: Hero(
               tag: "news_tag$index",
-              child: Card(
-                elevation: 5,
+              child: Padding(padding: const EdgeInsets.all(8), child: Card(
+                elevation: AppMeasures.defaultElevation,
                 shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                     borderSide: const BorderSide(color: Colors.transparent)),
@@ -40,7 +42,7 @@ class NewsCard extends StatelessWidget {
                       vertical:
                           HomeCubit.get(context).screenHeight(context) * .01),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColors.oliveGreen2,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -50,13 +52,14 @@ class NewsCard extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(25),
                             topRight: Radius.circular(25)),
-                        child: Image.asset(
+                        child: Padding(padding: EdgeInsets.all(8),
+                          child: Image.asset(
                           AppImages.family,
                           height:
                               HomeCubit.get(context).screenHeight(context) * .3,
                           fit: BoxFit.fill,
                         ),
-                      ),
+                      ),),
                       SizedBox(
                         height:
                             HomeCubit.get(context).screenHeight(context) * .02,
@@ -88,7 +91,7 @@ class NewsCard extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
+              ),),
             ),
           );
         },
