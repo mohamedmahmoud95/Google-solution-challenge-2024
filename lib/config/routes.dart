@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/features/articles_details/presentation/pages/articles_details.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/mental_health_support_screen.dart';
+import '../features/auth/sign_in/presentation/pages/sign_in_screen.dart';
+import '../features/auth/sign_up/presentation/pages/sign_up_screen.dart';
 import '../features/landing_screen/presentation/pages/landing_screen.dart';
 import '../features/lost_and_found/presentation/pages/lost_and_found_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
-import '../features/sign_in/presentation/pages/sign_in_screen.dart';
-import '../features/sign_up/presentation/pages/sign_up_screen.dart';
 
 
 class Routes {
