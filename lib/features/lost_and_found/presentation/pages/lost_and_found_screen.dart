@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/found_tab.dart';
-import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_tab.dart';
 import '../widgets/subscreen_card.dart';
+import 'found_tab.dart';
+import 'lost_tab.dart';
 
 class LostAndFoundScreen extends StatefulWidget {
   const LostAndFoundScreen({super.key});
