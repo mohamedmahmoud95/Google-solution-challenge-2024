@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+
+import '../../../../core/reusable widget/app_logo/app_logo.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -27,7 +27,7 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(
               height: 50,
             ),
-            appLogoAndName(),
+            const AppLogo(showName: true,),
             const SizedBox(
               height: 30,
             ),
@@ -53,49 +53,6 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Widget appLogo() {
-    return SizedBox(
-      height: 150,
-      width: 150,
-      child: Image.asset(
-        AppImages.logo,
-        fit: BoxFit.contain,
-      ),
-    );
-  }
-
-  Widget appName() {
-    return Center(
-        child: Text(
-      "Zaitoon",
-      style: TextStyle(
-          fontSize: 40,
-          color: Theme.of(context).primaryColorDark,
-          fontWeight: FontWeight.w600),
-    ));
-  }
-
-  Widget appLogoAndName() {
-    return Center(
-      child: Container(
-        height: 175,
-        width: 200,
-        child: Stack(
-          children: [
-            Positioned(
-              top: 0,
-                left: 25,
-                child: appLogo()),
-        Positioned(
-          bottom: 0,
-          left: 25,
-              child: appName(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget loginTitle() {
     return const Center(
@@ -193,11 +150,13 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  void signIn() {}
+  void signIn() {
+    Navigator.of(context).pushReplacementNamed('home');
+  }
 
   Widget signUpInstead() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
