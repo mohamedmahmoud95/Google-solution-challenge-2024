@@ -19,12 +19,13 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) => Scaffold(
           backgroundColor: AppColors.oliveGreen1,
           drawer: Drawer(
+            backgroundColor: AppColors.oliveGreen1,
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
                 const DrawerHeader(
                   decoration: BoxDecoration(
-                     color: AppColors.green,
+                     color: AppColors.oliveGreen2,
                   ),
                   child: Text(
                     'Drawer Header',
