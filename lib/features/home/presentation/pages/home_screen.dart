@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/config/routes.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
 
@@ -19,30 +20,32 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) => Scaffold(
           backgroundColor: AppColors.oliveGreen1,
           drawer: Drawer(
+            backgroundColor: AppColors.oliveGreen1,
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
                 const DrawerHeader(
                   decoration: BoxDecoration(
-                     color: AppColors.green,
+                     color: AppColors.oliveGreen2,
                   ),
                   child: Text(
                     'Drawer Header',
                     style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
+                      color: AppColors.darkGreen2,
+                      fontSize: AppMeasures.vargeFontSize40,
                     ),
                   ),
                 ),
                 ListTile(
-                  title:  Text('Settings'.tr()),
+                  title:  Text('Settings'.tr(), style: TextStyle(fontSize: AppMeasures.largeFontSize30),),
+
                   onTap: () {
                     Navigator.pushNamed(context, Routes.settings);
                     // Add your logic for when item 1 is tapped
                   },
                 ),
                 ListTile(
-                  title: const Text('Item 2'),
+                  title: const Text('Item 2', style: TextStyle(fontSize: AppMeasures.largeFontSize30),),
                   onTap: () {
                     // Add your logic for when item 2 is tapped
                   },
@@ -66,13 +69,15 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Text(
                         "welcome back".tr(),
-                        style: const TextStyle(fontSize: 10),
+                        style: const TextStyle(fontSize: AppMeasures.mediumFontSize20),
                         textAlign: TextAlign.start,
                       ),
                       const Text(
                         "Mohamed",
-                        style: TextStyle(fontWeight: FontWeight.w900),
+                        style: TextStyle(fontWeight: FontWeight.w900,
+                        color: AppColors.darkGreen2),
                         textAlign: TextAlign.start,
+
                       ),
                     ],
                   ),
