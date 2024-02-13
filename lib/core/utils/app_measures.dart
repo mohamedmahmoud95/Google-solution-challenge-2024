@@ -7,4 +7,6 @@ class AppMeasures{
   static const vargeFontSize40 = 24.0;
   static const extraLargeFontSize50 = 30.0;
 
+  static const double defaultElevation = 4;
+
 }

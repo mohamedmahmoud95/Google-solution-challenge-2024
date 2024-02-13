@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 
 import '../../../../config/routes.dart';
 import '../manager/cubit.dart';
@@ -24,8 +26,8 @@ class PostCard extends StatelessWidget {
         builder: (BuildContext context, Widget? child) => Hero(
           tag: "post$index",
           child: Card(
-            color: Colors.white,
-            elevation: 5,
+            color: AppColors.oliveGreen2,
+            elevation: AppMeasures.defaultElevation,
             shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: const BorderSide(color: Colors.transparent)),
@@ -33,7 +35,7 @@ class PostCard extends StatelessWidget {
               width: HomeCubit.get(context).screenWidth(context) * .3,
               height: HomeCubit.get(context).screenHeight(context) * 1,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.oliveGreen2,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
@@ -64,7 +66,7 @@ class PostCard extends StatelessWidget {
                             Text(
                               "3 second",
                               style:
-                                  TextStyle(color: Colors.grey, fontSize: 12),
+                                  TextStyle(color: AppColors.darkGreen2, fontSize: 12),
                             ),
                           ],
                         ),
@@ -88,13 +90,14 @@ class PostCard extends StatelessWidget {
                       horizontal:
                           HomeCubit.get(context).screenWidth(context) * .02,
                     ),
-                    child: Image.asset(
+                    child: Padding(padding: EdgeInsets.all(8)
+                      , child:Image.asset(
                       AppImages.family,
                       height: HomeCubit.get(context).screenHeight(context) * .3,
                       width: double.infinity,
                       fit: BoxFit.fill,
                     ),
-                  ),
+                  ),),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal:
@@ -117,7 +120,7 @@ class PostCard extends StatelessWidget {
                                         .screenWidth(context) *
                                     .01),
                             const Text("5 like",
-                                style: TextStyle(color: Colors.grey)),
+                                style: TextStyle(color: AppColors.darkGreen2)),
                           ],
                         ),
                         Row(
@@ -128,7 +131,7 @@ class PostCard extends StatelessWidget {
                                         .screenWidth(context) *
                                     .01),
                             const Text("0 comment",
-                                style: TextStyle(color: Colors.grey)),
+                                style: TextStyle(color: AppColors.darkGreen2)),
                           ],
                         ),
                         Row(
@@ -139,7 +142,7 @@ class PostCard extends StatelessWidget {
                                         .screenWidth(context) *
                                     .01),
                             const Text("6 share",
-                                style: TextStyle(color: Colors.grey)),
+                                style: TextStyle(color: AppColors.darkGreen2)),
                           ],
                         ),
                       ],
