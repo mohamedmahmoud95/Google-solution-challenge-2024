@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 
-import '../../../../core/reusable widget/app_logo/app_logo.dart';
+import '../../../../../core/reusable widget/app_logo/app_logo.dart';
+
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
