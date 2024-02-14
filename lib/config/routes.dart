@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/features/articles_details/presentation/pages/articles_details.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
+import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
+import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/upload_lost_or_found_person_cubit/upload_lost_or_found_person_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/mental_health_support_screen.dart';
 import '../features/auth/sign_in/presentation/pages/sign_in_screen.dart';
 import '../features/auth/sign_up/presentation/pages/sign_up_screen.dart';
 import '../features/landing_screen/presentation/pages/landing_screen.dart';
-import '../features/lost_and_found/presentation/pages/lost_and_found_screen.dart';
+import '../features/lost and found/presentation/pages/lost_and_found_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
-
 
 class Routes {
   static const String landing = "/";
@@ -36,8 +38,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const HomeScreen());
 
       case Routes.settings:
-        return MaterialPageRoute(builder: (context) =>  const Settings());
-    
+        return MaterialPageRoute(builder: (context) => const Settings());
+
       case Routes.articlesDetails:
         return MaterialPageRoute(builder: (context) => const ArticlesScreen());
 
@@ -47,11 +49,22 @@ class AppRoutes {
 
       case Routes.lostAndFound:
         return MaterialPageRoute(
-            builder: (context) => const LostAndFoundScreen());
+            builder: (context) =>  MultiBlocProvider(
+                  providers: [
+                    BlocProvider(
+                      create: (context) => UploadLostOrFoundPersonCubit(),
+                    ),
+                    BlocProvider(
+                      create: (context) => ScanLostOrFoundPersonCubit(),
+                    ),
+                  ],
+                  child: LostAndFoundScreen(),
+                ));
 
       default:
         return MaterialPageRoute(
-            builder: (context) => const Center(child: Text("Please close the app and re-open it")));
+            builder: (context) => const Center(
+                child: Text("Please close the app and re-open it")));
     }
   }
 }

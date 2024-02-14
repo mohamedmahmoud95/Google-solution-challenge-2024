@@ -24,8 +24,9 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
           leading: const BackButton(
             color: AppColors.darkGreen2,
           ),
-          backgroundColor: AppColors.oliveGreen1,//Theme.of(context).primaryColorLight,
-        automaticallyImplyLeading: true,
+          backgroundColor:
+              AppColors.oliveGreen1, //Theme.of(context).primaryColorLight,
+          automaticallyImplyLeading: true,
           title: const Text(
             "Get back together",
             style: TextStyle(
@@ -52,12 +53,16 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
             tabs: [
               Text(
                 "Lost",
-                style: TextStyle(fontSize: 20,color: AppColors.darkGreen2,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: AppColors.darkGreen2,
                 ),
               ),
               Text(
                 "Found",
-                style: TextStyle(fontSize: 20,  color: AppColors.darkGreen2,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: AppColors.darkGreen2,
                 ),
               ),
             ],
@@ -65,7 +70,9 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
         ),
         body: TabBarView(
           children: [
-            LostTab( compactMode: compactMode,),
+            LostTab(
+              compactMode: compactMode,
+            ),
             FoundTab(
               compactMode: compactMode,
             ),
