@@ -1,9 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/reusable%20widget/dialogs/alert_dialog.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:google_solution_challenge_2024/features/auth/app_user.dart';
 
 import '../../../../../core/reusable widget/app_logo/app_logo.dart';
-
+import '../../../firebase_auth_services.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -17,6 +20,8 @@ class _SignInScreenState extends State<SignInScreen> {
   TextEditingController passwordController = TextEditingController();
   bool passwordIsVisible = false;
 
+  final FirebaseAuthServices firebaseAuthServices = FirebaseAuthServices(FirebaseAuth.instance);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +33,9 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(
               height: 50,
             ),
-            const AppLogo(showName: true,),
+            const AppLogo(
+              showName: true,
+            ),
             const SizedBox(
               height: 30,
             ),
@@ -53,7 +60,6 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
-
 
   Widget loginTitle() {
     return const Center(
@@ -81,7 +87,7 @@ class _SignInScreenState extends State<SignInScreen> {
             controller: emailController,
             style: const TextStyle(fontSize: 20),
             decoration: InputDecoration(
-               // hintText: "Email",
+                // hintText: "Email",
                 hintStyle: TextStyle(color: Colors.grey.shade600)),
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
@@ -151,8 +157,40 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  void signIn() {
-    Navigator.of(context).pushReplacementNamed('home');
+  Future<void> signIn() async {
+    bool signInSuccess = false;
+    try {
+
+      final signInResult = (await firebaseAuthServices
+          .loginWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text))!;
+
+      if (signInResult != null) {
+        signInSuccess = true;
+        currentAppUser = signInResult;
+        Navigator.of(context).pushReplacementNamed('home');
+      }
+      else {
+        showDialog(
+          context: context,
+          builder: (context) => const AlertDialogWidget(
+            title: 'Verification Error',
+            contentText:
+            'An error occurred while trying to verify your OTP.\nPlease try again later.',
+          ),
+        );
+      }
+    }catch(e){
+      debugPrint("\n unable to login, \n$e\n");
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialogWidget(
+          title: 'Verification Error',
+          contentText:
+          'An error occurred while trying to verify your OTP.\nPlease try again later.',
+        ),
+      );
+    }
   }
 
   Widget signUpInstead() {

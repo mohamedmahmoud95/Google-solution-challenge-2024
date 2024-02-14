@@ -70,6 +70,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '498128936884',
     projectId: 'solutionchallenge2024-fcb4d',
     storageBucket: 'solutionchallenge2024-fcb4d.appspot.com',
+    iosClientId: '498128936884-mit77em15mubonjng3sep8ju3usbo249.apps.googleusercontent.com',
     iosBundleId: 'com.example.googleSolutionChallenge2024',
   );
 }
