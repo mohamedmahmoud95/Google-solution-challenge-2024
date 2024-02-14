@@ -30,8 +30,7 @@ class PostCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 borderSide: const BorderSide(color: Colors.transparent)),
             child: Container(
-              width: HomeCubit.get(context).screenWidth(context) * .3,
-              height: HomeCubit.get(context).screenHeight(context) * 1,
+              width: HomeCubit.get(context).screenWidth(context) * 0.82,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -40,11 +39,12 @@ class PostCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal:
-                            HomeCubit.get(context).screenWidth(context) * .01,
-                        vertical:
-                            HomeCubit.get(context).screenHeight(context) * .01),
+                    padding: EdgeInsets.only(
+                        right:
+                            HomeCubit.get(context).screenWidth(context) * .04,
+                        left: HomeCubit.get(context).screenWidth(context) * .04,
+                        top:
+                            HomeCubit.get(context).screenHeight(context) * .02),
                     child: Row(
                       children: [
                         const CircleAvatar(
@@ -52,7 +52,7 @@ class PostCard extends StatelessWidget {
                         ),
                         SizedBox(
                             width: HomeCubit.get(context).screenWidth(context) *
-                                .01),
+                                .03),
                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -71,23 +71,32 @@ class PostCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal:
-                            HomeCubit.get(context).screenWidth(context) * .02,
-                        vertical:
-                            HomeCubit.get(context).screenHeight(context) * .02),
-                    child: const Text(
-                      "Don't Worry My Brother",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                    ),
+                  Divider(
+                    indent: HomeCubit.get(context).screenWidth(context) * .05,
+                    endIndent:
+                        HomeCubit.get(context).screenWidth(context) * .05,
+                    height: HomeCubit.get(context).screenHeight(context) * .04,
+                    color: const Color(0x67b7b7b7),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal:
-                          HomeCubit.get(context).screenWidth(context) * .02,
+                          HomeCubit.get(context).screenWidth(context) * .05,
                     ),
+                    child: const Text(
+                      "Don't Worry My Brother",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 17,
+                          color: Colors.black87),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal:
+                            HomeCubit.get(context).screenWidth(context) * .03,
+                        vertical:
+                            HomeCubit.get(context).screenHeight(context) * .02),
                     child: Image.asset(
                       AppImages.family,
                       height: HomeCubit.get(context).screenHeight(context) * .3,
@@ -98,7 +107,7 @@ class PostCard extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal:
-                            HomeCubit.get(context).screenWidth(context) * .02,
+                            HomeCubit.get(context).screenWidth(context) * .03,
                         vertical:
                             HomeCubit.get(context).screenHeight(context) * .02),
                     child: Row(

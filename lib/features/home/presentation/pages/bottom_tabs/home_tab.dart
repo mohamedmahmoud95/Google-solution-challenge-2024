@@ -3,8 +3,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
-import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_and_found_screen.dart';
-
 import '../../widgets/category_card.dart';
 import '../../widgets/help_card.dart';
 import '../../widgets/news_card.dart';
@@ -25,15 +23,16 @@ class HomeTab extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal: HomeCubit.get(context).screenWidth(context) * .02,
                   vertical: HomeCubit.get(context).screenWidth(context) * .02),
-
-              child:  Row(
+              child: Row(
                 children: [
                   CategoryCard(
-                      text: "Mental Health".tr(), image: AppImages.mentalHealth,
-                    onTap: (){
-                        Navigator.of(context).pushNamed('mentalHealthSupport');
-                   //   builder: (context) => const LostAndFoundScreen()));
-                        },),
+                    text: "Mental Health".tr(),
+                    image: AppImages.mentalHealth,
+                    onTap: () {
+                      Navigator.of(context).pushNamed('mentalHealthSupport');
+                      //   builder: (context) => const LostAndFoundScreen()));
+                    },
+                  ),
                   CategoryCard(
                       text: "Get Back Together".tr(), image: AppImages.family),
                   CategoryCard(
@@ -198,7 +197,7 @@ class HomeTab extends StatelessWidget {
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
                   onTap: () {},
-                  child:  Text(
+                  child: Text(
                     "see more".tr(),
                   ),
                 ),
@@ -209,8 +208,8 @@ class HomeTab extends StatelessWidget {
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
           const Card(
-            // child: Image(image: AssetImage("")),
-          ),
+              // child: Image(image: AssetImage("")),
+              ),
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
