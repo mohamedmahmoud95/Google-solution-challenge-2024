@@ -19,14 +19,21 @@ dependencies:
   easy_localization: ^3.0.3
   firebase_core: ^2.25.2
   firebase_auth: ^4.17.2
-  cloud_firestore: ^4.15.2
+  cloud_firestore: ^4.15.4
   font_awesome_flutter: ^10.7.0
   google_fonts: ^6.1.0
   dartz: ^0.10.1
   flutter_screenutil: ^5.9.0
   dio: ^5.4.0
   shared_preferences: ^2.2.2
-
+  google_mlkit_face_detection: ^0.9.0
+  google_mlkit_commons: ^0.6.1
+  image: ^4.1.6
+  tflite_flutter: '0.10.3'
+  path: ^1.8.3
+  http: ^1.2.0
+  firebase_storage: ^11.6.5
+  firebase_database: ^10.4.5
 
 dev_dependencies:
   flutter_test:
