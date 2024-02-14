@@ -50,7 +50,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Card(
           elevation: 0.5,
-          color:  Theme.of(context).primaryColorDark,
+          color:  AppColors.oliveGreen2,
           // color: Colors.green.shade100,
           child: Padding(
             padding: const EdgeInsets.all(8),
@@ -103,7 +103,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.person_outline_sharp,
-                              color: AppColors.darkerGrey,
+                              color: AppColors.grey6,
                               size: 20,
                             ),
                     SizedBox(
@@ -137,7 +137,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.location_on_outlined,
-                              color: AppColors.darkerGrey,
+                              color: AppColors.grey6,
                               size: 20,
                             ),
                             SizedBox(
@@ -159,7 +159,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.access_alarms_sharp,
-                              color: AppColors.darkerGrey,
+                              color: AppColors.grey6,
                               size: 20,
                             ),
                             SizedBox(
@@ -181,7 +181,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.insert_drive_file_outlined,
-                              color: AppColors.darkerGrey,
+                              color: AppColors.grey6,
                               size: 20,
                             ),
                             SizedBox(
@@ -206,7 +206,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.maps_home_work_outlined,
-                              color: AppColors.darkerGrey,
+                              color: AppColors.grey6,
                               size: 20,
                             ),
                             SizedBox(

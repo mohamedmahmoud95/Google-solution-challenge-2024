@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/found_tab.dart';
-import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_tab.dart';
 import '../widgets/subscreen_card.dart';
+import 'found_tab.dart';
+import 'lost_tab.dart';
 
 class LostAndFoundScreen extends StatefulWidget {
   const LostAndFoundScreen({super.key});
@@ -22,15 +22,15 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
           leading: const BackButton(
-            color: AppColors.white,
+            color: AppColors.darkGreen2,
           ),
-          backgroundColor: Theme.of(context).primaryColorLight,
+          backgroundColor: AppColors.oliveGreen1,//Theme.of(context).primaryColorLight,
         automaticallyImplyLeading: true,
           title: const Text(
             "Get back together",
             style: TextStyle(
                 fontSize: 25,
-                color: AppColors.white,
+                color: AppColors.darkGreen2,
                 fontWeight: FontWeight.w600),
           ),
           actions: [
@@ -42,21 +42,23 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
               },
               icon: Icon(
                 compactMode ? Icons.list_outlined : Icons.grid_view_outlined,
-                color: AppColors.white,
+                color: AppColors.darkGreen2,
               ),
             ),
           ],
           bottom: const TabBar(
-            indicatorColor: AppColors.white,
+            indicatorColor: AppColors.darkGreen2,
             indicatorSize: TabBarIndicatorSize.tab,
             tabs: [
               Text(
                 "Lost",
-                style: TextStyle(fontSize: 20, color: AppColors.white),
+                style: TextStyle(fontSize: 20,color: AppColors.darkGreen2,
+                ),
               ),
               Text(
                 "Found",
-                style: TextStyle(fontSize: 20, color: AppColors.white),
+                style: TextStyle(fontSize: 20,  color: AppColors.darkGreen2,
+                ),
               ),
             ],
           ),

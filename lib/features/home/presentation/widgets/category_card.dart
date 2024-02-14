@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 
 import '../manager/cubit.dart';
 
@@ -15,7 +16,7 @@ class CategoryCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Card(
-        elevation: 8,
+        elevation: 4,
         child: Container(
           width: HomeCubit.get(context).screenWidth(context) * .4,
           height: HomeCubit.get(context).screenHeight(context) * .18,
@@ -23,7 +24,7 @@ class CategoryCard extends StatelessWidget {
               horizontal: HomeCubit.get(context).screenWidth(context) * .01,
               vertical: HomeCubit.get(context).screenHeight(context) * .009),
           decoration: const BoxDecoration(
-              color: Colors.white,
+              color: AppColors.oliveGreen2,
               borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
