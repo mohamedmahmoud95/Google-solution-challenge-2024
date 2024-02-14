@@ -3,7 +3,10 @@ import 'package:flutter/cupertino.dart';
 
 import 'app_user.dart';
 
-class FirebaseAuthMethods {
+class FirebaseAuthServices {
+  final FirebaseAuth _firebaseAuth;
+  FirebaseAuthServices(this._firebaseAuth);
+
   AppUser? _userFromFirebase(User? user) {
     return user != null
         ? AppUser(
@@ -28,8 +31,8 @@ class FirebaseAuthMethods {
       ) async {
 
     try {
-      final authResult = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
+      final authResult = await _firebaseAuth.createUserWithEmailAndPassword(
+         email: email, password: password);
 
       _userFromFirebase(authResult.user) == null? currentAppUser = sampleAppUser1:
       onLoginSuccess();
@@ -45,63 +48,52 @@ class FirebaseAuthMethods {
     }
   }
 
-  Future<AppUser?> loginWithEmailAndPassword(
-    String email,
-    String password,
-    VoidCallback onLoginSuccess,
-    VoidCallback onLoginFailed,
-  ) async {
+  Future<AppUser?> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+    VoidCallback? onLoginSuccess,
+    VoidCallback? onLoginFailed,
+  }) async {
     try {
-      final authResult = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final authResult = await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-
-
-
-      // Update the current user
-
+      
       _userFromFirebase(authResult.user) == null? currentAppUser = sampleAppUser1:
       currentAppUser = _userFromFirebase(authResult.user)!;
-      // Call the onLoginSuccess callback
-      onLoginSuccess();
+      if (onLoginSuccess != null) {
+        onLoginSuccess();
+      }
       return _userFromFirebase(authResult.user);
     } catch (e) {
       debugPrint(e.toString());
-
-      // Call the onLoginFailed callback
-      onLoginFailed();
-
-      // Return null to indicate login failure
+      if (onLoginFailed != null) {
+        onLoginFailed();
+      }
       return null;
     }
   }
 
   Future<void> logout() async {
-    await FirebaseAuth.instance.signOut();
+    await _firebaseAuth.signOut();
   }
 
   Future<void> resetPassword(String email) async {
-    await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 
   Future<void> deleteAccount(String email, String password) async {
     try {
       // Re-authenticate the user with their email and password
       AuthCredential credential = EmailAuthProvider.credential(
-          email: '${FirebaseAuth.instance.currentUser?.email}',
+          email: '${_firebaseAuth.currentUser?.email}',
           password: password);
-      await FirebaseAuth.instance.currentUser
+      await _firebaseAuth.currentUser
           ?.reauthenticateWithCredential(credential);
-
-      // Delete the account
-      await FirebaseAuth.instance.currentUser?.delete();
-
-      // Account deletion successful
-      debugPrint('Account deleted successfully');
+      await _firebaseAuth.currentUser?.delete();
       logout();
     } catch (e) {
-      // Handle any errors that occur during re-authentication or account deletion
       debugPrint('Error deleting account: $e');
     }
   }

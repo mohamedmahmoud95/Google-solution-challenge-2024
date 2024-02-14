@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'config/routes.dart';
 import 'core/utils/app_themes.dart';
@@ -14,7 +15,12 @@ class PalestineApp extends StatefulWidget {
 class _PalestineAppState extends State<PalestineApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+
+    const ScreenUtilInit(designSize: Size(375, 812),);
+        ScreenUtil.init(context);
+
+      return MaterialApp(
+
       /// --- localization ---- ///
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
