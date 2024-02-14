@@ -1,31 +1,31 @@
 
 class AppUser {
-  String id = 'id';
-  String email = 'example@gmail.com';
-  String password = '12345678';
-  String firstName = 'first name';
-  String lastName = 'last name';
-  String phoneNumber = '01234567890';
-  String profilePicUrl = 'assets/images/profile_pic.png';
-  String about = 'About';
-  // List<String>? idsOfAnotherUsersChattedWith = [];
-  // List<String>? likedPostsIds = [];
-  // List<String>? friendsUsersIds = [];
+  String? id ;
+  String? email ;
+  String? password ;
+  String? firstName ;
+  String? lastName ;
+  String? phoneNumber ;
+  String? profilePicUrl ;
+  String? about ;
+  List<String>? idsOfAnotherUsersChattedWith = [];
+  List<String>? likedPostsIds = [];
+  List<String>? friendsUsersIds = [];
   bool isTherapist = false;
-  List<String> bookedAppointmentsIDs = [];
+  List<String>? bookedAppointmentsIDs = [];
 
   AppUser({
-    required this.id,
-    required this.email,
-    required this.password,
-    required this.firstName,
-    required this.lastName,
-    required this.phoneNumber,
-    required this.profilePicUrl,
-    required this.about,
-    // this.idsOfAnotherUsersChattedWith,
-    // this.friendsUsersIds,
-    // this.likedPostsIds,
+     this.id,
+     this.email,
+     this.password,
+     this.firstName,
+     this.lastName,
+     this.phoneNumber,
+     this.profilePicUrl,
+     this.about,
+     this.idsOfAnotherUsersChattedWith,
+     this.friendsUsersIds,
+     this.likedPostsIds,
     this.isTherapist =
     false, //false by default, unless the opposite is explicitly declared
     required this.bookedAppointmentsIDs,
@@ -37,7 +37,7 @@ AppUser sampleAppUser1 = AppUser(
   lastName: "Mahmoud",
   email: "m.raslan97@gmail.com",
   phoneNumber: "+201001412578",
-  about: "حد علوضعه جدًا",
+  about: "no body, yet",
   password: '12345678',
   profilePicUrl: "assets/images/Mohamed_Mahmoud.png",
   bookedAppointmentsIDs: ['sampleAppointment1', 'sampleAppointment2', 'sampleAppointment5'],
@@ -47,10 +47,10 @@ AppUser sampleAppUser1 = AppUser(
 );
 
 AppUser sampleAppUser2 = AppUser(
-  firstName: "Esraa",
-  lastName: "Amr",
-  email: "Esraaamrkandil@gmail.com",
-  phoneNumber: "+20123456789",
+  firstName: "Amr",
+  lastName: "Haithem",
+  email: "amr@gmail.com",
+  phoneNumber: "+20444545",
   profilePicUrl: 'assets/images/profile_pic.png',
   about: "..",
   bookedAppointmentsIDs: [],
@@ -59,10 +59,10 @@ AppUser sampleAppUser2 = AppUser(
 
 );
 AppUser sampleAppUser3 = AppUser(
-  firstName: "Habiba",
-  lastName: "Alaa",
-  email: "https://github.com/Habibaaahmed",
-  phoneNumber: "+20123456789",
+  firstName: "Abdelrahman",
+  lastName: "Ayman",
+  email: "top@gmail.com",
+  phoneNumber: "+2012323232",
   profilePicUrl: 'assets/images/profile_pic.png',
   about: "..",
   bookedAppointmentsIDs: [],
@@ -71,10 +71,10 @@ AppUser sampleAppUser3 = AppUser(
 
 );
 AppUser sampleAppUser4 = AppUser(
-  firstName: "Sondos",
-  lastName: "",
-  email: "https://github.com/S0nd0s",
-  phoneNumber: "+20123456789",
+  firstName: "Eman",
+  lastName: "Pepers",
+  email: "Eman@gmail.com",
+  phoneNumber: "+201234434",
   profilePicUrl: 'assets/images/profile_pic.png',
   about: "..",
   bookedAppointmentsIDs: [],
@@ -89,7 +89,7 @@ AppUser(
   lastName: "Mahmoud",
   email: "m.raslan97@gmail.com",
   phoneNumber: "+201001412578",
-  about: "حد علوضعه جدًا",
+  about: "no body, yet",
   profilePicUrl: "assets/images/Mohamed_Mahmoud.png",
   bookedAppointmentsIDs: ['sampleAppointment1', 'sampleAppointment2', 'sampleAppointment5'],
   id: 'id',
