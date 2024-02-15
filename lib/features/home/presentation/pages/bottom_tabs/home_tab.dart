@@ -3,7 +3,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
+import 'package:google_solution_challenge_2024/features/news_feed/presentation/widget/horizontally_scrollable_list_of_newsfeed_cards.dart';
+import 'package:google_solution_challenge_2024/features/news_feed/sampleStaticData/sample_newsfeed_posts.dart';
 
+import '../../../../news_feed/presentation/widget/news_feed_card.dart';
 import '../../widgets/category_card.dart';
 import '../../widgets/help_card.dart';
 import '../../widgets/news_card.dart';
@@ -207,9 +210,7 @@ class HomeTab extends StatelessWidget {
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
-          const Card(
-            // child: Image(image: AssetImage("")),
-          ),
+
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
@@ -229,6 +230,8 @@ class HomeTab extends StatelessWidget {
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .01,
           ),
+
+          HorizontallyScrollableListOfNewsFeedCards(listOfNewsFeedPosts: sampleNewsFeedPosts),
         ],
       ),
     );

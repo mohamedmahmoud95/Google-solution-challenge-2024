@@ -1,4 +1,17 @@
-class Post {
+class NewsSource {
+  String? id;
+  String? websiteUrl;
+  String? name;
+  String? logoUrl;
+  NewsSource({
+    this.name,
+    this.id,
+    this.logoUrl,
+    this.websiteUrl,
+});
+}
+
+class NewsFeedPost {
   String? id;
   String? title;
   String content;
@@ -7,8 +20,9 @@ class Post {
   String? imageUrl;
   int numOfUpVotes;
   int numOfDownVotes;
+  NewsSource? newsSource;
 
-  Post({
+  NewsFeedPost({
     this.id,
     this.imageUrl,
     this.title,
@@ -16,7 +30,8 @@ class Post {
     required this.content,
     required this.createdAt,
     required this.numOfDownVotes,
-    required this.numOfUpVotes
+    required this.numOfUpVotes,
+    this.newsSource,
   });
 
 }
