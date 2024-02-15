@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:google_solution_challenge_2024/features/auth/firebase_auth_services.dart';
 
 import '../../../../../core/reusable widget/app_logo/app_logo.dart';
+import '../../../../../core/reusable widget/dialogs/alert_dialog.dart';
+import '../../../app_user.dart';
 
 
 class SignUpScreen extends StatefulWidget {
@@ -172,8 +176,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void signUp() {
-    Navigator.of(context).pushReplacementNamed('home');
+  final FirebaseAuthServices firebaseAuthServices =  FirebaseAuthServices(FirebaseAuth.instance);
+
+  Future<void> signUp() async {
+      bool signUpSuccess = false;
+      try {
+
+        final signUpResult = (await firebaseAuthServices
+            .registerWithEmailAndPassword(
+             emailController.text, passwordController.text, (){}, (){}));
+
+        if (signUpResult != null) {
+          signUpSuccess = true;
+          currentAppUser = signUpResult;
+          Navigator.of(context).pushReplacementNamed('home');
+        }
+        else {
+          showDialog(
+            context: context,
+            builder: (context) => const AlertDialogWidget(
+              title: 'Sign Up Error',
+              contentText:
+              'An error occurred.\nPlease try again later.',
+            ),
+          );
+        }
+      }catch(e){
+        debugPrint("\n unable to register, \n$e\n");
+        showDialog(
+          context: context,
+          builder: (context) => const AlertDialogWidget(
+            title: 'Sign Up error Error',
+            contentText:
+            'An error .\nPlease try again later.',
+          ),
+        );
+      }
   }
 
   Widget signInInstead() {
