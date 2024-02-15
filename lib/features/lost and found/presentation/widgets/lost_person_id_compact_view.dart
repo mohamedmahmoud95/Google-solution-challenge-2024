@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import 'lost_person_id_expanded_view.dart';
 
 
 class LostPersonIdCompactView extends StatelessWidget {
-  final LostPerson person;
+  final LostOrFoundPerson person;
   const LostPersonIdCompactView({super.key, required this.person});
 
   @override

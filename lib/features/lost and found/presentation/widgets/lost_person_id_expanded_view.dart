@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
 
 import '../../../../core/utils/app_colors.dart';
 
@@ -37,10 +38,18 @@ LostPerson raslan = LostPerson(
   lastSeenLocation: "Eng ASU",
 );
 
-List<LostPerson> lostPeople = [raslan,raslan,raslan,raslan,raslan,raslan,raslan];
+List<LostPerson> lostPeople = [
+  raslan,
+  raslan,
+  raslan,
+  raslan,
+  raslan,
+  raslan,
+  raslan
+];
 
 class LostPersonIdExpandedView extends StatelessWidget {
-  final LostPerson person;
+  final LostOrFoundPerson person;
   const LostPersonIdExpandedView({super.key, required this.person});
 
   @override
@@ -50,7 +59,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Card(
           elevation: 0.5,
-          color:  AppColors.oliveGreen2,
+          color: AppColors.oliveGreen2,
           // color: Colors.green.shade100,
           child: Padding(
             padding: const EdgeInsets.all(8),
@@ -72,22 +81,16 @@ class LostPersonIdExpandedView extends StatelessWidget {
                       const SizedBox(
                         height: 10,
                       ),
-
-                       SizedBox(
+                      SizedBox(
                         width: 100,
-                      child:
-
-                      Text(
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.center,
-                        maxLines: 2,
-                        "${person.firstName}",
-                        style: const TextStyle(
-
-                            fontWeight: FontWeight.w500, fontSize: 15),
-
-
-                      ),
+                        child: Text(
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          maxLines: 2,
+                          "${person.firstName}",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.w500, fontSize: 15),
+                        ),
                       ),
                     ],
                   ),
@@ -106,31 +109,28 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               color: AppColors.grey6,
                               size: 20,
                             ),
-                    SizedBox(
-                      width: ScreenUtils.getScreenWidth(context)/5.5,
-                      child:
-
-                      Text(
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.start,
-                        maxLines: 2,
-                              " Full Name: ",
-                              style: TextStyle(fontWeight: FontWeight.w500,
-                                   fontSize: 12),
-                            ),),
-
-                    SizedBox(
-                      width: ScreenUtils.getScreenWidth(context)/3,
-                      child:
-
-                      Text(
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.start,
-                        maxLines: 2,
-                              "${person.firstName} ${person.lastName}",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 12),
-                            ),),
+                            SizedBox(
+                              width: ScreenUtils.getScreenWidth(context) / 5.5,
+                              child: Text(
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.start,
+                                maxLines: 2,
+                                " Full Name: ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 12),
+                              ),
+                            ),
+                            SizedBox(
+                              width: ScreenUtils.getScreenWidth(context) / 3,
+                              child: Text(
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.start,
+                                maxLines: 2,
+                                "${person.firstName} ${person.lastName}",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 12),
+                              ),
+                            ),
                           ],
                         ),
                         Row(
@@ -141,16 +141,14 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               size: 20,
                             ),
                             SizedBox(
-                              width: ScreenUtils.getScreenWidth(context)/2,
-                              child:
-
-                              Text(
+                              width: ScreenUtils.getScreenWidth(context) / 2,
+                              child: Text(
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.start,
                                 maxLines: 2,
-                              " Last Seen at: ${person.lastSeenLocation}",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 12),
+                                " Last Seen at: ${person.lastSeenLocation}",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 12),
                               ),
                             ),
                           ],
@@ -163,18 +161,17 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               size: 20,
                             ),
                             SizedBox(
-                              width: ScreenUtils.getScreenWidth(context)/2,
+                              width: ScreenUtils.getScreenWidth(context) / 2,
                               height: 20,
-                              child:
-
-                              Text(
+                              child: Text(
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.start,
                                 maxLines: 2,
-                              " Age: ${person.age}",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 12),
-                            ),),
+                                " Age: ${person.age}",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 12),
+                              ),
+                            ),
                           ],
                         ),
                         Row(
@@ -185,19 +182,17 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               size: 20,
                             ),
                             SizedBox(
-                              width: ScreenUtils.getScreenWidth(context)/2,
+                              width: ScreenUtils.getScreenWidth(context) / 2,
                               //height: 40,
-                              child:
-
-                              Text(
+                              child: Text(
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.start,
                                 maxLines: 2,
-                              " Id: ${person.nationalId}",
-                              style: const TextStyle(
+                                " Id: ${person.nationalId}",
+                                style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 12,
-                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -210,18 +205,15 @@ class LostPersonIdExpandedView extends StatelessWidget {
                               size: 20,
                             ),
                             SizedBox(
-                              width: ScreenUtils.getScreenWidth(context)/2,
+                              width: ScreenUtils.getScreenWidth(context) / 2,
                               height: 30,
-
-                              child:
-
-                              Text(
+                              child: Text(
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.start,
                                 maxLines: 2,
-                              " Registered Address: ${person.address}",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 12),
+                                " Registered Address: ${person.address}",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 12),
                               ),
                             ),
                           ],

@@ -55,15 +55,27 @@ class LostOrFoundPersonsFirebase {
     List? features = await faceFeaturesExtractorUtils.getFeatures(
         image, model, outputSize, inputSize);
     if (features == null) return null;
+    print("i came here");
+
     List<String>? imageList =
         await _faceRecognitionApiUtils.compareRequest(features);
     print(imageList);
-    QuerySnapshot<Map<String, dynamic>> dataSnapshot = await firestoreDatabase
-        .collection(isLostPerson
-            ? FirestoreCollectionsNames.lostPersonsCollection
-            : FirestoreCollectionsNames.foundPersonsCollection)
-        .where("id", whereIn: imageList)
-        .get();
+    QuerySnapshot<Map<String, dynamic>> dataSnapshot;
+
+    if (image != null) {
+      dataSnapshot = await firestoreDatabase
+          .collection(isLostPerson
+              ? FirestoreCollectionsNames.lostPersonsCollection
+              : FirestoreCollectionsNames.foundPersonsCollection)
+          .where("id", whereIn: imageList)
+          .get();
+    } else {
+      dataSnapshot = await firestoreDatabase
+          .collection(isLostPerson
+              ? FirestoreCollectionsNames.lostPersonsCollection
+              : FirestoreCollectionsNames.foundPersonsCollection)
+          .get();
+    }
 
     return dataSnapshot;
   }
