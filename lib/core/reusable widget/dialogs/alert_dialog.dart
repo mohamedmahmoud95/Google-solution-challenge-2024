@@ -12,10 +12,14 @@ class AlertDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: AppColors.oliveGreen2,
+      backgroundColor: AppColors.oliveGreen3,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       title: Text(
         title ?? '',
+        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+          color: AppColors.appleWhite,
+          fontSize: 20
+        ),
       ),
       content: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
@@ -23,7 +27,7 @@ class AlertDialogWidget extends StatelessWidget {
           contentText,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
             color: AppColors.appleWhite,
-            height: 1.5,
+            fontSize: 15,
           ),
         ),
       ),
