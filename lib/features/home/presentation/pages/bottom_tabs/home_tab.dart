@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
+import 'package:google_solution_challenge_2024/features/news_feed/presentation/widget/horizontally_scrollable_list_of_newsfeed_cards.dart';
 import 'package:google_solution_challenge_2024/features/news_feed/sampleStaticData/sample_newsfeed_posts.dart';
 
 import '../../../../news_feed/presentation/widget/news_feed_card.dart';
@@ -230,9 +231,7 @@ class HomeTab extends StatelessWidget {
             height: HomeCubit.get(context).screenHeight(context) * .01,
           ),
 
-          NewsFeedCard(newsFeedPost: sampleNewsFeedPost1,),
-          Container(height: 100,color: Colors.purple,)
-
+          HorizontallyScrollableListOfNewsFeedCards(listOfNewsFeedPosts: sampleNewsFeedPosts),
         ],
       ),
     );

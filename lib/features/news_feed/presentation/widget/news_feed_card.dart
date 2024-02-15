@@ -24,7 +24,7 @@ class _NewsFeedCardState extends State<NewsFeedCard> {
     }
 
     return Padding(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Stack(
         children: [
           Container(
