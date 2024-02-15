@@ -86,12 +86,12 @@ class _SignInScreenState extends State<SignInScreen> {
 
   bool validatePassword()
   {
-    bool valid = TextValidator.validateEmail(emailController.text);
+    bool valid = TextValidator.validatePassword(passwordController.text);
     if (valid == false)
     {
       showDialog(context: context, builder: (context) =>  AlertDialogWidget(
           title: 'Invalid password'.tr(),
-          contentText: 'Password most be 8 characters or more'.tr()));
+          contentText: 'Invalid password, Please try again'.tr()));
     }
     return valid;
   }
@@ -163,7 +163,10 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget signInButton() {
     return GestureDetector(
       onTap: () {
-        signIn();
+        bool okToProgress = validateEmail() && validatePassword();
+        if (okToProgress) {
+          signIn();
+        }
       },
       child: Container(
         height: 50,
@@ -186,7 +189,6 @@ class _SignInScreenState extends State<SignInScreen> {
   Future<void> signIn() async {
     bool signInSuccess = false;
     try {
-
       final signInResult = (await firebaseAuthServices
           .loginWithEmailAndPassword(
           email: emailController.text, password: passwordController.text))!;
@@ -200,9 +202,9 @@ class _SignInScreenState extends State<SignInScreen> {
         showDialog(
           context: context,
           builder: (context) => const AlertDialogWidget(
-            title: 'Verification Error',
+            title: 'Sign in Error',
             contentText:
-            'An error occurred while trying to verify your OTP.\nPlease try again later.',
+            'Invalid email or password, \nplease try again',
           ),
         );
       }
@@ -211,9 +213,9 @@ class _SignInScreenState extends State<SignInScreen> {
       showDialog(
         context: context,
         builder: (context) => const AlertDialogWidget(
-          title: 'Verification Error',
+          title: 'Sign in Error',
           contentText:
-          'An error occurred while trying to verify your OTP.\nPlease try again later.',
+          'Invalid email or password, \nplease try again',
         ),
       );
     }

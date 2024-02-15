@@ -80,7 +80,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   bool validatePassword()
   {
-    bool valid = TextValidator.validateEmail(emailController.text);
+    bool valid = TextValidator.validatePassword(passwordController.text);
     if (valid == false)
     {
       showDialog(context: context, builder: (context) =>  AlertDialogWidget(
@@ -183,7 +183,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget signUpButton() {
     return GestureDetector(
       onTap: () {
-        bool okToProgress =  validateEmail() && validateEmail();
+        bool okToProgress =  validateEmail() && validatePassword();
         if (okToProgress) {
           signUp();
         }
@@ -276,3 +276,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+
