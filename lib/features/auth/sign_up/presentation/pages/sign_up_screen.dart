@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
@@ -6,6 +7,7 @@ import 'package:google_solution_challenge_2024/features/auth/firebase_auth_servi
 
 import '../../../../../core/reusable widget/app_logo/app_logo.dart';
 import '../../../../../core/reusable widget/dialogs/alert_dialog.dart';
+import '../../../../../core/utils/text_validators.dart';
 import '../../../app_user.dart';
 
 
@@ -63,9 +65,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ));
   }
 
+
+  bool validateEmail()
+  {
+    bool valid = TextValidator.validateEmail(emailController.text);
+    if (valid == false)
+    {
+      showDialog(context: context, builder: (context) =>  AlertDialogWidget(
+          title: 'Invalid email'.tr(),
+          contentText: 'Please enter a valid email address'.tr()));
+    }
+    return valid;
+  }
+
+  bool validatePassword()
+  {
+    bool valid = TextValidator.validateEmail(emailController.text);
+    if (valid == false)
+    {
+      showDialog(context: context, builder: (context) =>  AlertDialogWidget(
+          title: 'Invalid password'.tr(),
+          contentText: 'Password most be 8 characters or more'.tr()));
+    }
+    return valid;
+  }
+
   Widget fullNameTextField() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -91,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   Widget emailTextField() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -118,7 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget passwordTextField() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -156,7 +183,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget signUpButton() {
     return GestureDetector(
       onTap: () {
-        signUp();
+        bool okToProgress =  validateEmail() && validateEmail();
+        if (okToProgress) {
+          signUp();
+        }
       },
       child: Container(
         height: 50,
@@ -195,7 +225,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           showDialog(
             context: context,
             builder: (context) => const AlertDialogWidget(
-              title: 'Sign Up Error',
+              title: 'Registration Error',
               contentText:
               'An error occurred.\nPlease try again later.',
             ),
@@ -206,9 +236,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
         showDialog(
           context: context,
           builder: (context) => const AlertDialogWidget(
-            title: 'Sign Up error Error',
+            title: 'Registration Error',
             contentText:
-            'An error .\nPlease try again later.',
+            'An error occured.\nPlease try again later.',
           ),
         );
       }

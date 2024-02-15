@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/dialogs/alert_dialog.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:google_solution_challenge_2024/core/utils/text_validators.dart';
 import 'package:google_solution_challenge_2024/features/auth/app_user.dart';
 
 import '../../../../../core/reusable widget/app_logo/app_logo.dart';
@@ -70,9 +72,33 @@ class _SignInScreenState extends State<SignInScreen> {
     ));
   }
 
+  bool validateEmail()
+  {
+    bool valid = TextValidator.validateEmail(emailController.text);
+    if (valid == false)
+      {
+        showDialog(context: context, builder: (context) =>  AlertDialogWidget(
+            title: 'Invalid email'.tr(),
+            contentText: 'Please enter a valid email address'.tr()));
+      }
+    return valid;
+  }
+
+  bool validatePassword()
+  {
+    bool valid = TextValidator.validateEmail(emailController.text);
+    if (valid == false)
+    {
+      showDialog(context: context, builder: (context) =>  AlertDialogWidget(
+          title: 'Invalid password'.tr(),
+          contentText: 'Password most be 8 characters or more'.tr()));
+    }
+    return valid;
+  }
+
   Widget emailTextField() {
     return Padding(
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
