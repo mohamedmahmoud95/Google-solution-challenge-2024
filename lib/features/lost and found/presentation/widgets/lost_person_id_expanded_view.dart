@@ -4,49 +4,6 @@ import 'package:google_solution_challenge_2024/features/lost%20and%20found/domai
 
 import '../../../../core/utils/app_colors.dart';
 
-class LostPerson {
-  String? firstName;
-  String? lastName;
-
-  String? age;
-  String? imageUrl;
-  String? nationalId;
-  String? address; //registered address on the found national id card (if found)
-  String? lastSeenLocation;
-  String? careGiverPhoneNumber;
-
-  LostPerson({
-    this.firstName,
-    this.lastName,
-    this.age,
-    this.imageUrl,
-    this.nationalId,
-    this.address,
-    this.lastSeenLocation,
-    this.careGiverPhoneNumber,
-  });
-}
-
-//sample data:
-LostPerson raslan = LostPerson(
-  firstName: "Mohamed",
-  lastName: "Raslan",
-  age: "28",
-  imageUrl: "assets/images/Mohamed Raslan.png",
-  nationalId: "2950309999999999",
-  address: "5 Sarayat st.",
-  lastSeenLocation: "Eng ASU",
-);
-
-List<LostPerson> lostPeople = [
-  raslan,
-  raslan,
-  raslan,
-  raslan,
-  raslan,
-  raslan,
-  raslan
-];
 
 class LostPersonIdExpandedView extends StatelessWidget {
   final LostOrFoundPerson person;

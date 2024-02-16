@@ -57,14 +57,14 @@ class _LostTabState extends State<LostTab> {
               );
             } else if (state is ScanLostOrFoundPersonError) {
               //raslan please put the error ui here :)
-              return Center(
+              return const Center(
                 child: Text("error"),
               );
             } else {
               //raslan please put the loading ui here :)
 
-              return Center(
-                child: CircularProgressIndicator(),
+              return const Center(
+                child: SizedBox(height: 150, width: 150, child: CircularProgressIndicator()),
               );
             }
           },
