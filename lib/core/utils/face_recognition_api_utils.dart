@@ -1,9 +1,10 @@
 import 'dart:convert';
+import 'package:google_solution_challenge_2024/core/api/end_points.dart';
 import 'package:http/http.dart' as http;
 class FaceRecognitionApiUtils {
   
 Future<http.Response> uploadRequest (features, imgName) async {
-    var url = Uri(path: 'uploadFeatures', host: '10.0.2.2', port: 5050, scheme: 'http');
+    var url = Uri(path: 'uploadFeatures', host: EndPoints.api, scheme: 'http');
     Map data = {
       'features': features,
       'id': imgName
@@ -17,7 +18,7 @@ Future<http.Response> uploadRequest (features, imgName) async {
   }
 
 Future<List<String>> compareRequest (features) async {
-  var url = Uri(path: 'compareFeatures', host: '10.0.2.2', port: 5050, scheme: 'http');
+  var url = Uri(path: 'compareFeatures', host: EndPoints.api, scheme: 'http');
   Map data = {
     'features': features
   };

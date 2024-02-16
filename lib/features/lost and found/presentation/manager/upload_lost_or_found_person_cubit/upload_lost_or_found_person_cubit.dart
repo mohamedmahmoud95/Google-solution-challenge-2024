@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -17,7 +16,6 @@ class UploadLostOrFoundPersonCubit extends Cubit<UploadLostOrFoundPersonState> {
       {required File image,
       required bool isLostPerson,
       required LostOrFoundPerson lostOrFoundPerson}) async {
-    List<LostOrFoundPerson> lostOrFoundPersons = [];
     emit(UploadLostOrFoundPersonLoading());
     try {
       await _lostOrFoundPersonsRepo.uploadLostOrFoundPerson(
