@@ -5,7 +5,6 @@ import 'package:google_solution_challenge_2024/features/lost%20and%20found/data/
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/upload_lost_or_found_person_cubit/upload_lost_or_found_person_cubit.dart';
 
-import '../../../../core/utils/firestore_collections_names.dart';
 
 class LostOrFoundPersonsRepo {
   final LostOrFoundPersonsFirebase _lostOrFoundPersonsFirebase =
