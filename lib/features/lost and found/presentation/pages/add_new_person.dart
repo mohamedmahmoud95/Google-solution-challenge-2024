@@ -1,33 +1,45 @@
 import 'dart:io';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/buttons/rectangular_button_widget.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/text_fields/text_field.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/image_picker.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
-import 'package:image_picker/image_picker.dart';
-
+import '../../data/lost_or_found_persons_firebase.dart';
 import '../../../../core/utils/app_colors.dart';
 
-class AddNewLostOrFoundPerson extends StatelessWidget {
+class AddNewLostOrFoundPerson extends StatefulWidget {
   final LostOrFound lostOrFound;
-  AddNewLostOrFoundPerson({super.key, required this.lostOrFound});
-  File? imageFile;
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController nationalIdController = TextEditingController();
-  TextEditingController registeredAddressController = TextEditingController();
-  TextEditingController lastSeenlocationController = TextEditingController();
-  TextEditingController ageController = TextEditingController();
-  TextEditingController careGiverPhoneNumberController = TextEditingController();
+  const AddNewLostOrFoundPerson({super.key, required this.lostOrFound});
 
+  @override
+  State<AddNewLostOrFoundPerson> createState() => _AddNewLostOrFoundPersonState();
+}
+
+class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
+  File? imageFile;
+
+  TextEditingController firstNameController = TextEditingController();
+
+  TextEditingController lastNameController = TextEditingController();
+
+  TextEditingController nationalIdController = TextEditingController();
+
+  TextEditingController registeredAddressController = TextEditingController();
+
+  TextEditingController lastSeenlocationController = TextEditingController();
+
+  TextEditingController ageController = TextEditingController();
+
+  TextEditingController careGiverPhoneNumberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add new ${lostOrFound == LostOrFound.lost? 'lost' : 'found'} person"),
+        title: Text("Add new ${widget.lostOrFound == LostOrFound.lost? 'lost' : 'found'} person"),
       ),
 
       body: SingleChildScrollView(
@@ -47,7 +59,7 @@ class AddNewLostOrFoundPerson extends StatelessWidget {
             RectangularButton(
               text: 'Submit',
                 onTap: (){
-                  submit();
+                  submit(context);
             }
             ),
             const SizedBox(height: 30,),
@@ -60,78 +72,76 @@ class AddNewLostOrFoundPerson extends StatelessWidget {
   Widget imagePicker() {
     return GestureDetector(
       onTap: () async {
-        imageFile = await getImage();
+        File? tempImage = await getImage();
+        setState(() {
+          imageFile = tempImage; 
+        });
       },
       child:
-          const Padding(padding: EdgeInsets.all(30),child:
-          Column(
+        Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
             children: [
-              Row(
-            children:[
-              Text(
-                'Upload picture',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: AppColors.grey4,
-                ),
-              ),]),
-      SizedBox(height: 10,),
-      CircleAvatar(
-        radius: 50,
-        backgroundColor: AppColors.oliveGreen1,
-
-        child: CircleAvatar(
-        radius: 45,
-        backgroundImage: AssetImage(AppImages.profile),
-        backgroundColor: AppColors.oliveGreen1,
-      ),),
-            ],
-          ),),
+              const SizedBox(height: 10,),
+              Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  CircleAvatar(
+                    radius: 100,
+                    backgroundColor: AppColors.oliveGreen1,
+                    child: imageFile == null ? const CircleAvatar(
+                      radius: 85,
+                      backgroundImage: AssetImage(AppImages.profile),
+                      backgroundColor: AppColors.oliveGreen1,
+                    ):
+                    CircleAvatar(
+                      radius: 95,
+                      backgroundImage: FileImage(imageFile!),
+                      backgroundColor: AppColors.oliveGreen1,
+                    )
+                  ),
+                  const CircleAvatar(
+                    radius: 23,
+                    backgroundColor: Color.fromARGB(255, 110, 109, 109),
+                    child: Icon(
+                      color: AppColors.appleWhite,
+                      Icons.camera_alt_rounded,
+                      size: 20,
+                    ),
+                  ),
+                ],
+              ),
+          ],
+        ),
+      ),
     );
-
   }
 
-  void submit() {
+  void submit(context) {
     //1- create a new instance of lostOrFoundPerson
     LostOrFoundPerson newLostOrFoundPerson = LostOrFoundPerson();
-    if (firstNameController.text != null &&
-        firstNameController.text.isNotEmpty == false) {
+    
+    if (firstNameController.text.isNotEmpty) {
       newLostOrFoundPerson.firstName = firstNameController.text;
     }
-    if (lastNameController.text != null &&
-        lastNameController.text.isNotEmpty == false) {
+    if (lastNameController.text.isNotEmpty) {
       newLostOrFoundPerson.lastName = lastNameController.text;
     }
-
-    if (lastSeenlocationController.text != null &&
-        lastSeenlocationController.text.isNotEmpty == false) {
+    if (lastSeenlocationController.text.isNotEmpty) {
       newLostOrFoundPerson.lastSeenLocation = lastSeenlocationController.text;
     }
-
-
-    if (nationalIdController.text != null &&
-        nationalIdController.text.isNotEmpty == false) {
+    if (nationalIdController.text.isNotEmpty) {
       newLostOrFoundPerson.nationalId = nationalIdController.text;
     }
-
-
-    if (ageController.text != null && ageController.text.isNotEmpty == false) {
+    if (ageController.text.isNotEmpty) {
       newLostOrFoundPerson.age = ageController.text;
     }
-
-
-    if (registeredAddressController.text != null &&
-        registeredAddressController.text.isNotEmpty == false) {
+    if (registeredAddressController.text.isNotEmpty) {
       newLostOrFoundPerson.address = registeredAddressController.text;
     }
-
-
-    if (careGiverPhoneNumberController.text != null &&
-        careGiverPhoneNumberController.text.isNotEmpty == false) {
-      newLostOrFoundPerson.careGiverPhoneNumber =
-          careGiverPhoneNumberController.text;
+    if (careGiverPhoneNumberController.text.isNotEmpty) {
+      newLostOrFoundPerson.careGiverPhoneNumber = careGiverPhoneNumberController.text;
     }
-
 
     if (imageFile != null && imageFile
         .toString()
@@ -140,8 +150,9 @@ class AddNewLostOrFoundPerson extends StatelessWidget {
       newLostOrFoundPerson.imageUrl = imageFile.toString();
     }
 
-    newLostOrFoundPerson.lostOrFound = lostOrFound;
+    newLostOrFoundPerson.lostOrFound = widget.lostOrFound;
 
-    //Upload data();
+    LostOrFoundPersonsFirebase().uploadLostOrFoundPerson(lostOrFoundPerson: newLostOrFoundPerson, image: imageFile!, isLostPerson: (widget.lostOrFound == LostOrFound.lost ? true : false));
+
   }
 }

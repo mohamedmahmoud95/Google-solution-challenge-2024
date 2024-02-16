@@ -29,10 +29,12 @@ class LostPersonIdExpandedView extends StatelessWidget {
                         height: 100,
                         width: 100,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(("${person.imageUrl}")),
-                          ),
                           borderRadius: BorderRadius.circular(10),
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                        child: Image.network(
+                          person.imageUrl!,
+                          fit: BoxFit.cover,
                         ),
                       ),
                       const SizedBox(
@@ -68,7 +70,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
                             ),
                             SizedBox(
                               width: ScreenUtils.getScreenWidth(context) / 5.5,
-                              child: Text(
+                              child: const Text(
                                 overflow: TextOverflow.ellipsis,
                                 textAlign: TextAlign.start,
                                 maxLines: 2,
