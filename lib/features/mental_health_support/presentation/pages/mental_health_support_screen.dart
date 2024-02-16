@@ -86,10 +86,10 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
   }
 
   Widget seekHelpSection() {
-    return const Column(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(10),
           child: Text(
             "Seek help",
@@ -101,9 +101,19 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
           children: [
             ServiceCard(
                 title: "one to one",
-                imageUrl: "${AppImages.mentalHealthSupport}"),
-            ServiceCard(
-                title: "Group therapy", imageUrl: "${AppImages.groupTherapy}")
+                imageUrl: AppImages.mentalHealthSupport,
+              onClicked: (){
+                  Navigator.of(context).pushNamed('selectTherapistScreen');
+              },
+
+            ),
+             ServiceCard(
+                title: "Group therapy", imageUrl: AppImages.groupTherapy,
+              onClicked: (){
+                Navigator.of(context).pushNamed('selectTherapyGroupScreen');
+              },
+
+            )
           ],
         ),
       ],
