@@ -8,7 +8,6 @@ import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/auth/firebase_auth_services.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
-
 import '../../../../core/utils/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -28,16 +27,16 @@ class HomeScreen extends StatelessWidget {
       child: BlocConsumer<HomeCubit, HomeStates>(
         listener: (BuildContext context, state) {},
         builder: (context, state) => Scaffold(
-          backgroundColor: AppColors.oliveGreen1,
+          backgroundColor: AppColors.white,
           drawer: Drawer(
             width: ScreenUtils.getScreenWidth(context)/1.5,
-            backgroundColor: AppColors.oliveGreen1,
+            backgroundColor: AppColors.white,
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
                 const DrawerHeader(
                   decoration: BoxDecoration(
-                     color: AppColors.oliveGreen2,
+                     color: AppColors.oliveGreen1,
                   ),
                   child: SizedBox(),
                   // Text(
@@ -65,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                 ),
 
                 const Padding(padding: EdgeInsets.all(8),
-                child:Divider(color: AppColors.oliveGreen2, thickness: 0.5,),
+                child:Divider(color: AppColors.oliveGreen1, thickness: 0.5,),
                 ),
                 ListTile(
                   title:
@@ -88,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                 //غيره من هنا
                 pinned: true,
                 elevation: 0,
-                backgroundColor: AppColors.oliveGreen1,
+                backgroundColor: AppColors.white,
                 title: SizedBox(
                   width: double.infinity,
                   child: Column(
@@ -101,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                       const Text(
                         "Mohamed",
-                        style: TextStyle(fontWeight: FontWeight.w900,
+                        style: TextStyle(fontWeight: FontWeight.w700,
                         color: AppColors.darkGreen2),
                         textAlign: TextAlign.start,
 

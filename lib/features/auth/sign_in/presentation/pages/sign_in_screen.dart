@@ -50,6 +50,7 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(
               height: 30,
             ),
+            forgotPassword(),
             Center(
               child: signInButton(),
             ),
@@ -221,6 +222,27 @@ class _SignInScreenState extends State<SignInScreen> {
     }
   }
 
+  Widget forgotPassword() {
+    return Center(child: Padding(
+      padding: const EdgeInsets.all(8),
+      child:
+          GestureDetector(
+            onTap: () {
+            //  firebaseAuthServices.resetPassword("m.raslan97@gmail.com");
+              //Navigator.of(context).pushNamed('signUp');
+            },
+            child: const Text(
+              "Forgot password?",
+              style: TextStyle(
+                fontSize: 16,
+                color: AppColors.grey4,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),),
+
+    );
+  }
   Widget signUpInstead() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),

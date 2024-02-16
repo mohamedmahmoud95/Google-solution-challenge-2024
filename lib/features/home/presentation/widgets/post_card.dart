@@ -26,7 +26,7 @@ class PostCard extends StatelessWidget {
         builder: (BuildContext context, Widget? child) => Hero(
           tag: "post$index",
           child: Card(
-            color: AppColors.oliveGreen2,
+            color: AppColors.oliveGreen1,
             elevation: AppMeasures.defaultElevation,
             shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
@@ -35,7 +35,7 @@ class PostCard extends StatelessWidget {
               width: HomeCubit.get(context).screenWidth(context) * .3,
               height: HomeCubit.get(context).screenHeight(context) * 1,
               decoration: BoxDecoration(
-                color: AppColors.oliveGreen2,
+                color: AppColors.oliveGreen1,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(

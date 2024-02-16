@@ -25,7 +25,7 @@ class HelpCard extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: AppColors.cadetBlue1,
+            color: AppColors.oliveGreen1,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
