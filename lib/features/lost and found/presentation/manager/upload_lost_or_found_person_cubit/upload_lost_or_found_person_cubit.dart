@@ -12,7 +12,7 @@ class UploadLostOrFoundPersonCubit extends Cubit<UploadLostOrFoundPersonState> {
   final LostOrFoundPersonsRepo _lostOrFoundPersonsRepo =
       LostOrFoundPersonsRepo();
 
-  Future<void> UploadLostOrFoundPerson(
+  Future<void> uploadLostOrFoundPerson(
       {required File image,
       required bool isLostPerson,
       required LostOrFoundPerson lostOrFoundPerson}) async {

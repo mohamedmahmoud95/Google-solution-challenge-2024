@@ -61,7 +61,7 @@ class LostOrFoundPersonsFirebase {
       print("i came here");
       print(features);
 
-      List<String>? imageList =
+      List<String> imageList =
           await _faceRecognitionApiUtils.compareRequest(features);
       print(imageList);
       dataSnapshot = await firestoreDatabase
