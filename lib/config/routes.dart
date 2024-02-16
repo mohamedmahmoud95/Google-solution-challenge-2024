@@ -11,6 +11,8 @@ import 'package:google_solution_challenge_2024/features/mental_health_support/pr
 import '../features/auth/sign_in/presentation/pages/sign_in_screen.dart';
 import '../features/auth/sign_up/presentation/pages/sign_up_screen.dart';
 import '../features/landing_screen/presentation/pages/landing_screen.dart';
+import '../features/lost and found/domain/entities/lost_or_found_person.dart';
+import '../features/lost and found/presentation/pages/add_new_person.dart';
 import '../features/lost and found/presentation/pages/lost_and_found_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
 
@@ -26,12 +28,14 @@ class Routes {
   static const String selectTherapistScreen = "selectTherapistScreen";
   static const String sessionBookingScreen = "sessionBookingScreen";
   static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
-
+  static const String addNewLostOrFoundPerson = "addNewLostOrFoundPerson";
 
 }
 
 class AppRoutes {
   static Route onGenerate(RouteSettings routeSettings) {
+    final args = routeSettings.arguments;
+
     switch (routeSettings.name) {
       case Routes.landing:
         return MaterialPageRoute(builder: (context) => const LandingScreen());
@@ -67,7 +71,12 @@ class AppRoutes {
         return MaterialPageRoute(
             builder: (context) => const BookoneToOneSession());
 
-
+      case Routes.addNewLostOrFoundPerson:
+        return MaterialPageRoute(
+            builder: (context) => AddNewLostOrFoundPerson(
+              lostOrFound: args as LostOrFound,
+  ));
+        
       case Routes.lostAndFound:
         return MaterialPageRoute(
             builder: (context) =>  MultiBlocProvider(
@@ -79,7 +88,7 @@ class AppRoutes {
                       create: (context) => ScanLostOrFoundPersonCubit(),
                     ),
                   ],
-                  child: LostAndFoundScreen(),
+                  child: const LostAndFoundScreen(),
                 ));
 
       default:
