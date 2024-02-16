@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
 
+import '../../../../config/routes.dart';
 import '../../../../core/utils/app_colors.dart';
+import '../../domain/entities/lost_or_found_person.dart';
 import '../widgets/lost_person_id_compact_view.dart';
 import '../widgets/lost_person_id_expanded_view.dart';
 import '../widgets/search_bar.dart';
@@ -70,7 +72,13 @@ class _LostTabState extends State<LostTab> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColorDark,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            Routes.addNewLostOrFoundPerson,
+            arguments: LostOrFound.lost,
+          );
+        },
         child: const Icon(
           Icons.add,
           color: AppColors.white,
