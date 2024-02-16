@@ -8,7 +8,6 @@ import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/auth/firebase_auth_services.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
-
 import '../../../../core/utils/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
