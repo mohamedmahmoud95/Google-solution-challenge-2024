@@ -1,11 +1,6 @@
 import 'dart:io';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/data/lost_or_found_persons_firebase.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
-import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/upload_lost_or_found_person_cubit/upload_lost_or_found_person_cubit.dart';
-
-import '../../../../core/utils/firestore_collections_names.dart';
 
 class LostOrFoundPersonsRepo {
   final LostOrFoundPersonsFirebase _lostOrFoundPersonsFirebase =
@@ -31,7 +26,6 @@ class LostOrFoundPersonsRepo {
       {required File image,
       required bool isLostPerson,
       required LostOrFoundPerson lostOrFoundPerson}) async {
-    List<LostOrFoundPerson> lostOrFoundPersons = [];
 
     await _lostOrFoundPersonsFirebase.uploadLostOrFoundPerson(
         image: image,
