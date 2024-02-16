@@ -1,8 +1,6 @@
 import 'dart:io';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 
 import '../../../core/utils/face_features_extractor_utils.dart';
@@ -53,17 +51,19 @@ class LostOrFoundPersonsFirebase {
       int outputSize = 192,
       int inputSize = 112,
       required bool isLostPerson}) async {
-    List? features = await faceFeaturesExtractorUtils.getFeatures(
-        image, model, outputSize, inputSize);
-    if (features == null) return null;
 
-
-    List<String>? imageList =
-        await _faceRecognitionApiUtils.compareRequest(features);
-    print(imageList);
     QuerySnapshot<Map<String, dynamic>> dataSnapshot;
 
     if (image != null) {
+      List? features = await faceFeaturesExtractorUtils.getFeatures(
+        image, model, outputSize, inputSize);
+      if (features == null) return null;
+      print("i came here");
+      print(features);
+
+      List<String>? imageList =
+          await _faceRecognitionApiUtils.compareRequest(features);
+      print(imageList);
       dataSnapshot = await firestoreDatabase
           .collection(isLostPerson
               ? AppFirestoreCollections.lostPersonsCollection

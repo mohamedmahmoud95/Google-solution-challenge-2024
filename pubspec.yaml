@@ -55,6 +55,7 @@ flutter:
    - assets/images/
    - assets/images/Mohamed Raslan.png
    - assets/translations/
+   - assets/models/mobileFaceNet.tflite
 
 
   # fonts:

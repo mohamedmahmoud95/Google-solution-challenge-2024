@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+enum LostOrFound {lost, found} //lost = 0 , found = 1
+
 class LostOrFoundPerson {
   String? firstName;
   String? lastName;
@@ -10,6 +12,7 @@ class LostOrFoundPerson {
   String? address; //registered address on the found national id card (if found)
   String? lastSeenLocation;
   String? careGiverPhoneNumber;
+  LostOrFound? lostOrFound;
 
   LostOrFoundPerson({
     this.firstName,
@@ -20,6 +23,7 @@ class LostOrFoundPerson {
     this.address,
     this.lastSeenLocation,
     this.careGiverPhoneNumber,
+    this.lostOrFound,
   });
 
   LostOrFoundPerson copyWith({
