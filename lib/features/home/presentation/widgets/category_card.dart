@@ -24,7 +24,7 @@ class CategoryCard extends StatelessWidget {
               horizontal: HomeCubit.get(context).screenWidth(context) * .01,
               vertical: HomeCubit.get(context).screenHeight(context) * .009),
           decoration: const BoxDecoration(
-              color: AppColors.oliveGreen2,
+              color: AppColors.oliveGreen1,
               borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
