@@ -1,14 +1,13 @@
 import 'dart:io';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:google_solution_challenge_2024/core/utils/firestore_collections_names.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 
 import '../../../core/utils/face_features_extractor_utils.dart';
 import '../../../core/utils/face_recognition_api_utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../../core/firebase_service/general_crud_firestore.dart';
 
 class LostOrFoundPersonsFirebase {
   final FirebaseFirestore firestoreDatabase = FirebaseFirestore.instance;
@@ -34,8 +33,8 @@ class LostOrFoundPersonsFirebase {
     if (features == null) return null;
     DocumentReference<Map<String, dynamic>> entryRef = firestoreDatabase
         .collection(isLostPerson
-            ? FirestoreCollectionsNames.lostPersonsCollection
-            : FirestoreCollectionsNames.foundPersonsCollection)
+            ? AppFirestoreCollections.lostPersonsCollection
+            : AppFirestoreCollections.foundPersonsCollection)
         .doc();
     final imageFileRef =
         storageRef.child('images/${entryRef.id}/${basename(image.path)}');
@@ -52,28 +51,30 @@ class LostOrFoundPersonsFirebase {
       int outputSize = 192,
       int inputSize = 112,
       required bool isLostPerson}) async {
-    List? features = await faceFeaturesExtractorUtils.getFeatures(
-        image, model, outputSize, inputSize);
-    if (features == null) return null;
-    print("i came here");
 
-    List<String>? imageList =
-        await _faceRecognitionApiUtils.compareRequest(features);
-    print(imageList);
     QuerySnapshot<Map<String, dynamic>> dataSnapshot;
 
     if (image != null) {
+      List? features = await faceFeaturesExtractorUtils.getFeatures(
+        image, model, outputSize, inputSize);
+      if (features == null) return null;
+      print("i came here");
+      print(features);
+
+      List<String>? imageList =
+          await _faceRecognitionApiUtils.compareRequest(features);
+      print(imageList);
       dataSnapshot = await firestoreDatabase
           .collection(isLostPerson
-              ? FirestoreCollectionsNames.lostPersonsCollection
-              : FirestoreCollectionsNames.foundPersonsCollection)
+              ? AppFirestoreCollections.lostPersonsCollection
+              : AppFirestoreCollections.foundPersonsCollection)
           .where("id", whereIn: imageList)
           .get();
     } else {
       dataSnapshot = await firestoreDatabase
           .collection(isLostPerson
-              ? FirestoreCollectionsNames.lostPersonsCollection
-              : FirestoreCollectionsNames.foundPersonsCollection)
+              ? AppFirestoreCollections.lostPersonsCollection
+              : AppFirestoreCollections.foundPersonsCollection)
           .get();
     }
 
