@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class AppFirestoreCollections {
   static const String lostPersonsCollection = "lost_persons_collection";
   static const String foundPersonsCollection = "found_persons_collection";
-  static const String therapistsCollection = "therapists_collection";
+  static const String professionalsCollection = "professionals_collection";
   static const String wikiPageCollection = "wiki_page_collection";
   static const String appointmentCollection = "appointment__collection";
   static const String appUserCollection = "app_user_collection";
