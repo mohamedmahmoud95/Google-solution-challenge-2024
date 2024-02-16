@@ -4,7 +4,10 @@ import 'package:google_solution_challenge_2024/features/articles_details/present
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/upload_lost_or_found_person_cubit/upload_lost_or_found_person_cubit.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/book_one_to_one_session.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/mental_health_support_screen.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/select_therapist_screen.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/select_therapy_group.dart';
 import '../features/auth/sign_in/presentation/pages/sign_in_screen.dart';
 import '../features/auth/sign_up/presentation/pages/sign_up_screen.dart';
 import '../features/landing_screen/presentation/pages/landing_screen.dart';
@@ -20,6 +23,11 @@ class Routes {
   static const String signUp = "signUp";
   static const String mentalHealthSupport = "mentalHealthSupport";
   static const String lostAndFound = "lostAndFound";
+  static const String selectTherapistScreen = "selectTherapistScreen";
+  static const String sessionBookingScreen = "sessionBookingScreen";
+  static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
+
+
 }
 
 class AppRoutes {
@@ -46,6 +54,19 @@ class AppRoutes {
       case Routes.mentalHealthSupport:
         return MaterialPageRoute(
             builder: (context) => const MentalHealthSupportScreen());
+
+      case Routes.selectTherapistScreen:
+        return MaterialPageRoute(
+            builder: (context) => const SelectTherapistScreen());
+
+      case Routes.selectTherapyGroupScreen:
+        return MaterialPageRoute(
+            builder: (context) => const SelectTherapyGroupScreen());
+
+      case Routes.sessionBookingScreen:
+        return MaterialPageRoute(
+            builder: (context) => const BookoneToOneSession());
+
 
       case Routes.lostAndFound:
         return MaterialPageRoute(

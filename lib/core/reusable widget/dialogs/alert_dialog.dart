@@ -7,24 +7,33 @@ class AlertDialogWidget extends StatelessWidget {
   final String contentText;
   final Widget? actionWidget;
   final VoidCallback? onPressed;
-  const AlertDialogWidget({super.key, this.title, required this.contentText, this.actionWidget, this.onPressed});
+  const AlertDialogWidget(
+      {super.key,
+      this.title,
+      required this.contentText,
+      this.actionWidget,
+      this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: AppColors.oliveGreen2,
+      backgroundColor: AppColors.oliveGreen3,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       title: Text(
         title ?? '',
+        style: Theme.of(context)
+            .textTheme
+            .bodySmall
+            ?.copyWith(color: AppColors.appleWhite, fontSize: 20),
       ),
       content: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.0.sp),
         child: Text(
           contentText,
           style: Theme.of(context).textTheme.bodySmall?.copyWith(
-            color: AppColors.appleWhite,
-            height: 1.5,
-          ),
+                color: AppColors.appleWhite,
+                fontSize: 15,
+              ),
         ),
       ),
       actions: [
@@ -32,18 +41,15 @@ class AlertDialogWidget extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(8.0.sp),
               child: ElevatedButton(
-
                 style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.green1,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10))),
                 onPressed: onPressed ?? () => Navigator.of(context).pop(),
                 child: Text("OK",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodySmall!
-                        .copyWith(color: AppColors.black0000,)),
-
+                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          color: AppColors.black0000,
+                        )),
               ),
             ),
       ],

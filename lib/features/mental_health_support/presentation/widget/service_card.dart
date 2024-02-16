@@ -9,12 +9,20 @@ class ServiceCard extends StatelessWidget {
   final double? width;
   final double? imageHeight;
   final double? imageWidth;
+  final Function? onClicked;
 
-  const ServiceCard({super.key, required this.title, this.imageUrl, this.height, this.width, this.imageHeight, this.imageWidth});
+  const ServiceCard({super.key, required this.title, this.imageUrl, this.height, this.width, this.imageHeight, this.imageWidth, this.onClicked});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return
+      GestureDetector(
+        onTap: (){
+          if(onClicked != null) {
+            onClicked!();
+          }
+        },
+        child: SizedBox(
       height: height ?? ScreenUtils.getScreenHeight(context)/5,
       width :  width ?? ScreenUtils.getScreenWidth(context)/2 -20,
       child : Card(
@@ -39,6 +47,7 @@ class ServiceCard extends StatelessWidget {
           ),
         ),
       ),
+    ),
     );
   }
 }

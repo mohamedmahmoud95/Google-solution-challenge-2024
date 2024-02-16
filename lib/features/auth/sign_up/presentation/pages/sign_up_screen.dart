@@ -1,8 +1,14 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:google_solution_challenge_2024/features/auth/firebase_auth_services.dart';
 
 import '../../../../../core/reusable widget/app_logo/app_logo.dart';
+import '../../../../../core/reusable widget/dialogs/alert_dialog.dart';
+import '../../../../../core/utils/text_validators.dart';
+import '../../../app_user.dart';
 
 
 class SignUpScreen extends StatefulWidget {
@@ -59,9 +65,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ));
   }
 
+
+  bool validateEmail()
+  {
+    bool valid = TextValidator.validateEmail(emailController.text);
+    if (valid == false)
+    {
+      showDialog(context: context, builder: (context) =>  AlertDialogWidget(
+          title: 'Invalid email'.tr(),
+          contentText: 'Please enter a valid email address'.tr()));
+    }
+    return valid;
+  }
+
+  bool validatePassword()
+  {
+    bool valid = TextValidator.validatePassword(passwordController.text);
+    if (valid == false)
+    {
+      showDialog(context: context, builder: (context) =>  AlertDialogWidget(
+          title: 'Invalid password'.tr(),
+          contentText: 'Password most be 8 characters or more'.tr()));
+    }
+    return valid;
+  }
+
   Widget fullNameTextField() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -87,7 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
   Widget emailTextField() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -114,7 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   Widget passwordTextField() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -152,7 +183,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget signUpButton() {
     return GestureDetector(
       onTap: () {
-        signUp();
+        bool okToProgress =  validateEmail() && validatePassword();
+        if (okToProgress) {
+          signUp();
+        }
       },
       child: Container(
         height: 50,
@@ -172,8 +206,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void signUp() {
-    Navigator.of(context).pushReplacementNamed('home');
+  final FirebaseAuthServices firebaseAuthServices =  FirebaseAuthServices(FirebaseAuth.instance);
+
+  Future<void> signUp() async {
+      bool signUpSuccess = false;
+      try {
+
+        final signUpResult = (await firebaseAuthServices
+            .registerWithEmailAndPassword(
+             emailController.text, passwordController.text, (){}, (){}));
+
+        if (signUpResult != null) {
+          signUpSuccess = true;
+          currentAppUser = signUpResult;
+          Navigator.of(context).pushReplacementNamed('home');
+        }
+        else {
+          showDialog(
+            context: context,
+            builder: (context) => const AlertDialogWidget(
+              title: 'Registration Error',
+              contentText:
+              'An error occurred.\nPlease try again later.',
+            ),
+          );
+        }
+      }catch(e){
+        debugPrint("\n unable to register, \n$e\n");
+        showDialog(
+          context: context,
+          builder: (context) => const AlertDialogWidget(
+            title: 'Registration Error',
+            contentText:
+            'An error occured.\nPlease try again later.',
+          ),
+        );
+      }
   }
 
   Widget signInInstead() {
@@ -208,3 +276,4 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 }
+

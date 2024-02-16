@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/dialogs/alert_dialog.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:google_solution_challenge_2024/core/utils/text_validators.dart';
 import 'package:google_solution_challenge_2024/features/auth/app_user.dart';
 
 import '../../../../../core/reusable widget/app_logo/app_logo.dart';
@@ -48,6 +50,7 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(
               height: 30,
             ),
+            forgotPassword(),
             Center(
               child: signInButton(),
             ),
@@ -70,9 +73,33 @@ class _SignInScreenState extends State<SignInScreen> {
     ));
   }
 
+  bool validateEmail()
+  {
+    bool valid = TextValidator.validateEmail(emailController.text);
+    if (valid == false)
+      {
+        showDialog(context: context, builder: (context) =>  AlertDialogWidget(
+            title: 'Invalid email'.tr(),
+            contentText: 'Please enter a valid email address'.tr()));
+      }
+    return valid;
+  }
+
+  bool validatePassword()
+  {
+    bool valid = TextValidator.validatePassword(passwordController.text);
+    if (valid == false)
+    {
+      showDialog(context: context, builder: (context) =>  AlertDialogWidget(
+          title: 'Invalid password'.tr(),
+          contentText: 'Invalid password, Please try again'.tr()));
+    }
+    return valid;
+  }
+
   Widget emailTextField() {
     return Padding(
-      padding: EdgeInsets.all(30),
+      padding: const EdgeInsets.all(30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -137,7 +164,10 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget signInButton() {
     return GestureDetector(
       onTap: () {
-        signIn();
+        bool okToProgress = validateEmail() && validatePassword();
+        if (okToProgress) {
+          signIn();
+        }
       },
       child: Container(
         height: 50,
@@ -160,7 +190,6 @@ class _SignInScreenState extends State<SignInScreen> {
   Future<void> signIn() async {
     bool signInSuccess = false;
     try {
-
       final signInResult = (await firebaseAuthServices
           .loginWithEmailAndPassword(
           email: emailController.text, password: passwordController.text))!;
@@ -174,9 +203,9 @@ class _SignInScreenState extends State<SignInScreen> {
         showDialog(
           context: context,
           builder: (context) => const AlertDialogWidget(
-            title: 'Verification Error',
+            title: 'Sign in Error',
             contentText:
-            'An error occurred while trying to verify your OTP.\nPlease try again later.',
+            'Invalid email or password, \nplease try again',
           ),
         );
       }
@@ -185,14 +214,35 @@ class _SignInScreenState extends State<SignInScreen> {
       showDialog(
         context: context,
         builder: (context) => const AlertDialogWidget(
-          title: 'Verification Error',
+          title: 'Sign in Error',
           contentText:
-          'An error occurred while trying to verify your OTP.\nPlease try again later.',
+          'Invalid email or password, \nplease try again',
         ),
       );
     }
   }
 
+  Widget forgotPassword() {
+    return Center(child: Padding(
+      padding: const EdgeInsets.all(8),
+      child:
+          GestureDetector(
+            onTap: () {
+            //  firebaseAuthServices.resetPassword("m.raslan97@gmail.com");
+              //Navigator.of(context).pushNamed('signUp');
+            },
+            child: const Text(
+              "Forgot password?",
+              style: TextStyle(
+                fontSize: 16,
+                color: AppColors.grey4,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ),),
+
+    );
+  }
   Widget signUpInstead() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),

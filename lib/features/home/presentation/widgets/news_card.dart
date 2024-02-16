@@ -42,7 +42,7 @@ class NewsCard extends StatelessWidget {
                       vertical:
                           HomeCubit.get(context).screenHeight(context) * .01),
                   decoration: BoxDecoration(
-                    color: AppColors.oliveGreen2,
+                    color: AppColors.oliveGreen1,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
