@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/widgets/prayers_card.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import '../../../home/presentation/widgets/help_card.dart';
+import '../../../reels_screen/presentation/pages/video_screen.dart';
 import '../widgets/charity_card.dart';
 
 class CharityScreen extends StatefulWidget {
@@ -159,15 +160,15 @@ class _CharityScreenState extends State<CharityScreen> {
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .03,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal:
-                        HomeCubit.get(context).screenWidth(context) * .03,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal:
+                            HomeCubit.get(context).screenWidth(context) * .03,
+                      ),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           SizedBox(
@@ -196,22 +197,17 @@ class _CharityScreenState extends State<CharityScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(
-                        height:
-                            HomeCubit.get(context).screenHeight(context) * .001,
-                      ),
-                      SizedBox(
-                        height:
-                            HomeCubit.get(context).screenHeight(context) * 0.44,
-                        child: ListView.builder(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) => const CharityCard(),
-                          itemCount: 4,
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height:
+                          HomeCubit.get(context).screenHeight(context) * .001,
+                    ),
+                    SizedBox(
+                      height:
+                          HomeCubit.get(context).screenHeight(context) * 0.3,
+                      child: const VideoCard(),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .03,

@@ -7,6 +7,7 @@ import 'package:google_solution_challenge_2024/features/settings%20/presentation
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_and_found_screen.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/mental_health_support_screen.dart';
 
+
 class Routes {
   static const String home = "home";
   static const String settings = "settings";
@@ -15,8 +16,6 @@ class Routes {
   static const String mentalHealthSupport = "mentalHealthSupport";
   static const String lostAndFound = "lostAndFound";
   static const String charity = "/";
-
-
 }
 
 class AppRoutes {
@@ -24,17 +23,20 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.home:
         return MaterialPageRoute(builder: (context) => const HomeScreen());
+
       case Routes.settings:
-        return MaterialPageRoute(builder: (context) =>  const Settings());
-    
+        return MaterialPageRoute(builder: (context) => const Settings());
+
       case Routes.articlesDetails:
         return MaterialPageRoute(builder: (context) => const ArticlesScreen());
       case Routes.signIn:
         return MaterialPageRoute(builder: (context) => const SignInScreen());
       case Routes.mentalHealthSupport:
-        return MaterialPageRoute(builder: (context) => const MentalHealthSupportScreen());
+        return MaterialPageRoute(
+            builder: (context) => const MentalHealthSupportScreen());
       case Routes.lostAndFound:
-        return MaterialPageRoute(builder: (context) => const LostAndFoundScreen());
+        return MaterialPageRoute(
+            builder: (context) => const LostAndFoundScreen());
       case Routes.charity:
         return MaterialPageRoute(builder: (context) => const CharityScreen());
 
