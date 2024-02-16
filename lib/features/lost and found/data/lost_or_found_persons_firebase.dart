@@ -9,7 +9,7 @@ import '../../../core/utils/face_features_extractor_utils.dart';
 import '../../../core/utils/face_recognition_api_utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../../data/firebase_service/general_crud_firestore.dart';
+import '../../../core/firebase_service/general_crud_firestore.dart';
 
 class LostOrFoundPersonsFirebase {
   final FirebaseFirestore firestoreDatabase = FirebaseFirestore.instance;
@@ -56,7 +56,7 @@ class LostOrFoundPersonsFirebase {
     List? features = await faceFeaturesExtractorUtils.getFeatures(
         image, model, outputSize, inputSize);
     if (features == null) return null;
-    print("i came here");
+
 
     List<String>? imageList =
         await _faceRecognitionApiUtils.compareRequest(features);

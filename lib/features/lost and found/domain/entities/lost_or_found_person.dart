@@ -4,7 +4,6 @@ import 'dart:convert';
 class LostOrFoundPerson {
   String? firstName;
   String? lastName;
-
   String? age;
   String? imageUrl;
   String? nationalId;
