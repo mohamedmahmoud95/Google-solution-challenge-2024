@@ -36,6 +36,7 @@ dependencies:
   firebase_database: ^10.4.5
   firebase_crashlytics: ^3.4.14
   firebase_analytics: ^10.8.5
+  uuid: ^4.3.3
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +55,7 @@ flutter:
    - assets/images/
    - assets/images/Mohamed Raslan.png
    - assets/translations/
+   - assets/models/mobileFaceNet.tflite
 
 
   # fonts:
