@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import '../widgets/subscreen_card.dart';
 import 'found_tab.dart';
 import 'lost_tab.dart';
 
@@ -19,13 +18,13 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: AppColors.white,
         appBar: AppBar(
           leading: const BackButton(
             color: AppColors.darkGreen2,
           ),
           backgroundColor:
-              AppColors.oliveGreen1, //Theme.of(context).primaryColorLight,
+          AppColors.white, //Theme.of(context).primaryColorLight,
           automaticallyImplyLeading: true,
           title: const Text(
             "Get back together",
@@ -90,8 +89,4 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
     );
   }
 
-  List<subScreenCard> navigationCards = [
-    subScreenCard(title: "Lost", onPressed: () {}),
-    subScreenCard(title: "Found", onPressed: () {}),
-  ];
 }
