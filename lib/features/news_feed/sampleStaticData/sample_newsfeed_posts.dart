@@ -14,8 +14,22 @@ NewsFeedPost sampleNewsFeedPost1 = NewsFeedPost(
 
 );
 
+NewsFeedPost sampleNewsFeedPost2 = NewsFeedPost(
+  authorId: '123',
+  content:
+  "2nd news update".tr(),
+  createdAt: DateTime.now(),
+  numOfDownVotes: 10,
+  numOfUpVotes: 0,
+  imageUrl: 'https://img.youm7.com/large/20231017094503453.jpg',
+  newsSource: jazeera,
+
+);
+
 List<NewsFeedPost> sampleNewsFeedPosts = [
   sampleNewsFeedPost1,
+  sampleNewsFeedPost2,
   sampleNewsFeedPost1,
+  sampleNewsFeedPost2,
   sampleNewsFeedPost1
 ];

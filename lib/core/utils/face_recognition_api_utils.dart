@@ -10,6 +10,8 @@ Future<http.Response> uploadRequest (features, imgName) async {
       'id': imgName
     };
     var body = json.encode(data);
+    //'content-type': 'multipart/form-data'
+
     var response = await http.post(url,
         headers: {"Content-Type": "application/json"},
         body: body

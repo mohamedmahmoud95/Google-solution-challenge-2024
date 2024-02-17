@@ -55,6 +55,7 @@ class _FoundTabState extends State<FoundTab> {
                   spacing: 10,
                   runSpacing: 10,
                   children: [
+                    const SizedBox(height: 5,),
                     CustomSearchBar(getImage: getImage,),
                     ...state.lostOrFoundPersons
                         .map(
@@ -90,7 +91,7 @@ class _FoundTabState extends State<FoundTab> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColorDark,
+        backgroundColor: AppColors.oliveGreen3,//Theme.of(context).primaryColorDark,
         onPressed: () {
           Navigator.pushNamed(
             context,
