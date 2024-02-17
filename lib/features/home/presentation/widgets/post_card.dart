@@ -25,9 +25,10 @@ class PostCard extends StatelessWidget {
         animation: HomeCubit.get(context).postPageController,
         builder: (BuildContext context, Widget? child) => Hero(
           tag: "post$index",
-          child: Card(
+          child:
+          Card(
             color: AppColors.oliveGreen1,
-            elevation: AppMeasures.defaultElevation,
+            elevation: 1,
             shape: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(20),
                 borderSide: const BorderSide(color: Colors.transparent)),
@@ -154,6 +155,7 @@ class PostCard extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }

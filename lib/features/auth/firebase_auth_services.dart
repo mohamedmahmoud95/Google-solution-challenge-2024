@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'app_user.dart';
+import 'authentication_gate.dart';
 
 class FirebaseAuthServices {
   final FirebaseAuth _firebaseAuth;
@@ -65,6 +66,11 @@ class FirebaseAuthServices {
       if (onLoginSuccess != null) {
         onLoginSuccess();
       }
+      const securedStorage =
+      FlutterSecureStorage();
+      await securedStorage.write(
+          key: "access_token", value:authResult.credential!.accessToken! );
+
       return _userFromFirebase(authResult.user);
     } catch (e) {
       debugPrint(e.toString());

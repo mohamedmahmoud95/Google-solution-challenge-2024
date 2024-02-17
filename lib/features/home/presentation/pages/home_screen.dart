@@ -34,7 +34,7 @@ class HomeScreen extends StatelessWidget {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                const DrawerHeader(
+                 DrawerHeader(
                   decoration: BoxDecoration(
                      color: AppColors.oliveGreen1,
                   ),
@@ -63,7 +63,7 @@ class HomeScreen extends StatelessWidget {
                   },
                 ),
 
-                const Padding(padding: EdgeInsets.all(8),
+                 Padding(padding: EdgeInsets.all(8),
                 child:Divider(color: AppColors.oliveGreen1, thickness: 0.5,),
                 ),
                 ListTile(

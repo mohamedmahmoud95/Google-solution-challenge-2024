@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_professionals_cubit/get_professionals_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/therapist_card.dart';
+import '../../../../core/utils/app_images.dart';
 import '../../domain/entities/professional.dart';
+import '../../domain/repo/professionals_firestore_repo.dart';
 
 class SelectTherapistScreen extends StatefulWidget {
   const SelectTherapistScreen({super.key});
@@ -16,6 +19,16 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
   @override
   void initState(){
     super.initState();
+    ProfessionalsFirestoreRepo().addProfessional(Professional(
+        id: "id",
+        name: "Mohamed Raslan",
+        photoUrl: "${AppImages.raslan.toString()}",
+        jobTitle: "PTSD Therapist",
+        rating: 4.9,
+        timeOfSlotes: [],
+        isAvailable: true,
+        phoneNumber: "52252252")
+    );
     BlocProvider.of<GetProfessionalsCubit>(context).getAllProfessionals();
   }
 
@@ -24,6 +37,13 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Select a therapist'),
+        actions: [
+          IconButton(
+    onPressed:(){
+    context.read<GetProfessionalsCubit>().getAllProfessionals();
+    },
+      icon: const Icon(Icons.refresh),),
+        ],
       ),
       body: BlocBuilder<GetProfessionalsCubit, GetProfessionalsState>(
         builder: (context, state) {
@@ -48,12 +68,13 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
           }
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.read<GetProfessionalsCubit>().getAllProfessionals();
-        },
-        child: const Icon(Icons.refresh),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: AppColors.oliveGreen2,
+      //   onPressed: () {
+      //     context.read<GetProfessionalsCubit>().getAllProfessionals();
+      //   },
+      //   child: const Icon(Icons.refresh, color: AppColors.white,),
+      // ),
     );
   }
 }
