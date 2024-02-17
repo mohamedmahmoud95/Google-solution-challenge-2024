@@ -4,12 +4,14 @@ import 'package:http/http.dart' as http;
 class FaceRecognitionApiUtils {
   
 Future<http.Response> uploadRequest (features, imgName) async {
-    var url = Uri(path: 'uploadFeatures', host: EndPoints.api, scheme: 'http');
+    var url = Uri(path: 'uploadFeatures', host: EndPoints.api, scheme: 'https');
     Map data = {
       'features': features,
       'id': imgName
     };
     var body = json.encode(data);
+    //'content-type': 'multipart/form-data'
+
     var response = await http.post(url,
         headers: {"Content-Type": "application/json"},
         body: body
@@ -18,7 +20,7 @@ Future<http.Response> uploadRequest (features, imgName) async {
   }
 
 Future<List<String>> compareRequest (features) async {
-  var url = Uri(path: 'compareFeatures', host: EndPoints.api, scheme: 'http');
+  var url = Uri(path: 'compareFeatures', host: EndPoints.api, scheme: 'https');
   print(url);
   Map data = {
     'features': features

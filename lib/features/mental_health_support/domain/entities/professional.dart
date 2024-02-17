@@ -112,4 +112,3 @@ class Professional {
         phoneNumber.hashCode;
   }
 }
-
