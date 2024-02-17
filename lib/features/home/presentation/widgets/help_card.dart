@@ -18,7 +18,7 @@ class HelpCard extends StatelessWidget {
         // Navigator.pushNamed(context, Routes.articlesDetails);
       },
       child: Card(
-        elevation: 5,
+        elevation: 1,
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(color: Colors.transparent)),
@@ -86,6 +86,7 @@ class HelpCard extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }

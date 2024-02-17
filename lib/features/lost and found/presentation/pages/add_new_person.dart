@@ -89,7 +89,7 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
                   CircleAvatar(
                     radius: 100,
                     backgroundColor: AppColors.oliveGreen1,
-                    child: imageFile == null ? const CircleAvatar(
+                    child: imageFile == null ?  CircleAvatar(
                       radius: 85,
                       backgroundImage: AssetImage(AppImages.profile),
                       backgroundColor: AppColors.oliveGreen1,

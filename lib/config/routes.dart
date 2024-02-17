@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/features/articles_details/presentation/pages/articles_details.dart';
+import 'package:google_solution_challenge_2024/features/auth/authentication_gate.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/upload_lost_or_found_person_cubit/upload_lost_or_found_person_cubit.dart';
@@ -18,7 +19,8 @@ import '../features/lost and found/presentation/pages/lost_and_found_screen.dart
 import '../features/settings/presentation/pages/setting_screen.dart';
 
 class Routes {
-  static const String landing = "/";
+  static const String authGate = "/";
+  static const String landing = "landing";
   static const String home = "home";
   static const String settings = "settings";
   static const String articlesDetails = "articlesDetails";
@@ -37,6 +39,9 @@ class AppRoutes {
     final args = routeSettings.arguments;
 
     switch (routeSettings.name) {
+      case Routes.authGate:
+        return MaterialPageRoute(builder: (context) => const AuthenticationGate());
+
       case Routes.landing:
         return MaterialPageRoute(builder: (context) => const LandingScreen());
 
