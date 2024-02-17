@@ -20,5 +20,6 @@ class AppImages {
   static const String video = "${Constants.baseImageUrl}/video.png";
   static const String logo = "${Constants.baseImageUrl}/logo.png";
   static const String profile = "${Constants.baseImageUrl}/profile.png";
+  static const String raslan =  "${Constants.baseImageUrl}/Mohamed Raslan.png";
 
 }

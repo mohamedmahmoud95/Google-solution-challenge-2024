@@ -14,7 +14,7 @@ class RectangularButton extends StatelessWidget {
   final double? width;
   const RectangularButton(
       {super.key,
-      this.backgroundColor = AppColors.oliveGreen1,
+      this.backgroundColor ,
       this.foregroundColor = AppColors.white,
       this.text,
       this.childWidget,
@@ -34,7 +34,7 @@ class RectangularButton extends StatelessWidget {
         height: 50,
         width: width??ScreenUtils.getScreenWidth(context) / 1.35,
         decoration: BoxDecoration(
-          color: Theme.of(context).primaryColorLight,
+          color: backgroundColor??Theme.of(context).primaryColorLight,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
         child: Center(

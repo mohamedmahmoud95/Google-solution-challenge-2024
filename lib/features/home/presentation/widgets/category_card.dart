@@ -16,14 +16,14 @@ class CategoryCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Card(
-        elevation: 4,
+        elevation: 1,
         child: Container(
           width: HomeCubit.get(context).screenWidth(context) * .4,
           height: HomeCubit.get(context).screenHeight(context) * .18,
           padding: EdgeInsets.symmetric(
               horizontal: HomeCubit.get(context).screenWidth(context) * .01,
               vertical: HomeCubit.get(context).screenHeight(context) * .009),
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
               color: AppColors.oliveGreen1,
               borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Column(
@@ -48,6 +48,7 @@ class CategoryCard extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }

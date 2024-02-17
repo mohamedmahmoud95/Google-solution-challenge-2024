@@ -15,7 +15,7 @@ class LostPersonIdExpandedView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Card(
-          elevation: 0.5,
+          elevation: 0,
           color: AppColors.oliveGreen1,
           // color: Colors.green.shade100,
           child: Padding(

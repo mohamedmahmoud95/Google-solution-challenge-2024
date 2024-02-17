@@ -30,8 +30,10 @@ class NewsCard extends StatelessWidget {
             angle: pi * 180,
             child: Hero(
               tag: "news_tag$index",
-              child: Padding(padding: const EdgeInsets.all(8), child: Card(
-                elevation: AppMeasures.defaultElevation,
+              child: Padding(padding: const EdgeInsets.all(8), child:
+
+          Card(
+                elevation: 1,
                 shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                     borderSide: const BorderSide(color: Colors.transparent)),
@@ -93,6 +95,7 @@ class NewsCard extends StatelessWidget {
                 ),
               ),),
             ),
+
           );
         },
       ),
