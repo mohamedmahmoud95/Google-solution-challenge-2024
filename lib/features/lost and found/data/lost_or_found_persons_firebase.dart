@@ -26,8 +26,6 @@ class LostOrFoundPersonsFirebase {
       int outputSize = 192,
       int inputSize = 112,
       required bool isLostPerson}) async {
-    //File? image
-    // basename(image!.path).split('.')[0];
     List? features = await faceFeaturesExtractorUtils.getFeatures(
         image, model, outputSize, inputSize);
     if (features == null) return null;
@@ -40,12 +38,13 @@ class LostOrFoundPersonsFirebase {
         storageRef.child('images/${entryRef.id}/${basename(image.path)}');
     await imageFileRef.putFile(image);
     lostOrFoundPerson.imageUrl = await imageFileRef.getDownloadURL();
+    lostOrFoundPerson.id = entryRef.id;
     await entryRef.set(lostOrFoundPerson.toMap());
     return (await _faceRecognitionApiUtils.uploadRequest(features, entryRef.id))
         .body;
   }
 
-  Future<QuerySnapshot<Map<String, dynamic>>?> scanForLostOrFoundPerson(
+  Future<List?> scanForLostOrFoundPerson(
       {required File? image,
       String model = "assets/models/mobileFaceNet.tflite",
       int outputSize = 192,
@@ -53,17 +52,16 @@ class LostOrFoundPersonsFirebase {
       required bool isLostPerson}) async {
 
     QuerySnapshot<Map<String, dynamic>> dataSnapshot;
+    List<String> imageList =[];
 
     if (image != null) {
       List? features = await faceFeaturesExtractorUtils.getFeatures(
         image, model, outputSize, inputSize);
       if (features == null) return null;
-      print("i came here");
-      print(features);
 
-      List<String> imageList =
+      imageList =
           await _faceRecognitionApiUtils.compareRequest(features);
-      print(imageList);
+
       dataSnapshot = await firestoreDatabase
           .collection(isLostPerson
               ? AppFirestoreCollections.lostPersonsCollection
@@ -77,18 +75,6 @@ class LostOrFoundPersonsFirebase {
               : AppFirestoreCollections.foundPersonsCollection)
           .get();
     }
-
-    return dataSnapshot;
+    return [dataSnapshot, imageList];
   }
-
-  // Future multiUpload(
-  //     String model, List<XFile> images, outputSize, inputSize) async {
-  //   for (var image in images) {
-  //     File? imageFile = File(image.path);
-  //     String? response = await upload(imageFile, model, outputSize,
-  //         inputSize, basename(image.path).split('.')[0]);
-  //     if (response == null)
-  //       print('Error with Image ${basename(image.path).split('.')[0]}');
-  //   }
-  // }
 }
