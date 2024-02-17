@@ -15,7 +15,7 @@ class LostPersonIdCompactView extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Card(
           elevation: 0.5,
-          color: AppColors.oliveGreen2,
+          color: AppColors.oliveGreen1,
           child: Padding(
             padding: const EdgeInsets.all(8),
             child: SingleChildScrollView(
@@ -27,10 +27,12 @@ class LostPersonIdCompactView extends StatelessWidget {
                         height:  ScreenUtils.getScreenWidth(context)/2.65,
                         width: ScreenUtils.getScreenWidth(context)/2.65,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(("${person.imageUrl}")),
-                          ),
                           borderRadius: BorderRadius.circular(10),
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                        child: Image.network(
+                          person.imageUrl!,
+                          fit: BoxFit.cover,
                         ),
                       ),
                       const SizedBox(
