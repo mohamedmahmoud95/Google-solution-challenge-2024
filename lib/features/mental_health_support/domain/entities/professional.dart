@@ -67,7 +67,7 @@ class Professional {
       jobTitle: map['jobTitle'] as String,
       rating: map['rating'] as double,
       timeOfSlotes: List<OpenCloseTime>.from(
-        (map['timeOfSlotes'] as List<int>).map<OpenCloseTime>(
+        (map['timeOfSlotes'] as List<dynamic>).map<OpenCloseTime>(
           (x) => OpenCloseTime.fromMap(x as Map<String, dynamic>),
         ),
       ),
@@ -112,4 +112,3 @@ class Professional {
         phoneNumber.hashCode;
   }
 }
-
