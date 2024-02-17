@@ -4,6 +4,7 @@ import 'package:google_solution_challenge_2024/features/articles_details/present
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/upload_lost_or_found_person_cubit/upload_lost_or_found_person_cubit.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_professionals_cubit/get_professionals_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/book_one_to_one_session.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/mental_health_support_screen.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/select_therapist_screen.dart';
@@ -29,7 +30,6 @@ class Routes {
   static const String sessionBookingScreen = "sessionBookingScreen";
   static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
   static const String addNewLostOrFoundPerson = "addNewLostOrFoundPerson";
-
 }
 
 class AppRoutes {
@@ -61,7 +61,11 @@ class AppRoutes {
 
       case Routes.selectTherapistScreen:
         return MaterialPageRoute(
-            builder: (context) => const SelectTherapistScreen());
+            builder: (context) => MultiBlocProvider(providers: [
+                  BlocProvider(
+                    create: (context) => GetProfessionalsCubit(),
+                  ),
+                ], child: const SelectTherapistScreen()));
 
       case Routes.selectTherapyGroupScreen:
         return MaterialPageRoute(
@@ -74,12 +78,12 @@ class AppRoutes {
       case Routes.addNewLostOrFoundPerson:
         return MaterialPageRoute(
             builder: (context) => AddNewLostOrFoundPerson(
-              lostOrFound: args as LostOrFound,
-  ));
-        
+                  lostOrFound: args as LostOrFound,
+                ));
+
       case Routes.lostAndFound:
         return MaterialPageRoute(
-            builder: (context) =>  MultiBlocProvider(
+            builder: (context) => MultiBlocProvider(
                   providers: [
                     BlocProvider(
                       create: (context) => UploadLostOrFoundPersonCubit(),

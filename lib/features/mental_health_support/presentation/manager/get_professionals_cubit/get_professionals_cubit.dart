@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/professional.dart';
 
 import '../../../domain/repo/professionals_firestore_repo.dart';
@@ -18,6 +19,7 @@ class GetProfessionalsCubit extends Cubit<GetProfessionalsState> {
           await _professionalsFirestoreRepo.getAllProfessionals();
       emit(GetProfessionalsLoaded(professionals: professionals));
     } catch (e) {
+      debugPrint("$e");
       emit(GetProfessionalsError());
     }
   }
