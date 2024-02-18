@@ -16,7 +16,8 @@ class CategoryCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Card(
-        elevation: 1,
+        elevation: 0,
+        color: AppColors.oliveGreen2.withOpacity(0.4),//Theme.of(context).cardColor,
         child: Container(
           width: HomeCubit.get(context).screenWidth(context) * .4,
           height: HomeCubit.get(context).screenHeight(context) * .18,
