@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/widgets/prayers_card.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import '../../../home/presentation/widgets/help_card.dart';
-import '../../../reels_screen/presentation/pages/video_screen.dart';
+import '../../../reels_screen/presentation/widgets/video_card.dart';
 import '../widgets/charity_card.dart';
 
 class CharityScreen extends StatefulWidget {

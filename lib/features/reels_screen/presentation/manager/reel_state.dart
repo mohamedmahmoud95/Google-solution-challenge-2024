@@ -17,3 +17,7 @@ class ReelErrorState extends ReelState {
 
   ReelErrorState(this.error);
 }
+
+class ReelChangeTabState extends ReelState {}
+
+class ReelPickFileState extends ReelState {}

@@ -5,6 +5,7 @@ class VideoModel {
   int commentNum;
   int shareNum;
   int reactNum;
+  int viewsNum;
 
   VideoModel({
     required this.reactNum,
@@ -13,6 +14,7 @@ class VideoModel {
     required this.name,
     required this.mediaUrl,
     required this.thumbnail,
+    required this.viewsNum,
   });
 
   factory VideoModel.fromJson(Map<String, dynamic> json) {
@@ -23,6 +25,7 @@ class VideoModel {
       reactNum: json['reactNum'],
       shareNum: json['shareNum'],
       commentNum: json['commentNum'],
+      viewsNum: json['viewsNum'],
     );
   }
 
@@ -34,6 +37,7 @@ class VideoModel {
     data['shareNum'] = shareNum;
     data['reactNum'] = reactNum;
     data['commentNum'] = commentNum;
+    data['viewsNum'] = viewsNum;
     return data;
   }
 }

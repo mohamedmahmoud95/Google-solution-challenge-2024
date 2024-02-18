@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/manager/reel_state.dart';
+import 'package:image_picker/image_picker.dart';
 import '../../data/model/video_model.dart';
 
 class ReelCubit extends Cubit<ReelState> {
@@ -10,6 +11,20 @@ class ReelCubit extends Cubit<ReelState> {
   static ReelCubit get(context) => BlocProvider.of(context);
 
   final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
+  int selectedIndex = 0;
+
+  void onItemTapped(int index) {
+    selectedIndex = index;
+    emit(ReelChangeTabState());
+  }
+
+  XFile? videoFile;
+
+  Future<void> pickVideo() async {
+    XFile? video = await ImagePicker().pickVideo(source: ImageSource.gallery);
+    videoFile = video;
+    emit(ReelPickFileState());
+  }
 
   Future<List<VideoModel>> fetchVideos() async {
     emit(ReelLoadingState());
@@ -30,6 +45,7 @@ class ReelCubit extends Cubit<ReelState> {
             reactNum: value['reactNum'] ?? 0.0,
             shareNum: value['shareNum'] ?? 0.0,
             thumbnail: value['thumbnail'] ?? '',
+            viewsNum: value['reactNum'] ?? 0.0,
           ));
         }
       }
@@ -62,7 +78,8 @@ class ReelCubit extends Cubit<ReelState> {
               mediaUrl:
                   "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4",
               thumbnail:
-                  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg")
+                  "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
+              viewsNum: 5)
           .toJson());
     } catch (e) {
       print(e);

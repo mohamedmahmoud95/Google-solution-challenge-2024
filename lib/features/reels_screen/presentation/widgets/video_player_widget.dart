@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
+import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../data/model/video_model.dart';
@@ -79,15 +80,44 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
             child: SizedBox(
               width: 350,
-              child: Text(
-                widget.video.name,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                maxLines: 2,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ProfileScreen(videos: []),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      "User Name",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      maxLines: 2,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    widget.video.name,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    maxLines: 6,
+                  ),
+                ],
               ),
             ),
           ),
@@ -172,6 +202,19 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
               onPressed: () {},
               icon: const Icon(
                 Icons.camera_alt_outlined,
+                color: Colors.white,
+              ),
+            ),
+          ),
+          Positioned(
+            left: 10,
+            top: 30,
+            child: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back_outlined,
                 color: Colors.white,
               ),
             ),
