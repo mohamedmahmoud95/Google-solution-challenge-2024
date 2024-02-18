@@ -7,7 +7,6 @@ import 'package:google_solution_challenge_2024/features/settings%20/presentation
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_and_found_screen.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/mental_health_support_screen.dart';
 
-
 class Routes {
   static const String home = "home";
   static const String settings = "settings";

@@ -22,9 +22,8 @@ class ReelsScreen extends StatelessWidget {
       child: BlocConsumer<ReelCubit, ReelState>(
         listener: (BuildContext context, ReelState state) {},
         builder: (context, state) => Scaffold(
-          body: ListView.builder(
-
-            controller: ReelCubit.get(context).videoScrollController,
+          body: PageView.builder(
+            scrollDirection: Axis.vertical,
             itemCount: videos.length,
             itemBuilder: (context, index) {
               return VideoPlayerWidget(
@@ -37,6 +36,41 @@ class ReelsScreen extends StatelessWidget {
                     ReelCubit.get(context).formatNumber(video.reactNum),
               );
             },
+          ),
+          bottomNavigationBar: SizedBox(
+            height: 80,
+            child: BottomNavigationBar(
+              backgroundColor: Colors.black,
+              iconSize: 30,
+              selectedIconTheme: const IconThemeData(
+                color: Colors.white,
+              ),
+              unselectedItemColor: Colors.white,
+              elevation: 10,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: Icon(Icons.slow_motion_video),
+                  ),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: Icon(Icons.add),
+                  ),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Padding(
+                    padding: EdgeInsets.only(top: 10.0),
+                    child: Icon(Icons.person_outlined),
+                  ),
+                  label: "",
+                ),
+              ],
+            ),
           ),
         ),
       ),

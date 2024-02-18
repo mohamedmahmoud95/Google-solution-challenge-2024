@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../data/model/video_model.dart';
@@ -59,11 +60,11 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         alignment: Alignment.bottomLeft,
         children: [
           SizedBox(
-            height: 800,
+            height: HomeCubit.get(context).screenHeight(context) - 80,
             child: ShaderMask(
               shaderCallback: (Rect bounds) {
                 return const LinearGradient(
-                  colors: [Colors.transparent, Colors.black],
+                  colors: [Colors.black26, Colors.black26],
                   begin: Alignment.center,
                   end: Alignment.bottomLeft,
                 ).createShader(bounds);
@@ -162,6 +163,17 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Positioned(
+            right: 10,
+            top: 30,
+            child: IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.camera_alt_outlined,
+                color: Colors.white,
+              ),
             ),
           ),
         ],

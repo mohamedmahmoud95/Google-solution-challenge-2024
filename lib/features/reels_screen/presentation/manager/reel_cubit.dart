@@ -1,6 +1,5 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/manager/reel_state.dart';
 import '../../data/model/video_model.dart';
@@ -9,8 +8,6 @@ class ReelCubit extends Cubit<ReelState> {
   ReelCubit() : super(ReelInitState());
 
   static ReelCubit get(context) => BlocProvider.of(context);
-
-  ScrollController videoScrollController = ScrollController(initialScrollOffset: 0);
 
   final DatabaseReference databaseReference = FirebaseDatabase.instance.ref();
 
