@@ -18,7 +18,8 @@ class HelpCard extends StatelessWidget {
         // Navigator.pushNamed(context, Routes.articlesDetails);
       },
       child: Card(
-        elevation: 1,
+        elevation: 0,
+        color: AppColors.oliveGreen2.withOpacity(0.8),//Theme.of(context).cardColor,
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(color: Colors.transparent)),
