@@ -17,7 +17,7 @@ class CategoryCard extends StatelessWidget {
       onTap: onTap,
       child: Card(
         elevation: 0,
-        color: AppColors.oliveGreen2.withOpacity(0.4),//Theme.of(context).cardColor,
+        color: AppColors.oliveGreen1,// AppColors.oliveGreen2.withOpacity(0.4),//Theme.of(context).cardColor,
         child: Container(
           width: HomeCubit.get(context).screenWidth(context) * .4,
           height: HomeCubit.get(context).screenHeight(context) * .18,

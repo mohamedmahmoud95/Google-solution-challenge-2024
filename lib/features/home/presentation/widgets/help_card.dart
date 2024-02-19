@@ -19,7 +19,7 @@ class HelpCard extends StatelessWidget {
       },
       child: Card(
         elevation: 0,
-        color: AppColors.oliveGreen2.withOpacity(0.8),//Theme.of(context).cardColor,
+        color:  AppColors.oliveGreen1,//AppColors.oliveGreen2.withOpacity(0.8),//Theme.of(context).cardColor,
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(color: Colors.transparent)),

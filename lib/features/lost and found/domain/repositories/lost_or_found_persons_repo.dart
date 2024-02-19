@@ -14,7 +14,7 @@ class LostOrFoundPersonsRepo {
 
     final results = await _lostOrFoundPersonsFirebase
         .scanForLostOrFoundPerson(image: image, isLostPerson: isLostPerson);
-debugPrint("\n\nprinting results:\n $results");
+    //debugPrint("\n\nprinting results:\n $results");
     final QuerySnapshot<Map<String, dynamic>>? dataSnapshot = results?[0] as QuerySnapshot<Map<String, dynamic>>?;
 
     final List<String> imageList = results?[1] as List<String>;
