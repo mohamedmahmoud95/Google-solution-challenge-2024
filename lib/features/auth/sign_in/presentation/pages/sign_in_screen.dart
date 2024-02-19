@@ -164,10 +164,11 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget signInButton() {
     return GestureDetector(
       onTap: () {
-        bool okToProgress = validateEmail() && validatePassword();
-        if (okToProgress) {
-          signIn();
-        }
+        // bool okToProgress = validateEmail() && validatePassword();
+        // if (okToProgress) {
+        //   signIn();
+        // }
+        Navigator.of(context).pushReplacementNamed('home');
       },
       child: Container(
         height: 50,

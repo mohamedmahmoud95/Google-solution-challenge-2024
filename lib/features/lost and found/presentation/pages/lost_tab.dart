@@ -104,8 +104,9 @@ class _LostTabState extends State<LostTab> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor:
-            AppColors.oliveGreen3, //Theme.of(context).primaryColorDark,
+
+        backgroundColor: AppColors.oliveGreen2,//Theme.of(context).primaryColorDark,
+
         onPressed: () {
           Navigator.pushNamed(
             context,

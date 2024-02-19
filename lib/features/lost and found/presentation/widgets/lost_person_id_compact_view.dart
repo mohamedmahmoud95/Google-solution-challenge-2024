@@ -14,7 +14,7 @@ class LostPersonIdCompactView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Card(
-          elevation: 0.5,
+          elevation: 0,
           color: AppColors.oliveGreen1,
           child: Padding(
             padding: const EdgeInsets.all(8),

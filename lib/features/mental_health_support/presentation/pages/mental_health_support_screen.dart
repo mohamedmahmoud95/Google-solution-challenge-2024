@@ -127,7 +127,7 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
         const Padding(
           padding: EdgeInsets.all(10),
           child: Text(
-            "Know more",
+            "Learn more",
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
           ),
         ),
@@ -135,48 +135,53 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              height: 210,
-              width: 180,
-              child: Swiper(
+
+              child:
+                //   Swiper(
                 // duration: 80,
                 // autoplay: true,
-                viewportFraction: 0,
-                itemBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                      height: 160,
-                      child: ServiceCard(
+
+                // viewportFraction: 0,
+                // itemBuilder: (BuildContext context, int index) {
+                //   return
+                    const SizedBox(
+
+                      child:
+
+                  ServiceCard(
                         title: 'Articles',
                         imageUrl: AppImages.offlineResources,
-                      ));
-                },
-                itemCount: 1,
-                itemWidth: double.infinity,
-                itemHeight: 220.0,
-
-                layout: SwiperLayout.TINDER,
-              ),
+                      )),
+                //},
+              //   itemCount: 1,
+              //   itemWidth: double.infinity,
+              //   itemHeight: 220.0,
+              //
+              //   layout: SwiperLayout.TINDER,
+              // ),
             ),
             Container(
-              height: 210,
-              width: 180,
-              child: Swiper(
-                // duration: 80,
-                // autoplay: true,
-                viewportFraction: 0,
-                itemBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                      height: 160,
+
+              child:
+              // Swiper(
+              //   // duration: 80,
+              //   // autoplay: true,
+              //   viewportFraction: 0,
+              //   itemBuilder: (BuildContext context, int index) {
+              //     return
+                    const SizedBox(
+
                       child: ServiceCard(
                         title: 'Videos',
                         imageUrl: AppImages.video,
-                      ));
-                },
-                itemCount: 1,
-                itemWidth: double.infinity,
-                itemHeight: 220.0,
-
-                layout: SwiperLayout.TINDER,
-              ),
+                      )),
+    //  },
+                // itemCount: 1,
+                // itemWidth: double.infinity,
+                // itemHeight: 220.0,
+                //
+                // layout: SwiperLayout.TINDER,
+             // ),
             ),
           ],
         ),

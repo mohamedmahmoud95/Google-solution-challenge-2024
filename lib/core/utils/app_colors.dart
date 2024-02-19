@@ -67,7 +67,7 @@ class AppColors {
 
   //==========================================================================//
   //Zaitoon palette
-  static const Color oliveGreen1 = Color(0xFFCAD2C5);
+  static Color oliveGreen1 = Color(0xFFCAD2C5).withOpacity(0.5);
   static const Color oliveGreen2 = Color(0xFF84A98C);
   static const Color oliveGreen3 = Color(0xFF52796F);
   static const Color darkGreen1 = Color(0xFF354F52);

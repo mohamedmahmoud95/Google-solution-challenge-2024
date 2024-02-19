@@ -47,7 +47,7 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
             ),
           ],
           bottom: const TabBar(
-            indicatorColor: AppColors.darkGreen2,
+            indicatorColor: AppColors.oliveGreen2,
             indicatorSize: TabBarIndicatorSize.tab,
             tabs: [
               Text(
