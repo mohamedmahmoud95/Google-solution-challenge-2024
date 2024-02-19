@@ -20,20 +20,24 @@ class LostTab extends StatefulWidget {
 }
 
 class _LostTabState extends State<LostTab> {
+  String? textToSearchBy;
+
   @override
   void initState() {
     BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
-        .scanForLostOrFoundPerson(image: image, isLostPerson: true);
+        .scanForLostOrFoundPerson(
+            image: image, isLostPerson: true, textToSearchBy: textToSearchBy);
     super.initState();
   }
 
   File? image;
 
-  void getImage(File? image){
+  void getImage(File? image) {
     setState(() {
       image = image;
       BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
-        .scanForLostOrFoundPerson(image: image, isLostPerson: true);
+          .scanForLostOrFoundPerson(
+              image: image, isLostPerson: true, textToSearchBy: textToSearchBy);
     });
   }
 
@@ -53,8 +57,17 @@ class _LostTabState extends State<LostTab> {
                 spacing: 10,
                 runSpacing: 10,
                 children: [
-                  const SizedBox(height: 5,),
-                  CustomSearchBar(getImage: getImage,),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  CustomSearchBar(
+                    getImage: getImage,
+                    searchText: (text) {
+                      setState(() {
+                        textToSearchBy = text;
+                      });
+                    },
+                  ),
                   ...state.lostOrFoundPersons
                       .map(
                         (person) => widget.compactMode
@@ -79,7 +92,9 @@ class _LostTabState extends State<LostTab> {
               return const Center(
                 child: Column(
                   children: [
-                    SizedBox(height: 50,),
+                    SizedBox(
+                      height: 50,
+                    ),
                     CircularProgressIndicator(),
                   ],
                 ),
@@ -89,7 +104,8 @@ class _LostTabState extends State<LostTab> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.oliveGreen3,//Theme.of(context).primaryColorDark,
+        backgroundColor:
+            AppColors.oliveGreen3, //Theme.of(context).primaryColorDark,
         onPressed: () {
           Navigator.pushNamed(
             context,

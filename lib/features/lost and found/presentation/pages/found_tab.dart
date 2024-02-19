@@ -20,21 +20,24 @@ class FoundTab extends StatefulWidget {
 }
 
 class _FoundTabState extends State<FoundTab> {
+  String? textToSearchBy;
   @override
   void initState() {
     BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
-        .scanForLostOrFoundPerson(image: image, isLostPerson: false);
+        .scanForLostOrFoundPerson(
+            image: image, isLostPerson: false, textToSearchBy: textToSearchBy);
 
     super.initState();
   }
 
   File? image;
 
-  void getImage(File? image){
+  void getImage(File? image) {
     setState(() {
       image = image;
       BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
-        .scanForLostOrFoundPerson(image: image, isLostPerson: true);
+          .scanForLostOrFoundPerson(
+              image: image, isLostPerson: true, textToSearchBy: textToSearchBy);
     });
   }
 
@@ -55,8 +58,17 @@ class _FoundTabState extends State<FoundTab> {
                   spacing: 10,
                   runSpacing: 10,
                   children: [
-                    const SizedBox(height: 5,),
-                    CustomSearchBar(getImage: getImage,),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    CustomSearchBar(
+                      getImage: getImage,
+                      searchText: (text) {
+                        setState(() {
+                          textToSearchBy = text;
+                        });
+                      },
+                    ),
                     ...state.lostOrFoundPersons
                         .map(
                           (person) => widget.compactMode
@@ -80,7 +92,9 @@ class _FoundTabState extends State<FoundTab> {
                 return const Center(
                   child: Column(
                     children: [
-                      SizedBox(height: 50,),
+                      SizedBox(
+                        height: 50,
+                      ),
                       CircularProgressIndicator(),
                     ],
                   ),
@@ -91,7 +105,8 @@ class _FoundTabState extends State<FoundTab> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.oliveGreen3,//Theme.of(context).primaryColorDark,
+        backgroundColor:
+            AppColors.oliveGreen3, //Theme.of(context).primaryColorDark,
         onPressed: () {
           Navigator.pushNamed(
             context,

@@ -12,7 +12,8 @@ class StoreDummyData {
           rating: 520,
           timeOfSlotes: [],
           isAvailable: true,
-          phoneNumber: "52252252"));
+          phoneNumber: "52252252",
+          allAppointeesIds: []));
     }
   }
 }

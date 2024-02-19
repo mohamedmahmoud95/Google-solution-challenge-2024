@@ -38,4 +38,11 @@ class AppointmentsFirestoreRepo {
         Uuid().v1(),
         appointment.toMap());
   }
+
+  Future<void> updateAppointmentStatus(Status status, String appointmentId) async {
+    await _generalCrudFirestore.generalUpdatedocInAppCollection(
+        collectionName: AppFirestoreCollections.appointmentCollection,
+        docId: appointmentId,
+        docData: {"status": status.index});
+  }
 }
