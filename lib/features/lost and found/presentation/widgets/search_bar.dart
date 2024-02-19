@@ -6,9 +6,9 @@ import '../../../../core/utils/app_colors.dart';
 import 'dart:io';
 
 class CustomSearchBar extends StatelessWidget {
-
   final Function(File? img) getImage;
-  const CustomSearchBar({super.key, required this.getImage});
+  final Function(String) searchText;
+  const CustomSearchBar({super.key, required this.getImage,required this.searchText});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,7 @@ class CustomSearchBar extends StatelessWidget {
       child: Container(
         width: double.infinity,
         child: TextFormField(
+          onChanged: (text) {},
           decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: const BorderSide(color: AppColors.green),
@@ -27,17 +28,19 @@ class CustomSearchBar extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             hintText: "search...",
-            prefixIcon: const Icon(FontAwesomeIcons.magnifyingGlass,),
-            suffixIcon: InkWell (
-                onTap:() async {
+            prefixIcon: const Icon(
+              FontAwesomeIcons.magnifyingGlass,
+            ),
+            suffixIcon: InkWell(
+                onTap: () async {
                   File? image = await pickImage(ImageSource.gallery);
                   getImage(image);
                 },
                 child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: SizedBox(
-                    height: 10,
-                    child: Image.asset("assets/images/face_scan.png")))),
+                    padding: const EdgeInsets.all(8),
+                    child: SizedBox(
+                        height: 10,
+                        child: Image.asset("assets/images/face_scan.png")))),
           ),
         ),
       ),

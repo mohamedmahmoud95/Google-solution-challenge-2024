@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:google_solution_challenge_2024/core/api/end_points.dart';
 import 'package:http/http.dart' as http;
+
 class FaceRecognitionApiUtils {
   
 Future<http.Response> uploadRequest (features, imgName) async {
@@ -13,9 +14,7 @@ Future<http.Response> uploadRequest (features, imgName) async {
     //'content-type': 'multipart/form-data'
 
     var response = await http.post(url,
-        headers: {"Content-Type": "application/json"},
-        body: body
-    );
+        headers: {"Content-Type": "application/json"}, body: body);
     return response;
   }
 
