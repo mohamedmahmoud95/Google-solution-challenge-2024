@@ -16,7 +16,7 @@ class CharityCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           borderSide: const BorderSide(color: Colors.transparent)),
       child: Container(
-        width: HomeCubit.get(context).screenWidth(context) * 0.75,
+        width: HomeCubit.get(context).screenWidth(context) * 0.82,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -60,6 +60,7 @@ class CharityCard extends StatelessWidget {
                       ),
                       child: const Icon(
                         Icons.bookmark_border,
+                        color: Colors.white,
                       ),
                     ),
                   ),
@@ -67,105 +68,113 @@ class CharityCard extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
-                vertical: HomeCubit.get(context).screenHeight(context) * .014,
-                horizontal: HomeCubit.get(context).screenHeight(context) * .014,
+              padding: EdgeInsets.only(
+                bottom: HomeCubit.get(context).screenHeight(context) * .015,
+                right: HomeCubit.get(context).screenHeight(context) * .014,
+                left: HomeCubit.get(context).screenHeight(context) * .014,
               ),
               child: Column(
                 children: [
-                  const Text(
-                    "Helping Earthquake Victims Helping Earthquake Victims ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                      overflow: TextOverflow.ellipsis,
-                      color: Color(0xf51c1c1c),
-                    ),
-                    maxLines: 1,
-                  ),
-                  SizedBox(
-                    height: HomeCubit.get(context).screenHeight(context) * .01,
-                  ),
-                  const Row(
-                    children: [
-                      Text(
-                        "\$4,259",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17,
-                          overflow: TextOverflow.ellipsis,
-                          color: Colors.green,
-                        ),
-                      ),
-                      Text(
-                        " fund raised from \$8,000",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                          overflow: TextOverflow.ellipsis,
-                          color: Colors.black45,
-                        ),
-                        maxLines: 1,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: HomeCubit.get(context).screenHeight(context) * .015,
-                  ),
-                  const LinearProgressIndicator(
-                    value: 4259 / 8000,
-                    color: Colors.green,
-                    backgroundColor: AppColors.lightGrey,
-                  ),
-                  SizedBox(
-                    height: HomeCubit.get(context).screenHeight(context) * .015,
-                  ),
-                  const Row(
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text(
-                            "2,367",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17,
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.green,
+                          SizedBox(
+                            width: HomeCubit.get(context).screenWidth(context) -
+                                100,
+                            child: const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SizedBox(
+                                  width: 250,
+                                  child: Text(
+                                    "Helping Earthquake Victims Earthquake victims ",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 19,
+                                      overflow: TextOverflow.ellipsis,
+                                      color: Color(0xf51c1c1c),
+                                    ),
+                                    maxLines: 2,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                                  child: Stack(
+                                    alignment: Alignment.center,
+                                    children: [
+                                      SizedBox(
+                                        width: 45,
+                                        height: 42,
+                                        child: CircularProgressIndicator(
+                                          value: 4259 / 8000,
+                                          color: Colors.green,
+                                          backgroundColor: AppColors.lightGrey,
+                                        ),
+                                      ),
+                                      Text(
+                                        ("53%"),
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          overflow: TextOverflow.ellipsis,
+                                          color: Colors.black87,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Text(
-                            " Donators",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.black45,
-                            ),
-                            maxLines: 1,
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "4",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17,
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.green,
-                            ),
-                          ),
-                          Text(
-                            " days left",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.black45,
-                            ),
-                            maxLines: 1,
+                          const Row(
+                            children: [
+                              Text(
+                                "\$4,259",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 17,
+                                  overflow: TextOverflow.ellipsis,
+                                  color: Colors.green,
+                                ),
+                              ),
+                              Text(
+                                " Fund Collected | ",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  overflow: TextOverflow.ellipsis,
+                                  color: Colors.black45,
+                                ),
+                                maxLines: 1,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "4",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 17,
+                                      overflow: TextOverflow.ellipsis,
+                                      color: Colors.green,
+                                    ),
+                                  ),
+                                  Text(
+                                    " days left",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                      overflow: TextOverflow.ellipsis,
+                                      color: Colors.black45,
+                                    ),
+                                    maxLines: 1,
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
                       ),
