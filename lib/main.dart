@@ -16,6 +16,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+
   // Pass all uncaught "fatal" errors from the framework to Crashlytics
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   FlutterError.onError = (errorDetails) {

@@ -49,23 +49,30 @@ class LostOrFoundPersonsFirebase {
       String model = "assets/models/mobileFaceNet.tflite",
       int outputSize = 192,
       int inputSize = 112,
-      required bool isLostPerson}) async {
-
+      required bool isLostPerson,
+      required String? textToSearchBy}) async {
     QuerySnapshot<Map<String, dynamic>> dataSnapshot;
-    List<String> imageList =[];
+    List<String> imageList = [];
 
     if (image != null) {
       List? features = await faceFeaturesExtractorUtils.getFeatures(
-        image, model, outputSize, inputSize);
+          image, model, outputSize, inputSize);
       if (features == null) return null;
 
-      imageList =
-          await _faceRecognitionApiUtils.compareRequest(features);
+      imageList = await _faceRecognitionApiUtils.compareRequest(features);
 
       dataSnapshot = await firestoreDatabase
           .collection(isLostPerson
               ? AppFirestoreCollections.lostPersonsCollection
               : AppFirestoreCollections.foundPersonsCollection)
+          //todo edit it when deciding the property
+          .where('fullName',
+              isGreaterThanOrEqualTo:
+                  textToSearchBy != null ? textToSearchBy.toLowerCase() : "")
+          .where('fullName',
+              isLessThanOrEqualTo: textToSearchBy != null
+                  ? textToSearchBy.toLowerCase() + '\uf8ff'
+                  : "")
           .where("id", whereIn: imageList)
           .get();
     } else {
