@@ -15,8 +15,13 @@ class AppImages {
 
   static const String lost = "${Constants.baseImageUrl}/lost.png";
   static const String faceScan = "${Constants.baseImageUrl}/face_scan.png";
-  static const String mentalHealthSupport = "${Constants.baseImageUrl}/mental_health.png";
-  static const String groupTherapy = "${Constants.baseImageUrl}/group_therapy.png";
+  static const String mentalHealthSupport =
+      "${Constants.baseImageUrl}/mental_health.png";
+  static const String groupTherapy =
+      "${Constants.baseImageUrl}/group_therapy.png";
   static const String video = "${Constants.baseImageUrl}/video.png";
-
+  static const String mastercard = "${Constants.baseImageUrl}/mastercard.png";
+  static const String paypal = "${Constants.baseImageUrl}/paypal.png";
+  static const String visa = "${Constants.baseImageUrl}/visa.png";
+  static const String google = "${Constants.baseImageUrl}/google.png";
 }

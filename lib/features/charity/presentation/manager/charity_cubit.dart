@@ -9,4 +9,12 @@ class CharityCubit extends Cubit<CharityState> {
   static CharityCubit get(context) => BlocProvider.of(context);
 
   List<CharityModel>? charityCards;
+
+  String selectedPaymentMethod = "Master Card";
+
+  void onPaymentMethodChange(value) {
+    emit(CharityInitState());
+    selectedPaymentMethod = value;
+    emit(PaymentMethodChangeState());
+  }
 }

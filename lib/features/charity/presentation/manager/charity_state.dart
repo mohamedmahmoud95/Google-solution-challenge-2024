@@ -11,3 +11,4 @@ class CharityGetCollectionSuccessState extends CharityState {}
 class CharityGetFormFireBaseSuccessState extends CharityState {}
 
 class CharityErrorState extends CharityState {}
+class PaymentMethodChangeState extends CharityState {}
