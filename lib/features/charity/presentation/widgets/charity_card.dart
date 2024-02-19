@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
+import 'package:google_solution_challenge_2024/features/charity/data/models/charity_model.dart';
 
 import '../../../../core/utils/app_images.dart';
 import '../../../home/presentation/manager/cubit.dart';
 
 class CharityCard extends StatelessWidget {
-  const CharityCard({super.key});
+  final CharityModel charityModel;
+
+  const CharityCard({required this.charityModel, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -86,14 +89,14 @@ class CharityCard extends StatelessWidget {
                           SizedBox(
                             width: HomeCubit.get(context).screenWidth(context) -
                                 100,
-                            child: const Row(
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 SizedBox(
                                   width: 250,
                                   child: Text(
-                                    "Helping Earthquake Victims Earthquake victims ",
-                                    style: TextStyle(
+                                    charityModel.name,
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.w700,
                                       fontSize: 19,
                                       overflow: TextOverflow.ellipsis,
@@ -103,7 +106,8 @@ class CharityCard extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 20.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 20.0),
                                   child: Stack(
                                     alignment: Alignment.center,
                                     children: [
@@ -111,37 +115,38 @@ class CharityCard extends StatelessWidget {
                                         width: 45,
                                         height: 42,
                                         child: CircularProgressIndicator(
-                                          value: 4259 / 8000,
+                                          value: charityModel.funCollected /
+                                              charityModel.fund,
                                           color: Colors.green,
                                           backgroundColor: AppColors.lightGrey,
                                         ),
                                       ),
                                       Text(
-                                        ("53%"),
-                                        style: TextStyle(
+                                        "${((charityModel.funCollected / charityModel.fund) * 100).toStringAsFixed(0)}%",
+                                        style: const TextStyle(
                                           fontSize: 14,
                                           overflow: TextOverflow.ellipsis,
                                           color: Colors.black87,
                                         ),
-                                      )
+                                      ),
                                     ],
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                          const Row(
+                          Row(
                             children: [
                               Text(
-                                "\$4,259",
-                                style: TextStyle(
+                                "\$${charityModel.funCollected}",
+                                style: const TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 17,
                                   overflow: TextOverflow.ellipsis,
                                   color: Colors.green,
                                 ),
                               ),
-                              Text(
+                              const Text(
                                 " Fund Collected | ",
                                 style: TextStyle(
                                   fontWeight: FontWeight.w600,
@@ -154,15 +159,15 @@ class CharityCard extends StatelessWidget {
                               Row(
                                 children: [
                                   Text(
-                                    "4",
-                                    style: TextStyle(
+                                    "${charityModel.dayLeft}",
+                                    style: const TextStyle(
                                       fontWeight: FontWeight.w500,
                                       fontSize: 17,
                                       overflow: TextOverflow.ellipsis,
                                       color: Colors.green,
                                     ),
                                   ),
-                                  Text(
+                                  const Text(
                                     " days left",
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,

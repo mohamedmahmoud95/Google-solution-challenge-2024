@@ -1,23 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:video_thumbnail/video_thumbnail.dart';
+import 'package:google_solution_challenge_2024/features/charity/data/models/charity_model.dart';
 
 import 'charity_state.dart';
 
 class CharityCubit extends Cubit<CharityState> {
-  CharityCubit() : super(CharityInitial());
+  CharityCubit() : super(CharityInitState());
 
-  Future<void> generateThumbnail(String videoPath) async {
-    try {
-      final thumbnailPath = await VideoThumbnail.thumbnailFile(
-        video: videoPath,
-        imageFormat: ImageFormat.PNG,
-        // maxHeightOrWidth: 0,
-        quality: 50,
-      );
+  static CharityCubit get(context) => BlocProvider.of(context);
 
-      emit(ThumbnailGenerated(thumbnailPath!));
-    } catch (e) {
-      // Handle any errors that occur during thumbnail generation
-    }
-  }
+  List<CharityModel>? charityCards;
 }

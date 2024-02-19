@@ -9,3 +9,5 @@ class HomeSuccessState extends HomeStates {}
 class HomeErrorState extends HomeStates {}
 
 class OnNavItemTappedState extends HomeStates {}
+
+class ExpandedState extends HomeStates {}

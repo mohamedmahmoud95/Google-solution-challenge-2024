@@ -1,9 +1,13 @@
 abstract class CharityState {}
 
-class CharityInitial extends CharityState {}
+class CharityInitState extends CharityState {}
 
-class ThumbnailGenerated extends CharityState {
-  final String thumbnailPath;
+class CharityLoadingState extends CharityState {}
 
-  ThumbnailGenerated(this.thumbnailPath);
-}
+class CharitySuccessState extends CharityState {}
+
+class CharityGetCollectionSuccessState extends CharityState {}
+
+class CharityGetFormFireBaseSuccessState extends CharityState {}
+
+class CharityErrorState extends CharityState {}

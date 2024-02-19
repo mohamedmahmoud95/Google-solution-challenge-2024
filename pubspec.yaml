@@ -28,6 +28,7 @@ dependencies:
   firebase_database: ^10.4.5
   dio: ^5.4.0
   path_provider: ^2.1.2
+  readmore: ^2.2.0
 
 
 dev_dependencies:

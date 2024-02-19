@@ -56,9 +56,11 @@ class SeeMoreScreen extends StatelessWidget {
                                 physics: const NeverScrollableScrollPhysics(),
                                 gridDelegate:
                                     const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 2,
-                                        mainAxisSpacing: 4,
-                                        crossAxisSpacing: 4),
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 4,
+                                  crossAxisSpacing: 4,
+                                  childAspectRatio: 0.79,
+                                ),
                                 shrinkWrap: true,
                                 itemCount: state.videos.length,
                                 itemBuilder: (context, index) {
