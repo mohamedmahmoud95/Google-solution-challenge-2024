@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/features/articles_details/presentation/pages/articles_details.dart';
+import 'package:google_solution_challenge_2024/features/charity/data/models/charity_model.dart';
+import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_details_screen.dart';
+import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_screen.dart';
+import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
+import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
+import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
+import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_and_found_screen.dart';
 import 'package:google_solution_challenge_2024/features/auth/authentication_gate.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
@@ -19,7 +26,10 @@ import '../features/lost and found/presentation/pages/add_new_person.dart';
 import '../features/lost and found/presentation/pages/lost_and_found_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
 
+import '../features/charity/presentation/pages/payment_screen.dart';
+
 class Routes {
+
   static const String authGate = "/";
   static const String landing = "landing";
   static const String home = "home";
@@ -29,6 +39,13 @@ class Routes {
   static const String signUp = "signUp";
   static const String mentalHealthSupport = "mentalHealthSupport";
   static const String lostAndFound = "lostAndFound";
+  ///--- charity page----///
+  static const String charity = "charity";
+  static const String charityDetails = "charityDetails";
+  static const String donateScreen = "donateScreen";
+  static const String payment = "payment";
+  static const String profile = "profile";
+
   static const String selectTherapistScreen = "selectTherapistScreen";
   static const String sessionBookingScreen = "sessionBookingScreen";
   static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
@@ -58,7 +75,9 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const HomeScreen());
 
       case Routes.settings:
-        return MaterialPageRoute(builder: (context) => const Settings());
+        return MaterialPageRoute(builder: (context) => const Settings());      case Routes.profile:
+        return MaterialPageRoute(builder: (context) => const ProfileScreen());
+
 
       case Routes.articlesDetails:
         return MaterialPageRoute(builder: (context) => const ArticlesScreen());
@@ -69,6 +88,19 @@ class AppRoutes {
       case Routes.mentalHealthSupport:
         return MaterialPageRoute(
             builder: (context) => const MentalHealthSupportScreen());
+      case Routes.charity:
+        return MaterialPageRoute(builder: (context) => const CharityScreen());
+      case Routes.charityDetails:
+        CharityModel charityModel = routeSettings.arguments as CharityModel;
+        return MaterialPageRoute(
+          builder: (context) => CharityDetailsScreen(
+            charityModel: charityModel,
+          ),
+        );
+      case Routes.donateScreen:
+        return MaterialPageRoute(builder: (context) => const DonateScreen());
+      case Routes.payment:
+        return MaterialPageRoute(builder: (context) => PaymentScreen());
 
       case Routes.selectTherapistScreen:
         return MaterialPageRoute(
