@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 
+import '../../../../core/utils/app_colors.dart';
+
 class SessionCard extends StatelessWidget {
   final int index;
 
@@ -17,14 +19,14 @@ class SessionCard extends StatelessWidget {
         // Navigator.pushNamed(context, Routes.articlesDetails);
       },
       child: Card(
-        elevation: 5,
+        elevation: 0,
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(color: Colors.transparent)),
         child: Container(
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: Theme.of(context).cardColor,
+            color: AppColors.oliveGreen2.withOpacity(0.4),//Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -61,24 +63,24 @@ class SessionCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 50,
-                    width: 80,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          elevation: 4,
-                          backgroundColor: Colors.green.shade200,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                10.0), // Adjust the radius as needed
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.arrow_forward,
-                          color: Colors.black,
-                        )),
-                  ),
+                  // SizedBox(
+                  //   height: 50,
+                  //   width: 80,
+                  //   child: ElevatedButton(
+                  //       style: ElevatedButton.styleFrom(
+                  //         elevation: 3,
+                  //         backgroundColor: AppColors.oliveGreen1,//Colors.green.shade200,
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(
+                  //               10.0), // Adjust the radius as needed
+                  //         ),
+                  //       ),
+                  //       onPressed: () {},
+                  //       child: const Icon(
+                  //         Icons.arrow_forward,
+                  //         color: Colors.black,
+                  //       )),
+                  // ),
                 ],
               ),
             ],

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
 
 import '../../../../core/utils/app_colors.dart';
-import 'lost_person_id_expanded_view.dart';
-
 
 class LostPersonIdCompactView extends StatelessWidget {
-  final LostPerson person;
+  final LostOrFoundPerson person;
   const LostPersonIdCompactView({super.key, required this.person});
 
   @override
@@ -15,8 +14,8 @@ class LostPersonIdCompactView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Card(
-          elevation: 0.5,
-          color: Colors.green.shade100,
+          elevation: 0,
+          color: AppColors.oliveGreen1,
           child: Padding(
             padding: const EdgeInsets.all(8),
             child: SingleChildScrollView(
@@ -28,10 +27,12 @@ class LostPersonIdCompactView extends StatelessWidget {
                         height:  ScreenUtils.getScreenWidth(context)/2.65,
                         width: ScreenUtils.getScreenWidth(context)/2.65,
                         decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(("${person.imageUrl}")),
-                          ),
                           borderRadius: BorderRadius.circular(10),
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                        child: Image.network(
+                          person.imageUrl!,
+                          fit: BoxFit.cover,
                         ),
                       ),
                       const SizedBox(

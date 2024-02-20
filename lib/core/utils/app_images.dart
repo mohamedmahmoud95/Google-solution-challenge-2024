@@ -24,4 +24,7 @@ class AppImages {
   static const String paypal = "${Constants.baseImageUrl}/paypal.png";
   static const String visa = "${Constants.baseImageUrl}/visa.png";
   static const String google = "${Constants.baseImageUrl}/google.png";
+  static const String logo = "${Constants.baseImageUrl}/logo.png";
+  static const String profile = "${Constants.baseImageUrl}/profile.png";
+  static const String raslan =  "${Constants.baseImageUrl}/Mohamed Raslan.png";
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 
 class HelpCard extends StatelessWidget {
@@ -17,14 +18,15 @@ class HelpCard extends StatelessWidget {
         // Navigator.pushNamed(context, Routes.articlesDetails);
       },
       child: Card(
-        elevation: 5,
+        elevation: 0,
+        color:  AppColors.oliveGreen1,//AppColors.oliveGreen2.withOpacity(0.8),//Theme.of(context).cardColor,
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
             borderSide: const BorderSide(color: Colors.transparent)),
         child: Container(
           padding: const EdgeInsets.all(18),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: AppColors.oliveGreen1,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -85,6 +87,7 @@ class HelpCard extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }

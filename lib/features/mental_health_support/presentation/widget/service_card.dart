@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 
@@ -9,24 +10,33 @@ class ServiceCard extends StatelessWidget {
   final double? width;
   final double? imageHeight;
   final double? imageWidth;
+  final Function? onClicked;
 
-  const ServiceCard({super.key, required this.title, this.imageUrl, this.height, this.width, this.imageHeight, this.imageWidth});
+  const ServiceCard({super.key, required this.title, this.imageUrl, this.height, this.width, this.imageHeight, this.imageWidth, this.onClicked});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return
+      GestureDetector(
+        onTap: (){
+          if(onClicked != null) {
+            onClicked!();
+          }
+        },
+        child: SizedBox(
       height: height ?? ScreenUtils.getScreenHeight(context)/5,
       width :  width ?? ScreenUtils.getScreenWidth(context)/2 -20,
       child : Card(
-        color: Theme.of(context).cardColor,
+        elevation: 0,
+        color: AppColors.oliveGreen2.withOpacity(0.4),//Theme.of(context).cardColor,
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
              SizedBox(
-              // height: imageHeight ?? ScreenUtils.getScreenHeight(context)/5 - 50,
-              // width:  imageWidth  ?? ScreenUtils.getScreenWidth(context)/2  - 20,
-               child: Image.asset("$imageUrl"),
+               height: imageHeight ?? ScreenUtils.getScreenHeight(context)/5.5 - 50,
+               width:  imageWidth  ?? ScreenUtils.getScreenWidth(context)/2  - 20,
+               child: Image.asset("$imageUrl", fit: BoxFit.contain,),
              ),
 
               const SizedBox(
@@ -39,6 +49,7 @@ class ServiceCard extends StatelessWidget {
           ),
         ),
       ),
+    ),
     );
   }
 }

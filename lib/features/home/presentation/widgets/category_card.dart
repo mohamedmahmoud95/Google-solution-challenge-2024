@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 
 import '../manager/cubit.dart';
 
@@ -15,15 +16,16 @@ class CategoryCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Card(
-        elevation: 8,
+        elevation: 0,
+        color: AppColors.oliveGreen1,// AppColors.oliveGreen2.withOpacity(0.4),//Theme.of(context).cardColor,
         child: Container(
           width: HomeCubit.get(context).screenWidth(context) * .4,
           height: HomeCubit.get(context).screenHeight(context) * .16,
           padding: EdgeInsets.symmetric(
               horizontal: HomeCubit.get(context).screenWidth(context) * .01,
               vertical: HomeCubit.get(context).screenHeight(context) * .009),
-          decoration: const BoxDecoration(
-              color: Colors.white,
+          decoration:  BoxDecoration(
+              color: AppColors.oliveGreen1,
               borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,6 +49,7 @@ class CategoryCard extends StatelessWidget {
           ),
         ),
       ),
+
     );
   }
 }
