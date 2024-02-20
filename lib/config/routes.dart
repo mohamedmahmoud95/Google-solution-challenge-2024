@@ -5,6 +5,7 @@ import 'package:google_solution_challenge_2024/features/auth/authentication_gate
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/upload_lost_or_found_person_cubit/upload_lost_or_found_person_cubit.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/professional.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_professionals_cubit/get_professionals_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/book_one_to_one_session.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/mental_health_support_screen.dart';
@@ -32,6 +33,8 @@ class Routes {
   static const String sessionBookingScreen = "sessionBookingScreen";
   static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
   static const String addNewLostOrFoundPerson = "addNewLostOrFoundPerson";
+  static const String bookOneToOneSessionScreen = "bookOneToOneSessionScreen";
+
 }
 
 class AppRoutes {
@@ -60,6 +63,9 @@ class AppRoutes {
       case Routes.articlesDetails:
         return MaterialPageRoute(builder: (context) => const ArticlesScreen());
 
+      case Routes.bookOneToOneSessionScreen:
+        return MaterialPageRoute(builder: (context) =>  BookOneToOneSessionScreen(therapist: args as Professional,));
+
       case Routes.mentalHealthSupport:
         return MaterialPageRoute(
             builder: (context) => const MentalHealthSupportScreen());
@@ -76,9 +82,9 @@ class AppRoutes {
         return MaterialPageRoute(
             builder: (context) => const SelectTherapyGroupScreen());
 
-      case Routes.sessionBookingScreen:
-        return MaterialPageRoute(
-            builder: (context) => const BookoneToOneSession());
+      // case Routes.sessionBookingScreen:
+      //   return MaterialPageRoute(
+      //       builder: (context) => const BookoneToOneSession());
 
       case Routes.addNewLostOrFoundPerson:
         return MaterialPageRoute(

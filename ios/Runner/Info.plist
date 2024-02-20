@@ -22,6 +22,8 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>google_solution_challenge_2024</string>
+	<key>CFBundleIdentifier</key>
+    <string>com.example.googleSolutionChallenge2024</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

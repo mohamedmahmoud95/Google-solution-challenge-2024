@@ -67,22 +67,26 @@ class Professional {
 
   factory Professional.fromMap(Map<String, dynamic> map) {
     return Professional(
-        id: map['id'] as String,
-        name: map['name'] as String,
-        photoUrl: map['photoUrl'] as String,
-        jobTitle: map['jobTitle'] as String,
-        rating: map['rating'] as double,
-        timeOfSlotes: List<OpenCloseTime>.from(
-          (map['timeOfSlotes'] as List<int>).map<OpenCloseTime>(
-            (x) => OpenCloseTime.fromMap(x as Map<String, dynamic>),
-          ),
+      id: map['id'] as String,
+      name: map['name'] as String,
+      photoUrl: map['photoUrl'] as String,
+      jobTitle: map['jobTitle'] as String,
+      rating: map['rating'] as double,
+      timeOfSlotes: (map['timeOfSlotes'] != null)
+          ? List<OpenCloseTime>.from(
+        (map['timeOfSlotes'] as List<dynamic>).map<OpenCloseTime>(
+              (x) => OpenCloseTime.fromMap(x as Map<String, dynamic>),
         ),
-        isAvailable: map['isAvailable'] as bool,
-        phoneNumber: map['phoneNumber'] as String,
-        allAppointeesIds: List<String>.from(
-          (map['allAppointeesIds'] as List<String>),
-        ));
+      )
+          : [],
+      isAvailable: map['isAvailable'] as bool,
+      phoneNumber: map['phoneNumber'] as String,
+      allAppointeesIds: (map['allAppointeesIds'] != null)
+          ? List<String>.from(map['allAppointeesIds'] as List<dynamic>)
+          : [],
+    );
   }
+
 
   String toJson() => json.encode(toMap());
 
