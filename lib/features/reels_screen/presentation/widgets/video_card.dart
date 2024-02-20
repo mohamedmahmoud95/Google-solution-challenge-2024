@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/reels_screen.dart';
 import '../manager/reel_cubit.dart';
 import '../manager/reel_state.dart';
@@ -25,8 +27,8 @@ class VideoCard extends StatelessWidget {
                     return Padding(
                       padding: index == 0 || index == state.videos.length - 1
                           ? EdgeInsets.only(
-                              left: index == 0 ? 10 : 2,
-                              right: index == 0 ? 2 : 10,
+                              left: index == 0 ? 10.w : 2.w,
+                              right: index == 0 ? 2.w : 10.w,
                             )
                           : const EdgeInsets.symmetric(horizontal: 2),
                       child: Stack(
@@ -34,7 +36,7 @@ class VideoCard extends StatelessWidget {
                         children: [
                           ClipRRect(
                             borderRadius:
-                                const BorderRadius.all(Radius.circular(15)),
+                                BorderRadius.all(Radius.circular(15.sp)),
                             child: ShaderMask(
                               shaderCallback: (Rect bounds) {
                                 return const LinearGradient(
@@ -47,8 +49,8 @@ class VideoCard extends StatelessWidget {
                               child: Image.network(
                                 state.videos[index].thumbnail,
                                 fit: BoxFit.cover,
-                                width: 200,
-                                height: 260,
+                                width: 180.w,
+                                height: 250.h,
                               ),
                             ),
                           ),
@@ -64,26 +66,26 @@ class VideoCard extends StatelessWidget {
                                 ),
                               );
                             },
-                            child: const Icon(
+                            child: Icon(
                               Icons.play_circle_outline,
-                              color: Colors.green,
-                              size: 50,
+                              color: AppColors.green,
+                              size: 50.sp,
                             ),
                           ),
                           Positioned(
-                            bottom: 4,
-                            left: 14,
+                            bottom: 6.h,
+                            left: 10.w,
                             child: SizedBox(
-                              height: 30,
-                              width: 180,
+                              height: 30.h,
+                              width: 160.w,
                               child: Text(
                                 state.videos[index].name,
-                                style: const TextStyle(
-                                    color: Colors.green,
+                                style: TextStyle(
+                                    color: AppColors.green,
                                     fontWeight: FontWeight.w900,
-                                    fontSize: 20,
+                                    fontSize: 18.sp,
                                     overflow: TextOverflow.ellipsis),
-                                maxLines: 2,
+                                maxLines: 1,
                               ),
                             ),
                           ),
@@ -94,10 +96,10 @@ class VideoCard extends StatelessWidget {
                 ),
               );
             } else if (state is ReelLoadingState) {
-              return const SizedBox(
-                width: 500,
-                height: 500,
-                child: Center(
+              return SizedBox(
+                width: 200.w,
+                height: 260,
+                child: const Center(
                   child: CircularProgressIndicator(),
                 ),
               );

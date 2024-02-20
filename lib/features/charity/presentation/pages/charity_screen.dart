@@ -1,6 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/features/charity/data/models/charity_model.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/see_more.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/widgets/prayers_card.dart';
@@ -10,7 +11,7 @@ import '../../../../core/utils/app_images.dart';
 import '../../../home/presentation/widgets/help_card.dart';
 import '../../../reels_screen/presentation/widgets/video_card.dart';
 import '../widgets/charity_card.dart';
-import '../widgets/chirty_horizontal_card.dart';
+import '../widgets/charity_horizontal_card.dart';
 
 class CharityScreen extends StatefulWidget {
   const CharityScreen({super.key});
@@ -47,15 +48,15 @@ class _CharityScreenState extends State<CharityScreen> {
               },
               itemCount: 1,
               itemWidth: double.infinity,
-              itemHeight: 300.0,
+              itemHeight: 250.h,
               layout: SwiperLayout.TINDER,
             ),
             SizedBox(
-              height: HomeCubit.get(context).screenHeight(context) * .03,
+              height: 10.h,
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: HomeCubit.get(context).screenWidth(context) * .03,
+                horizontal: 10.w,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,9 +66,9 @@ class _CharityScreenState extends State<CharityScreen> {
                     children: [
                       Text(
                         "Urgent Fundraising".tr(),
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontSize: 25,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w800,
+                          fontSize: 22.sp,
                         ),
                       ),
                       InkWell(
@@ -78,28 +79,43 @@ class _CharityScreenState extends State<CharityScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const SeeMoreScreen(
+                              builder: (context) => SeeMoreScreen(
                                 screenTitle: 'Urgent Fundraising',
-                                body: CharityHorizontalCard(),
+                                body: CharityHorizontalCard(
+                                  charityModel: CharityModel(
+                                    name:
+                                        "Helping Earthquake Victims Earthquake victims ",
+                                    imageUrl: AppImages.education,
+                                    description: '',
+                                    listImagesUrl: [
+                                      AppImages.education,
+                                      AppImages.education
+                                    ],
+                                    fund: 5685,
+                                    funCollected: 4259,
+                                    dayLeft: 4,
+                                    organizationName: 'Pepars',
+                                  ),
+                                ),
                               ),
                             ),
                           );
                         },
                         child: Text(
                           "See more".tr(),
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Colors.green,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: HomeCubit.get(context).screenHeight(context) * .001,
+                    height: 2.h,
                   ),
                   SizedBox(
-                    height: HomeCubit.get(context).screenHeight(context) * 0.41,
+                    height: 282.h,
                     child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -159,11 +175,11 @@ class _CharityScreenState extends State<CharityScreen> {
               ),
             ),
             SizedBox(
-              height: HomeCubit.get(context).screenHeight(context) * .03,
+              height: 10.h,
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: HomeCubit.get(context).screenWidth(context) * .03,
+                horizontal: 10.w,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -184,28 +200,43 @@ class _CharityScreenState extends State<CharityScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const SeeMoreScreen(
+                              builder: (context) => SeeMoreScreen(
                                 screenTitle: 'Coming to an end',
-                                body: CharityHorizontalCard(),
+                                body: CharityHorizontalCard(
+                                  charityModel: CharityModel(
+                                    name:
+                                        "Helping Earthquake Victims Earthquake victims ",
+                                    imageUrl: AppImages.education,
+                                    description: '',
+                                    listImagesUrl: [
+                                      AppImages.education,
+                                      AppImages.education
+                                    ],
+                                    fund: 5685,
+                                    funCollected: 4259,
+                                    dayLeft: 4,
+                                    organizationName: 'Pepars',
+                                  ),
+                                ),
                               ),
                             ),
                           );
                         },
                         child: Text(
                           "See more".tr(),
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Colors.green,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: HomeCubit.get(context).screenHeight(context) * .001,
+                    height: 2.h,
                   ),
                   SizedBox(
-                    height: HomeCubit.get(context).screenHeight(context) * 0.41,
+                    height: 282.h,
                     child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -265,15 +296,14 @@ class _CharityScreenState extends State<CharityScreen> {
               ),
             ),
             SizedBox(
-              height: HomeCubit.get(context).screenHeight(context) * .03,
+              height: 12.h,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal:
-                        HomeCubit.get(context).screenWidth(context) * .03,
+                    horizontal: 10.w,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -308,9 +338,9 @@ class _CharityScreenState extends State<CharityScreen> {
                         },
                         child: Text(
                           "See more".tr(),
-                          style: const TextStyle(
+                          style: TextStyle(
                               color: Colors.green,
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w600),
                         ),
                       ),
@@ -318,20 +348,20 @@ class _CharityScreenState extends State<CharityScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: HomeCubit.get(context).screenHeight(context) * .001,
+                  height: 5.h,
                 ),
                 SizedBox(
-                  height: HomeCubit.get(context).screenHeight(context) * 0.3,
+                  height: 200.h,
                   child: const VideoCard(),
                 ),
               ],
             ),
             SizedBox(
-              height: HomeCubit.get(context).screenHeight(context) * .03,
+              height: 12.h,
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: HomeCubit.get(context).screenWidth(context) * .03,
+                horizontal: 10.w,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -366,21 +396,19 @@ class _CharityScreenState extends State<CharityScreen> {
                         },
                         child: Text(
                           "See more".tr(),
-                          style: const TextStyle(
-                            color: Colors.green,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: HomeCubit.get(context).screenHeight(context) * .001,
+                    height: 6.h,
                   ),
                   SizedBox(
-                    height:
-                        HomeCubit.get(context).screenHeight(context) * 0.298,
+                    height: 220.h,
                     child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -392,7 +420,7 @@ class _CharityScreenState extends State<CharityScreen> {
               ),
             ),
             SizedBox(
-              height: HomeCubit.get(context).screenHeight(context) * .03,
+              height: 10.h,
             ),
           ],
         ),

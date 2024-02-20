@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
 import 'package:video_player/video_player.dart';
@@ -61,7 +62,7 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         alignment: Alignment.bottomLeft,
         children: [
           SizedBox(
-            height: HomeCubit.get(context).screenHeight(context) - 80,
+            height: HomeCubit.get(context).screenHeight(context) - 60.h,
             child: ShaderMask(
               shaderCallback: (Rect bounds) {
                 return const LinearGradient(
@@ -77,9 +78,9 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
+            padding: EdgeInsets.only(left: 10.w, right: 10.w, bottom: 10.h),
             child: SizedBox(
-              width: 350,
+              width: 300.w,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,12 +94,12 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                         ),
                       );
                     },
-                    child: const Text(
-                      "User Name",
+                    child: Text(
+                      "eman pepars",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
                         overflow: TextOverflow.ellipsis,
                       ),
                       maxLines: 2,
@@ -109,9 +110,9 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                   ),
                   Text(
                     widget.video.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w500,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -122,8 +123,8 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             ),
           ),
           Positioned(
-            right: 10,
-            bottom: 10,
+            right: 10.w,
+            bottom: 10.w,
             child: Column(
               children: [
                 Column(
@@ -171,8 +172,8 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
-                  width: 30,
+                  height: 30.h,
+                  width: 30.w,
                   child: PopupMenuButton(
                     icon: const Icon(Icons.more_horiz),
                     iconColor: Colors.white,
@@ -196,8 +197,8 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             ),
           ),
           Positioned(
-            right: 10,
-            top: 30,
+            right: 10.w,
+            top: 20.h,
             child: IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -207,8 +208,8 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             ),
           ),
           Positioned(
-            left: 10,
-            top: 30,
+            left: 1.w,
+            top: 20.h,
             child: IconButton(
               onPressed: () {
                 Navigator.pop(context);

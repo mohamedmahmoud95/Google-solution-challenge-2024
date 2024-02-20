@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/utils/app_images.dart';
-import '../../../home/presentation/manager/cubit.dart';
 import '../../../home/presentation/widgets/post_card.dart';
 
 class PrayerCard extends StatelessWidget {
@@ -12,42 +12,38 @@ class PrayerCard extends StatelessWidget {
       color: Colors.white,
       elevation: 5,
       shape: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(18.sp),
           borderSide: const BorderSide(color: Colors.transparent)),
       child: Container(
-        width: HomeCubit.get(context).screenWidth(context) * 0.82,
+        width: 300.w,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(18.sp),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(
-                  right: HomeCubit.get(context).screenWidth(context) * .04,
-                  left: HomeCubit.get(context).screenWidth(context) * .04,
-                  top: HomeCubit.get(context).screenHeight(context) * .02),
+              padding: EdgeInsets.only(right: 12.w, left: 12.w, top: 12.h),
               child: Row(
                 children: [
                   const CircleAvatar(
                     backgroundImage: AssetImage(AppImages.mentalHealth),
                   ),
-                  SizedBox(
-                      width: HomeCubit.get(context).screenWidth(context) * .03),
-                  const Column(
+                  SizedBox(width: 10.w),
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Eman Pe-pars',
                         style: TextStyle(
-                            fontWeight: FontWeight.w800, fontSize: 18),
+                            fontWeight: FontWeight.w800, fontSize: 17.sp),
                       ),
                       Text(
-                        "3 second",
+                        "10 second",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 13,
+                          fontSize: 12.sp,
                           overflow: TextOverflow.ellipsis,
                           color: Colors.black26,
                         ),
@@ -58,52 +54,62 @@ class PrayerCard extends StatelessWidget {
               ),
             ),
             Divider(
-              indent: HomeCubit.get(context).screenWidth(context) * .05,
-              endIndent: HomeCubit.get(context).screenWidth(context) * .05,
-              height: HomeCubit.get(context).screenHeight(context) * .04,
+              indent: 15.w,
+              endIndent: 15.w,
+              height: 20.h,
               color: const Color(0x67b7b7b7),
             ),
             SizedBox(
-              height: HomeCubit.get(context).screenHeight(context) * .082,
+              height: 70.h,
+              width: 300.w,
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: HomeCubit.get(context).screenWidth(context) * .05,
+                  horizontal: 20.w,
                 ),
-                child: const Center(
+                child: Center(
                   child: Text(
                     "Hopefully Audrey can get surgery soon, recover from her illness, and play with her friends..",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 17,
+                      fontSize: 16.sp,
                       overflow: TextOverflow.ellipsis,
-                      color: Color(0xf51c1c1c),
+                      color: const Color(0xf51c1c1c),
                     ),
-                    maxLines: 4,
+                    maxLines: 3,
                   ),
                 ),
               ),
             ),
             SizedBox(
-              height: HomeCubit.get(context).screenHeight(context) * .014,
+              height: 8.h,
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: HomeCubit.get(context).screenWidth(context) * .05,
+                horizontal: 20.w,
               ),
-              child: const Text(
+              child: Text(
                 "You and 48 others sent this prayer",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
-                  fontSize: 13,
+                  fontSize: 12.sp,
                   overflow: TextOverflow.ellipsis,
                   color: Colors.black26,
                 ),
               ),
             ),
+            SizedBox(
+              height: 5.h,
+            ),
+            Divider(
+              indent: 15.w,
+              endIndent: 15.w,
+              height: 1.h,
+              color: const Color(0x67b7b7b7),
+            ),
             Padding(
               padding: EdgeInsets.only(
-                right: HomeCubit.get(context).screenWidth(context) * .03,
-                left: HomeCubit.get(context).screenWidth(context) * .03,
+                right: 10.w,
+                left: 12.w,
               ),
               child: Row(
                 children: [
@@ -115,27 +121,26 @@ class PrayerCard extends StatelessWidget {
                             color: Colors.black,
                           ),
                           onPressed: () {}),
-                      const Text(
+                      Text(
                         "Aamiin",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 17,
+                          fontSize: 15.sp,
                           overflow: TextOverflow.ellipsis,
                           color: Colors.black45,
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                      width: HomeCubit.get(context).screenWidth(context) * .03),
-                  const Row(
+                  SizedBox(width: 10.w),
+                  Row(
                     children: [
-                      SharePostWidget(numOfShares: 0),
+                      const SharePostWidget(numOfShares: 0),
                       Text(
                         "Share",
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
-                          fontSize: 17,
+                          fontSize: 15.sp,
                           overflow: TextOverflow.ellipsis,
                           color: Colors.black45,
                         ),

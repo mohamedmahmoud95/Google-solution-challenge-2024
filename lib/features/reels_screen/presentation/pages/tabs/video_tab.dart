@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_player/video_player.dart';
@@ -9,10 +10,10 @@ class AddReelScreen extends StatefulWidget {
   const AddReelScreen({super.key});
 
   @override
-  _AddReelScreenState createState() => _AddReelScreenState();
+  AddReelScreenState createState() => AddReelScreenState();
 }
 
-class _AddReelScreenState extends State<AddReelScreen> {
+class AddReelScreenState extends State<AddReelScreen> {
   late File _videoFile = File('');
   final TextEditingController _captionController = TextEditingController();
 
@@ -32,7 +33,7 @@ class _AddReelScreenState extends State<AddReelScreen> {
         onTap: _selectVideo,
         child: Container(
           color: Colors.black,
-          height: 200,
+          height: 200.h,
           width: double.infinity,
           child: const Icon(Icons.add_circle_outline,
               size: 50, color: Colors.white),
@@ -69,13 +70,13 @@ class _AddReelScreenState extends State<AddReelScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildVideoPlayer(),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
                 child: TextField(
                   controller: _captionController,
                   decoration: const InputDecoration(hintText: 'Enter caption'),

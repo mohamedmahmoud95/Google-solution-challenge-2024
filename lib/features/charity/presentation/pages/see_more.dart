@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../reels_screen/presentation/manager/reel_cubit.dart';
 import '../../../reels_screen/presentation/manager/reel_state.dart';
 import '../../../reels_screen/presentation/pages/reels_screen.dart';
@@ -26,17 +27,15 @@ class SeeMoreScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         title: Text(
           isVideos ? "" : screenTitle,
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w600,
-            fontSize: 24,
+            fontSize: 21.sp,
           ),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(
-          right: 15.0,
-          left: 15,
-        ),
+        padding: EdgeInsets.only(
+            right: 15.0.w, left: 15.w, bottom: isPrayer ? 80.h : 0),
         child: isVideos
             ? BlocProvider(
                 create: (BuildContext context) => ReelCubit()..fetchVideos(),
@@ -47,11 +46,11 @@ class SeeMoreScreen extends StatelessWidget {
                         return SingleChildScrollView(
                           child: Column(
                             children: [
-                              const Text(
+                              Text(
                                 "Watch The Impact of Your Donation",
                                 style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 30,
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 25.sp,
                                 ),
                               ),
                               GridView.builder(
@@ -70,8 +69,8 @@ class SeeMoreScreen extends StatelessWidget {
                                     alignment: Alignment.center,
                                     children: [
                                       ClipRRect(
-                                        borderRadius: const BorderRadius.all(
-                                            Radius.circular(15)),
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20.sp)),
                                         child: ShaderMask(
                                           shaderCallback: (Rect bounds) {
                                             return const LinearGradient(
@@ -87,8 +86,8 @@ class SeeMoreScreen extends StatelessWidget {
                                           child: Image.network(
                                             state.videos[index].thumbnail,
                                             fit: BoxFit.cover,
-                                            width: 200,
-                                            height: 260,
+                                            width: 200.w,
+                                            height: 260.h,
                                           ),
                                         ),
                                       ),
@@ -104,24 +103,24 @@ class SeeMoreScreen extends StatelessWidget {
                                             ),
                                           );
                                         },
-                                        child: const Icon(
+                                        child: Icon(
                                           Icons.play_circle_outline,
                                           color: Colors.green,
-                                          size: 50,
+                                          size: 40.sp,
                                         ),
                                       ),
                                       Positioned(
-                                        bottom: 4,
-                                        left: 14,
+                                        bottom: 0.h,
+                                        left: 6.w,
                                         child: SizedBox(
-                                          height: 30,
-                                          width: 180,
+                                          height: 30.h,
+                                          width: 180.w,
                                           child: Text(
                                             state.videos[index].name,
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                                 color: Colors.green,
-                                                fontWeight: FontWeight.w900,
-                                                fontSize: 20,
+                                                fontWeight: FontWeight.w700,
+                                                fontSize: 16.sp,
                                                 overflow:
                                                     TextOverflow.ellipsis),
                                             maxLines: 2,
@@ -132,17 +131,17 @@ class SeeMoreScreen extends StatelessWidget {
                                   );
                                 },
                               ),
-                              const SizedBox(
-                                height: 20,
+                              SizedBox(
+                                height: 5.h,
                               ),
                             ],
                           ),
                         );
                       } else if (state is ReelLoadingState) {
-                        return const SizedBox(
-                          width: 500,
-                          height: 500,
-                          child: Center(
+                        return SizedBox(
+                          width: 500.w,
+                          height: 500.h,
+                          child: const Center(
                             child: CircularProgressIndicator(),
                           ),
                         );
@@ -167,10 +166,8 @@ class SeeMoreScreen extends StatelessWidget {
                     }),
               )
             : ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
-                  return index == 5 ? const SizedBox(height: 15) : body;
+                  return index == 5 ? SizedBox(height: 10.h) : body;
                 },
                 itemCount: 6,
               ),
@@ -179,14 +176,9 @@ class SeeMoreScreen extends StatelessWidget {
       floatingActionButton: isPrayer
           ? SizedBox(
               width: double.infinity,
-              height: 100,
+              height: 75.h,
               child: FloatingActionButton(
                 isExtended: true,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(12),
-                      topRight: Radius.circular(12)),
-                ),
                 onPressed: () {},
                 child: Container(
                   color: Colors.white,
@@ -196,24 +188,23 @@ class SeeMoreScreen extends StatelessWidget {
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: "Send your prayer...",
-                      hintStyle: const TextStyle(
-                        fontSize: 18,
+                      hintStyle: TextStyle(
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.w500,
                         color: Colors.black38,
                       ),
                       suffixIcon: IconButton(
                           onPressed: () {}, icon: const Icon(Icons.send)),
-                      border: const OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(
-                            12,
+                            12.sp,
                           ),
                         ),
                       ),
-                      alignLabelWithHint: true,
                     ),
-                    style: const TextStyle(
-                      fontSize: 20,
+                    style: TextStyle(
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.black87,
                     ),

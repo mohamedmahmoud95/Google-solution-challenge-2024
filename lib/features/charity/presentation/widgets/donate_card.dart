@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DonateCard extends StatelessWidget {
   final int number;
@@ -8,11 +9,11 @@ class DonateCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InputDecorator(
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(
-              12,
+              12.sp,
             ),
           ),
         ),
@@ -20,8 +21,8 @@ class DonateCard extends StatelessWidget {
       child: Center(
         child: Text(
           "\$$number",
-          style: const TextStyle(
-            fontSize: 20,
+          style: TextStyle(
+            fontSize: 19.sp,
             fontWeight: FontWeight.w500,
             color: Colors.black87,
           ),
