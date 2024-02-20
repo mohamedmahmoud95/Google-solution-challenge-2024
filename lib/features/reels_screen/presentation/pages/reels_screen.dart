@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/reel_tab.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/video_tab.dart';
@@ -33,36 +34,36 @@ class ReelsScreen extends StatelessWidget {
         builder: (context, state) => Scaffold(
           body: tabsOptions[ReelCubit.get(context).selectedIndex],
           bottomNavigationBar: SizedBox(
-            height: 80,
+            height: 60.h,
             child: BottomNavigationBar(
               currentIndex: ReelCubit.get(context).selectedIndex,
               onTap: ReelCubit.get(context).onItemTapped,
               backgroundColor: Colors.black,
-              iconSize: 30,
+              iconSize: 26.sp,
               selectedIconTheme: const IconThemeData(
                 color: Colors.white,
               ),
               unselectedItemColor: Colors.white,
               elevation: 10,
-              items: const [
+              items: [
                 BottomNavigationBarItem(
                   icon: Padding(
-                    padding: EdgeInsets.only(top: 10.0),
-                    child: Icon(Icons.slow_motion_video),
+                    padding: EdgeInsets.only(top: 8.h),
+                    child: const Icon(Icons.slow_motion_video),
                   ),
                   label: "",
                 ),
                 BottomNavigationBarItem(
                   icon: Padding(
-                    padding: EdgeInsets.only(top: 10.0),
-                    child: Icon(Icons.add),
+                    padding: EdgeInsets.only(top: 8.h),
+                    child: const Icon(Icons.add),
                   ),
                   label: "",
                 ),
                 BottomNavigationBarItem(
                   icon: Padding(
-                    padding: EdgeInsets.only(top: 10.0),
-                    child: Icon(Icons.person_outlined),
+                    padding: EdgeInsets.only(top: 8.h),
+                    child: const Icon(Icons.person_outlined),
                   ),
                   label: "",
                 ),

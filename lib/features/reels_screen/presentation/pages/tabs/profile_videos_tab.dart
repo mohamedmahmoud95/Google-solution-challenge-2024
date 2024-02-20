@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/reels_screen.dart';
 import '../../../data/model/video_model.dart';
@@ -31,28 +32,28 @@ class ProfileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SafeArea(
+            SafeArea(
               child: Padding(
-                padding: EdgeInsets.only(left: 16.0, bottom: 10),
+                padding: EdgeInsets.only(left: 16.0.w, bottom: 10.h),
                 child: Row(
                   children: [
                     CircleAvatar(
-                      radius: 40,
-                      backgroundImage: AssetImage(AppImages.education),
+                      radius: 35.sp,
+                      backgroundImage: const AssetImage(AppImages.education),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Username',
+                          'eman pepars',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                            fontSize: 18.sp,
                           ),
                         ),
-                        SizedBox(height: 5),
-                        Text('Bio here'),
+                        SizedBox(height: 3.h),
+                        const Text('Bio here'),
                       ],
                     ),
                   ],
@@ -60,8 +61,8 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             const Divider(),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 14.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -71,10 +72,10 @@ class ProfileScreen extends StatelessWidget {
                         '100',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 16.sp,
                         ),
                       ),
-                      Text('Posts'),
+                      const Text('Posts'),
                     ],
                   ),
                   Column(
@@ -83,10 +84,10 @@ class ProfileScreen extends StatelessWidget {
                         '100',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 16.sp,
                         ),
                       ),
-                      Text('Followers'),
+                      const Text('Followers'),
                     ],
                   ),
                   Column(
@@ -95,10 +96,10 @@ class ProfileScreen extends StatelessWidget {
                         '100',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                          fontSize: 16.sp,
                         ),
                       ),
-                      Text('Following'),
+                      const Text('Following'),
                     ],
                   ),
                 ],
