@@ -155,7 +155,8 @@ class PostCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                ],
+
+            ],
               ),
             ),
           ),
