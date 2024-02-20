@@ -209,20 +209,53 @@ class _CharityScreenState extends State<CharityScreen> {
                     child: ListView.builder(
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => CharityCard(
-                        charityModel: CharityModel(
-                          name:
-                              "Helping Earthquake Victims Earthquake victims ",
-                          imageUrl: AppImages.education,
-                          description: '',
-                          listImagesUrl: [
-                            AppImages.education,
-                            AppImages.education
-                          ],
-                          fund: 568500,
-                          funCollected: 4.259,
-                          dayLeft: 4,
-                          organizationName: 'Pepars',
+                      itemBuilder: (context, index) => InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            Routes.charityDetails,
+                            arguments: CharityModel(
+                              name:
+                                  "Helping Earthquake Victims Earthquake victims ",
+                              imageUrl: AppImages.education,
+                              description:
+                                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                                  'Fusce eu risus non arcu bibendum suscipit. '
+                                  'Donec id pulvinar tortor. Sed vel nunc tellus. '
+                                  'Duis auctor convallis magna, vel lacinia sapien efficitur at. '
+                                  'In hac habitasse platea dictumst.',
+                              listImagesUrl: [
+                                AppImages.education,
+                                AppImages.education,
+                                AppImages.education,
+                                AppImages.education,
+                                AppImages.education,
+                                AppImages.education,
+                                AppImages.education,
+                                AppImages.education,
+                              ],
+                              fund: 5685,
+                              funCollected: 4259,
+                              dayLeft: 4,
+                              organizationName: 'Pepars',
+                            ),
+                          );
+                        },
+                        child: CharityCard(
+                          charityModel: CharityModel(
+                            name:
+                                "Helping Earthquake Victims Earthquake victims ",
+                            imageUrl: AppImages.education,
+                            description: '',
+                            listImagesUrl: [
+                              AppImages.education,
+                              AppImages.education
+                            ],
+                            fund: 5685,
+                            funCollected: 4259,
+                            dayLeft: 4,
+                            organizationName: 'Pepars',
+                          ),
                         ),
                       ),
                       itemCount: 4,
