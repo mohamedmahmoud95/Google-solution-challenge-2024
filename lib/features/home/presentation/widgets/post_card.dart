@@ -106,7 +106,7 @@ class PostCard extends StatelessWidget {
                       width: double.infinity,
                       fit: BoxFit.fill,
                     ),
-                  ),),
+                  ),
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal:
@@ -157,7 +157,8 @@ class PostCard extends StatelessWidget {
                       ],
                     ),
                   ),
-                ],
+
+            ],
               ),
             ),
           ),

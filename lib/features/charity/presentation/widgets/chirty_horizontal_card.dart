@@ -112,7 +112,7 @@ class CharityHorizontalCard extends StatelessWidget {
                       child: LinearProgressIndicator(
                         value: 4259 / 8000,
                         color: Colors.green,
-                        backgroundColor: AppColors.lightGrey,
+                        backgroundColor: AppColors.grey1,
                       ),
                     ),
                     SizedBox(

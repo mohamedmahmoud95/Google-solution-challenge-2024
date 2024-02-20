@@ -77,52 +77,52 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          body: CustomScrollView(
-            slivers: [
-              SliverAppBar(
-                floating: true,
-                snap: true,
-                //غيره من هنا
-                pinned: true,
-                elevation: 0,
-                backgroundColor: AppColors.white,
-                title: SizedBox(
-                  width: double.infinity,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "welcome back".tr(),
-                        style: const TextStyle(fontSize: AppMeasures.mediumFontSize20),
-                        textAlign: TextAlign.start,
-                      ),
-                      const Text(
-                        "Mohamed",
-                        style: TextStyle(fontWeight: FontWeight.w700,
-                        color: AppColors.darkGreen2),
-                        textAlign: TextAlign.start,
+          // body: CustomScrollView(
+          //   slivers: [
+          //     SliverAppBar(
+          //       floating: true,
+          //       snap: true,
+          //       //غيره من هنا
+          //       pinned: true,
+          //       elevation: 0,
+          //       backgroundColor: AppColors.white,
+          //       title: SizedBox(
+          //         width: double.infinity,
+          //         child: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             Text(
+          //               "welcome back".tr(),
+          //               style: const TextStyle(fontSize: AppMeasures.mediumFontSize20),
+          //               textAlign: TextAlign.start,
+          //             ),
+          //             const Text(
+          //               "Mohamed",
+          //               style: TextStyle(fontWeight: FontWeight.w700,
+          //               color: AppColors.darkGreen2),
+          //               textAlign: TextAlign.start,
+          //
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //     ListTile(
+          //       title:  Text('Settings'.tr()),
+          //       onTap: () {
+          //         Navigator.pushNamed(context, Routes.settings);
+          //         // Add your logic for when item 1 is tapped
+          //       },
+          //     ),
+          //     ListTile(
+          //       title: const Text('Item 2'),
+          //       onTap: () {
+          //         // Add your logic for when item 2 is tapped
+          //       },
+          //     ),
+          //   ],
 
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              ListTile(
-                title:  Text('Settings'.tr()),
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.settings);
-                  // Add your logic for when item 1 is tapped
-                },
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {
-                  // Add your logic for when item 2 is tapped
-                },
-              ),
-            ],
-          ),
-        ),
+
         body: CustomScrollView(
           slivers: [
             SliverAppBar(
@@ -157,7 +157,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
+        ),
     );
   }
 }

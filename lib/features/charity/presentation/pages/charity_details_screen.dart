@@ -108,7 +108,7 @@ class CharityDetailsScreen extends StatelessWidget {
                                                 charityModel.fund,
                                             color: Colors.green,
                                             backgroundColor:
-                                                AppColors.lightGrey,
+                                                AppColors.grey1,
                                           ),
                                         ),
                                         Text(

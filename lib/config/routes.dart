@@ -7,7 +7,6 @@ import 'package:google_solution_challenge_2024/features/charity/presentation/pag
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
-import 'package:google_solution_challenge_2024/features/settings%20/presentation/pages/setting_screen.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_and_found_screen.dart';
 import 'package:google_solution_challenge_2024/features/auth/authentication_gate.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';

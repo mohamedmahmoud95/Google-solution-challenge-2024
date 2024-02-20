@@ -118,7 +118,7 @@ class CharityCard extends StatelessWidget {
                                           value: charityModel.funCollected /
                                               charityModel.fund,
                                           color: Colors.green,
-                                          backgroundColor: AppColors.lightGrey,
+                                          backgroundColor: AppColors.grey1,
                                         ),
                                       ),
                                       Text(
