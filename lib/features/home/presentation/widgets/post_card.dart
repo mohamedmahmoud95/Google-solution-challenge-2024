@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 
 import '../../../../config/routes.dart';
 import '../manager/cubit.dart';
@@ -25,8 +24,7 @@ class PostCard extends StatelessWidget {
         animation: HomeCubit.get(context).postPageController,
         builder: (BuildContext context, Widget? child) => Hero(
           tag: "post$index",
-          child:
-          Card(
+          child: Card(
             color: AppColors.oliveGreen1,
             elevation: 1,
             shape: OutlineInputBorder(
@@ -66,8 +64,8 @@ class PostCard extends StatelessWidget {
                             ),
                             Text(
                               "3 second",
-                              style:
-                                  TextStyle(color: AppColors.darkGreen2, fontSize: 12),
+                              style: TextStyle(
+                                  color: AppColors.darkGreen2, fontSize: 12),
                             ),
                           ],
                         ),
@@ -164,7 +162,6 @@ class PostCard extends StatelessWidget {
           ),
         ),
       ),
-
     );
   }
 }

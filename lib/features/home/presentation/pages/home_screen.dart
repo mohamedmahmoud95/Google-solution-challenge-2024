@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                      color: AppColors.oliveGreen1,
                   ),
-                  child: SizedBox(),
+                  child: const SizedBox(),
                   // Text(
                   //   'Drawer Header',
                   //   style: TextStyle(
@@ -77,6 +77,51 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
+          body: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                floating: true,
+                snap: true,
+                //غيره من هنا
+                pinned: true,
+                elevation: 0,
+                backgroundColor: AppColors.white,
+                title: SizedBox(
+                  width: double.infinity,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "welcome back".tr(),
+                        style: const TextStyle(fontSize: AppMeasures.mediumFontSize20),
+                        textAlign: TextAlign.start,
+                      ),
+                      const Text(
+                        "Mohamed",
+                        style: TextStyle(fontWeight: FontWeight.w700,
+                        color: AppColors.darkGreen2),
+                        textAlign: TextAlign.start,
+
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              ListTile(
+                title:  Text('Settings'.tr()),
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.settings);
+                  // Add your logic for when item 1 is tapped
+                },
+              ),
+              ListTile(
+                title: const Text('Item 2'),
+                onTap: () {
+                  // Add your logic for when item 2 is tapped
+                },
+              ),
+            ],
+          ),
           // body: CustomScrollView(
           //   slivers: [
           //     SliverAppBar(
@@ -85,7 +130,7 @@ class HomeScreen extends StatelessWidget {
           //       //غيره من هنا
           //       pinned: true,
           //       elevation: 0,
-          //       backgroundColor: AppColors.white,
+          //       backgroundColor: Colors.white,
           //       title: SizedBox(
           //         width: double.infinity,
           //         child: Column(
@@ -93,71 +138,27 @@ class HomeScreen extends StatelessWidget {
           //           children: [
           //             Text(
           //               "welcome back".tr(),
-          //               style: const TextStyle(fontSize: AppMeasures.mediumFontSize20),
+          //               style: const TextStyle(fontSize: 10),
           //               textAlign: TextAlign.start,
           //             ),
           //             const Text(
           //               "Mohamed",
-          //               style: TextStyle(fontWeight: FontWeight.w700,
-          //               color: AppColors.darkGreen2),
+          //               style: TextStyle(fontWeight: FontWeight.w900),
           //               textAlign: TextAlign.start,
-          //
           //             ),
           //           ],
           //         ),
           //       ),
           //     ),
-          //     ListTile(
-          //       title:  Text('Settings'.tr()),
-          //       onTap: () {
-          //         Navigator.pushNamed(context, Routes.settings);
-          //         // Add your logic for when item 1 is tapped
-          //       },
-          //     ),
-          //     ListTile(
-          //       title: const Text('Item 2'),
-          //       onTap: () {
-          //         // Add your logic for when item 2 is tapped
-          //       },
+          //     SliverToBoxAdapter(
+          //       child: HomeCubit.get(context)
+          //           .widgetOptions[HomeCubit.get(context).selectedIndex],
           //     ),
           //   ],
+          // ),
 
+        ),
 
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              floating: true,
-              snap: true,
-              //غيره من هنا
-              pinned: true,
-              elevation: 0,
-              backgroundColor: Colors.white,
-              title: SizedBox(
-                width: double.infinity,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "welcome back".tr(),
-                      style: const TextStyle(fontSize: 10),
-                      textAlign: TextAlign.start,
-                    ),
-                    const Text(
-                      "Mohamed",
-                      style: TextStyle(fontWeight: FontWeight.w900),
-                      textAlign: TextAlign.start,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            SliverToBoxAdapter(
-              child: HomeCubit.get(context)
-                  .widgetOptions[HomeCubit.get(context).selectedIndex],
-            ),
-          ],
-        ),
-        ),
     );
   }
 }
