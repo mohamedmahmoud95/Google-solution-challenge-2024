@@ -20,7 +20,7 @@ class CategoryCard extends StatelessWidget {
         color: AppColors.oliveGreen1,// AppColors.oliveGreen2.withOpacity(0.4),//Theme.of(context).cardColor,
         child: Container(
           width: HomeCubit.get(context).screenWidth(context) * .4,
-          height: HomeCubit.get(context).screenHeight(context) * .18,
+          height: HomeCubit.get(context).screenHeight(context) * .16,
           padding: EdgeInsets.symmetric(
               horizontal: HomeCubit.get(context).screenWidth(context) * .01,
               vertical: HomeCubit.get(context).screenHeight(context) * .009),
@@ -36,13 +36,13 @@ class CategoryCard extends StatelessWidget {
                 height: HomeCubit.get(context).screenHeight(context) * 0.1,
               ),
               SizedBox(
-                width: HomeCubit.get(context).screenWidth(context) * .25,
+                // width: HomeCubit.get(context).screenWidth(context) * .2,
                 child: Text(
                   text,
                   style: const TextStyle(fontWeight: FontWeight.w900),
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                  maxLines: 1,
                 ),
               ),
             ],
