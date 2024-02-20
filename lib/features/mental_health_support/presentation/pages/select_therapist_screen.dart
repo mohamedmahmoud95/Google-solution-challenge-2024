@@ -27,7 +27,8 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
         rating: 4.9,
         timeOfSlotes: [],
         isAvailable: true,
-        phoneNumber: "52252252")
+        phoneNumber: "52252252",
+        allAppointeesIds: [])
     );
     BlocProvider.of<GetProfessionalsCubit>(context).getAllProfessionals();
   }
