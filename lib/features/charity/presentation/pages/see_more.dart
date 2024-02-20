@@ -9,10 +9,12 @@ class SeeMoreScreen extends StatelessWidget {
   final Widget body;
 
   final bool isVideos;
+  final bool isPrayer;
 
   const SeeMoreScreen(
       {required this.screenTitle,
       this.isVideos = false,
+      this.isPrayer = false,
       required this.body,
       super.key});
 
@@ -130,6 +132,9 @@ class SeeMoreScreen extends StatelessWidget {
                                   );
                                 },
                               ),
+                              const SizedBox(
+                                height: 20,
+                              ),
                             ],
                           ),
                         );
@@ -162,12 +167,61 @@ class SeeMoreScreen extends StatelessWidget {
                     }),
               )
             : ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {
                   return index == 5 ? const SizedBox(height: 15) : body;
                 },
                 itemCount: 6,
               ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: isPrayer
+          ? SizedBox(
+              width: double.infinity,
+              height: 100,
+              child: FloatingActionButton(
+                isExtended: true,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      topRight: Radius.circular(12)),
+                ),
+                onPressed: () {},
+                child: Container(
+                  color: Colors.white,
+                  height: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Send your prayer...",
+                      hintStyle: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black38,
+                      ),
+                      suffixIcon: IconButton(
+                          onPressed: () {}, icon: const Icon(Icons.send)),
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(
+                            12,
+                          ),
+                        ),
+                      ),
+                      alignLabelWithHint: true,
+                    ),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ),
+              ),
+            )
+          : null,
     );
   }
 }

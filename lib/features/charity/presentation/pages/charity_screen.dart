@@ -358,6 +358,7 @@ class _CharityScreenState extends State<CharityScreen> {
                             MaterialPageRoute(
                               builder: (context) => const SeeMoreScreen(
                                 screenTitle: 'Prayers from Good People',
+                                isPrayer: true,
                                 body: PrayerCard(),
                               ),
                             ),
