@@ -1,69 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../home/presentation/manager/cubit.dart';
+import '../../data/models/charity_model.dart';
 
 class CharityHorizontalCard extends StatelessWidget {
-  final String? title;
-  final String? any;
+  final CharityModel charityModel;
 
-  const CharityHorizontalCard({this.title, this.any, super.key});
+  const CharityHorizontalCard({required this.charityModel, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 10,
       shape: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(20.sp),
         borderSide: const BorderSide(color: Colors.transparent),
       ),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(20.sp),
         ),
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: const Image(
-                image: AssetImage(AppImages.education),
-                width: 140,
-                height: 120,
+              borderRadius: BorderRadius.circular(20.sp),
+              child: Image(
+                image: AssetImage(charityModel.imageUrl),
+                width: 120.w,
+                height: 100.h,
                 fit: BoxFit.cover,
               ),
             ),
-            const SizedBox(width: 10),
+            SizedBox(width: 8.w),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const SizedBox(
-                  width: 200,
+                SizedBox(
+                  width: 180.w,
                   child: Text(
-                    "Helping Earthquake Victims Earthquake victims ",
+                    charityModel.name,
+                    //"Helping Earthquake Victims Earthquake victims ",
                     style: TextStyle(
                       fontWeight: FontWeight.w900,
-                      fontSize: 16,
+                      fontSize: 14.sp,
                       overflow: TextOverflow.ellipsis,
-                      color: Color(0xf51c1c1c),
+                      color: const Color(0xf51c1c1c),
                     ),
                     maxLines: 2,
                   ),
                 ),
                 SizedBox(
-                  height: HomeCubit.get(context).screenHeight(context) * .005,
+                  height: 5.h,
                 ),
-                const Row(
+                Row(
                   children: [
                     Row(
                       children: [
                         Text(
-                          "4",
+                          "${charityModel.dayLeft}",
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
-                            fontSize: 14,
+                            fontSize: 12.sp,
                             overflow: TextOverflow.ellipsis,
                             color: Colors.green,
                           ),
@@ -72,7 +71,7 @@ class CharityHorizontalCard extends StatelessWidget {
                           " Days Left | ",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontSize: 14,
+                            fontSize: 12.sp,
                             overflow: TextOverflow.ellipsis,
                             color: Colors.black45,
                           ),
@@ -84,7 +83,7 @@ class CharityHorizontalCard extends StatelessWidget {
                       "800 ",
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
-                        fontSize: 14,
+                        fontSize: 12.sp,
                         overflow: TextOverflow.ellipsis,
                         color: Colors.green,
                       ),
@@ -93,7 +92,7 @@ class CharityHorizontalCard extends StatelessWidget {
                       "Good People",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 14,
+                        fontSize: 12.sp,
                         overflow: TextOverflow.ellipsis,
                         color: Colors.black45,
                       ),
@@ -102,27 +101,27 @@ class CharityHorizontalCard extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: HomeCubit.get(context).screenHeight(context) * .01,
+                  height: 5.h,
                 ),
-                const Row(
+                Row(
                   children: [
                     SizedBox(
-                      width: 160,
-                      height: 10,
+                      width: 140.w,
+                      height: 8.h,
                       child: LinearProgressIndicator(
-                        value: 4259 / 8000,
+                        value: charityModel.funCollected / charityModel.fund,
                         color: Colors.green,
-                        backgroundColor: AppColors.lightGrey,
+                        backgroundColor: AppColors.grey2,
                       ),
                     ),
                     SizedBox(
-                      width: 10,
+                      width: 8.w,
                     ),
                     Text(
-                      "53%",
+                      "${((charityModel.funCollected / charityModel.fund) * 100).toStringAsFixed(0)}%",
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 14,
+                        fontSize: 12.sp,
                         overflow: TextOverflow.ellipsis,
                         color: Colors.black,
                       ),

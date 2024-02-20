@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'config/routes.dart';
 import 'core/utils/app_themes.dart';
 import 'features/home/presentation/manager/cubit.dart';
-import 'features/settings /presentation/manager/language_cubit.dart';
+import 'features/settings/presentation/manager/language_cubit.dart';
 
 class PalestineApp extends StatefulWidget {
   const PalestineApp({super.key});

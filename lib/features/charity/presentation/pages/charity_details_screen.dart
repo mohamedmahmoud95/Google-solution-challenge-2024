@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/config/routes.dart';
 import 'package:google_solution_challenge_2024/features/charity/data/models/charity_model.dart';
 import 'package:readmore/readmore.dart';
@@ -18,30 +19,30 @@ class CharityDetailsScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            toolbarHeight: 80,
+            toolbarHeight: 60.h,
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(0),
               child: Container(
                 width: double.maxFinite,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.black87,
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25),
+                    topLeft: Radius.circular(24.sp),
+                    topRight: Radius.circular(24.sp),
                   ),
                 ),
-                padding: const EdgeInsets.only(top: 10, bottom: 10),
-                child: const Center(
+                padding: EdgeInsets.symmetric(vertical: 6.h),
+                child: Center(
                   child: Divider(
-                    thickness: 3,
+                    thickness: 3.sp,
                     color: Colors.white60,
-                    indent: 140,
-                    endIndent: 140,
+                    indent: 120.w,
+                    endIndent: 120.w,
                   ),
                 ),
               ),
             ),
-            expandedHeight: 300,
+            expandedHeight: 240.h,
             elevation: 0,
             pinned: true,
             floating: true,
@@ -56,11 +57,11 @@ class CharityDetailsScreen extends StatelessWidget {
           SliverToBoxAdapter(
             child: Container(
               color: Colors.black87,
-              padding: const EdgeInsets.only(
-                right: 20,
-                left: 20,
-                bottom: 20,
-                top: 10,
+              padding: EdgeInsets.only(
+                right: 18.w,
+                left: 18.w,
+                bottom: 18.h,
+                top: 8.h,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,18 +80,18 @@ class CharityDetailsScreen extends StatelessWidget {
                               SizedBox(
                                 width: HomeCubit.get(context)
                                         .screenWidth(context) -
-                                    50,
+                                    40.w,
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     SizedBox(
-                                      width: 250,
+                                      width: 255.w,
                                       child: Text(
                                         charityModel.name,
-                                        style: const TextStyle(
+                                        style: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 22,
+                                          fontSize: 20.sp,
                                           overflow: TextOverflow.ellipsis,
                                           color: Colors.white,
                                         ),
@@ -101,20 +102,19 @@ class CharityDetailsScreen extends StatelessWidget {
                                       alignment: Alignment.center,
                                       children: [
                                         SizedBox(
-                                          width: 45,
-                                          height: 42,
+                                          width: 44.w,
+                                          height: 40.h,
                                           child: CircularProgressIndicator(
                                             value: charityModel.funCollected /
                                                 charityModel.fund,
                                             color: Colors.green,
-                                            backgroundColor:
-                                                AppColors.lightGrey,
+                                            backgroundColor: AppColors.grey2,
                                           ),
                                         ),
                                         Text(
                                           "${((charityModel.funCollected / charityModel.fund) * 100).toStringAsFixed(0)}%",
-                                          style: const TextStyle(
-                                            fontSize: 14,
+                                          style: TextStyle(
+                                            fontSize: 14.sp,
                                             overflow: TextOverflow.ellipsis,
                                             color: Colors.white,
                                           ),
@@ -124,25 +124,25 @@ class CharityDetailsScreen extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              const SizedBox(
-                                height: 10,
+                              SizedBox(
+                                height: 8.h,
                               ),
                               Row(
                                 children: [
                                   Text(
                                     "\$${charityModel.funCollected}",
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 17,
+                                      fontSize: 16.sp,
                                       overflow: TextOverflow.ellipsis,
                                       color: Colors.green,
                                     ),
                                   ),
                                   Text(
                                     " Fund Collected from \$${charityModel.fund} ",
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 16,
+                                      fontSize: 14.sp,
                                       overflow: TextOverflow.ellipsis,
                                       color: Colors.white70,
                                     ),
@@ -150,17 +150,14 @@ class CharityDetailsScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 10,
-                              ),
                             ],
                           ),
                         ],
                       ),
                     ],
                   ),
-                  const Divider(
-                    height: 35,
+                  Divider(
+                    height: 24.h,
                   ),
                   Row(
                     children: [
@@ -170,38 +167,41 @@ class CharityDetailsScreen extends StatelessWidget {
                             Icons.person_outlined,
                             color: Colors.white60,
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 6.w,
                           ),
-                          const Text(
+                          Text(
                             "By",
                             style: TextStyle(
-                              fontSize: 20,
+                              fontSize: 16.sp,
                               overflow: TextOverflow.ellipsis,
                               color: Colors.white,
                             ),
                           ),
-                          const SizedBox(
-                            width: 5,
+                          SizedBox(
+                            width: 5.w,
                           ),
-                          Text(
-                            charityModel.organizationName,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20,
-                              overflow: TextOverflow.ellipsis,
-                              color: Colors.green,
+                          SizedBox(
+                            width: 150.w,
+                            child: Text(
+                              charityModel.organizationName,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16.sp,
+                                overflow: TextOverflow.ellipsis,
+                                color: Colors.green,
+                              ),
+                              maxLines: 2,
                             ),
-                            maxLines: 2,
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: 20.h,
                         child: VerticalDivider(
                           color: Colors.white,
                           thickness: 1,
-                          width: 20,
+                          width: 10.w,
                         ),
                       ),
                       Row(
@@ -210,14 +210,14 @@ class CharityDetailsScreen extends StatelessWidget {
                             Icons.timer_outlined,
                             color: Colors.white60,
                           ),
-                          const SizedBox(
-                            width: 10,
+                          SizedBox(
+                            width: 10.w,
                           ),
                           Text(
                             "${charityModel.dayLeft} days left",
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontWeight: FontWeight.w600,
-                              fontSize: 16,
+                              fontSize: 14.sp,
                               overflow: TextOverflow.ellipsis,
                               color: Colors.white70,
                             ),
@@ -227,52 +227,51 @@ class CharityDetailsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Divider(
-                    height: 35,
+                  Divider(
+                    height: 24.h,
                   ),
                   charityModel.listImagesUrl.isNotEmpty
                       ? Column(
                           children: [
                             SizedBox(
-                              height: 100,
+                              height: 80.h,
                               child: ListView.separated(
                                 scrollDirection: Axis.horizontal,
                                 itemBuilder: (context, index) => ClipRRect(
-                                  borderRadius: const BorderRadius.all(
-                                      Radius.circular(12)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(12.sp)),
                                   child: Image(
                                     image: AssetImage(
                                       charityModel.listImagesUrl[index],
                                     ),
                                     fit: BoxFit.fill,
-                                    width: 100,
-                                    height: 100,
+                                    width: 100.5.w,
                                   ),
                                 ),
                                 itemCount: charityModel.listImagesUrl.length,
                                 separatorBuilder:
                                     (BuildContext context, int index) =>
-                                        const SizedBox(width: 10),
+                                        SizedBox(width: 10.w),
                               ),
                             ),
-                            const Divider(
-                              height: 35,
+                            Divider(
+                              height: 24.h,
                             ),
                           ],
                         )
                       : const SizedBox(),
-                  const Text(
+                  Text(
                     "Description",
                     style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 20.sp,
                       overflow: TextOverflow.ellipsis,
                       color: Colors.white,
                     ),
                     maxLines: 2,
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 8.h,
                   ),
                   ReadMoreText(
                     charityModel.description,
@@ -280,50 +279,50 @@ class CharityDetailsScreen extends StatelessWidget {
                     trimMode: TrimMode.Line,
                     trimCollapsedText: 'Show more',
                     trimExpandedText: 'Show less',
-                    moreStyle: const TextStyle(
-                        fontSize: 14,
+                    moreStyle: TextStyle(
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
-                    lessStyle: const TextStyle(
-                        fontSize: 14,
+                    lessStyle: TextStyle(
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
-                    style: const TextStyle(
-                        fontSize: 14,
+                    style: TextStyle(
+                        fontSize: 14.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white70),
                   ),
-                  const Divider(
-                    height: 35,
+                  Divider(
+                    height: 24.h,
                   ),
                   Row(
                     children: [
                       Container(
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.all(
-                            Radius.circular(16),
+                            Radius.circular(12.sp),
                           ),
                         ),
-                        padding: const EdgeInsets.all(12),
-                        child: const Icon(
+                        padding: EdgeInsets.all(10.sp),
+                        child: Icon(
                           Icons.verified_user_sharp,
-                          size: 30,
+                          size: 30.sp,
                           color: Colors.white60,
                         ),
                       ),
-                      const SizedBox(
-                        width: 10,
+                      SizedBox(
+                        width: 10.w,
                       ),
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             "The Winchesters",
                             style: TextStyle(
-                              fontWeight: FontWeight.w900,
-                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 17.sp,
                               overflow: TextOverflow.ellipsis,
                               color: Colors.white,
                             ),
@@ -332,7 +331,7 @@ class CharityDetailsScreen extends StatelessWidget {
                           Text(
                             "Verified foundation",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
                               color: Colors.white70,
                             ),
@@ -341,8 +340,8 @@ class CharityDetailsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: 18.h,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -350,19 +349,19 @@ class CharityDetailsScreen extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16.0),
+                          borderRadius: BorderRadius.circular(14.0.sp),
                         ),
                       ),
                       onPressed: () {
                         Navigator.pushNamed(context, Routes.donateScreen);
                       },
-                      child: const Padding(
+                      child: Padding(
                         padding: EdgeInsets.symmetric(
-                            vertical: 18.0, horizontal: 10),
+                            vertical: 16.h, horizontal: 10.w),
                         child: Text(
                           "Donate Now",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 19.sp,
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
                           ),

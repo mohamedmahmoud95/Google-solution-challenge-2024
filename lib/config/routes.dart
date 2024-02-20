@@ -7,10 +7,8 @@ import 'package:google_solution_challenge_2024/features/charity/presentation/pag
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
-import 'package:google_solution_challenge_2024/features/settings%20/presentation/pages/setting_screen.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_and_found_screen.dart';
 import 'package:google_solution_challenge_2024/features/auth/authentication_gate.dart';
-import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/upload_lost_or_found_person_cubit/upload_lost_or_found_person_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_professionals_cubit/get_professionals_cubit.dart';
@@ -23,14 +21,12 @@ import '../features/auth/sign_up/presentation/pages/sign_up_screen.dart';
 import '../features/landing_screen/presentation/pages/landing_screen.dart';
 import '../features/lost and found/domain/entities/lost_or_found_person.dart';
 import '../features/lost and found/presentation/pages/add_new_person.dart';
-import '../features/lost and found/presentation/pages/lost_and_found_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
 
 import '../features/charity/presentation/pages/payment_screen.dart';
 
 class Routes {
-
-  static const String authGate = "/";
+  static const String authGate = "authGate";
   static const String landing = "landing";
   static const String home = "home";
   static const String settings = "settings";
@@ -39,8 +35,9 @@ class Routes {
   static const String signUp = "signUp";
   static const String mentalHealthSupport = "mentalHealthSupport";
   static const String lostAndFound = "lostAndFound";
+
   ///--- charity page----///
-  static const String charity = "charity";
+  static const String charity = "/";
   static const String charityDetails = "charityDetails";
   static const String donateScreen = "donateScreen";
   static const String payment = "payment";
@@ -58,7 +55,8 @@ class AppRoutes {
 
     switch (routeSettings.name) {
       case Routes.authGate:
-        return MaterialPageRoute(builder: (context) => const AuthenticationGate());
+        return MaterialPageRoute(
+            builder: (context) => const AuthenticationGate());
 
       case Routes.landing:
         return MaterialPageRoute(builder: (context) => const LandingScreen());
@@ -73,9 +71,9 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const HomeScreen());
 
       case Routes.settings:
-        return MaterialPageRoute(builder: (context) => const Settings());      case Routes.profile:
+        return MaterialPageRoute(builder: (context) => const Settings());
+      case Routes.profile:
         return MaterialPageRoute(builder: (context) => const ProfileScreen());
-
 
       case Routes.articlesDetails:
         return MaterialPageRoute(builder: (context) => const ArticlesScreen());
@@ -95,7 +93,7 @@ class AppRoutes {
       case Routes.donateScreen:
         return MaterialPageRoute(builder: (context) => const DonateScreen());
       case Routes.payment:
-        return MaterialPageRoute(builder: (context) => PaymentScreen());
+        return MaterialPageRoute(builder: (context) => const PaymentScreen());
 
       case Routes.selectTherapistScreen:
         return MaterialPageRoute(

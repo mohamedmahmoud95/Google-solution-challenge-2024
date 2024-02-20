@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../config/routes.dart';
 import '../widgets/donate_card.dart';
@@ -12,11 +12,11 @@ class DonateScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: const Text(
+        title: Text(
           "Donate",
           style: TextStyle(
             fontWeight: FontWeight.w700,
-            fontSize: 25,
+            fontSize: 22.sp,
             overflow: TextOverflow.ellipsis,
             color: Colors.black,
           ),
@@ -25,9 +25,9 @@ class DonateScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(
-            horizontal: 25,
-            vertical: 20,
+          padding: EdgeInsets.symmetric(
+            horizontal: 20.w,
+            vertical: 16.h,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,66 +36,62 @@ class DonateScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     "How much wanna donate",
                     style: TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 22,
+                      fontSize: 20.sp,
                       overflow: TextOverflow.ellipsis,
                       color: Colors.black,
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   const DonateCard(
                     number: 50,
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   const DonateCard(
                     number: 100,
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   const DonateCard(
                     number: 150,
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   const DonateCard(
                     number: 200,
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 20.h,
                   ),
                   SizedBox(
                     width: double.infinity,
                     child: Row(
                       children: [
                         SizedBox(
-                            width: HomeCubit.get(context).screenWidth(context) /
-                                    2 -
-                                39,
+                            width: 148.w,
                             child: const Divider(
                               color: Colors.black54,
                             )),
-                        const Text(
+                        Text(
                           " or ",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontSize: 16,
+                            fontSize: 14.sp,
                             overflow: TextOverflow.ellipsis,
                             color: Colors.black,
                           ),
                         ),
                         SizedBox(
-                          width:
-                              HomeCubit.get(context).screenWidth(context) / 2 -
-                                  39,
+                          width: 148.w,
                           child: const Divider(
                             color: Colors.black54,
                           ),
@@ -103,23 +99,24 @@ class DonateScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: 20.h,
                   ),
-                  const TextField(
+                  TextField(
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(23),
+                      contentPadding: EdgeInsets.symmetric(
+                          horizontal: 18.w, vertical: 18.h),
                       hintText: "Enter Price Manually",
                       hintStyle: TextStyle(
-                        fontSize: 20,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w500,
-                        color: Colors.black87,
+                        color: Colors.black54,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(
-                            12,
+                            10.sp,
                           ),
                         ),
                       ),
@@ -127,15 +124,15 @@ class DonateScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.black87,
                     ),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 90,
+              SizedBox(
+                height: 90.h,
               ),
               SizedBox(
                 width: double.infinity,
@@ -143,19 +140,19 @@ class DonateScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16.0),
+                      borderRadius: BorderRadius.circular(14.0.sp),
                     ),
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.payment);
                   },
-                  child: const Padding(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 18.0, horizontal: 10),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        vertical: 16.0.h, horizontal: 10.w),
                     child: Text(
                       "Continue",
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 19.sp,
                         fontWeight: FontWeight.w500,
                         color: Colors.white,
                       ),

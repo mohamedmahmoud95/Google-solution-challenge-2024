@@ -25,8 +25,8 @@ class AppColors {
   static const Color black0000 = Color.fromARGB(255,0,0,0);
   static const Color navyBlue3 = Color.fromARGB(255,14,18,30);
   //==========================================================================//
-  
-  
+
+
   //==========================================================================//
   //Shades of Grey
   static const Color grey0 = Color(0xFFD1D1D1);
@@ -67,7 +67,7 @@ class AppColors {
 
   //==========================================================================//
   //Zaitoon palette
-  static Color oliveGreen1 = Color(0xFFCAD2C5).withOpacity(0.5);
+  static Color oliveGreen1 = const Color(0xFFCAD2C5).withOpacity(0.5);
   static const Color oliveGreen2 = Color(0xFF84A98C);
   static const Color oliveGreen3 = Color(0xFF52796F);
   static const Color darkGreen1 = Color(0xFF354F52);
@@ -84,7 +84,6 @@ class AppColors {
   //==========================================================================//
   static const Color red = Color.fromARGB(255,210,16,38);
   static const Color green = Color.fromARGB(255,6,120,60);
-  //==========================================================================//
+//==========================================================================//
 
 }
-

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BuildPaymentMethodTile extends StatelessWidget {
   final String title;
@@ -22,31 +23,36 @@ class BuildPaymentMethodTile extends StatelessWidget {
     return Card(
       elevation: 10,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16.0),
+        borderRadius: BorderRadius.circular(12.sp),
       ),
-      child: RadioListTile<String>(
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12.sp),
         ),
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontWeight: FontWeight.w700,
-            fontSize: 16,
-            overflow: TextOverflow.ellipsis,
-            color: Colors.black,
+        child: RadioListTile<String>(
+          contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0.sp),
           ),
-        ),
-        value: value,
-        activeColor: Colors.green,
-        groupValue: groupValue,
-        onChanged: onChanged,
-        secondary: SizedBox(
-          height: 50,
-          width: 50,
-          child: Image.asset(image),
+          title: Text(
+            title,
+            style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 16.sp,
+              overflow: TextOverflow.ellipsis,
+              color: Colors.black,
+            ),
+          ),
+          value: value,
+          activeColor: Colors.green,
+          groupValue: groupValue,
+          onChanged: onChanged,
+          secondary: SizedBox(
+            height: 40.h,
+            width: 45.w,
+            child: Image.asset(image),
+          ),
         ),
       ),
     );
