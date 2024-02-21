@@ -65,6 +65,9 @@ class _LostTabState extends State<LostTab> {
                     searchText: (text) {
                       setState(() {
                         textToSearchBy = text;
+                        BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
+                        .scanForLostOrFoundPerson(
+                            image: image, isLostPerson: true, textToSearchBy: textToSearchBy);
                       });
                     },
                   ),
