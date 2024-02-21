@@ -17,7 +17,9 @@ class CustomSearchBar extends StatelessWidget {
       child: Container(
         width: double.infinity,
         child: TextFormField(
-          onChanged: (text) {},
+          onFieldSubmitted: (value) {
+            searchText(value);
+          },
           decoration: InputDecoration(
             border: OutlineInputBorder(
               borderSide: const BorderSide(color: AppColors.green),
