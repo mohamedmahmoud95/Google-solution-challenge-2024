@@ -11,11 +11,10 @@ class TherapistCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     return GestureDetector(
-      onTap: (){
-        Navigator.of(context).pushNamed('bookOneToOneSessionScreen', arguments: professionalTherapist);
-        
+      onTap: () {
+        Navigator.of(context).pushNamed('bookOneToOneSessionScreen',
+            arguments: professionalTherapist);
       },
       child: Padding(
         padding: const EdgeInsets.all(8),
@@ -28,17 +27,19 @@ class TherapistCard extends StatelessWidget {
             child: SingleChildScrollView(
               child: Row(
                 children: [
-
-                      Container(
-                        height: 100,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        clipBehavior: Clip.hardEdge,
-                        child: Image( image: ImageUtils.getImage(professionalTherapist.photoUrl)!, fit: BoxFit.cover,),
-                      ),
-
+                  Container(
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    clipBehavior: Clip.hardEdge,
+                    child: Image(
+                      image:
+                          ImageUtils.getImage(professionalTherapist.photoUrl)!,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                   const SizedBox(
                     width: 10,
                   ),
@@ -47,7 +48,6 @@ class TherapistCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-
                         SizedBox(
                           width: 200,
                           child: Text(
@@ -71,8 +71,6 @@ class TherapistCard extends StatelessWidget {
                               color: AppColors.grey6,
                               size: 20,
                             ),
-
-
                             SizedBox(
                               width: ScreenUtils.getScreenWidth(context) / 2,
                               child: Text(
@@ -127,7 +125,7 @@ class TherapistCard extends StatelessWidget {
     );
   }
 
-  Widget ratingIndicator(){
+  Widget ratingIndicator() {
     return Container(
       width: 75,
       height: 32.5,
@@ -135,8 +133,8 @@ class TherapistCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.oliveGreen1.withOpacity(0.3),
         border: Border.all(width: 0.5, color: AppColors.oliveGreen1),
-        borderRadius:
-        const BorderRadius.all(Radius.circular(AppMeasures.defaultCircularRadius)),
+        borderRadius: const BorderRadius.all(
+            Radius.circular(AppMeasures.defaultCircularRadius)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -147,10 +145,14 @@ class TherapistCard extends StatelessWidget {
             color: AppColors.black0000,
             size: 17,
           ),
-          const SizedBox(width: 5,),
+          const SizedBox(
+            width: 5,
+          ),
           Text(
             "${professionalTherapist.rating}",
+            overflow: TextOverflow.ellipsis,
             style: const TextStyle(
+              overflow: TextOverflow.ellipsis,
               fontSize: 17,
               color: AppColors.black0000,
             ),
@@ -158,7 +160,5 @@ class TherapistCard extends StatelessWidget {
         ],
       ),
     );
-
-
   }
 }
