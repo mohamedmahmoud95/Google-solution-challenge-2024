@@ -35,7 +35,7 @@ class _PalestineAppState extends State<PalestineApp> {
         /// --- theme ---///
         theme: ZaitonLightTheme,
         debugShowCheckedModeBanner: false,
-        initialRoute: "/",
+        initialRoute: "lostAndFound",
         onGenerateRoute: (settings) => AppRoutes.onGenerate(settings),
       ),
     );

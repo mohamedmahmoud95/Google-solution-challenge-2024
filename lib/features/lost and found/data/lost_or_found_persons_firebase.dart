@@ -54,6 +54,11 @@ class LostOrFoundPersonsFirebase {
     QuerySnapshot<Map<String, dynamic>> dataSnapshot;
     List<String> imageList = [];
 
+    CollectionReference<Map<String, dynamic>> collectionReference = firestoreDatabase.collection(
+        isLostPerson
+              ? AppFirestoreCollections.lostPersonsCollection
+              : AppFirestoreCollections.foundPersonsCollection);
+
     if (image != null) {
       List? features = await faceFeaturesExtractorUtils.getFeatures(
           image, model, outputSize, inputSize);
@@ -65,29 +70,35 @@ class LostOrFoundPersonsFirebase {
           .collection(isLostPerson
               ? AppFirestoreCollections.lostPersonsCollection
               : AppFirestoreCollections.foundPersonsCollection)
-          //todo edit it when deciding the property
-          .where('fullName',
-              isGreaterThanOrEqualTo:
-                  textToSearchBy != null ? textToSearchBy.toLowerCase() : "")
-          .where('fullName',
-              isLessThanOrEqualTo: textToSearchBy != null
-                  ? textToSearchBy.toLowerCase() + '\uf8ff'
-                  : "")
           .where("id", whereIn: imageList)
           .get();
+
     } else {
-      dataSnapshot = await firestoreDatabase
-          .collection(isLostPerson
-              ? AppFirestoreCollections.lostPersonsCollection
-              : AppFirestoreCollections.foundPersonsCollection)
-          .where('fullName',
-              isGreaterThanOrEqualTo:
-                  textToSearchBy != null ? textToSearchBy.toLowerCase() : "")
-          .where('fullName',
-              isLessThanOrEqualTo: textToSearchBy != null
-                  ? textToSearchBy.toLowerCase() + '\uf8ff'
-                  : "")
-          .get();
+// <<<<<<< abdelrahman
+      if(textToSearchBy != null){
+        dataSnapshot = await collectionReference
+        .where('fullName',
+            isGreaterThanOrEqualTo: textToSearchBy.toLowerCase())
+        .where('fullName',
+            isLessThanOrEqualTo: '${textToSearchBy.toLowerCase()}\uf8ff')
+        .get();
+      }else{
+        dataSnapshot = await collectionReference.get();
+      }
+// =======
+//       dataSnapshot = await firestoreDatabase
+//           .collection(isLostPerson
+//               ? AppFirestoreCollections.lostPersonsCollection
+//               : AppFirestoreCollections.foundPersonsCollection)
+//           .where('fullName',
+//               isGreaterThanOrEqualTo:
+//                   textToSearchBy != null ? textToSearchBy.toLowerCase() : "")
+//           .where('fullName',
+//               isLessThanOrEqualTo: textToSearchBy != null
+//                   ? textToSearchBy.toLowerCase() + '\uf8ff'
+//                   : "")
+//           .get();
+// >>>>>>> main
     }
     return [dataSnapshot, imageList];
   }
