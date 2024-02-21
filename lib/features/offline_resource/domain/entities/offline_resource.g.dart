@@ -20,7 +20,7 @@ class OfflineResourceAdapter extends TypeAdapter<OfflineResource> {
       id: fields[0] as String,
       title: fields[1] as String,
       generalIntro: fields[2] as String,
-      steps: (fields[3] as List).cast<Step>(),
+      steps: (fields[3] as List).cast<OfflineResourceStep>(),
       summary: fields[4] as String,
     );
   }
