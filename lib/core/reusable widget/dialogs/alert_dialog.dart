@@ -72,7 +72,7 @@ showLoadingDialog(context, loadingText){
             width: screenWidth*0.85,
             height: screenHeight*0.5,
             decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 224, 211, 211),
+              color: AppColors.grey1,
               borderRadius: BorderRadius.all(Radius.circular(50))
             ),
             child: Center(
@@ -112,7 +112,7 @@ showErrorDialog(context, errorText, fontSize){
           width: screenWidth*0.85,
           height: screenHeight*0.4,
           decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 224, 211, 211),
+            color: AppColors.grey1,
             image: DecorationImage(
               image: AssetImage('Assets/Images/BackGroundPattern.png'),
               repeat: ImageRepeat.repeat
