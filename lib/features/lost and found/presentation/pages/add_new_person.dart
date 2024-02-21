@@ -122,10 +122,13 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
     LostOrFoundPerson newLostOrFoundPerson = LostOrFoundPerson();
     
     if (firstNameController.text.isNotEmpty) {
-      newLostOrFoundPerson.firstName = firstNameController.text;
+      newLostOrFoundPerson.firstName = firstNameController.text.toLowerCase();
     }
     if (lastNameController.text.isNotEmpty) {
-      newLostOrFoundPerson.lastName = lastNameController.text;
+      newLostOrFoundPerson.lastName = lastNameController.text.toLowerCase();
+    }
+    if (firstNameController.text.isNotEmpty && lastNameController.text.isNotEmpty) {
+      newLostOrFoundPerson.fullName = "${firstNameController.text.toLowerCase()} ${lastNameController.text.toLowerCase()}";
     }
     if (lastSeenlocationController.text.isNotEmpty) {
       newLostOrFoundPerson.lastSeenLocation = lastSeenlocationController.text;

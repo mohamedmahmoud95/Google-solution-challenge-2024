@@ -14,6 +14,7 @@ class LostOrFoundPerson {
   String? careGiverPhoneNumber;
   LostOrFound? lostOrFound;
   String? id;
+  String? fullName;
 
   LostOrFoundPerson({
     this.firstName,
@@ -25,7 +26,8 @@ class LostOrFoundPerson {
     this.lastSeenLocation,
     this.careGiverPhoneNumber,
     this.lostOrFound,
-    this.id
+    this.id,
+    this.fullName
   });
 
   LostOrFoundPerson copyWith({
@@ -39,6 +41,7 @@ class LostOrFoundPerson {
     String? careGiverPhoneNumber,
     LostOrFound? lostOrFound,
     String? id,
+    String? fullName,
   }) {
     return LostOrFoundPerson(
       firstName: firstName ?? this.firstName,
@@ -51,6 +54,7 @@ class LostOrFoundPerson {
       careGiverPhoneNumber: careGiverPhoneNumber ?? this.careGiverPhoneNumber,
       lostOrFound: lostOrFound ?? this.lostOrFound,
       id: id ?? this.id,
+      fullName: fullName ?? this.fullName,
     );
   }
 
@@ -66,6 +70,7 @@ class LostOrFoundPerson {
       'careGiverPhoneNumber': careGiverPhoneNumber,
       'lostOrFound': lostOrFound?.index,
       'id': id,
+      'fullName': fullName,
     };
   }
 
@@ -81,6 +86,7 @@ class LostOrFoundPerson {
       careGiverPhoneNumber: map['careGiverPhoneNumber'] != null ? map['careGiverPhoneNumber'] as String : null,
       lostOrFound: map['lostOrFound'] != null ? LostOrFound.values[map['lostOrFound'] as int] : null,
       id: map['id'] != null ? map['id'] as String : null,
+      fullName: map['fullName'] != null ? map['fullName'] as String : null,
     );
   }
 
@@ -90,7 +96,7 @@ class LostOrFoundPerson {
 
   @override
   String toString() {
-    return 'LostOrFoundPerson(firstName: $firstName, lastName: $lastName, age: $age, imageUrl: $imageUrl, nationalId: $nationalId, address: $address, lastSeenLocation: $lastSeenLocation, careGiverPhoneNumber: $careGiverPhoneNumber, lostOrFound: $lostOrFound, id: $id)';
+    return 'LostOrFoundPerson(firstName: $firstName, lastName: $lastName, age: $age, imageUrl: $imageUrl, nationalId: $nationalId, address: $address, lastSeenLocation: $lastSeenLocation, careGiverPhoneNumber: $careGiverPhoneNumber, lostOrFound: $lostOrFound, id: $id, fullName: $fullName)';
   }
 
   @override
@@ -107,7 +113,8 @@ class LostOrFoundPerson {
       other.lastSeenLocation == lastSeenLocation &&
       other.careGiverPhoneNumber == careGiverPhoneNumber &&
       other.lostOrFound == lostOrFound &&
-      other.id == id;
+      other.id == id &&
+      other.fullName == fullName;
   }
 
   @override
@@ -121,6 +128,7 @@ class LostOrFoundPerson {
       lastSeenLocation.hashCode ^
       careGiverPhoneNumber.hashCode ^
       lostOrFound.hashCode ^
-      id.hashCode;
+      id.hashCode ^
+      fullName.hashCode;
   }
 }
