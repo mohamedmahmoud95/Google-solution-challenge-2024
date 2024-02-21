@@ -49,9 +49,9 @@ class OfflineResource {
       title: map['title'] as String,
       imageUrl: map["imageUrl"] as String,
       generalIntro: map['generalIntro'] as String,
-      steps: List<OfflineResourceStep>.from(
-        (map['steps'] as List<dynamic>).map<OfflineResourceStep>(
-          (x) => OfflineResourceStep.fromMapForFirebase(x as Map<String, dynamic>),
+      steps: List<Step>.from(
+        (map['steps'] as List<dynamic>).map<Step>(
+          (x) => Step.fromMapForFirebase(x as Map<String, dynamic>),
         ),
       ),
       summary: map['summary'] as String,

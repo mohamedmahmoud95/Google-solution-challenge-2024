@@ -11,7 +11,7 @@ class HiveDB {
 
     //register all classes
     Hive.registerAdapter<OfflineResource>(OfflineResourceAdapter());
-    Hive.registerAdapter<OfflineResourceStep>(StepAdapter());
+    Hive.registerAdapter<Step>(StepAdapter());
     Hive.registerAdapter<GeneralData>(GeneralDataAdapter());
   }
 
