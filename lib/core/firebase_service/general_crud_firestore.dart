@@ -8,6 +8,8 @@ class AppFirestoreCollections {
   static const String offline_resourcesCollection =
       "offline_resources_colletion";
   static const String generalDataCollection = "general_data_collection";
+  static const String charityInstituteCollection =
+      "charity_institute_collection";
   static const String appointmentCollection = "appointment__collection";
 }
 
@@ -18,7 +20,7 @@ class GeneralCrudFirestore {
       String collectionName) {
     return _firebaseFirestore.collection(collectionName).get();
   }
-  
+
   //set new document with new attributes in any collection
   Future<void> generalSetdocInAppCollection(
       String collectionName, String docId, Map<String, dynamic> docData) {
