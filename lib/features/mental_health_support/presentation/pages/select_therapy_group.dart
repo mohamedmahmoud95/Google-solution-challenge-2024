@@ -44,7 +44,14 @@ class _SelectTherapyGroupScreenState extends State<SelectTherapyGroupScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Select a therapy group'),
-
+        actions: [
+          IconButton(
+            onPressed:(){
+              context.read<GetGroupsCubit>().getAllGroups();
+            },
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
       ),
       body: BlocBuilder<GetGroupsCubit, GetGroupsState>(
         builder: (context, state) {

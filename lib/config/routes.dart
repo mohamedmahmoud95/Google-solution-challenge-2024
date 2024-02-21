@@ -6,7 +6,9 @@ import 'package:google_solution_challenge_2024/features/charity/presentation/pag
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_screen.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/group.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_groups_cubit/get_groups_cubit.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/book_group_session.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/presentation/pages/first_aids_screen.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/presentation/pages/offline_resources_screen.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
@@ -54,6 +56,7 @@ class Routes {
   static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
   static const String addNewLostOrFoundPerson = "addNewLostOrFoundPerson";
   static const String bookOneToOneSessionScreen = "bookOneToOneSessionScreen";
+  static const String bookGroupSessionScreen = "bookGroupSessionScreen";
   static const String offlineResourcesScreen = "OfflineResourcesScreen";
   static const String emergencyContactsScreen = "EmergencyContactsScreen";
   static const String firstAidsScreen = "FirstAidsScreen";
@@ -92,8 +95,8 @@ class AppRoutes {
       case Routes.bookOneToOneSessionScreen:
         return MaterialPageRoute(builder: (context) =>  BookOneToOneSessionScreen(therapist: args as Professional,));
 
-
-
+      case Routes.bookGroupSessionScreen:
+        return MaterialPageRoute(builder: (context) =>  BookGroupSessionScreen(group: args as Group,));
 
       case Routes.mentalHealthSupport:
         return MaterialPageRoute(
