@@ -6,17 +6,17 @@ part of 'step.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class StepAdapter extends TypeAdapter<OfflineResourceStep> {
+class StepAdapter extends TypeAdapter<Step> {
   @override
   final int typeId = 1;
 
   @override
-  OfflineResourceStep read(BinaryReader reader) {
+  Step read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return OfflineResourceStep(
+    return Step(
       id: fields[0] as String,
       index: fields[1] as String,
       title: fields[2] as String,
@@ -26,7 +26,7 @@ class StepAdapter extends TypeAdapter<OfflineResourceStep> {
   }
 
   @override
-  void write(BinaryWriter writer, OfflineResourceStep obj) {
+  void write(BinaryWriter writer, Step obj) {
     writer
       ..writeByte(5)
       ..writeByte(0)

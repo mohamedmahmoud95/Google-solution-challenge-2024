@@ -6,7 +6,9 @@ import 'package:google_solution_challenge_2024/features/charity/presentation/pag
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_screen.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/group.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_groups_cubit/get_groups_cubit.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/book_group_session.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/presentation/pages/first_aids_screen.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/presentation/pages/offline_resources_screen.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
@@ -25,9 +27,7 @@ import '../features/auth/sign_up/presentation/pages/sign_up_screen.dart';
 import '../features/landing_screen/presentation/pages/landing_screen.dart';
 import '../features/lost and found/domain/entities/lost_or_found_person.dart';
 import '../features/lost and found/presentation/pages/add_new_person.dart';
-import '../features/offline_resource/domain/entities/offline_resource.dart';
 import '../features/offline_resource/presentation/pages/emergency_contacts_screen.dart';
-import '../features/offline_resource/presentation/pages/offline_resource_details_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
 
 import '../features/charity/presentation/pages/payment_screen.dart';
@@ -56,10 +56,11 @@ class Routes {
   static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
   static const String addNewLostOrFoundPerson = "addNewLostOrFoundPerson";
   static const String bookOneToOneSessionScreen = "bookOneToOneSessionScreen";
+  static const String bookGroupSessionScreen = "bookGroupSessionScreen";
   static const String offlineResourcesScreen = "OfflineResourcesScreen";
   static const String emergencyContactsScreen = "EmergencyContactsScreen";
   static const String firstAidsScreen = "FirstAidsScreen";
-  static const String offlineResourceDetailsScreen = "OfflineResourceDetailsScreen";
+
 }
 
 class AppRoutes {
@@ -94,8 +95,8 @@ class AppRoutes {
       case Routes.bookOneToOneSessionScreen:
         return MaterialPageRoute(builder: (context) =>  BookOneToOneSessionScreen(therapist: args as Professional,));
 
-
-
+      case Routes.bookGroupSessionScreen:
+        return MaterialPageRoute(builder: (context) =>  BookGroupSessionScreen(group: args as Group,));
 
       case Routes.mentalHealthSupport:
         return MaterialPageRoute(
@@ -148,12 +149,6 @@ class AppRoutes {
             builder: (context) => AddNewLostOrFoundPerson(
                   lostOrFound: args as LostOrFound,
                 ));
-
-      case Routes.offlineResourceDetailsScreen:
-        return MaterialPageRoute(
-            builder: (context) => OfflineResourceDetailsScreen(
-              offlineResource: args as OfflineResource,
-            ));
 
       case Routes.lostAndFound:
         return MaterialPageRoute(
