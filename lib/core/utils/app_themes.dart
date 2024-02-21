@@ -11,7 +11,7 @@ ThemeData ZaitonDarkTheme = ThemeData(
 
 ThemeData ZaitonLightTheme = ThemeData(
   scaffoldBackgroundColor: AppColors.white,
-  cardColor: const Color(0xFF84a98c),
+   cardColor: AppColors.oliveGreen1,
   primaryColor: AppColors.oliveGreen2,
   progressIndicatorTheme: const ProgressIndicatorThemeData(
     color: AppColors.oliveGreen2,

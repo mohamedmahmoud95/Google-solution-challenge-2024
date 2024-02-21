@@ -25,7 +25,6 @@ class HomeScreen extends StatelessWidget {
     return BlocConsumer<HomeCubit, HomeStates>(
         listener: (BuildContext context, state) {},
         builder: (context, state) => Scaffold(
-          backgroundColor: AppColors.white,
           drawer: Drawer(
             width: ScreenUtils.getScreenWidth(context)/1.5,
             backgroundColor: AppColors.white,
