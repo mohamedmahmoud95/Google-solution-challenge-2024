@@ -25,13 +25,9 @@ void main() async {
   OfflineResourcesFirebaseRepo repo = OfflineResourcesFirebaseRepo();
   // StoreDummyData.generateOfflineResource();
 
-  print("helllloooooooo");
   repo.getAllOfflineResourcesFromFirebase().then((value) {
-    print(value);
-    print("got value");
   }).onError((error, stackTrace) {
     print(error);
-    print("error in value");
   });
 
   // Pass all uncaught "fatal" errors from the framework to Crashlytics
