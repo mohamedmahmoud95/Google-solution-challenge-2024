@@ -22,15 +22,15 @@ void main() async {
 
   await HiveDB.initHiveDB();
 
-  OfflineResourcesFirebaseRepo repo = OfflineResourcesFirebaseRepo();
+  // OfflineResourcesFirebaseRepo repo = OfflineResourcesFirebaseRepo();
   // StoreDummyData.generateOfflineResource();
 
-  repo.getAllOfflineResourcesFromFirebase().then((value) {
-  }).onError((error, stackTrace) {
-    print(error);
-  });
+  // repo.getAllOfflineResourcesFromFirebase().then((value) {
+  // }).onError((error, stackTrace) {
+  //   print(error);
+  // });
 
-  // Pass all uncaught "fatal" errors from the framework to Crashlytics
+  // // Pass all uncaught "fatal" errors from the framework to Crashlytics
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
