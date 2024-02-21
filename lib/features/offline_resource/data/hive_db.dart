@@ -1,7 +1,7 @@
 import 'package:google_solution_challenge_2024/core/firebase_service/general_crud_firestore.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/general_data.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource.dart';
-import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/step.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource_step.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -11,8 +11,17 @@ class HiveDB {
 
     //register all classes
     Hive.registerAdapter<OfflineResource>(OfflineResourceAdapter());
-    Hive.registerAdapter<Step>(StepAdapter());
+    Hive.registerAdapter<OfflineResourceStep>(OfflineResourceStepAdapter());
     Hive.registerAdapter<GeneralData>(GeneralDataAdapter());
+  }
+
+  clearHive() async {
+    var generalDataBox = await openAndGetBox(
+        boxName: AppFirestoreCollections.generalDataCollection);
+    var offlineResourcesBox = await openAndGetBox(
+        boxName: AppFirestoreCollections.offline_resourcesCollection);
+    generalDataBox.clear();
+    offlineResourcesBox.clear();
   }
 
   Future<Box> openAndGetBox({required boxName}) async {

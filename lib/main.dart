@@ -19,7 +19,9 @@ void main() async {
   await HiveDB.initHiveDB();
 
   // OfflineResourcesFirebaseRepo repo = OfflineResourcesFirebaseRepo();
-  // StoreDummyData.generateCharityInstitutes();
+
+  HiveDB().clearHive();
+  StoreDummyData.generateOfflineResource();
 
   // repo.getAllOfflineResourcesFromFirebase().then((value) {
   // }).onError((error, stackTrace) {
