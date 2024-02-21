@@ -6,6 +6,7 @@ import 'package:google_solution_challenge_2024/features/charity/presentation/pag
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_screen.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_groups_cubit/get_groups_cubit.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/presentation/pages/first_aids_screen.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/presentation/pages/offline_resources_screen.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
@@ -123,7 +124,11 @@ class AppRoutes {
 
       case Routes.selectTherapyGroupScreen:
         return MaterialPageRoute(
-            builder: (context) => const SelectTherapyGroupScreen());
+          builder: (context) => MultiBlocProvider(providers: [
+                  BlocProvider(
+                    create: (context) => GetGroupsCubit(),
+                  ),
+                ], child: const SelectTherapyGroupScreen()));
 
       case Routes.offlineResourcesScreen:
         return MaterialPageRoute(

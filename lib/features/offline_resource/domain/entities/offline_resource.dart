@@ -16,7 +16,7 @@ class OfflineResource {
   @HiveField(2)
   String generalIntro;
   @HiveField(3)
-  List<OfflineResourceStep> steps;
+  List<Step> steps;
   @HiveField(4)
   String summary;
 
@@ -43,13 +43,12 @@ class OfflineResource {
       id: map['id'] as String,
       title: map['title'] as String,
       generalIntro: map['generalIntro'] as String,
-      steps: List<OfflineResourceStep>.from(
-        (map['steps'] as List<int>).map<OfflineResourceStep>(
-          (x) => OfflineResourceStep.fromMapForFirebase(x as Map<String, dynamic>),
+      steps: List<Step>.from(
+        (map['steps'] as List<dynamic>).map<Step>(
+          (x) => Step.fromMapForFirebase(x as Map<String, dynamic>),
         ),
       ),
       summary: map['summary'] as String,
     );
   }
 }
-

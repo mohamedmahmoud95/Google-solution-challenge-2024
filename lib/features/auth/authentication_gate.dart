@@ -12,7 +12,7 @@ class UserAccessToken {
 Key landingScreenKey = UniqueKey();
 
 class AuthenticationGate extends StatefulWidget {
-  const AuthenticationGate({Key? key}) : super(key: key);
+  const AuthenticationGate({super.key});
 
   @override
   State<AuthenticationGate> createState() => _AuthenticationGateState();
