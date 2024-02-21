@@ -27,7 +27,8 @@ import '../features/settings/presentation/pages/setting_screen.dart';
 import '../features/charity/presentation/pages/payment_screen.dart';
 
 class Routes {
-  static const String authGate = "authGate";
+
+  static const String authGate = "/";
   static const String landing = "landing";
   static const String home = "home";
   static const String settings = "settings";
@@ -38,7 +39,7 @@ class Routes {
   static const String lostAndFound = "lostAndFound";
 
   ///--- charity page----///
-  static const String charity = "/";
+  static const String charity = "charity";
   static const String charityDetails = "charityDetails";
   static const String donateScreen = "donateScreen";
   static const String payment = "payment";
