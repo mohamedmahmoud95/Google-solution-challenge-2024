@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/step.dart';
 
@@ -17,7 +18,17 @@ class OneOfflineResourceStepCard extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         child: Column(
           children: [
-            Text(step.title.toString()),
+            Container(
+              decoration: BoxDecoration(
+              color: AppColors.white,
+                borderRadius: BorderRadius.circular(AppMeasures.defaultCircularRadius),
+        ),
+            child: Padding(
+              padding: EdgeInsets.all(8),
+            child: Align(
+              alignment: Alignment.centerLeft,
+            child: Text("[${step.index}] ${step.title.toString()}", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),),
+            ),),
             const SizedBox(height: 10,),
             Text(step.bodyText.toString()),
             const SizedBox(height: 10,),
