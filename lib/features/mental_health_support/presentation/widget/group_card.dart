@@ -13,6 +13,8 @@ class GroupCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Navigator.of(context).pushNamed('bookGroupSessionScreen',
+            arguments: therapyGroup);
       },
       child: Padding(
         padding: const EdgeInsets.all(8),
