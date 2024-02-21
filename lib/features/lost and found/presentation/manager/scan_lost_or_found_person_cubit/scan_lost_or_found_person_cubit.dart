@@ -13,13 +13,17 @@ class ScanLostOrFoundPersonCubit extends Cubit<ScanLostOrFoundPersonState> {
   final LostOrFoundPersonsRepo _lostOrFoundPersonsRepo =
       LostOrFoundPersonsRepo();
   void scanForLostOrFoundPerson(
-      {required File? image, required bool isLostPerson,required String? textToSearchBy}) async {
+      {required File? image,
+      required bool isLostPerson,
+      required String? textToSearchBy}) async {
     emit(ScanLostOrFoundPersonLoading());
 
     try {
-      final lostOrFoundPersons = await _lostOrFoundPersonsRepo
-          .scanForLostOrFoundPerson(image: image, isLostPerson: isLostPerson, textToSearchBy: textToSearchBy);
-
+      final lostOrFoundPersons =
+          await _lostOrFoundPersonsRepo.scanForLostOrFoundPerson(
+              image: image,
+              isLostPerson: isLostPerson,
+              textToSearchBy: textToSearchBy);
       emit(ScanLostOrFoundPersonLoaded(lostOrFoundPersons: lostOrFoundPersons));
     } catch (e) {
       print("errrorr heree");

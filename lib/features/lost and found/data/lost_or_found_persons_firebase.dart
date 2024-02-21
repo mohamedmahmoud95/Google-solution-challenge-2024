@@ -64,6 +64,8 @@ class LostOrFoundPersonsFirebase {
           image, model, outputSize, inputSize);
       if (features == null) return null;
 
+      print("hello");
+      print(imageList);
       imageList = await _faceRecognitionApiUtils.compareRequest(features);
 
       dataSnapshot = await firestoreDatabase
