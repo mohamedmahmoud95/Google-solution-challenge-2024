@@ -59,6 +59,8 @@ class LostOrFoundPersonsFirebase {
           image, model, outputSize, inputSize);
       if (features == null) return null;
 
+      print("hello");
+      print(imageList);
       imageList = await _faceRecognitionApiUtils.compareRequest(features);
 
       dataSnapshot = await firestoreDatabase
@@ -88,6 +90,8 @@ class LostOrFoundPersonsFirebase {
                   ? textToSearchBy.toLowerCase() + '\uf8ff'
                   : "")
           .get();
+      print("hello here");
+      print(dataSnapshot.docs.toList());
     }
     return [dataSnapshot, imageList];
   }

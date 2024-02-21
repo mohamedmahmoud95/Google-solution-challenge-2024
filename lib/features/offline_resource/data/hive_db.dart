@@ -1,5 +1,6 @@
 import 'package:google_solution_challenge_2024/core/firebase_service/general_crud_firestore.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/step.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -8,7 +9,8 @@ class HiveDB {
     await Hive.initFlutter();
 
     //register all classes
-    // Hive.registerAdapter<OfflineResource>(OfflineResourceAdapter);
+    Hive.registerAdapter<OfflineResource>(OfflineResourceAdapter());
+    Hive.registerAdapter<Step>(StepAdapter());
   }
 
   Future<Box> openAndGetBox({required boxName}) async {

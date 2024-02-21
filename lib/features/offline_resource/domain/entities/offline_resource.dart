@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'step.dart';
+part "offline_resource.g.dart";
 
 @HiveType(typeId: 0)
 class OfflineResource {
