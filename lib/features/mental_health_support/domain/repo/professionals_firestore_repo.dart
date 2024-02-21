@@ -22,6 +22,12 @@ class ProfessionalsFirestoreRepo {
         professional.toMap());
   }
 
+  Future<Professional> getSingleProfessional(String professionalId) async {
+    var data = await _generalCrudFirestore.generalGetdocInAppCollection(
+        AppFirestoreCollections.professionalsCollection, professionalId);
+    return Professional.fromMap(data.data() as Map<String, dynamic>);
+  }
+
   Future<void> updateProfessionalAppointees(
       String professionalId, List<String> allAppointees) async {
     await _generalCrudFirestore.generalUpdatedocInAppCollection(
