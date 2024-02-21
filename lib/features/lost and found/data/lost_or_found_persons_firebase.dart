@@ -80,6 +80,13 @@ class LostOrFoundPersonsFirebase {
           .collection(isLostPerson
               ? AppFirestoreCollections.lostPersonsCollection
               : AppFirestoreCollections.foundPersonsCollection)
+          .where('fullName',
+              isGreaterThanOrEqualTo:
+                  textToSearchBy != null ? textToSearchBy.toLowerCase() : "")
+          .where('fullName',
+              isLessThanOrEqualTo: textToSearchBy != null
+                  ? textToSearchBy.toLowerCase() + '\uf8ff'
+                  : "")
           .get();
     }
     return [dataSnapshot, imageList];
