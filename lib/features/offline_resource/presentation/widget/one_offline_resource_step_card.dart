@@ -13,6 +13,7 @@ class OneOfflineResourceStepCard extends StatelessWidget {
     ImageProvider<Object>? imageProvider = ImageUtils.getImage(step.imageLink);
     return
       Card(
+        elevation: 0,
       color: AppColors.appleWhite,
       child: Padding(
         padding: const EdgeInsets.all(8),

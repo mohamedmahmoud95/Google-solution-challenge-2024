@@ -29,6 +29,7 @@ class AppColors {
 
   //==========================================================================//
   //Shades of Grey
+  static Color offWhite = Colors.grey.shade200;
   static const Color grey0 = Color(0xFFD1D1D1);
   static const Color grey1 = Color.fromARGB(255, 217, 217, 217);
   static const Color grey2 = Color(0xFFB3B3B3);
