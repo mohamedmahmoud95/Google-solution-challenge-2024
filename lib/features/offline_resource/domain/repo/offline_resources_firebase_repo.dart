@@ -18,11 +18,15 @@ class OfflineResourcesFirebaseRepo {
     GeneralData generalData =
         GeneralData.fromMap(data.data() as Map<String, dynamic>);
     List<OfflineResource> offlineResources = [];
+    print("some error 1");
+    
     if (!(await _hiveDB.versionIsCompatible(generalData.appVersion))) {
-      print("some error");
+      print("some error 2");
 
       var data =
           await _offlineResourcesFirebase.getAllOfflineResourcesFromFirebase();
+
+      print("some error 3");
       for (var singleData in data.docs) {
         offlineResources
             .add(OfflineResource.fromMapForFirebase(singleData.data()));
@@ -30,8 +34,13 @@ class OfflineResourcesFirebaseRepo {
       _hiveDB.setupInitHiveDbData(offlineResources, generalData.appVersion);
     }
     print("$offlineResources");
+    print("some error 4");
+
     //mr aboud, i know what im doing here, I fetch it again, I know
     offlineResources = await _hiveDB.getAllOfflineResources();
+
+    print("some error 5");
+
     return offlineResources;
   }
 }
