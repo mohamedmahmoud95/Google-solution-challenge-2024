@@ -3,15 +3,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_solution_challenge_2024/core/utils/store_dummy_data.dart';
+import 'package:google_solution_challenge_2024/features/amr_charity/domain/repo/charity_institute_firebase_repo.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/data/hive_db.dart';
-import 'package:google_solution_challenge_2024/features/offline_resource/domain/repo/offline_resources_firebase_repo.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'app.dart';
 import 'core/utils/cache_helper.dart';
-import 'features/settings/presentation/manager/language_cubit.dart';
+import 'core/utils/store_dummy_data.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -22,19 +18,21 @@ void main() async {
 
   await HiveDB.initHiveDB();
 
-  OfflineResourcesFirebaseRepo repo = OfflineResourcesFirebaseRepo();
-  // StoreDummyData.generateOfflineResource();
+  // OfflineResourcesFirebaseRepo repo = OfflineResourcesFirebaseRepo();
+  // StoreDummyData.generateCharityInstitutes();
 
-  print("helllloooooooo");
-  repo.getAllOfflineResourcesFromFirebase().then((value) {
-    print(value);
-    print("got value");
-  }).onError((error, stackTrace) {
-    print(error);
-    print("error in value");
-  });
+  // repo.getAllOfflineResourcesFromFirebase().then((value) {
+  // }).onError((error, stackTrace) {
+  //   print(error);
+  // });
 
-  // Pass all uncaught "fatal" errors from the framework to Crashlytics
+  // // Pass all uncaught "fatal" errors from the framework to Crashlytics
+
+  // CharityInstituteFirebaseRepo charityInstituteFirebaseRepo =
+  //     CharityInstituteFirebaseRepo();
+  // var data = await charityInstituteFirebaseRepo.getAllCharityInsitutes();
+  // print(data);
+
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
