@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/core/utils/store_dummy_data.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/data/hive_db.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/domain/repo/offline_resources_firebase_repo.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'app.dart';
 import 'core/utils/cache_helper.dart';
@@ -17,7 +20,19 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-await Hive.initFlutter();
+  await HiveDB.initHiveDB();
+
+  OfflineResourcesFirebaseRepo repo = OfflineResourcesFirebaseRepo();
+  // StoreDummyData.generateOfflineResource();
+
+  print("helllloooooooo");
+  repo.getAllOfflineResourcesFromFirebase().then((value) {
+    print(value);
+    print("got value");
+  }).onError((error, stackTrace) {
+    print(error);
+    print("error in value");
+  });
 
   // Pass all uncaught "fatal" errors from the framework to Crashlytics
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
