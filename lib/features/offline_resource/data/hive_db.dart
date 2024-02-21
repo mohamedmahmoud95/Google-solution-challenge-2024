@@ -31,8 +31,8 @@ class HiveDB {
   Future<bool> versionIsCompatible(String appVersion) async {
     var generalDataBox = await openAndGetBox(
         boxName: AppFirestoreCollections.generalDataCollection);
-    if (generalDataBox.values.first == null ||
-        appVersion != generalDataBox.values.first) {
+    if (generalDataBox.isEmpty ||
+        appVersion != (generalDataBox.values.first as GeneralData).appVersion) {
       return false;
     } else {
       return true;
@@ -59,9 +59,13 @@ class HiveDB {
   }
 
   Future<List<OfflineResource>> getAllOfflineResources() async {
+    List<OfflineResource> offlineResources = [];
     var offlineResourcesBox = await openAndGetBox(
         boxName: AppFirestoreCollections.offline_resourcesCollection);
-    return offlineResourcesBox.values.toList() as List<OfflineResource>;
+    offlineResourcesBox.values.forEach((resource) {
+      offlineResources.add(resource as OfflineResource);
+    });
+    return offlineResources;
   }
 
   void printDB() async {

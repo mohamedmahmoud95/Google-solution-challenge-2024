@@ -44,7 +44,7 @@ class OfflineResource {
       title: map['title'] as String,
       generalIntro: map['generalIntro'] as String,
       steps: List<Step>.from(
-        (map['steps'] as List<int>).map<Step>(
+        (map['steps'] as List<dynamic>).map<Step>(
           (x) => Step.fromMapForFirebase(x as Map<String, dynamic>),
         ),
       ),
@@ -52,4 +52,3 @@ class OfflineResource {
     );
   }
 }
-
