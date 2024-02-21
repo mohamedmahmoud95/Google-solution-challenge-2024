@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
 
 import '../../../../config/routes.dart';
@@ -85,12 +86,18 @@ class _LostTabState extends State<LostTab> {
                 ],
               );
             } else if (state is ScanLostOrFoundPersonError) {
-              //raslan please put the error ui here :)
-              return const Center(
-                child: Text("error"),
+              return Center(
+                child: Column(
+                  children: [
+                  SizedBox(
+                  height: ScreenUtils.getScreenHeight(context)/3,
+                ),
+                const Text("No match found...",
+                style: TextStyle(fontSize: 20),),
+                ]
+              ),
               );
             } else {
-              //raslan please put the loading ui here :)
 
               return const Center(
                 child: Column(

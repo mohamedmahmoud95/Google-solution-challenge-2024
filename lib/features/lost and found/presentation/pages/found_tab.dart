@@ -1,9 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';
-
 import '../../../../config/routes.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
@@ -21,6 +20,8 @@ class FoundTab extends StatefulWidget {
 
 class _FoundTabState extends State<FoundTab> {
   String? textToSearchBy;
+  TextEditingController searchTextEditingController = TextEditingController();
+
   @override
   void initState() {
     BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
@@ -37,8 +38,18 @@ class _FoundTabState extends State<FoundTab> {
       image = image;
       BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
           .scanForLostOrFoundPerson(
-              image: image, isLostPerson: true, textToSearchBy: textToSearchBy);
+              image: image,
+              isLostPerson: true,
+              textToSearchBy: searchTextEditingController.text);
     });
+  }
+
+  void search() {
+    BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
+        .scanForLostOrFoundPerson(
+            image: image,
+            isLostPerson: true,
+            textToSearchBy: searchTextEditingController.text);
   }
 
   @override
@@ -63,32 +74,38 @@ class _FoundTabState extends State<FoundTab> {
                     ),
                     CustomSearchBar(
                       getImage: getImage,
+                      // textEditingController: searchTextEditingController,
                       searchText: (text) {
                         setState(() {
                           textToSearchBy = text;
                         });
                       },
+                      // onSubmitted: (){search();},
                     ),
-                    ...state.lostOrFoundPersons
-                        .map(
-                          (person) => widget.compactMode
-                              ? LostPersonIdCompactView(
-                                  person: person,
-                                )
-                              : LostPersonIdExpandedView(
-                                  person: person,
-                                ),
-                        )
-                        .toList(),
+                    ...state.lostOrFoundPersons.map(
+                      (person) => widget.compactMode
+                          ? LostPersonIdCompactView(
+                              person: person,
+                            )
+                          : LostPersonIdExpandedView(
+                              person: person,
+                            ),
+                    ),
                   ],
                 );
               } else if (state is ScanLostOrFoundPersonError) {
-                //raslan please put the error ui here :)
-                return const Center(
-                  child: Text("error"),
+                return Center(
+                  child: Column(
+                      children: [
+                        SizedBox(
+                          height: ScreenUtils.getScreenHeight(context)/3,
+                        ),
+                        const Text("No match found...",
+                          style: TextStyle(fontSize: 20),),
+                      ]
+                  ),
                 );
               } else {
-                //raslan please put the loading ui here :)
                 return const Center(
                   child: Column(
                     children: [
@@ -105,8 +122,8 @@ class _FoundTabState extends State<FoundTab> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-
-        backgroundColor: AppColors.oliveGreen2,//Theme.of(context).primaryColorDark,
+        backgroundColor:
+            AppColors.oliveGreen2, //Theme.of(context).primaryColorDark,
 
         onPressed: () {
           Navigator.pushNamed(

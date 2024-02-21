@@ -20,7 +20,7 @@ class HelpCard extends StatelessWidget {
       },
       child: Card(
         elevation: 0,
-        color: AppColors.oliveGreen1,
+        color: Colors.grey.shade200,
         //AppColors.oliveGreen2.withOpacity(0.8),//Theme.of(context).cardColor,
         shape: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.sp),

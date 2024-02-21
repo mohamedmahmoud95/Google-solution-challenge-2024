@@ -131,6 +131,9 @@ class HomeTab extends StatelessWidget {
                       child: CategoryCard(
                         text: "Offline Resources".tr(),
                         image: AppImages.offlineResources,
+                        onTap: (){
+                          Navigator.of(context).pushNamed('OfflineResourcesScreen');
+                        },
                       ),
                     ),
                   ],
