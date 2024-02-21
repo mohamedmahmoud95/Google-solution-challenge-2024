@@ -7,17 +7,13 @@ import 'package:google_solution_challenge_2024/features/lost%20and%20found/domai
 class LostOrFoundPersonsRepo {
   final LostOrFoundPersonsFirebase _lostOrFoundPersonsFirebase =
       LostOrFoundPersonsFirebase();
-  Future<List<LostOrFoundPerson>> scanForLostOrFoundPerson(
-      {required File? image, required bool isLostPerson,required String? textToSearchBy}) async {
+  Future<List<LostOrFoundPerson>> scanForLostOrFoundPerson({required File? image, required bool isLostPerson,required String? textToSearchBy}) async {
     List<LostOrFoundPerson> lostOrFoundPersons = [];
 
     final results = await _lostOrFoundPersonsFirebase
         .scanForLostOrFoundPerson(image: image, isLostPerson: isLostPerson, textToSearchBy: textToSearchBy);
-
     final QuerySnapshot<Map<String, dynamic>>? dataSnapshot = results?[0] as QuerySnapshot<Map<String, dynamic>>?;
-
     final List<String> imageList = results?[1] as List<String>;
-
 
     if (dataSnapshot == null) {
       return [];
