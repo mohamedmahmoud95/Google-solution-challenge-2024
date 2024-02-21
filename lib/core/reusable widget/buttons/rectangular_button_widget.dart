@@ -9,7 +9,7 @@ class RectangularButton extends StatelessWidget {
   final Color? foregroundColor;
   final String? text;
   final TextStyle? textStyle;
-  final String? childWidget;
+  final Widget? childWidget;
   final Function onTap;
   final double? width;
   const RectangularButton(

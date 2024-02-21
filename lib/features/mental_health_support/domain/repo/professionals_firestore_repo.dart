@@ -21,4 +21,12 @@ class ProfessionalsFirestoreRepo {
         Uuid().v1(),
         professional.toMap());
   }
+
+  Future<void> updateProfessionalAppointees(
+      String professionalId, List<String> allAppointees) async {
+    await _generalCrudFirestore.generalUpdatedocInAppCollection(
+        collectionName: AppFirestoreCollections.professionalsCollection,
+        docId: professionalId,
+        docData: {"allAppointeesIds": allAppointees});
+  }
 }

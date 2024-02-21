@@ -32,7 +32,7 @@ class NewsCard extends StatelessWidget {
               tag: "news_tag$index",
               child: Padding(padding: const EdgeInsets.all(8), child:
 
-          Card(
+               Card(
                 elevation: 1,
                 shape: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -54,7 +54,7 @@ class NewsCard extends StatelessWidget {
                         borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(25),
                             topRight: Radius.circular(25)),
-                        child: Padding(padding: EdgeInsets.all(8),
+                        child: Padding(padding: const EdgeInsets.all(8),
                           child: Image.asset(
                           AppImages.family,
                           height:

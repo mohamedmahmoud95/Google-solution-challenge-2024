@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/open_close_time.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_professionals_cubit/get_professionals_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/therapist_card.dart';
 import '../../../../core/utils/app_images.dart';
@@ -16,19 +17,25 @@ class SelectTherapistScreen extends StatefulWidget {
 
 class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
 
-  @override
-  void initState(){
-    super.initState();
+  void addSampleTherapist(){
     ProfessionalsFirestoreRepo().addProfessional(Professional(
         id: "id",
         name: "Mohamed Raslan",
         photoUrl: "${AppImages.raslan.toString()}",
         jobTitle: "PTSD Therapist",
         rating: 4.9,
-        timeOfSlotes: [],
+        timeOfSlotes: [OpenCloseTime(id: '1', openTime: TimeOfDay.now(), closeTime: TimeOfDay.now())],
         isAvailable: true,
-        phoneNumber: "52252252")
+        phoneNumber: "52252252",
+        allAppointeesIds: ['1','2'])
     );
+  }
+
+
+  @override
+  void initState(){
+    super.initState();
+    addSampleTherapist();
     BlocProvider.of<GetProfessionalsCubit>(context).getAllProfessionals();
   }
 

@@ -27,15 +27,16 @@ class HomeTab extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal: HomeCubit.get(context).screenWidth(context) * .02,
                   vertical: HomeCubit.get(context).screenWidth(context) * .02),
-
-              child:  Row(
+              child: Row(
                 children: [
                   CategoryCard(
-                      text: "Mental Health".tr(), image: AppImages.mentalHealth,
-                    onTap: (){
-                        Navigator.of(context).pushNamed('mentalHealthSupport');
-                   //   builder: (context) => const LostAndFoundScreen()));
-                        },),
+                    text: "Mental Health".tr(),
+                    image: AppImages.mentalHealth,
+                    onTap: () {
+                      Navigator.of(context).pushNamed('mentalHealthSupport');
+                      //   builder: (context) => const LostAndFoundScreen()));
+                    },
+                  ),
                   CategoryCard(
                       text: "Get Back Together".tr(), image: AppImages.family),
                   CategoryCard(
@@ -200,7 +201,7 @@ class HomeTab extends StatelessWidget {
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
                   onTap: () {},
-                  child:  Text(
+                  child: Text(
                     "see more".tr(),
                   ),
                 ),
@@ -210,7 +211,9 @@ class HomeTab extends StatelessWidget {
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),
-
+          const Card(
+              // child: Image(image: AssetImage("")),
+              ),
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .001,
           ),

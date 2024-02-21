@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 
@@ -18,27 +19,29 @@ class HelpCard extends StatelessWidget {
         // Navigator.pushNamed(context, Routes.articlesDetails);
       },
       child: Card(
-        elevation: 1,
+        elevation: 0,
+        color: AppColors.oliveGreen1,
+        //AppColors.oliveGreen2.withOpacity(0.8),//Theme.of(context).cardColor,
         shape: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.sp),
             borderSide: const BorderSide(color: Colors.transparent)),
         child: Container(
-          padding: const EdgeInsets.all(18),
+          padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
           decoration: BoxDecoration(
             color: AppColors.oliveGreen1,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.sp),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ClipRRect(
-                borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(18),
-                    topRight: Radius.circular(18)),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(19.sp),
+                    topRight: Radius.circular(19.sp)),
                 child: Image.asset(
                   AppImages.education,
-                  height: 180,
+                  height: 150.h,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -63,15 +66,15 @@ class HelpCard extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: 50,
-                    width: 100,
+                    height: 50.w,
+                    width: 75.h,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           elevation: 4,
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
-                                10.0), // Adjust the radius as needed
+                                10.0.sp), // Adjust the radius as needed
                           ),
                         ),
                         onPressed: () {},
@@ -86,7 +89,6 @@ class HelpCard extends StatelessWidget {
           ),
         ),
       ),
-
     );
   }
 }

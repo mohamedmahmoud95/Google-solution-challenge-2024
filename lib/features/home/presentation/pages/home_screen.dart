@@ -22,9 +22,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => HomeCubit(),
-      child: BlocConsumer<HomeCubit, HomeStates>(
+    return BlocConsumer<HomeCubit, HomeStates>(
         listener: (BuildContext context, state) {},
         builder: (context, state) => Scaffold(
           backgroundColor: AppColors.white,
@@ -38,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                      color: AppColors.oliveGreen1,
                   ),
-                  child: SizedBox(),
+                  child: const SizedBox(),
                   // Text(
                   //   'Drawer Header',
                   //   style: TextStyle(
@@ -109,14 +107,58 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SliverToBoxAdapter(
-                child: HomeCubit.get(context)
-                    .widgetOptions[HomeCubit.get(context).selectedIndex],
+              ListTile(
+                title:  Text('Settings'.tr()),
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.settings);
+                  // Add your logic for when item 1 is tapped
+                },
+              ),
+              ListTile(
+                title: const Text('Item 2'),
+                onTap: () {
+                  // Add your logic for when item 2 is tapped
+                },
               ),
             ],
           ),
+          // body: CustomScrollView(
+          //   slivers: [
+          //     SliverAppBar(
+          //       floating: true,
+          //       snap: true,
+          //       //غيره من هنا
+          //       pinned: true,
+          //       elevation: 0,
+          //       backgroundColor: Colors.white,
+          //       title: SizedBox(
+          //         width: double.infinity,
+          //         child: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             Text(
+          //               "welcome back".tr(),
+          //               style: const TextStyle(fontSize: 10),
+          //               textAlign: TextAlign.start,
+          //             ),
+          //             const Text(
+          //               "Mohamed",
+          //               style: TextStyle(fontWeight: FontWeight.w900),
+          //               textAlign: TextAlign.start,
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //     SliverToBoxAdapter(
+          //       child: HomeCubit.get(context)
+          //           .widgetOptions[HomeCubit.get(context).selectedIndex],
+          //     ),
+          //   ],
+          // ),
+
         ),
-      ),
+
     );
   }
 }

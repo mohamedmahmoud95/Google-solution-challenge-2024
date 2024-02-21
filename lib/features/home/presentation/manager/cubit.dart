@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
@@ -14,10 +13,10 @@ class HomeCubit extends Cubit<HomeStates> {
   static HomeCubit get(context) => BlocProvider.of(context);
 
   PageController pageController =
-  PageController(initialPage: 1, viewportFraction: 0.95);
+      PageController(initialPage: 1, viewportFraction: 0.95);
 
   PageController postPageController =
-  PageController(initialPage: 1, viewportFraction: 0.95);
+      PageController(initialPage: 1, viewportFraction: 0.95);
 
   final List<Widget> widgetOptions = [
     const HomeTab(),
@@ -25,6 +24,10 @@ class HomeCubit extends Cubit<HomeStates> {
     const FavTab(),
     const ServiceTab(),
   ];
+
+  /// -- details screens  ---///
+
+
 
   int selectedIndex = 0;
 
