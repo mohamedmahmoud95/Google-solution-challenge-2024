@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
+import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 
 class CardWidget extends StatelessWidget {
@@ -25,6 +26,7 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ImageProvider<Object>? imageProvider = ImageUtils.getImage(imageUrl);
     return GestureDetector(
       onTap: () {
         if (onClicked != null) {
@@ -52,14 +54,13 @@ class CardWidget extends StatelessWidget {
                               ScreenUtils.getScreenHeight(context) / 5.5 - 75,
                           width: imageWidth ??
                               ScreenUtils.getScreenWidth(context) / 2 - 20,
-                          child: Image.asset(
-                            "$imageUrl",
-                            fit: BoxFit.contain,
-                          ),
+                          child: Image(image: imageProvider!, fit: BoxFit.contain,),
                         ),
+
                   const SizedBox(
                     height: 5,
                   ),
+                  
                   Text(
                     title,
                     maxLines: 2,

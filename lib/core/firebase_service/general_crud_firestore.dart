@@ -5,6 +5,7 @@ class AppFirestoreCollections {
   static const String lostPersonsCollection = "lost_persons_collection";
   static const String foundPersonsCollection = "found_persons_collection";
   static const String professionalsCollection = "professionals_collection";
+  static const String groupsCollection = "groups_collection";
   static const String offline_resourcesCollection =
       "offline_resources_colletion";
   static const String generalDataCollection = "general_data_collection";

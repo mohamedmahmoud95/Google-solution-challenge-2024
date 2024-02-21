@@ -153,7 +153,9 @@ class _SignInScreenState extends State<SignInScreen> {
                         : Icons.visibility_off_outlined)),
                 //hintText: "Password",
                 hintStyle: TextStyle(color: Colors.grey.shade600)),
-            textInputAction: TextInputAction.next,
+            onSubmitted: (value) {
+              Navigator.of(context).pushReplacementNamed('home');
+            },
             keyboardType: TextInputType.text,
           ),
         ],
