@@ -1,10 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/general_data.dart';
 
 class AppFirestoreCollections {
   static const String lostPersonsCollection = "lost_persons_collection";
   static const String foundPersonsCollection = "found_persons_collection";
   static const String professionalsCollection = "professionals_collection";
-  static const String offline_resourcesCollection = "offline_resources_colletion";
+  static const String offline_resourcesCollection =
+      "offline_resources_colletion";
+  static const String generalDataCollection = "general_data_collection";
   static const String appointmentCollection = "appointment__collection";
 }
 
@@ -15,7 +18,7 @@ class GeneralCrudFirestore {
       String collectionName) {
     return _firebaseFirestore.collection(collectionName).get();
   }
-
+  
   //set new document with new attributes in any collection
   Future<void> generalSetdocInAppCollection(
       String collectionName, String docId, Map<String, dynamic> docData) {
