@@ -141,7 +141,7 @@ class AppRoutes {
       default:
         return MaterialPageRoute(
             builder: (context) => const Center(
-                child: Text("Please close the app and re-open it")));
+                child: Text("Unknown route.. please close the app and re-open it")));
     }
   }
 }
