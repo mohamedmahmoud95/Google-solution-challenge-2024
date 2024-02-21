@@ -27,4 +27,10 @@ class AppImages {
   static const String logo = "${Constants.baseImageUrl}/logo.png";
   static const String profile = "${Constants.baseImageUrl}/profile.png";
   static const String raslan =  "${Constants.baseImageUrl}/Mohamed Raslan.png";
+  static const String emergency_contact =  "${Constants.baseImageUrl}/emergency_contact.png";
+  static const String emergency_contact2 =  "${Constants.baseImageUrl}/emergency_contact2.png";
+  static const String first_aids =  "${Constants.baseImageUrl}/band-aid.png";
+  static const String emergency_contact3 =  "${Constants.baseImageUrl}/call.png";
+
+
 }

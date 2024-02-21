@@ -18,9 +18,8 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        leading: BackButton(),
-        title: Text("Mental Health Support"),
+        // backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        title: const Text("Mental Health Support"),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
