@@ -12,7 +12,11 @@ class TherapistCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    
-    return InkWell(
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).pushNamed('bookOneToOneSessionScreen', arguments: professionalTherapist);
+        
+      },
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Card(
