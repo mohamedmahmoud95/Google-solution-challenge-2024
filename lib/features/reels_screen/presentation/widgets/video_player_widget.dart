@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/reels_screen/presentation/pages/tabs/profile_videos_tab.dart';
+import 'package:google_solution_challenge_2024/features/reels_screen/presentation/widgets/show_modal_bottom_sheet.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../data/model/video_model.dart';
@@ -171,26 +172,16 @@ class VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(
-                  height: 30.h,
-                  width: 30.w,
-                  child: PopupMenuButton(
-                    icon: const Icon(Icons.more_horiz),
-                    iconColor: Colors.white,
-                    itemBuilder: (context) => [
-                      const PopupMenuItem(
-                        value: "report",
-                        child: Text("Report"),
-                      ),
-                      const PopupMenuItem(
-                        value: "Unfollow",
-                        child: Text("Unfollow"),
-                      ),
-                      const PopupMenuItem(
-                        value: "copy link",
-                        child: Text("Copy Link"),
-                      ),
-                    ],
+                IconButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => const ShowModalBottomSheet(),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.more_horiz,
+                    color: Colors.white,
                   ),
                 ),
               ],

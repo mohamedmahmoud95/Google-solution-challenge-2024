@@ -169,7 +169,7 @@ class SeeMoreScreen extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return index == 5 ? SizedBox(height: 10.h) : body;
                 },
-                itemCount: 6,
+                itemCount: 5,
               ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
