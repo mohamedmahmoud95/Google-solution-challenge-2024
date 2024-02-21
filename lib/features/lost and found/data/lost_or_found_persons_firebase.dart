@@ -76,7 +76,6 @@ class LostOrFoundPersonsFirebase {
           .get();
 
     } else {
-// <<<<<<< abdelrahman
       if(textToSearchBy != null){
         dataSnapshot = await collectionReference
         .where('fullName',
@@ -87,20 +86,6 @@ class LostOrFoundPersonsFirebase {
       }else{
         dataSnapshot = await collectionReference.get();
       }
-// =======
-//       dataSnapshot = await firestoreDatabase
-//           .collection(isLostPerson
-//               ? AppFirestoreCollections.lostPersonsCollection
-//               : AppFirestoreCollections.foundPersonsCollection)
-//           .where('fullName',
-//               isGreaterThanOrEqualTo:
-//                   textToSearchBy != null ? textToSearchBy.toLowerCase() : "")
-//           .where('fullName',
-//               isLessThanOrEqualTo: textToSearchBy != null
-//                   ? textToSearchBy.toLowerCase() + '\uf8ff'
-//                   : "")
-//           .get();
-// >>>>>>> main
     }
     return [dataSnapshot, imageList];
   }
