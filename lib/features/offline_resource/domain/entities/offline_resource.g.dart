@@ -18,10 +18,11 @@ class OfflineResourceAdapter extends TypeAdapter<OfflineResource> {
     };
     return OfflineResource(
       id: fields[0] as String,
-      title: fields[1] as String,
-      generalIntro: fields[2] as String,
-      steps: (fields[3] as List).cast<Step>(),
-      summary: fields[4] as String,
+      imageUrl: fields[1] as String,
+      title: fields[2] as String,
+      generalIntro: fields[3] as String,
+      offlineResourceSteps: (fields[4] as List).cast<OfflineResourceStep>(),
+      summary: fields[5] as String,
     );
   }
 
@@ -38,7 +39,7 @@ class OfflineResourceAdapter extends TypeAdapter<OfflineResource> {
       ..writeByte(3)
       ..write(obj.generalIntro)
       ..writeByte(4)
-      ..write(obj.steps)
+      ..write(obj.offlineResourceSteps)
       ..writeByte(5)
       ..write(obj.summary);
   }
