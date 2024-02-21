@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 part "step.g.dart";
 
 @HiveType(typeId: 1)
-class OfflineResourceStep {
+class Step {
   @HiveField(0)
   String id;
   @HiveField(1)
@@ -13,7 +13,7 @@ class OfflineResourceStep {
   String imageLink;
   @HiveField(4)
   String bodyText;
-  OfflineResourceStep({
+  Step({
     required this.id,
     required this.index,
     required this.title,
@@ -31,8 +31,8 @@ class OfflineResourceStep {
     };
   }
 
-  factory OfflineResourceStep.fromMapForFirebase(Map<String, dynamic> map) {
-    return OfflineResourceStep(
+  factory Step.fromMapForFirebase(Map<String, dynamic> map) {
+    return Step(
       id: map['id'] as String,
       index: map['index'] as String,
       title: map['title'] as String,
