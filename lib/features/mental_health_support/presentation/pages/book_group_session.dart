@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/buttons/rectangular_button_widget.dart';
+import 'package:google_solution_challenge_2024/core/reusable%20widget/dialogs/alert_dialog.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
@@ -170,6 +171,7 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Center(
                           child: RectangularButton(text: 'Book now', onTap: () {
+                            showErrorDialog(context, 'Session Full', 32.0);
                           },
                           ),
                         ),
