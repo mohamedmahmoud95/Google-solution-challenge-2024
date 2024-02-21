@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'step.dart';
+
 part "offline_resource.g.dart";
 
 @HiveType(typeId: 0)
@@ -12,16 +13,19 @@ class OfflineResource {
   @HiveField(0)
   String id;
   @HiveField(1)
-  String title;
+  String imageUrl;
   @HiveField(2)
-  String generalIntro;
+  String title;
   @HiveField(3)
-  List<OfflineResourceStep> steps;
+  String generalIntro;
   @HiveField(4)
+  List<OfflineResourceStep> steps;
+  @HiveField(5)
   String summary;
 
   OfflineResource({
     required this.id,
+    required this.imageUrl,
     required this.title,
     required this.generalIntro,
     required this.steps,
@@ -31,6 +35,7 @@ class OfflineResource {
   Map<String, dynamic> toMapForFirebase() {
     return <String, dynamic>{
       'id': id,
+      "imageUrl": imageUrl,
       'title': title,
       'generalIntro': generalIntro,
       'steps': steps.map((x) => x.toMapForFirebase()).toList(),
@@ -42,6 +47,7 @@ class OfflineResource {
     return OfflineResource(
       id: map['id'] as String,
       title: map['title'] as String,
+      imageUrl: map["imageUrl"] as String,
       generalIntro: map['generalIntro'] as String,
       steps: List<OfflineResourceStep>.from(
         (map['steps'] as List<dynamic>).map<OfflineResourceStep>(
