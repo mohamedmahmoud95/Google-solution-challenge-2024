@@ -55,7 +55,7 @@ class OfflineResourceDetailsScreen extends StatelessWidget {
             const SizedBox(
               height: 5,
             ),
-            Text("${offlineResource.title}",
+            Text(offlineResource.title,
                 style: TextStyle(
                   fontSize: 20,
                 )),

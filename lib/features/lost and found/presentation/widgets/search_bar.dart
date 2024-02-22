@@ -5,10 +5,10 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../core/utils/app_colors.dart';
 import 'dart:io';
 
-class CustomSearchBar extends StatelessWidget {
+class LostAndFoundSearchBar extends StatelessWidget {
   final Function(File? img) getImage;
   final Function(String) searchText;
-  const CustomSearchBar({super.key, required this.getImage,required this.searchText});
+  const LostAndFoundSearchBar({super.key, required this.getImage,required this.searchText});
 
   @override
   Widget build(BuildContext context) {
