@@ -28,6 +28,7 @@ import '../features/landing_screen/presentation/pages/landing_screen.dart';
 import '../features/lost and found/domain/entities/lost_or_found_person.dart';
 import '../features/lost and found/presentation/pages/add_new_person.dart';
 import '../features/offline_resource/presentation/pages/emergency_contacts_screen.dart';
+import '../features/register_therapist/presentation/pages/register_therapist_screen.dart'
 import '../features/offline_resource/presentation/pages/offline_resource_details_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
 
@@ -35,7 +36,6 @@ import '../features/charity/presentation/pages/payment_screen.dart';
 import '../features/offline_resource/domain/entities/offline_resource.dart';
 
 class Routes {
-
   static const String authGate = "/";
   static const String landing = "landing";
   static const String home = "home";
@@ -54,6 +54,9 @@ class Routes {
   static const String profile = "profile";
 
   static const String selectTherapistScreen = "selectTherapistScreen";
+
+  ///--- therapist register ---///
+  static const String registerTherapistScreen = "registerTherapistScreen";
   static const String sessionBookingScreen = "sessionBookingScreen";
   static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
   static const String addNewLostOrFoundPerson = "addNewLostOrFoundPerson";
@@ -63,7 +66,6 @@ class Routes {
   static const String emergencyContactsScreen = "EmergencyContactsScreen";
   static const String firstAidsScreen = "FirstAidsScreen";
   static const String offlineResourceDetailsScreen = "OfflineResourceDetailsScreen";
-
 }
 
 class AppRoutes {
@@ -96,10 +98,16 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => const ArticlesScreen());
 
       case Routes.bookOneToOneSessionScreen:
-        return MaterialPageRoute(builder: (context) =>  BookOneToOneSessionScreen(therapist: args as Professional,));
+        return MaterialPageRoute(
+            builder: (context) => BookOneToOneSessionScreen(
+                  therapist: args as Professional,
+                ));
 
       case Routes.bookGroupSessionScreen:
-        return MaterialPageRoute(builder: (context) =>  BookGroupSessionScreen(group: args as Group,));
+        return MaterialPageRoute(
+            builder: (context) => BookGroupSessionScreen(
+                  group: args as Group,
+                ));
 
       case Routes.mentalHealthSupport:
         return MaterialPageRoute(
@@ -128,21 +136,25 @@ class AppRoutes {
 
       case Routes.selectTherapyGroupScreen:
         return MaterialPageRoute(
-          builder: (context) => MultiBlocProvider(providers: [
+            builder: (context) => MultiBlocProvider(providers: [
                   BlocProvider(
                     create: (context) => GetGroupsCubit(),
                   ),
                 ], child: const SelectTherapyGroupScreen()));
 
+      case Routes.registerTherapistScreen:
+        return MaterialPageRoute(
+            builder: (context) => const RegisterTherapist());
       case Routes.offlineResourcesScreen:
         return MaterialPageRoute(
             builder: (context) => const OfflineResourcesScreen());
 
       case Routes.emergencyContactsScreen:
-        return MaterialPageRoute(builder: (context) =>  EmergencyContactsScreen());
+        return MaterialPageRoute(
+            builder: (context) => const EmergencyContactsScreen());
 
       case Routes.firstAidsScreen:
-        return MaterialPageRoute(builder: (context) =>  FirstAidsScreen());
+        return MaterialPageRoute(builder: (context) => const FirstAidsScreen());
       // case Routes.sessionBookingScreen:
       //   return MaterialPageRoute(
       //       builder: (context) => const BookoneToOneSession());
@@ -176,7 +188,8 @@ class AppRoutes {
       default:
         return MaterialPageRoute(
             builder: (context) => const Center(
-                child: Text("Unknown route.. please close the app and re-open it")));
+                child: Text(
+                    "Unknown route.. please close the app and re-open it")));
     }
   }
 }
