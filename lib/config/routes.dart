@@ -28,10 +28,12 @@ import '../features/landing_screen/presentation/pages/landing_screen.dart';
 import '../features/lost and found/domain/entities/lost_or_found_person.dart';
 import '../features/lost and found/presentation/pages/add_new_person.dart';
 import '../features/offline_resource/presentation/pages/emergency_contacts_screen.dart';
-import '../features/register_therapist/presentation/pages/register_therapist_screen.dart';
+import '../features/register_therapist/presentation/pages/register_therapist_screen.dart'
+import '../features/offline_resource/presentation/pages/offline_resource_details_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
 
 import '../features/charity/presentation/pages/payment_screen.dart';
+import '../features/offline_resource/domain/entities/offline_resource.dart';
 
 class Routes {
   static const String authGate = "/";
@@ -63,6 +65,7 @@ class Routes {
   static const String offlineResourcesScreen = "OfflineResourcesScreen";
   static const String emergencyContactsScreen = "EmergencyContactsScreen";
   static const String firstAidsScreen = "FirstAidsScreen";
+  static const String offlineResourceDetailsScreen = "OfflineResourceDetailsScreen";
 }
 
 class AppRoutes {
@@ -175,6 +178,12 @@ class AppRoutes {
                   ],
                   child: const LostAndFoundScreen(),
                 ));
+
+      case Routes.offlineResourceDetailsScreen:
+        return MaterialPageRoute(
+            builder: (context) => OfflineResourceDetailsScreen(
+              offlineResource: args as OfflineResource,
+            ));
 
       default:
         return MaterialPageRoute(
