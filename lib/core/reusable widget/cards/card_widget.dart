@@ -4,6 +4,8 @@ import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 
+import '../../utils/image_utilities.dart';
+
 class CardWidget extends StatelessWidget {
   final String title;
   final String? imageUrl;
@@ -25,6 +27,8 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ImageProvider<Object>? imageProvider = ImageUtils.getImage(imageUrl);
+
     return GestureDetector(
       onTap: () {
         if (onClicked != null) {
@@ -52,11 +56,9 @@ class CardWidget extends StatelessWidget {
                               ScreenUtils.getScreenHeight(context) / 5.5 - 75,
                           width: imageWidth ??
                               ScreenUtils.getScreenWidth(context) / 2 - 20,
-                          child: Image.asset(
-                            "$imageUrl",
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+                          child: Image(image: imageProvider!, fit: BoxFit.contain,),
+
+        ),
                   const SizedBox(
                     height: 5,
                   ),

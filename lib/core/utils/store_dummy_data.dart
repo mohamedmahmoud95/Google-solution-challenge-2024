@@ -9,7 +9,7 @@ import 'package:google_solution_challenge_2024/core/firebase_service/general_cru
 import 'package:google_solution_challenge_2024/features/amr_charity/domain/entities/charity_institute.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/general_data.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource.dart';
-import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/step.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource_step.dart';
 import 'package:uuid/uuid.dart';
 
 class StoreDummyData {
@@ -40,8 +40,8 @@ class StoreDummyData {
                   id: id,
                   title: "some titles $i",
                   generalIntro: "generalIntro",
-                  steps: [
-                    Step(
+                  offlineResourceSteps: [
+                    OfflineResourceStep(
                         id: Uuid().v1(),
                         index: "1",
                         title: "title step ",
