@@ -1,10 +1,8 @@
 import 'dart:io';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_solution_challenge_2024/core/aboud_amr_code/aboud/Widgets/CustomDialogs.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/buttons/rectangular_button_widget.dart';
-import 'package:google_solution_challenge_2024/core/reusable%20widget/text_fields/text_field.dart';
+import 'package:google_solution_challenge_2024/core/reusable%20widget/text_fields_and_search_bar/text_field.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/image_picker.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/domain/entities/lost_or_found_person.dart';

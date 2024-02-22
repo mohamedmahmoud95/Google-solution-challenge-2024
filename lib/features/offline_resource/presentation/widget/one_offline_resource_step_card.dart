@@ -14,27 +14,28 @@ class OneOfflineResourceStepCard extends StatelessWidget {
     return
       Card(
         elevation: 0,
-      color: AppColors.appleWhite,
+      color: AppColors.offWhite,
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(
           children: [
             Container(
               decoration: BoxDecoration(
-              color: AppColors.white,
+              color: AppColors.oliveGreen1.withOpacity(0.3),
                 borderRadius: BorderRadius.circular(AppMeasures.defaultCircularRadius),
         ),
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
             child: Align(
               alignment: Alignment.centerLeft,
             child: Text("[${step.index}] ${step.title.toString()}", style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),),
             ),),
             const SizedBox(height: 10,),
             Text(step.bodyText.toString()),
-            const SizedBox(height: 10,),
+            const SizedBox(height: 15,),
             step.imageLink == null? const SizedBox() :
             Image(image: imageProvider!,),
+            const SizedBox(height: 10,),
 
           ],
         ),

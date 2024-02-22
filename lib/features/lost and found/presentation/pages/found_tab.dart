@@ -72,7 +72,7 @@ class _FoundTabState extends State<FoundTab> {
                     const SizedBox(
                       height: 5,
                     ),
-                    CustomSearchBar(
+                    LostAndFoundSearchBar(
                       getImage: getImage,
                       // textEditingController: searchTextEditingController,
                       searchText: (text) {

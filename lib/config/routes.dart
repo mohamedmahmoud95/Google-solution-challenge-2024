@@ -28,8 +28,8 @@ import '../features/landing_screen/presentation/pages/landing_screen.dart';
 import '../features/lost and found/domain/entities/lost_or_found_person.dart';
 import '../features/lost and found/presentation/pages/add_new_person.dart';
 import '../features/offline_resource/presentation/pages/emergency_contacts_screen.dart';
-import '../features/register_therapist/presentation/pages/register_therapist_screen.dart'
 import '../features/offline_resource/presentation/pages/offline_resource_details_screen.dart';
+import '../features/register_therapist/presentation/pages/register_therapist_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
 
 import '../features/charity/presentation/pages/payment_screen.dart';
