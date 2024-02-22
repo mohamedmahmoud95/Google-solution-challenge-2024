@@ -20,6 +20,15 @@ class CharityDetailsScreen extends StatelessWidget {
         slivers: [
           SliverAppBar(
             toolbarHeight: 60.h,
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
+            ),
             bottom: PreferredSize(
               preferredSize: const Size.fromHeight(0),
               child: Container(
