@@ -44,7 +44,7 @@ class _CharityScreenState extends State<CharityScreen> {
               autoplay: false,
               viewportFraction: 0,
               itemBuilder: (BuildContext context, int index) {
-                return HelpCard(index);
+                return HelpCard(index: index);
               },
               itemCount: 1,
               itemWidth: double.infinity,
