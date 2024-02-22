@@ -12,7 +12,6 @@ class OfflineResourceDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -24,45 +23,48 @@ class OfflineResourceDetailsScreen extends StatelessWidget {
         child: Column(
           children: [
             generalInfo(context),
-
             const SizedBox(
               height: 10,
             ),
-
             ...offlineResource.offlineResourceSteps.map((step) => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 child: OneOfflineResourceStepCard(step))),
-
             const SizedBox(
               height: 40,
             ),
-
           ],
         ),
       ),
     );
   }
 
-
-  Widget generalInfo (BuildContext context){
-    ImageProvider<Object>? imageProvider = ImageUtils.getImage(offlineResource.imageUrl);
-    return
-      Padding(padding: const EdgeInsets.all(16),
+  Widget generalInfo(BuildContext context) {
+    ImageProvider<Object>? imageProvider =
+        ImageUtils.getImage(offlineResource.imageUrl);
+    return Padding(
+      padding: const EdgeInsets.all(16),
       child: Container(
-      child: Column(
-        children: [
-          offlineResource.imageUrl == null? const SizedBox() :
-         Image(image: imageProvider!,),
-          const SizedBox(
-            height: 5,
-          ),
-          Text("${offlineResource.title}", style: TextStyle(fontSize: 20,)),
-          const SizedBox(
-            height: 5,
-          ),
-          Text("${offlineResource.generalIntro}"),
-        ],
-      ),
+        child: Column(
+          children: [
+            offlineResource.imageUrl == null
+                ? const SizedBox()
+                : Image(
+                    image: imageProvider!,
+                  ),
+            const SizedBox(
+              height: 5,
+            ),
+            Text(offlineResource.title,
+                style: TextStyle(
+                  fontSize: 20,
+                )),
+            const SizedBox(
+              height: 5,
+            ),
+            Text("${offlineResource.generalIntro}"),
+          ],
+        ),
       ),
     );
   }

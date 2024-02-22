@@ -61,7 +61,7 @@ class _LostTabState extends State<LostTab> {
                   const SizedBox(
                     height: 5,
                   ),
-                  CustomSearchBar(
+                  LostAndFoundSearchBar(
                     getImage: getImage,
                     searchText: (text) {
                       setState(() {
