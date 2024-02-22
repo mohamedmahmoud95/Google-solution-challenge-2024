@@ -72,7 +72,7 @@ class HomeTab extends StatelessWidget {
                 Text(
                   "Get Back Together".tr(),
                   style: const TextStyle(
-                      fontWeight: FontWeight.w900, fontSize: 25),
+                      fontWeight: FontWeight.w500, fontSize: 20),
                 ),
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
@@ -113,9 +113,8 @@ class HomeTab extends StatelessWidget {
                 Text(
                   "Seek Help".tr(),
                   style: const TextStyle(
-                    fontWeight: FontWeight.w900,
-                    fontSize: 25,
-                  ),
+                      fontWeight: FontWeight.w500, fontSize: 20),
+
                 ),
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
@@ -132,6 +131,9 @@ class HomeTab extends StatelessWidget {
                       child: CategoryCard(
                         text: "Offline Resources".tr(),
                         image: AppImages.offlineResources,
+                        onTap: (){
+                          Navigator.of(context).pushNamed('OfflineResourcesScreen');
+                        },
                       ),
                     ),
                   ],
@@ -142,94 +144,92 @@ class HomeTab extends StatelessWidget {
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .03,
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: HomeCubit.get(context).screenWidth(context) * .03),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Articles".tr(),
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w900, fontSize: 25),
-                ),
-                InkWell(
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  onTap: () {},
-                  child: Text(
-                    "see more".tr(),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: HomeCubit.get(context).screenHeight(context) * .001,
-          ),
-          SizedBox(
-            height: HomeCubit.get(context).screenHeight(context) * .5,
-            child: PageView(
-              scrollDirection: Axis.horizontal,
-              controller: HomeCubit.get(context).pageController,
-              // onPageChanged: (value) {
-              //   productProvider.onPageChanged(value);
-              // },
-              children: List.generate(
-                4,
-                (index) => NewsCard(index),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: HomeCubit.get(context).screenHeight(context) * .03,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: HomeCubit.get(context).screenWidth(context) * .03),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Posts".tr(),
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w900, fontSize: 25),
-                ),
-                InkWell(
-                  hoverColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  splashColor: Colors.transparent,
-                  onTap: () {},
-                  child: Text(
-                    "see more".tr(),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: HomeCubit.get(context).screenHeight(context) * .001,
-          ),
-          const Card(
-              // child: Image(image: AssetImage("")),
-              ),
-          SizedBox(
-            height: HomeCubit.get(context).screenHeight(context) * .001,
-          ),
-          SizedBox(
-            height: HomeCubit.get(context).screenHeight(context) * .576,
-            child: PageView(
-              scrollDirection: Axis.horizontal,
-              controller: HomeCubit.get(context).pageController,
-              children: List.generate(
-                4,
-                (index) => PostCard(
-                  index: index,
-                ),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: EdgeInsets.symmetric(
+          //       horizontal: HomeCubit.get(context).screenWidth(context) * .03),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Text(
+          //         "Articles".tr(),
+          //         style: const TextStyle(
+          //             fontWeight: FontWeight.w900, fontSize: 25),
+          //       ),
+          //       InkWell(
+          //         hoverColor: Colors.transparent,
+          //         highlightColor: Colors.transparent,
+          //         splashColor: Colors.transparent,
+          //         onTap: () {},
+          //         child: Text(
+          //           "see more".tr(),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: HomeCubit.get(context).screenHeight(context) * .001,
+          // ),
+          // SizedBox(
+          //   height: HomeCubit.get(context).screenHeight(context) * .5,
+          //   child: PageView(
+          //     scrollDirection: Axis.horizontal,
+          //     controller: HomeCubit.get(context).pageController,
+          //     // onPageChanged: (value) {
+          //     //   productProvider.onPageChanged(value);
+          //     // },
+          //     children: List.generate(
+          //       4,
+          //       (index) => NewsCard(index),
+          //     ),
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: HomeCubit.get(context).screenHeight(context) * .03,
+          // ),
+          // Padding(
+          //   padding: EdgeInsets.symmetric(
+          //       horizontal: HomeCubit.get(context).screenWidth(context) * .03),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       Text(
+          //         "Posts".tr(),
+          //         style: const TextStyle(
+          //             fontWeight: FontWeight.w900, fontSize: 25),
+          //       ),
+          //       InkWell(
+          //         hoverColor: Colors.transparent,
+          //         highlightColor: Colors.transparent,
+          //         splashColor: Colors.transparent,
+          //         onTap: () {},
+          //         child: Text(
+          //           "see more".tr(),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          // SizedBox(
+          //   height: HomeCubit.get(context).screenHeight(context) * .001,
+          // ),
+          //
+          // SizedBox(
+          //   height: HomeCubit.get(context).screenHeight(context) * .001,
+          // ),
+          // SizedBox(
+          //   height: HomeCubit.get(context).screenHeight(context) * .59,
+          //   child: PageView(
+          //     scrollDirection: Axis.horizontal,
+          //     controller: HomeCubit.get(context).pageController,
+          //     children: List.generate(
+          //       4,
+          //       (index) => PostCard(
+          //         index: index,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .01,
           ),

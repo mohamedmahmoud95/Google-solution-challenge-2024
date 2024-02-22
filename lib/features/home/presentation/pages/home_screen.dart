@@ -25,7 +25,6 @@ class HomeScreen extends StatelessWidget {
     return BlocConsumer<HomeCubit, HomeStates>(
         listener: (BuildContext context, state) {},
         builder: (context, state) => Scaffold(
-          backgroundColor: AppColors.white,
           drawer: Drawer(
             width: ScreenUtils.getScreenWidth(context)/1.5,
             backgroundColor: AppColors.white,
@@ -107,19 +106,10 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              ListTile(
-                title:  Text('Settings'.tr()),
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.settings);
-                  // Add your logic for when item 1 is tapped
-                },
-              ),
-              ListTile(
-                title: const Text('Item 2'),
-                onTap: () {
-                  // Add your logic for when item 2 is tapped
-                },
-              ),
+
+          SliverToBoxAdapter(
+            child: HomeCubit.get(context).widgetOptions[HomeCubit.get(context).selectedIndex],
+          ),
             ],
           ),
           // body: CustomScrollView(

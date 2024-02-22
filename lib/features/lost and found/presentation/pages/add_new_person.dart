@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_solution_challenge_2024/core/aboud_amr_code/aboud/Widgets/CustomDialogs.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/buttons/rectangular_button_widget.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/text_fields/text_field.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
@@ -58,8 +59,10 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
 
             RectangularButton(
               text: 'Submit',
-                onTap: (){
-                  submit(context);
+                onTap: () async {
+                  showLoadingDialog(context, 'Uploading');
+                  await submit(context);
+                  Navigator.pop(context);
             }
             ),
             const SizedBox(height: 30,),
@@ -117,15 +120,18 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
     );
   }
 
-  void submit(context) {
+  Future<String?> submit(context) {
     //1- create a new instance of lostOrFoundPerson
     LostOrFoundPerson newLostOrFoundPerson = LostOrFoundPerson();
     
     if (firstNameController.text.isNotEmpty) {
-      newLostOrFoundPerson.firstName = firstNameController.text;
+      newLostOrFoundPerson.firstName = firstNameController.text.toLowerCase();
     }
     if (lastNameController.text.isNotEmpty) {
-      newLostOrFoundPerson.lastName = lastNameController.text;
+      newLostOrFoundPerson.lastName = lastNameController.text.toLowerCase();
+    }
+    if (firstNameController.text.isNotEmpty && lastNameController.text.isNotEmpty) {
+      newLostOrFoundPerson.fullName = "${firstNameController.text.toLowerCase()} ${lastNameController.text.toLowerCase()}";
     }
     if (lastSeenlocationController.text.isNotEmpty) {
       newLostOrFoundPerson.lastSeenLocation = lastSeenlocationController.text;
@@ -152,7 +158,7 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
 
     newLostOrFoundPerson.lostOrFound = widget.lostOrFound;
 
-    LostOrFoundPersonsFirebase().uploadLostOrFoundPerson(lostOrFoundPerson: newLostOrFoundPerson, image: imageFile!, isLostPerson: (widget.lostOrFound == LostOrFound.lost ? true : false));
+    return LostOrFoundPersonsFirebase().uploadLostOrFoundPerson(lostOrFoundPerson: newLostOrFoundPerson, image: imageFile!, isLostPerson: (widget.lostOrFound == LostOrFound.lost ? true : false));
 
   }
 }

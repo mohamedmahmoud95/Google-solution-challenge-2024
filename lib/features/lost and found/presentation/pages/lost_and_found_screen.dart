@@ -19,20 +19,21 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
       length: 2,
       child: Scaffold(
         backgroundColor: AppColors.white,
+
         appBar: AppBar(
           leading: const BackButton(
-            color: AppColors.darkGreen2,
+            color: AppColors.black0000,
           ),
+
           backgroundColor:
           AppColors.white, //Theme.of(context).primaryColorLight,
           automaticallyImplyLeading: true,
+
           title: const Text(
             "Get back together",
-            style: TextStyle(
-                fontSize: 25,
-                color: AppColors.darkGreen2,
-                fontWeight: FontWeight.w600),
+
           ),
+
           actions: [
             IconButton(
               onPressed: () {
@@ -54,14 +55,14 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
                 "Lost",
                 style: TextStyle(
                   fontSize: 20,
-                  color: AppColors.darkGreen2,
+                  color: AppColors.black0000,
                 ),
               ),
               Text(
                 "Found",
                 style: TextStyle(
                   fontSize: 20,
-                  color: AppColors.darkGreen2,
+                  color: AppColors.black0000,
                 ),
               ),
             ],

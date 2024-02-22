@@ -1,12 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/general_data.dart';
 
 class AppFirestoreCollections {
   static const String lostPersonsCollection = "lost_persons_collection";
   static const String foundPersonsCollection = "found_persons_collection";
   static const String professionalsCollection = "professionals_collection";
-  static const String wikiPageCollection = "wiki_page_collection";
+  static const String groupsCollection = "groups_collection";
+  static const String offline_resourcesCollection =
+      "offline_resources_colletion";
+  static const String generalDataCollection = "general_data_collection";
+  static const String charityInstituteCollection =
+      "charity_institute_collection";
   static const String appointmentCollection = "appointment__collection";
-  static const String appUserCollection = "app_user_collection";
 }
 
 class GeneralCrudFirestore {

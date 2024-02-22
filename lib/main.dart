@@ -1,14 +1,13 @@
 import 'dart:ui';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/features/amr_charity/domain/repo/charity_institute_firebase_repo.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/data/hive_db.dart';
 import 'app.dart';
 import 'core/utils/cache_helper.dart';
-import 'features/settings/presentation/manager/language_cubit.dart';
+import 'core/utils/store_dummy_data.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,8 +16,25 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  await HiveDB.initHiveDB();
 
-  // Pass all uncaught "fatal" errors from the framework to Crashlytics
+  // OfflineResourcesFirebaseRepo repo = OfflineResourcesFirebaseRepo();
+
+  HiveDB().clearHive();
+  StoreDummyData.generateOfflineResource();
+
+  // repo.getAllOfflineResourcesFromFirebase().then((value) {
+  // }).onError((error, stackTrace) {
+  //   print(error);
+  // });
+
+  // // Pass all uncaught "fatal" errors from the framework to Crashlytics
+
+  // CharityInstituteFirebaseRepo charityInstituteFirebaseRepo =
+  //     CharityInstituteFirebaseRepo();
+  // var data = await charityInstituteFirebaseRepo.getAllCharityInsitutes();
+  // print(data);
+
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   FlutterError.onError = (errorDetails) {
     FirebaseCrashlytics.instance.recordFlutterFatalError(errorDetails);
