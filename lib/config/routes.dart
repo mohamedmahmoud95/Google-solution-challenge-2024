@@ -6,6 +6,8 @@ import 'package:google_solution_challenge_2024/features/charity/presentation/pag
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_screen.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/market_place_screen.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/shopping_cart_screen.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/group.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_groups_cubit/get_groups_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/pages/book_group_session.dart';
@@ -63,6 +65,8 @@ class Routes {
   static const String emergencyContactsScreen = "EmergencyContactsScreen";
   static const String firstAidsScreen = "FirstAidsScreen";
   static const String offlineResourceDetailsScreen = "OfflineResourceDetailsScreen";
+  static const String marketPlaceScreen = "MarketPlaceScreen";
+  static const String shoppingCartScreen = "ShoppingCartScreen";
 
 }
 
@@ -172,6 +176,12 @@ class AppRoutes {
             builder: (context) => OfflineResourceDetailsScreen(
               offlineResource: args as OfflineResource,
             ));
+
+      case Routes.marketPlaceScreen:
+        return MaterialPageRoute(builder: (context) =>  const MarketPlaceScreen());
+
+      case Routes.shoppingCartScreen:
+        return MaterialPageRoute(builder: (context) =>  const ShoppingCartScreen());
 
       default:
         return MaterialPageRoute(
