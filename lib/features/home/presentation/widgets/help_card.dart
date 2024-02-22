@@ -3,10 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 
+import '../../../../config/routes.dart';
+
 class HelpCard extends StatelessWidget {
   final int index;
+  final Widget? buttonChild;
 
-  const HelpCard(this.index, {super.key});
+  const HelpCard({required this.index, this.buttonChild, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,24 +68,28 @@ class HelpCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 50.w,
-                    width: 75.h,
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          elevation: 4,
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(
-                                10.0.sp), // Adjust the radius as needed
-                          ),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        elevation: 4,
+                        backgroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0.sp),
                         ),
-                        onPressed: () {},
-                        child: const Icon(
-                          Icons.arrow_forward,
-                          color: Colors.black,
-                        )),
-                  ),
+                      ),
+                      onPressed: () {
+                        buttonChild == null
+                            ? null
+                            : Navigator.pushNamed(context, Routes.charity);
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 4.w, vertical: 8.h),
+                        child: buttonChild ??
+                            const Icon(
+                              Icons.arrow_forward,
+                              color: Colors.black,
+                            ),
+                      )),
                 ],
               ),
             ],
