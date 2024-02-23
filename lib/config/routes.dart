@@ -36,7 +36,6 @@ import '../features/offline_resource/presentation/pages/emergency_contacts_scree
 import '../features/offline_resource/presentation/pages/offline_resource_details_screen.dart';
 import '../features/register_therapist/presentation/pages/register_therapist_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
-
 import '../features/charity/presentation/pages/payment_screen.dart';
 import '../features/offline_resource/domain/entities/offline_resource.dart';
 

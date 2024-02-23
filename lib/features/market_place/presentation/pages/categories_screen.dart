@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -11,7 +10,7 @@ class CategoriesScreen extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shopping Categories'),
+        title: const Text('Shopping Categories'),
         backgroundColor: AppColors.offWhite,
         actions: [
           Padding(
@@ -19,10 +18,13 @@ class CategoriesScreen extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: AppColors.grey1,
               child: IconButton(
-                onPressed:(){
+                onPressed: () {
                   Navigator.pushNamed(context, 'ShoppingCartScreen');
                 },
-                icon: const Icon(Icons.shopping_bag_outlined, color: Colors.black,),
+                icon: const Icon(
+                  Icons.shopping_bag_outlined,
+                  color: Colors.black,
+                ),
               ),
             ),
           ),
@@ -37,165 +39,233 @@ class CategoriesScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Column(
-                  children: [
-                    GestureDetector(
-                      onTap: (){
-                        Navigator.pushNamed(context, 'CategorySearchScreen');
-                      },
-                      child: Container(
-                        width: screenWidth*0.43,
-                        height: screenHeight * 0.3,
-                        decoration: BoxDecoration(
-                          color: AppColors.oliveGreen1,
-                          borderRadius: BorderRadius.circular(20)
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(height: screenHeight * 0.02,),
-                            Container(
-                              width: screenWidth*0.37,
-                              height: screenHeight * 0.2,
-                              decoration: BoxDecoration(
-                                color: AppColors.oliveGreen1,
-                                borderRadius: BorderRadius.circular(20)
-                              ),
-                            ),
-                            SizedBox(height: screenHeight * 0.02,),
-                            const Text('Clothes', style: TextStyle(fontSize: 20),)
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: screenHeight*0.02,),
-                    Container(
-                      width: screenWidth*0.43,
-                      height: screenHeight * 0.25,
-                      decoration: BoxDecoration(
-                        color: AppColors.oliveGreen1,
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: screenHeight * 0.02,),
-                          Container(
-                            width: screenWidth*0.37,
-                            height: screenHeight * 0.15,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                          ),
-                          SizedBox(height: screenHeight * 0.02,),
-                          const Text('Home Appliances', style: TextStyle(fontSize: 20),)
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: screenHeight*0.02,),
-                    Container(
-                      width: screenWidth*0.43,
-                      height: screenHeight * 0.3,
-                      decoration: BoxDecoration(
-                        color: AppColors.oliveGreen1,
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: screenHeight * 0.02,),
-                          Container(
-                            width: screenWidth*0.37,
-                            height: screenHeight * 0.2,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                          ),
-                          SizedBox(height: screenHeight * 0.02,),
-                          const Text('Handmade', style: TextStyle(fontSize: 20),)
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      width: screenWidth*0.43,
-                      height: screenHeight * 0.25,
-                      decoration: BoxDecoration(
-                        color: AppColors.oliveGreen1,
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: screenHeight * 0.02,),
-                          Container(
-                            width: screenWidth*0.37,
-                            height: screenHeight * 0.15,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                          ),
-                          SizedBox(height: screenHeight * 0.02,),
-                          const Text('Nutrition', style: TextStyle(fontSize: 20),)
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: screenHeight*0.02,),
-                    Container(
-                      width: screenWidth*0.43,
-                      height: screenHeight * 0.3,
-                      decoration: BoxDecoration(
-                        color: AppColors.oliveGreen1,
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: screenHeight * 0.02,),
-                          Container(
-                            width: screenWidth*0.37,
-                            height: screenHeight * 0.2,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                          ),
-                          SizedBox(height: screenHeight * 0.02,),
-                          const Text('Accessories', style: TextStyle(fontSize: 20),)
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: screenHeight*0.02,),
-                    Container(
-                      width: screenWidth*0.43,
-                      height: screenHeight * 0.25,
-                      decoration: BoxDecoration(
-                        color: AppColors.oliveGreen1,
-                        borderRadius: BorderRadius.circular(20)
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: screenHeight * 0.02,),
-                          Container(
-                            width: screenWidth*0.37,
-                            height: screenHeight * 0.15,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                          ),
-                          SizedBox(height: screenHeight * 0.02,),
-                          const Text('Tools', style: TextStyle(fontSize: 20),)
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                leftColumn(context),
+                rightColumn(context),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget leftColumn(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'CategorySearchScreen');
+            },
+            child: Container(
+              width: screenWidth * 0.43,
+              height: screenHeight * 0.3,
+              decoration: BoxDecoration(
+                  color: AppColors.oliveGreen1,
+                  borderRadius: BorderRadius.circular(20)),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: screenHeight * 0.02,
+                  ),
+                  Container(
+                    width: screenWidth * 0.37,
+                    height: screenHeight * 0.2,
+                    decoration: BoxDecoration(
+                        color: AppColors.oliveGreen1,
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                  SizedBox(
+                    height: screenHeight * 0.02,
+                  ),
+                  const Text(
+                    'Clothes',
+                    style: TextStyle(fontSize: 20),
+                  )
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: screenHeight * 0.02,
+          ),
+          Container(
+            width: screenWidth * 0.43,
+            height: screenHeight * 0.25,
+            decoration: BoxDecoration(
+                color: AppColors.oliveGreen1,
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                Container(
+                  width: screenWidth * 0.37,
+                  height: screenHeight * 0.15,
+                  decoration: BoxDecoration(
+                      color: AppColors.oliveGreen1,
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                const
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  'Home Appliances',
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                )),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: screenHeight * 0.02,
+          ),
+          Container(
+            width: screenWidth * 0.43,
+            height: screenHeight * 0.3,
+            decoration: BoxDecoration(
+                color: AppColors.oliveGreen1,
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                Container(
+                  width: screenWidth * 0.37,
+                  height: screenHeight * 0.2,
+                  decoration: BoxDecoration(
+                      color: AppColors.oliveGreen1,
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                const Text(
+                  'Handmade',
+                  style: TextStyle(fontSize: 20),
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 40,),
+        ],
+      ),
+    );
+  }
+
+  Widget rightColumn(BuildContext context){
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            width: screenWidth * 0.43,
+            height: screenHeight * 0.25,
+            decoration: BoxDecoration(
+                color: AppColors.oliveGreen1,
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                Container(
+                  width: screenWidth * 0.37,
+                  height: screenHeight * 0.15,
+                  decoration: BoxDecoration(
+                      color: AppColors.oliveGreen1,
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                const Text(
+                  'Nutrition',
+                  style: TextStyle(fontSize: 20),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: screenHeight * 0.02,
+          ),
+          Container(
+            width: screenWidth * 0.43,
+            height: screenHeight * 0.3,
+            decoration: BoxDecoration(
+                color: AppColors.oliveGreen1,
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                Container(
+                  width: screenWidth * 0.37,
+                  height: screenHeight * 0.2,
+                  decoration: BoxDecoration(
+                      color: AppColors.oliveGreen1,
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                const Text(
+                  'Accessories',
+                  style: TextStyle(fontSize: 20),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: screenHeight * 0.02,
+          ),
+          Container(
+            width: screenWidth * 0.43,
+            height: screenHeight * 0.25,
+            decoration: BoxDecoration(
+                color: AppColors.oliveGreen1,
+                borderRadius: BorderRadius.circular(20)),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                Container(
+                  width: screenWidth * 0.37,
+                  height: screenHeight * 0.15,
+                  decoration: BoxDecoration(
+                      color: AppColors.oliveGreen1,
+                      borderRadius: BorderRadius.circular(20)),
+                ),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                const Text(
+                  'Tools',
+                  style: TextStyle(fontSize: 20),
+                )
+              ],
+            ),
+          ),
+
+          const SizedBox(height: 40,),
+
+        ],
       ),
     );
   }
