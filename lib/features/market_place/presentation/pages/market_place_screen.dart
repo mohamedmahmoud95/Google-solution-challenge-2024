@@ -84,7 +84,9 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
                         fontWeight: FontWeight.w500
                       ),),
                       TextButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          Navigator.pushNamed(context, 'CategoriesScreen');
+                        },
                         child: const Text('See All', style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
@@ -105,13 +107,14 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
                         children: [
                           getTestButton(screenWidth, screenHeight, 'All'),
                           SizedBox(width: screenWidth * 0.03,),
-                          getTestButton(screenWidth, screenHeight, 'Smartphones'),
+                          getTestButton(screenWidth, screenHeight, 'Clothes'),
                           SizedBox(width: screenWidth * 0.03,),
-                          getTestButton(screenWidth, screenHeight, 'Headphones'),
+                          getTestButton(screenWidth, screenHeight, 'Nutrition'),
                           SizedBox(width: screenWidth * 0.03,),
-                          getTestButton(screenWidth, screenHeight, 'Laptops'),
+                          getTestButton(screenWidth, screenHeight, 'Home Appliances'),
                           SizedBox(width: screenWidth * 0.03,),
                           getTestButton(screenWidth, screenHeight, 'Accessories'),
+                          SizedBox(width: screenWidth * 0.03,),
                         ],
                       ),
                     ),
