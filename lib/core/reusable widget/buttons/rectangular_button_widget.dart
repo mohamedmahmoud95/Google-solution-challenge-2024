@@ -12,6 +12,8 @@ class RectangularButton extends StatelessWidget {
   final Widget? childWidget;
   final Function onTap;
   final double? width;
+  final double? horizontalPadding;
+  final double? verticalPadding;
   const RectangularButton(
       {super.key,
       this.backgroundColor ,
@@ -20,7 +22,7 @@ class RectangularButton extends StatelessWidget {
       this.childWidget,
         this.width,
       required this.onTap,
-        this.textStyle});
+        this.textStyle, this.horizontalPadding, this.verticalPadding});
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +34,14 @@ class RectangularButton extends StatelessWidget {
         padding: EdgeInsets.all(8),
       child: Container(
         height: 50,
-        width: width??ScreenUtils.getScreenWidth(context) / 1.35,
+      //  width: width?? 0,//ScreenUtils.getScreenWidth(context) / 1.35,
         decoration: BoxDecoration(
           color: backgroundColor??Theme.of(context).primaryColorLight,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
         ),
-        child: Center(
+        child:
+        Padding(padding: EdgeInsets.symmetric(horizontal: horizontalPadding?? 0 , vertical: verticalPadding ?? 0),
+        child:Center(
           child: text != null? Text(
             text!,
             style: textStyle??TextStyle(
@@ -47,7 +51,7 @@ class RectangularButton extends StatelessWidget {
           ): const SizedBox(),
         ),
       ),
-      ),
+      ),),
     );
   }
 }

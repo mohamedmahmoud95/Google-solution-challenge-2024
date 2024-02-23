@@ -19,6 +19,7 @@ class _OfflineResourcesScreenState extends State<OfflineResourcesScreen> {
       ),
 
       body: SingleChildScrollView(
+
         child: Wrap(
          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [

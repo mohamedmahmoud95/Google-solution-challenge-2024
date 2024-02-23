@@ -2,16 +2,13 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/news_feed/presentation/widget/horizontally_scrollable_list_of_newsfeed_cards.dart';
 import 'package:google_solution_challenge_2024/features/news_feed/sampleStaticData/sample_newsfeed_posts.dart';
-
-import '../../../../news_feed/presentation/widget/news_feed_card.dart';
 import '../../widgets/category_card.dart';
 import '../../widgets/help_card.dart';
-import '../../widgets/news_card.dart';
-import '../../widgets/post_card.dart';
 
 class HomeTab extends StatelessWidget {
   const HomeTab({super.key});
@@ -43,9 +40,12 @@ class HomeTab extends StatelessWidget {
                   CategoryCard(
                       text: "Information & Safety".tr(),
                       image: AppImages.informationSafety),
-                  GestureDetector(onTap: () {
-                    Navigator.pushNamed(context, 'MarketPlaceScreen');
-                  }, child: CategoryCard(text: "more".tr(), image: AppImages.more)),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, 'MarketPlaceScreen');
+                      },
+                      child: CategoryCard(
+                          text: "more".tr(), image: AppImages.more)),
                 ],
               ),
             ),
@@ -55,7 +55,17 @@ class HomeTab extends StatelessWidget {
             // autoplay: true,
             viewportFraction: 0,
             itemBuilder: (BuildContext context, int index) {
-              return HelpCard(index);
+              return HelpCard(
+                index: index,
+                buttonChild: Text(
+                  "See more",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12.sp,
+                    color: Colors.black,
+                  ),
+                ),
+              );
             },
             itemCount: 1,
             itemWidth: double.infinity,
@@ -117,7 +127,6 @@ class HomeTab extends StatelessWidget {
                   "Seek Help".tr(),
                   style: const TextStyle(
                       fontWeight: FontWeight.w500, fontSize: 20),
-
                 ),
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
@@ -134,8 +143,9 @@ class HomeTab extends StatelessWidget {
                       child: CategoryCard(
                         text: "Offline Resources".tr(),
                         image: AppImages.offlineResources,
-                        onTap: (){
-                          Navigator.of(context).pushNamed('OfflineResourcesScreen');
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed('OfflineResourcesScreen');
                         },
                       ),
                     ),
@@ -237,7 +247,8 @@ class HomeTab extends StatelessWidget {
             height: HomeCubit.get(context).screenHeight(context) * .01,
           ),
 
-          HorizontallyScrollableListOfNewsFeedCards(listOfNewsFeedPosts: sampleNewsFeedPosts),
+          HorizontallyScrollableListOfNewsFeedCards(
+              listOfNewsFeedPosts: sampleNewsFeedPosts),
         ],
       ),
     );
