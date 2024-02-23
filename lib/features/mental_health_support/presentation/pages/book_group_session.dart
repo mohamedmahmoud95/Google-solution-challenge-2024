@@ -35,10 +35,11 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
               padding: const EdgeInsets.all(8),
               child: Card(
                 elevation: 0,
-                color: Colors.grey.shade300,
+                color: AppColors.offWhite,
                 child: Padding(
                   padding: const EdgeInsets.all(12),
-                  child: Column(
+                  child:
+                  SingleChildScrollView(child: Column(
                     children: [
                       const SizedBox(
                         height: 20,
@@ -61,7 +62,11 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
                                 fit: BoxFit.cover,
                               ),
                             ),
-                            ratingIndicator()
+                            Positioned(
+                              bottom: 5,
+                                right: 5,
+                                child:
+                            ratingIndicator()),
                           ],
                         ),
                       ),
@@ -170,7 +175,7 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: Center(
-                          child: RectangularButton(text: 'Book now', onTap: () {
+                          child: RectangularButton(text: 'Join group', onTap: () {
                             showErrorDialog(context, 'Session Full', 32.0);
                           },
                           ),
@@ -182,6 +187,7 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
                       ),
             
                     ],
+                  ),
                   ),
                 ),
               ),

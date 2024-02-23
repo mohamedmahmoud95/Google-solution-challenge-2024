@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
+import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
+import 'package:hive/hive.dart';
 
 class ServiceCard extends StatelessWidget {
   final String title;
@@ -33,11 +36,15 @@ class ServiceCard extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
-             SizedBox(
-               height: imageHeight ?? ScreenUtils.getScreenHeight(context)/5.5 - 50,
-               width:  imageWidth  ?? ScreenUtils.getScreenWidth(context)/2  - 20,
-               child: Image.asset("$imageUrl", fit: BoxFit.contain,),
-             ),
+              Container(
+                height: imageHeight ?? ScreenUtils.getScreenHeight(context)/5.5 - 50,
+                width:  imageWidth  ?? ScreenUtils.getScreenWidth(context)/2  - 20,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: ImageUtils.getImage("$imageUrl")!, fit: BoxFit.cover, ),
+                  borderRadius: BorderRadius.circular(AppMeasures.defaultCircularRadius)
+
+                ),
+        ),
 
               const SizedBox(
                 height: 5,

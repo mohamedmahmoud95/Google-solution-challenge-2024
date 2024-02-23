@@ -64,8 +64,12 @@ flutter:
   assets:
    - assets/images/
    - assets/images/Mohamed Raslan.png
+   - assets/images/mental_health/
    - assets/translations/
    - assets/models/mobileFaceNet.tflite
+   - assets/images/market_place/categories/
+   - assets/images/app_developers/
+   - assets/images/reading3.jpg
 
   # fonts:
   #   - family: Schyler

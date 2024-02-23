@@ -4,6 +4,7 @@ import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/group.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/open_close_time.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/repo/groups_firestore_repo.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/dummy_data.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_groups_cubit/get_groups_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/group_card.dart';
 
@@ -17,25 +18,19 @@ class SelectTherapyGroupScreen extends StatefulWidget {
 class _SelectTherapyGroupScreenState extends State<SelectTherapyGroupScreen> {
   
 
-  void addSampleGroup(){
-    GroupsFirestoreRepo().addGroup(Group(
-        id: "id",
-        mentorID: 'id',
-        title: 'Habal Group',
-        photoUrl: AppImages.raslan.toString(),
-        rating: 4.9,
-        timeOfSlotes: [OpenCloseTime(id: '1', openTime: TimeOfDay.now(), closeTime: TimeOfDay.now())],
-        allAppointeesIds: ['1','2'],
-        maximumAppointees: 3
-      )
-    );
+  void addSampleGroups(){
+    for (Group group in sampleTherapyGroups)
+      {
+        GroupsFirestoreRepo().addGroup(group);
+      }
+
   }
 
 
   @override
   void initState(){
     super.initState();
-    addSampleGroup();
+   // addSampleGroups();
     BlocProvider.of<GetGroupsCubit>(context).getAllGroups();
   }
 
