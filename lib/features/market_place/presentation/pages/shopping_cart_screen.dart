@@ -17,7 +17,11 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
       appBar: AppBar(
         title: const Text('My Cart'),
       ),
-      body: Column(
+      body:
+
+     Column(children: [
+       SingleChildScrollView(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
@@ -37,15 +41,29 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
               ),
             ),
           ),
-          SizedBox(height: screenHeight * .05,),
-          Center(
+          ],),),
+
+
+          Align (
+            alignment: Alignment.bottomCenter,
+          child: Container(
+            decoration: BoxDecoration(
+                color: AppColors.offWhite,
+                borderRadius: BorderRadius.circular(20)
+            ),
+
+            child: Column(children: [
+              Center(
             child: Container(
               width: screenWidth*0.9,
-              height: screenHeight * 0.17,
+              height: screenHeight * 0.20,
               decoration: BoxDecoration(
+                color: AppColors.offWhite,
                 borderRadius: BorderRadius.circular(20)
               ),
-              child: Column(
+              child:
+              Padding(padding: EdgeInsets.all(8),
+                child: Column(
                 children: [
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,6 +89,8 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     ],
                   ),
                   SizedBox(height: screenHeight * .01,),
+                  SizedBox(width: screenWidth*0.9, child: const Divider()),
+
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -80,15 +100,18 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                   ),
                 ],
               ),
-            ),
+            ),),
           ),
           SizedBox(height: screenHeight * .01,),
-          SizedBox(width: screenWidth*0.9, child: const Divider()),
-          SizedBox(height: screenHeight * .01,),
           getTestButton(screenWidth, screenHeight, 'Checkout'),
-          SizedBox(height: screenHeight * .01,),
-        ],
-      ),
+              SizedBox(height: screenHeight * .05,),
+
+            ],
+      ),),),
+    // ],
+    // ),
+      //),
+    ],),
     );
   }
 }

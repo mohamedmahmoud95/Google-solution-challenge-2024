@@ -11,13 +11,12 @@ class CustomSearchBar extends StatelessWidget {
   final Function? onPrefixIconPressed;
   final Function? onSuffixIconPressed;
   final Function? onFieldSubmitted;
-  final Function(File? img) getImage;
-  final Function(String) searchText;
+  final TextEditingController textEditingController;
+
   final String? hintText;
   const CustomSearchBar(
       {super.key,
-      required this.getImage,
-      required this.searchText,
+        required this.textEditingController,
       this.prefix,
       this.suffix,
       this.onPrefixIconPressed,
@@ -29,11 +28,11 @@ class CustomSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         child: TextFormField(
+          controller: textEditingController,
           onFieldSubmitted: (value) {
-            searchText(value);
             if (onFieldSubmitted != null) {
               onFieldSubmitted!();
             }
