@@ -58,9 +58,7 @@ class _FirstAidsScreenState extends State<FirstAidsScreen> {
   }
 
   Widget categoryCard(FirstAidsCategory category){
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: RectangularButton(onTap: (){}, text: category.name, width: 200, backgroundColor: AppColors.oliveGreen2,),
+    return  RectangularButton(onTap: (){}, text: category.name, horizontalPadding: 20, backgroundColor: AppColors.oliveGreen2,
     );
   }
 

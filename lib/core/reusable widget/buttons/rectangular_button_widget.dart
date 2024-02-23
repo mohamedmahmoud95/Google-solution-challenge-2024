@@ -34,7 +34,7 @@ class RectangularButton extends StatelessWidget {
         padding: EdgeInsets.all(8),
       child: Container(
         height: 50,
-        width: width??ScreenUtils.getScreenWidth(context) / 1.35,
+      //  width: width?? 0,//ScreenUtils.getScreenWidth(context) / 1.35,
         decoration: BoxDecoration(
           color: backgroundColor??Theme.of(context).primaryColorLight,
           borderRadius: const BorderRadius.all(Radius.circular(10)),
