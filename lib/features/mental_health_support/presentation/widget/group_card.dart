@@ -35,8 +35,7 @@ class GroupCard extends StatelessWidget {
                     ),
                     clipBehavior: Clip.hardEdge,
                     child: Image(
-                      image:
-                          ImageUtils.getImage(therapyGroup.photoUrl)!,
+                      image: ImageUtils.getImage(therapyGroup.photoUrl)!,
                       fit: BoxFit.cover,
                     ),
                   ),

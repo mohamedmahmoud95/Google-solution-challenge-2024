@@ -4,14 +4,14 @@ import 'package:google_solution_challenge_2024/features/offline_resource/domain/
 
 import '../domain/entities/offline_resource_step.dart';
 
-
+FirstAidsCategory sampleFirstAidsCategory0 = FirstAidsCategory(id: '٠', name: 'All');
 FirstAidsCategory sampleFirstAidsCategory1 = FirstAidsCategory(id: '1', name: 'Wounds');
 FirstAidsCategory sampleFirstAidsCategory2 = FirstAidsCategory(id: '2', name: 'Burns');
 FirstAidsCategory sampleFirstAidsCategory3 = FirstAidsCategory(id: '3', name: 'Fractures');
 FirstAidsCategory sampleFirstAidsCategory4 = FirstAidsCategory(id: '4', name: 'Bleeding');
 FirstAidsCategory sampleFirstAidsCategory5 = FirstAidsCategory(id: '5', name: 'Mental health first aids');
 
-List <FirstAidsCategory> listOfFistAidsCategories = [sampleFirstAidsCategory1, sampleFirstAidsCategory2, sampleFirstAidsCategory3, sampleFirstAidsCategory4, sampleFirstAidsCategory5];
+List <FirstAidsCategory> listOfFistAidsCategories = [sampleFirstAidsCategory0, sampleFirstAidsCategory1, sampleFirstAidsCategory2, sampleFirstAidsCategory3, sampleFirstAidsCategory4, sampleFirstAidsCategory5];
 
 
 OfflineResource offlineResource1 = OfflineResource(
