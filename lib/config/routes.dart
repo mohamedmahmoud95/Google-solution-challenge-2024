@@ -6,7 +6,10 @@ import 'package:google_solution_challenge_2024/features/charity/presentation/pag
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_screen.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/categories_screen.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/category_search_screen.dart';
 import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/market_place_screen.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/product_info_screen.dart';
 import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/shopping_cart_screen.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/group.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_groups_cubit/get_groups_cubit.dart';
@@ -71,6 +74,9 @@ class Routes {
 
   static const String marketPlaceScreen = "MarketPlaceScreen";
   static const String shoppingCartScreen = "ShoppingCartScreen";
+  static const String productInfoScreen = "ProductInfoScreen";
+  static const String categoriesScreen = "CategoriesScreen";
+  static const String categorySearchScreen = "CategorySearchScreen";
 
 }
 
@@ -196,6 +202,15 @@ class AppRoutes {
 
       case Routes.shoppingCartScreen:
         return MaterialPageRoute(builder: (context) =>  const ShoppingCartScreen());
+
+      case Routes.productInfoScreen:
+        return MaterialPageRoute(builder: (context) =>  const ProductInfoScreen());
+
+      case Routes.categoriesScreen:
+        return MaterialPageRoute(builder: (context) =>  const CategoriesScreen());
+
+      case Routes.categorySearchScreen:
+        return MaterialPageRoute(builder: (context) =>  const CategorySearchScreen());
 
       default:
         return MaterialPageRoute(

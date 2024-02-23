@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 
 class ShoppingCartScreen extends StatefulWidget {
@@ -22,18 +21,18 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            height: screenHeight*0.55,
+            height: screenHeight*0.54,
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   SizedBox(height: screenHeight * .04,),
-                  getTestItem(screenWidth, screenHeight, 'Xbox Series X', '1 TB', '\$250', '3'),
+                  getTestItem(context, screenWidth, screenHeight, 'Xbox Series X', '1 TB', '\$250', '3'),
                   SizedBox(height: screenHeight * .02,),
-                  getTestItem(screenWidth, screenHeight, 'Playstation 5', '2 TB', '\$350', '2'),
+                  getTestItem(context, screenWidth, screenHeight, 'Playstation 5', '2 TB', '\$350', '2'),
                   SizedBox(height: screenHeight * .02,),
-                  getTestItem(screenWidth, screenHeight, '7amada Station', '20 TB', '\$12250', '1'),
+                  getTestItem(context, screenWidth, screenHeight, '7amada Station', '20 TB', '\$12250', '1'),
                   SizedBox(height: screenHeight * .02,),
-                  getTestItem(screenWidth, screenHeight, 'Mahmoud Station', '1 MB', '\$23', '1'),
+                  getTestItem(context, screenWidth, screenHeight, 'Mahmoud Station', '1 MB', '\$23', '1'),
                 ],
               ),
             ),
@@ -84,7 +83,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
             ),
           ),
           SizedBox(height: screenHeight * .01,),
-          SizedBox(width: screenWidth*0.9, child: Divider()),
+          SizedBox(width: screenWidth*0.9, child: const Divider()),
           SizedBox(height: screenHeight * .01,),
           getTestButton(screenWidth, screenHeight, 'Checkout'),
           SizedBox(height: screenHeight * .01,),
@@ -109,18 +108,23 @@ Widget getTestButton(screenWidth, screenHeight, textToDisplay){
   );
 }
 
-Widget getTestItem(screenWidth, screenHeight, itemTitle, extraText, price, quantity){
+Widget getTestItem(context, screenWidth, screenHeight, itemTitle, extraText, price, quantity){
   return SizedBox(
     width: screenWidth * 0.9,
     height: screenHeight * 0.15,
     child: Row(
       children: [
-        Container(
-          width: screenWidth * 0.3,
-          height: screenHeight * 0.15,
-          decoration: BoxDecoration(
-            color: AppColors.beige,
-            borderRadius: BorderRadius.circular(20)
+        GestureDetector(
+          onTap: (){
+            Navigator.pushNamed(context, 'ProductInfoScreen');
+          },
+          child: Container(
+            width: screenWidth * 0.3,
+            height: screenHeight * 0.15,
+            decoration: BoxDecoration(
+              color: AppColors.beige,
+              borderRadius: BorderRadius.circular(20)
+            ),
           ),
         ),
         SizedBox(width: screenWidth * 0.03,),
