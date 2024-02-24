@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 
-import '../Widgets/CustomDialogs.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
