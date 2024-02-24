@@ -7,14 +7,13 @@ import 'package:google_solution_challenge_2024/features/market_place/domain/prod
 
 class ProductCategoryCard extends StatelessWidget {
   final ProductCategory productCategory;
-  final String routeName;
-  const ProductCategoryCard({super.key, required this.productCategory, required this.routeName});
+  const ProductCategoryCard({super.key, required this.productCategory});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context, routeName);
+        Navigator.pushNamed(context, 'CategorySearchScreen', arguments: productCategory.name);
       },
       child: Padding(
         padding: const EdgeInsets.all(8),

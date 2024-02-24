@@ -1,14 +1,15 @@
+import 'dart:math';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
+import 'package:google_solution_challenge_2024/features/market_place/domain/product.dart';
 
-class ProductInfoScreen extends StatefulWidget {
-  const ProductInfoScreen({super.key});
+class ProductInfoScreen extends StatelessWidget {
+  final Product product;
+  const ProductInfoScreen({super.key, required this.product});
 
-  @override
-  State<ProductInfoScreen> createState() => _ProductInfoScreenState();
-}
-
-class _ProductInfoScreenState extends State<ProductInfoScreen> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -17,17 +18,24 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
       backgroundColor: AppColors.oliveGreen2,
       extendBodyBehindAppBar: true,
       appBar: AppBar(forceMaterialTransparency: true,),
-      body: Column(
+      body: Stack(
         children: [
-          Container(
-            width: screenWidth,
-            height: screenHeight * 0.55,
-            decoration: const BoxDecoration(
-              color: AppColors.oliveGreen2
+          Positioned(
+            top: 0,
+            child: Container(
+              width: screenWidth,
+              height: screenHeight * 0.57,
+              decoration: BoxDecoration(
+                color: AppColors.oliveGreen2,
+                image: DecorationImage(image: AssetImage(product.thumbnail as  String), fit: BoxFit.fill)
+              ),
             ),
           ),
-          Expanded(
+          Positioned(
+            bottom: 0,
             child: Container(
+              height: screenHeight * 0.45,
+              width: screenWidth,
               decoration: const BoxDecoration(
                 color: AppColors.beige,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))
@@ -39,32 +47,43 @@ class _ProductInfoScreenState extends State<ProductInfoScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: screenHeight*0.01,),
-                    const Text('Xbox Series X', style: TextStyle(fontSize: 34),),
+                    Text(product.name as String, style: const TextStyle(fontSize: 34),),
                     SizedBox(height: screenHeight*0.01,),
                     Row(
                       children: [
-                        ratingIndicator('4.8'),
+                        ratingIndicator(product.rating.toString()),
                         SizedBox(width: screenWidth*0.03,),
-                        const Text('117 Reviews', style: TextStyle(fontSize: 16),)
+                        Text('${Random().nextInt(200)} Reviews', style: const TextStyle(fontSize: 16),)
                       ],
                     ),
                     SizedBox(height: screenHeight*0.02,),
-                    const Text('''Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nesciunt vel natus placeat expedita, ullam illo, itaque consequatur numquam consectetur quaerat velit ad laboriosam. Aspernatur velit quibusdam placeat deserunt commodi.''', style: TextStyle(fontSize: 18),),
+                    Text(product.description as String, style: const TextStyle(fontSize: 18),),
                     SizedBox(height: screenHeight*0.01,),
-                    const Divider(),
-                    SizedBox(height: screenHeight*0.01,),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        const Text('\$560', style: TextStyle(fontSize: 32),),
-                        getTestButton(screenWidth, screenHeight, 'Add to Cart')
-                      ],
-                    )
+                    SizedBox(
+                      height: screenHeight * 0.23,
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            const Divider(),
+                            SizedBox(height: screenHeight*0.01,),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Text('\$${product.price}', style: const TextStyle(fontSize: 32),),
+                                getTestButton(screenWidth, screenHeight, 'Add to Cart')
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

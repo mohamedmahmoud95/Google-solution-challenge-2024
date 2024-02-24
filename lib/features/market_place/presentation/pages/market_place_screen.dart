@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
+import 'package:google_solution_challenge_2024/features/market_place/domain/product.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/dummy_product_data.dart';
 import 'package:google_solution_challenge_2024/features/market_place/presentation/widget/product_card_widget.dart';
 
 class MarketPlaceScreen extends StatefulWidget {
@@ -11,10 +13,37 @@ class MarketPlaceScreen extends StatefulWidget {
 }
 
 class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
+
+  List<Product> currentProductList = sampleProducts;
+
+  void updateProductList(category){
+      if(category == 'Clothes'){
+        currentProductList =  sampleClothesProducts;
+      }
+      else if (category == 'Handmade'){
+        currentProductList = sampleHandmadeProducts;
+      }
+      else if (category == 'Home Appliances'){
+        currentProductList = sampleHomeProducts;
+      }
+      else if (category == 'Tools'){
+        currentProductList = sampleToolProducts;
+      }
+      else if (category == 'All'){
+        currentProductList = sampleProducts;
+      }else{
+        currentProductList = sampleClothesProducts;
+      }
+      setState(() {
+        currentProductList.shuffle();
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Discover'),
@@ -44,6 +73,7 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
                   width: screenWidth * 0.9,
                   height: screenHeight * 0.07,
                   child: TextFormField(
+                    autofocus: false,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(color: AppColors.green),
@@ -108,16 +138,14 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          getTestButton(screenWidth, screenHeight, 'All'),
+                          getTestButton(screenWidth, screenHeight, 'All', updateProductList),
                           SizedBox(width: screenWidth * 0.03,),
-                          getTestButton(screenWidth, screenHeight, 'Clothes'),
+                          getTestButton(screenWidth, screenHeight, 'Clothes', updateProductList),
                           SizedBox(width: screenWidth * 0.03,),
-                          getTestButton(screenWidth, screenHeight, 'Nutrition'),
+                          getTestButton(screenWidth, screenHeight, 'Authentic Food', updateProductList),
                           SizedBox(width: screenWidth * 0.03,),
-                          getTestButton(screenWidth, screenHeight, 'Home Appliances'),
-                          SizedBox(width: screenWidth * 0.03,),
-                          getTestButton(screenWidth, screenHeight, 'Accessories'),
-                          SizedBox(width: screenWidth * 0.03,),
+                          getTestButton(screenWidth, screenHeight, 'Home Appliances', updateProductList),
+                          SizedBox(width: screenWidth * 0.03,)
                         ],
                       ),
                     ),
@@ -129,24 +157,23 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
                 width: screenWidth * 0.9,
                 child: Column(
                   children: [
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ProductCard(),
-                        ProductCard()
-                      ],
+                    SizedBox(
+                      width: screenWidth * 0.9,
+                      child: Wrap(
+                        alignment: WrapAlignment.spaceBetween,
+                        runSpacing: screenHeight * 0.02,
+                        children: [
+                          ...currentProductList.sublist(0,4).map((product) {
+                            return ProductCard(product: product);
+                          })
+                        ],
+                      ),
                     ),
-                    SizedBox(height: screenHeight*0.02,),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ProductCard(),
-                        ProductCard()
-                      ],
-                    ),
-                    SizedBox(height: screenHeight*0.02,),
+                    SizedBox(height: screenHeight *0.01,),
                     TextButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        Navigator.pushNamed(context, 'CategorySearchScreen', arguments: 'All');
+                      },
                       child: const Text('View More', style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
@@ -165,9 +192,11 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
   }
 }
 
-Widget getTestButton(screenWidth, screenHeight, textToDisplay){
+Widget getTestButton(screenWidth, screenHeight, textToDisplay, updateProductList){
   return GestureDetector(
-    onTap: (){},
+    onTap: (){
+      updateProductList(textToDisplay);
+    },
     child: Container(
       height: screenHeight*0.05,
       decoration: BoxDecoration(
