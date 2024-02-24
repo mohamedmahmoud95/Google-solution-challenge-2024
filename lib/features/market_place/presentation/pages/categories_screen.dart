@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 
-import '../../dummy_data.dart';
+import '../../dummy_categories_data.dart';
 import '../widget/product_category_card.dart';
 
 class CategoriesScreen extends StatelessWidget {
@@ -42,16 +42,9 @@ class CategoriesScreen extends StatelessWidget {
                   scrollDirection: Axis.vertical,
             child: Wrap(
               children: [
-                ...sampleProductCategories.map((category) => ProductCategoryCard(productCategory: category)),
+                ...sampleProductCategories.map((category) => ProductCategoryCard(productCategory: category, routeName: 'CategorySearchScreen')),
               ],
             ),),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     leftColumn(context),
-            //     rightColumn(context),
-            //   ],
-            // ),
           ),
         ),
       ),
