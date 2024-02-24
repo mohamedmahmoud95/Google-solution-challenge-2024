@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 
+import '../../dummy_data.dart';
+import '../widget/product_category_card.dart';
+
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
@@ -11,7 +14,6 @@ class CategoriesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Shopping Categories'),
-        backgroundColor: AppColors.offWhite,
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -30,19 +32,26 @@ class CategoriesScreen extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: AppColors.offWhite,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: SizedBox(
             width: screenWidth * 0.9,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child:
+                SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+            child: Wrap(
               children: [
-                leftColumn(context),
-                rightColumn(context),
+                ...sampleProductCategories.map((category) => ProductCategoryCard(productCategory: category)),
               ],
-            ),
+            ),),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     leftColumn(context),
+            //     rightColumn(context),
+            //   ],
+            // ),
           ),
         ),
       ),
@@ -52,7 +61,8 @@ class CategoriesScreen extends StatelessWidget {
   Widget leftColumn(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return SingleChildScrollView(
+    return
+      SingleChildScrollView(
       child: Column(
         children: [
           GestureDetector(
