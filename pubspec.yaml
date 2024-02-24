@@ -66,9 +66,14 @@ flutter:
    - assets/images/Mohamed Raslan.png
    - assets/images/mental_health/
    - assets/images/market_place/categories/
+   - assets/images/market_place/Products/Clothes/
+   - assets/images/market_place/Products/Handmade/
+   - assets/images/market_place/Products/Home/
+   - assets/images/market_place/Products/Nutrition/
+   - assets/images/market_place/Products/Tools/
    - assets/translations/
    - assets/models/mobileFaceNet.tflite
-   - assets/images/market_place/categories/
+   - assets/images/market_place/
    - assets/images/app_developers/
    - assets/images/reading3.jpg
 

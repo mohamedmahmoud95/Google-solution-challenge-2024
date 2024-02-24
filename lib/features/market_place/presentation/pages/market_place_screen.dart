@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/widget/product_card_widget.dart';
 
 class MarketPlaceScreen extends StatefulWidget {
   const MarketPlaceScreen({super.key});
@@ -66,10 +67,12 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
               SizedBox(height: screenHeight * .04,),
               Container(
                 width: screenWidth*0.9,
-                height: screenHeight * 0.25,
+                height: screenHeight * 0.2,
+                
                 decoration: BoxDecoration(
                   color: AppColors.oliveGreen2,
-                  borderRadius: BorderRadius.circular(20)
+                  borderRadius: BorderRadius.circular(20),
+                  image: const DecorationImage(image: AssetImage('assets/images/market_place/MarketFace.png'), fit: BoxFit.fill)
                 ),
               ),
               SizedBox(height: screenHeight * .02,),
@@ -126,47 +129,19 @@ class _MarketPlaceScreenState extends State<MarketPlaceScreen> {
                 width: screenWidth * 0.9,
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          width: screenWidth*0.43,
-                          height: screenHeight * 0.2,
-                          decoration: BoxDecoration(
-                            color: AppColors.oliveGreen2,
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                        ),
-                        Container(
-                          width: screenWidth*0.43,
-                          height: screenHeight * 0.2,
-                          decoration: BoxDecoration(
-                            color: AppColors.oliveGreen2,
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                        ),
+                        ProductCard(),
+                        ProductCard()
                       ],
                     ),
                     SizedBox(height: screenHeight*0.02,),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          width: screenWidth*0.43,
-                          height: screenHeight * 0.2,
-                          decoration: BoxDecoration(
-                            color: AppColors.oliveGreen2,
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                        ),
-                        Container(
-                          width: screenWidth*0.43,
-                          height: screenHeight * 0.2,
-                          decoration: BoxDecoration(
-                            color: AppColors.oliveGreen2,
-                            borderRadius: BorderRadius.circular(20)
-                          ),
-                        ),
+                        ProductCard(),
+                        ProductCard()
                       ],
                     ),
                     SizedBox(height: screenHeight*0.02,),
