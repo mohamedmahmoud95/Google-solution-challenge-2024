@@ -58,5 +58,43 @@ class AppImages {
   static const String overthinking =  "${Constants.baseImageUrl}/mental_health/overthinking.jpg";
   static const String overthinking2 =  "${Constants.baseImageUrl}/mental_health/overthinking2.jpg";
 
+//==========================================================================================//
+//Market place - products categories
+  static const String food =  "${Constants.baseImageUrl}/market_place/categories/food.jpg";
+  static const String food2 =  "${Constants.baseImageUrl}/market_place/categories/food2.jpg";
+  static const String food3 =  "${Constants.baseImageUrl}/market_place/categories/food3.jpg";
+  static const String crafts =  "${Constants.baseImageUrl}/market_place/categories/crafts.jpg";
+  static const String handmade =  "${Constants.baseImageUrl}/market_place/categories/handmade.jpg";
+  static const String handmade2 =  "${Constants.baseImageUrl}/market_place/categories/handmade2.jpg";
+  static const String clothes =  "${Constants.baseImageUrl}/market_place/categories/clothes.jpg";
+  static const String clothes2 =  "${Constants.baseImageUrl}/market_place/categories/clothes2.jpg";
+  static const String thrift =  "${Constants.baseImageUrl}/market_place/categories/thrift.jpg";
+  static const String tools =  "${Constants.baseImageUrl}/market_place/categories/tools.jpg";
+  static const String tools2 =  "${Constants.baseImageUrl}/market_place/categories/tools2.jpg";
+  static const String appliances =  "${Constants.baseImageUrl}/market_place/categories/appliances.jpg";
+//==========================================================================================//
+
+
+
+
+
+//==========================================================================================//
+//
+
+
+
+//==========================================================================================//
+
+
+
+
+
+
+//==========================================================================================//
+//
+
+
+
+//==========================================================================================//
 
 }
