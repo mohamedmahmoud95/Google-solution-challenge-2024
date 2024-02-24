@@ -1,18 +1,31 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/emergency_contact.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/first_aids_category.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource.dart';
 
 import '../domain/entities/offline_resource_step.dart';
 
-FirstAidsCategory sampleFirstAidsCategory0 = FirstAidsCategory(id: '٠', name: 'All');
-FirstAidsCategory sampleFirstAidsCategory1 = FirstAidsCategory(id: '1', name: 'Wounds');
-FirstAidsCategory sampleFirstAidsCategory2 = FirstAidsCategory(id: '2', name: 'Burns');
-FirstAidsCategory sampleFirstAidsCategory3 = FirstAidsCategory(id: '3', name: 'Fractures');
-FirstAidsCategory sampleFirstAidsCategory4 = FirstAidsCategory(id: '4', name: 'Bleeding');
-FirstAidsCategory sampleFirstAidsCategory5 = FirstAidsCategory(id: '5', name: 'Mental health first aids');
+FirstAidsCategory sampleFirstAidsCategory0 =
+    FirstAidsCategory(id: '٠', name: 'All');
+FirstAidsCategory sampleFirstAidsCategory1 =
+    FirstAidsCategory(id: '1', name: 'Wounds');
+FirstAidsCategory sampleFirstAidsCategory2 =
+    FirstAidsCategory(id: '2', name: 'Burns');
+FirstAidsCategory sampleFirstAidsCategory3 =
+    FirstAidsCategory(id: '3', name: 'Fractures');
+FirstAidsCategory sampleFirstAidsCategory4 =
+    FirstAidsCategory(id: '4', name: 'Bleeding');
+FirstAidsCategory sampleFirstAidsCategory5 =
+    FirstAidsCategory(id: '5', name: 'Mental health first aids');
 
-List <FirstAidsCategory> listOfFistAidsCategories = [sampleFirstAidsCategory0, sampleFirstAidsCategory1, sampleFirstAidsCategory2, sampleFirstAidsCategory3, sampleFirstAidsCategory4, sampleFirstAidsCategory5];
-
+List<FirstAidsCategory> listOfFistAidsCategories = [
+  sampleFirstAidsCategory0,
+  sampleFirstAidsCategory1,
+  sampleFirstAidsCategory2,
+  sampleFirstAidsCategory3,
+  sampleFirstAidsCategory4,
+  sampleFirstAidsCategory5
+];
 
 OfflineResource offlineResource1 = OfflineResource(
   id: '1',
@@ -143,3 +156,11 @@ List<OfflineResource> dummyOfflineResources = [
   offlineResource1,
   offlineResource1
 ];
+
+EmergencyData sampleEmergencyData = EmergencyData(
+    country: Country(name: 'Palestine', ISOCode: 'PS', ISONumeric: '275'),
+    ambulance: EmergencyService(all: ['101']),
+    fire: EmergencyService(all: ['101']),
+    police: EmergencyService(all: ['101']),
+    dispatch: EmergencyService(all: ['']),
+);
