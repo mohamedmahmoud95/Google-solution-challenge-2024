@@ -6,6 +6,7 @@ import 'package:google_solution_challenge_2024/features/charity/presentation/pag
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_screen.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/donte_screen.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/pages/home_screen.dart';
+import 'package:google_solution_challenge_2024/features/market_place/domain/product.dart';
 import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/categories_screen.dart';
 import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/category_search_screen.dart';
 import 'package:google_solution_challenge_2024/features/market_place/presentation/pages/market_place_screen.dart';
@@ -203,13 +204,19 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) =>  const ShoppingCartScreen());
 
       case Routes.productInfoScreen:
-        return MaterialPageRoute(builder: (context) =>  const ProductInfoScreen());
+        return MaterialPageRoute(
+            builder: (context) => ProductInfoScreen(
+              product: args as Product,
+            ));
 
       case Routes.categoriesScreen:
         return MaterialPageRoute(builder: (context) =>  const CategoriesScreen());
 
       case Routes.categorySearchScreen:
-        return MaterialPageRoute(builder: (context) =>  const CategorySearchScreen());
+      return MaterialPageRoute(
+            builder: (context) => CategorySearchScreen(
+              category: args as String,
+            ));
 
       default:
         return MaterialPageRoute(

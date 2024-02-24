@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
+import 'package:google_solution_challenge_2024/features/market_place/domain/product.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/dummy_product_data.dart';
+import 'package:google_solution_challenge_2024/features/market_place/presentation/widget/product_card_widget.dart';
 
 class CategorySearchScreen extends StatefulWidget {
-  const CategorySearchScreen({super.key});
+  final String category;
+  const CategorySearchScreen({super.key, required this.category});
 
   @override
   State<CategorySearchScreen> createState() => _CategorySearchScreenState();
@@ -13,10 +17,37 @@ class _CategorySearchScreenState extends State<CategorySearchScreen> {
 
   bool showSort = false;
 
+
+  List<Product> getProducts(){
+
+    if(widget.category == 'Clothes'){
+      return sampleClothesProducts;
+    }
+    else if (widget.category == 'Handmade'){
+      return sampleHandmadeProducts;
+    }
+    else if (widget.category == 'Home'){
+      return sampleHomeProducts;
+    }
+    else if (widget.category == 'Tools'){
+      return sampleToolProducts;
+    }
+    else if (widget.category == 'All'){
+      return sampleProducts;
+    }
+    else{
+      return sampleClothesProducts;
+    }
+    
+  }
+
+  TextEditingController searchController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -48,6 +79,10 @@ class _CategorySearchScreenState extends State<CategorySearchScreen> {
                     width: screenWidth * 0.73,
                     height: screenHeight * 0.07,
                     child: TextFormField(
+                      onChanged: (value){
+                        setState(() {});
+                      },
+                      controller: searchController,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                           borderSide: const BorderSide(color: AppColors.green),
@@ -125,166 +160,18 @@ class _CategorySearchScreenState extends State<CategorySearchScreen> {
             ):const SizedBox(),
             SizedBox(
               width: screenWidth * 0.9,
-              child: const Text('Clothes', style: TextStyle(fontSize: 24)),
+              child: Text(widget.category, style: const TextStyle(fontSize: 24)),
             ),
             SizedBox(height: screenHeight * .02,),
             Expanded(
               child: SingleChildScrollView(
                 child: SizedBox(
                   width: screenWidth * 0.9,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    runSpacing: screenHeight * 0.02,
                     children: [
-                      Column(
-                        children: [
-                          Container(
-                            width: screenWidth*0.43,
-                            height: screenHeight * 0.3,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            child: Column(
-                              children: [
-                                SizedBox(height: screenHeight * 0.02,),
-                                Container(
-                                  width: screenWidth*0.37,
-                                  height: screenHeight * 0.2,
-                                  decoration: BoxDecoration(
-                                    color: AppColors.oliveGreen1,
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
-                                ),
-                                SizedBox(height: screenHeight * 0.02,),
-                                const Text('Mohammed', style: TextStyle(fontSize: 20),)
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: screenHeight*0.02,),
-                          Container(
-                            width: screenWidth*0.43,
-                            height: screenHeight * 0.25,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            child: Column(
-                              children: [
-                                SizedBox(height: screenHeight * 0.02,),
-                                Container(
-                                  width: screenWidth*0.37,
-                                  height: screenHeight * 0.15,
-                                  decoration: BoxDecoration(
-                                    color: AppColors.oliveGreen1,
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
-                                ),
-                                SizedBox(height: screenHeight * 0.02,),
-                                const Text('Ahmed', style: TextStyle(fontSize: 20),)
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: screenHeight*0.02,),
-                          Container(
-                            width: screenWidth*0.43,
-                            height: screenHeight * 0.3,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            child: Column(
-                              children: [
-                                SizedBox(height: screenHeight * 0.02,),
-                                Container(
-                                  width: screenWidth*0.37,
-                                  height: screenHeight * 0.2,
-                                  decoration: BoxDecoration(
-                                    color: AppColors.oliveGreen1,
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
-                                ),
-                                SizedBox(height: screenHeight * 0.02,),
-                                const Text('Essam', style: TextStyle(fontSize: 20),)
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Container(
-                            width: screenWidth*0.43,
-                            height: screenHeight * 0.25,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            child: Column(
-                              children: [
-                                SizedBox(height: screenHeight * 0.02,),
-                                Container(
-                                  width: screenWidth*0.37,
-                                  height: screenHeight * 0.15,
-                                  decoration: BoxDecoration(
-                                    color: AppColors.oliveGreen1,
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
-                                ),
-                                SizedBox(height: screenHeight * 0.02,),
-                                const Text('Osama', style: TextStyle(fontSize: 20),)
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: screenHeight*0.02,),
-                          Container(
-                            width: screenWidth*0.43,
-                            height: screenHeight * 0.3,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            child: Column(
-                              children: [
-                                SizedBox(height: screenHeight * 0.02,),
-                                Container(
-                                  width: screenWidth*0.37,
-                                  height: screenHeight * 0.2,
-                                  decoration: BoxDecoration(
-                                    color: AppColors.oliveGreen1,
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
-                                ),
-                                SizedBox(height: screenHeight * 0.02,),
-                                const Text('Morcous', style: TextStyle(fontSize: 20),)
-                              ],
-                            ),
-                          ),
-                          SizedBox(height: screenHeight*0.02,),
-                          Container(
-                            width: screenWidth*0.43,
-                            height: screenHeight * 0.25,
-                            decoration: BoxDecoration(
-                              color: AppColors.oliveGreen1,
-                              borderRadius: BorderRadius.circular(20)
-                            ),
-                            child: Column(
-                              children: [
-                                SizedBox(height: screenHeight * 0.02,),
-                                Container(
-                                  width: screenWidth*0.37,
-                                  height: screenHeight * 0.15,
-                                  decoration: BoxDecoration(
-                                    color: AppColors.oliveGreen1,
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
-                                ),
-                                SizedBox(height: screenHeight * 0.02,),
-                                const Text('Mina', style: TextStyle(fontSize: 20),)
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                      ...getProducts().where((product) => product.name!.toLowerCase().contains(searchController.text.toLowerCase())).map((product) => ProductCard(product: product))
                     ],
                   ),
                 ),
