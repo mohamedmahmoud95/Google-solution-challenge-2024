@@ -10,7 +10,10 @@ class TextFieldWidget extends StatefulWidget {
   final bool? obscureText;
   final TextEditingController? textEditingController;
   final TextInputType? textInputType;
-  const TextFieldWidget({super.key, this.onSubmitted, this.prefix, this.suffix, this.title, this.hintText, this.textEditingController, this.obscureText = false, this.textInputType});
+  final Function? onChanged;
+  final double? verticalPadding;
+  final double? horizontalPadding;
+  const TextFieldWidget({super.key, this.onSubmitted, this.prefix, this.suffix, this.title, this.hintText, this.textEditingController, this.obscureText = false, this.textInputType, this.onChanged, this.verticalPadding, this.horizontalPadding});
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();
@@ -20,7 +23,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
       return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding?? 30, vertical: widget.verticalPadding?? 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -49,6 +52,10 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
                   {
                     widget.onSubmitted!();
                   }
+              },
+
+              onChanged: (value){
+                widget.onChanged!();
               },
             ),
           ],
