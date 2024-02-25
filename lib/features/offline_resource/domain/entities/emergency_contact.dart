@@ -1,12 +1,12 @@
+import 'package:flutter/cupertino.dart';
+
 class EmergencyResponse {
-  String error;
   EmergencyData data;
 
-  EmergencyResponse({required this.error, required this.data});
+  EmergencyResponse({required this.data});
 
-  factory EmergencyResponse.fromJson(Map<String?, dynamic?> json) {
+  factory EmergencyResponse.fromJson(Map<dynamic?, dynamic?> json) {
     return EmergencyResponse(
-      error: json['error'] ?? "",
       data: EmergencyData.fromJson(json['data']),
     );
   }
@@ -27,54 +27,52 @@ class EmergencyData {
     required this.dispatch,
   });
 
-  factory EmergencyData.fromJson(Map<String?, dynamic?> json) {
+  factory EmergencyData.fromJson(Map<dynamic?, dynamic?> json) {
     return EmergencyData(
       country: Country.fromJson(json['country']) ,
       ambulance: EmergencyService.fromJson(json['ambulance']),
       fire: EmergencyService.fromJson(json['fire']),
       police: EmergencyService.fromJson(json['police']),
-      dispatch: EmergencyService.fromJson(json['dispatch']),
+      dispatch: EmergencyService.fromJson(json['dispatch'] ),
     );
   }
 }
 
 class Country {
-  String name;
-  String ISOCode;
-  String ISONumeric;
+  String? name;
+  String? ISOCode;
 
   Country({
-    required this.name,
-    required this.ISOCode,
-    required this.ISONumeric,
+    this.name,
+    this.ISOCode,
   });
 
-  factory Country.fromJson(Map<String?, dynamic?> json) {
+  factory Country.fromJson(Map<dynamic?, dynamic?> json) {
     return Country(
       name: json['name'] ?? "",
       ISOCode: json['ISOCode'] ?? "",
-      ISONumeric: json['ISONumeric'] ?? "",
     );
   }
 }
 
 class EmergencyService {
-  List<String> all;
+  List<String?>? all;
   String? gsm;
   String? fixed;
 
   EmergencyService({
-    required this.all,
+    this.all,
     this.gsm,
     this.fixed,
   });
 
   factory EmergencyService.fromJson(Map<String?, dynamic?> json) {
     return EmergencyService(
-      all: List<String>.from(json['all']) ?? [],
-      gsm: json['gsm'] ?? 'gsm',
-      fixed: json['fixed']?? 'fixed',
+      all: List<String?>.from(json['all'] ?? []),
+      gsm: json['gsm'] ?? 'default_gsm_value',
+      fixed: json['fixed'] ?? 'default_fixed_value',
     );
   }
+
 }
 

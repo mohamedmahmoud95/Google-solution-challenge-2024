@@ -158,7 +158,7 @@ List<OfflineResource> dummyOfflineResources = [
 ];
 
 EmergencyData sampleEmergencyData = EmergencyData(
-    country: Country(name: 'Palestine', ISOCode: 'PS', ISONumeric: '275'),
+    country: Country(name: 'Palestine', ISOCode: 'PS', ),
     ambulance: EmergencyService(all: ['101']),
     fire: EmergencyService(all: ['101']),
     police: EmergencyService(all: ['101']),

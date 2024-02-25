@@ -1,12 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/data/fetch_emergency_data_service.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/emergency_contact.dart';
-
 import '../../dummy_data/dummy_data.dart';
+
 class EmergencyContactsWidget extends StatefulWidget {
   final String countryCode;
   const EmergencyContactsWidget({Key? key, required this.countryCode}) : super(key: key);
@@ -24,22 +23,24 @@ class _EmergencyContactsWidgetState extends State<EmergencyContactsWidget> {
     _emergencyDataFuture = fetchEmergencyContact(widget.countryCode);
   }
 
+  @override
+  void didUpdateWidget(covariant EmergencyContactsWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.countryCode != widget.countryCode) {
+      // If the country code has changed, fetch data again
+      _emergencyDataFuture = fetchEmergencyContact(widget.countryCode);
+    }
+  }
+
   Future<EmergencyData> fetchEmergencyContact(String countryCode) async {
     FetchEmergencyNumberService fetchEmergencyNumberService = FetchEmergencyNumberService();
     final data = await fetchEmergencyNumberService.fetchEmergencyNumber(countryCode);
-    debugPrint('\n dataaaa: \n\n');
 
-    debugPrint(data.toString());
-    debugPrint('\n ======== \n');
-
-    if (data != null)
-      {
-        return data;
-      }
-    else
-      {
-        return sampleEmergencyData;
-      }
+    if (data != null) {
+      return data;
+    } else {
+      return sampleEmergencyData;
+    }
   }
 
   @override
@@ -61,7 +62,6 @@ class _EmergencyContactsWidgetState extends State<EmergencyContactsWidget> {
           );
         } else {
           final emergencyContact = snapshot.data!;
-          debugPrint(emergencyContact.country.name.toString());
           return Container(
             height: ScreenUtils.getScreenHeight(context)/1.5,
             width: ScreenUtils.getScreenHeight(context) - 50,
@@ -73,10 +73,10 @@ class _EmergencyContactsWidgetState extends State<EmergencyContactsWidget> {
               child: Column(
                 children: [
                   tile('Country:', emergencyContact.country.name.toString()),
-                  tile('Ambulance:', emergencyContact.ambulance.all.first),
-                  tile('Fire-fighting:', emergencyContact.fire.all.first),
-                  tile('Police:', emergencyContact.police.all.first),
-                  tile('Dispatch:', emergencyContact.dispatch.all.first),
+                  tile('Ambulance:', emergencyContact.ambulance.all!.first!),
+                  tile('Fire-fighting:', emergencyContact.fire.all!.first!),
+                  tile('Police:', emergencyContact.police.all!.first!),
+                  tile('Dispatch:', emergencyContact.dispatch.all!.first!),
                 ],
               ),
             ),

@@ -75,7 +75,7 @@ class _CountrySelectorState extends State<CountrySelector> {
 
 
 
-List<Map<String, String>> countries = [
+List<Map<String?, String?>> countries = [
   {"name": "Afghanistan", "code": "AF"},
   {"name": "Albania", "code": "AL"},
   {"name": "Algeria", "code": "DZ"},

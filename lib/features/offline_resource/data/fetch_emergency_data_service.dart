@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,14 +11,32 @@ class FetchEmergencyNumberService {
   Future<EmergencyData?> fetchEmergencyNumber(String countryCode) async {
     try {
       final response = await Dio().get('$baseUrl$countryCode');
-      debugPrint('Response data: $response');
+
       if (response.statusCode == 200) {
-        debugPrint("\n200\n");
-        if (response.data != null && response.data is Map<String?, dynamic?>) {
-          debugPrint("\ndata not null");
-          return EmergencyData.fromJson(response.data);
+        if (response.data != null) {
+          final data = response.data['data'] as Map<String, dynamic>;
+
+          final countryData = data['country'] as Map<String, dynamic>;
+
+          final String countryName = countryData['name'] as String;
+
+          final String countryCode = countryData['ISOCode'] as String;
+
+          final fireData = data['fire'] as Map<String, dynamic>;
+
+          final List<String> fireNumbers = (fireData['all'] as List<dynamic>).map((e) => e as String).toList();
+
+          final policeData = data['police'] as Map<String, dynamic>;
+
+          final List<String> policeNumbers = (policeData['all'] as List<dynamic>).map((e) => e as String).toList();
+
+          final ambulanceData = data['ambulance'] as Map<String, dynamic>;
+
+          final List<String> ambulanceNumbers = (ambulanceData['all'] as List<dynamic>).map((e) => e as String).toList();
+
+          return EmergencyData.fromJson(data);
         } else {
-          debugPrint('Failed to fetch emergency numbers: Response data is null or not a Map<String, dynamic>');
+          debugPrint('Failed to fetch emergency numbers: Response data is null');
           return null;
         }
       } else {
@@ -24,7 +44,7 @@ class FetchEmergencyNumberService {
         return null;
       }
     } catch (e) {
-      debugPrint('Failed to fetch emergency numbers: $e');
+      debugPrint('Failed to fetch emergency numbers : $e');
       return null;
     }
   }
