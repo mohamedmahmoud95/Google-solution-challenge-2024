@@ -13,6 +13,12 @@ class LostAndFoundSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    bool isImageFileValid(String filePath) {
+      String extension = filePath.split('.').last.toLowerCase();
+      return extension == 'jpeg' || extension == 'jpg' || extension == 'png';
+    }
+
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Container(
@@ -38,6 +44,10 @@ class LostAndFoundSearchBar extends StatelessWidget {
                 onTap: () async {
                   await showInformationDialog(context, 'Uploads must be in JPEG, JPG, or PNG format\n and feature only one person', 13.0);
                   File? image = await pickImage(ImageSource.gallery);
+                  if(!isImageFileValid(image!.path)){
+                    showInformationDialog(context, 'Uploads must be in JPEG, JPG, or PNG format\n and feature only one person', 13.0);
+                    return;
+                  }
                   getImage(image);
                 },
                 child: Padding(

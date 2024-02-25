@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 
-import '../../utils/screen_utils.dart';
-
 class RectangularButton extends StatelessWidget {
   final Color? backgroundColor;
   final Color? foregroundColor;

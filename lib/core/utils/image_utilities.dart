@@ -7,11 +7,11 @@ class ImageUtils{
     if (imageUrl != null && imageUrl.isNotEmpty)
     {
       if (imageUrl.startsWith('http')){
-        imageProvider = NetworkImage(imageUrl!);
+        imageProvider = NetworkImage(imageUrl);
       }
       else
       {
-        imageProvider = AssetImage(imageUrl!,);
+        imageProvider = AssetImage(imageUrl,);
       }
     }
     return imageProvider!;

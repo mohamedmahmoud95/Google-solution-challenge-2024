@@ -13,9 +13,7 @@ class HorizontalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if(onTap != null){
           onTap();
-        }
       },
       child: Padding(
         padding: const EdgeInsets.all(8),
