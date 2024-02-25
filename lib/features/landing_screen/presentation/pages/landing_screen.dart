@@ -48,7 +48,7 @@ class _LandingScreenState extends State<LandingScreen> {
 
   Widget iAmHereToHelpButton(){
     return RectangularButton(onTap: (){
-      Navigator.of(context).pushNamed('HelpingOptionsScreen');
+      Navigator.of(context).pushNamed('signIn');
     },
       width: 100,
       text: "I'm here to help",

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 
 import '../manager/cubit.dart';
 
@@ -14,7 +13,7 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Card(
         elevation: 0,
@@ -26,21 +25,21 @@ class CategoryCard extends StatelessWidget {
               horizontal: HomeCubit.get(context).screenWidth(context) * .01,
               vertical: HomeCubit.get(context).screenHeight(context) * .009),
           decoration:  BoxDecoration(
-              color: AppColors.oliveGreen0,
+              color: AppColors.oliveGreen1,
               borderRadius: BorderRadius.all(Radius.circular(10))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image(
-                image: ImageUtils.getImage(image),fit: BoxFit.contain,
+                image: AssetImage(image),
                 width: HomeCubit.get(context).screenWidth(context) * 0.3,
-                height: HomeCubit.get(context).screenHeight(context) * 0.11,
+                height: HomeCubit.get(context).screenHeight(context) * 0.1,
               ),
               SizedBox(
                 // width: HomeCubit.get(context).screenWidth(context) * .2,
                 child: Text(
                   text,
-                  style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                  style: const TextStyle(fontWeight: FontWeight.w900),
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
