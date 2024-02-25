@@ -23,29 +23,24 @@ class HomeTab extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: HomeCubit.get(context).screenWidth(context) * .02,
+                  horizontal: 8,
                   vertical: HomeCubit.get(context).screenWidth(context) * .02),
               child: Row(
                 children: [
-                  CategoryCard(
-                    text: "Mental Health".tr(),
-                    image: AppImages.mentalHealth,
-                    onTap: () {
-                      Navigator.of(context).pushNamed('mentalHealthSupport');
-                      //   builder: (context) => const LostAndFoundScreen()));
-                    },
-                  ),
-                  CategoryCard(
-                      text: "Get Back Together".tr(), image: AppImages.family),
-                  CategoryCard(
-                      text: "Information & Safety".tr(),
-                      image: AppImages.informationSafety),
-                  GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, 'MarketPlaceScreen');
-                      },
-                      child: CategoryCard(
-                          text: "more".tr(), image: AppImages.more)),
+
+
+                  FeatureCard(title: 'Find a lost person', imageUrl: AppImages.faceRecognition,
+                    onClicked: (){
+                      Navigator.of(context).pushNamed('lostAndFound');
+                    },),
+
+                  FeatureCard(title: 'Empowerment market', imageUrl: AppImages.market_place,
+                    onClicked: (){
+                      Navigator.of(context).pushNamed('MarketPlaceScreen');
+                    },),
+
+
+
                 ],
               ),
             ),
@@ -118,7 +113,7 @@ class HomeTab extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: HomeCubit.get(context).screenWidth(context) * .03,
+              horizontal: 8,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,28 +126,30 @@ class HomeTab extends StatelessWidget {
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
                 ),
-                Row(
+
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                child:Row(
                   children: [
-                    Expanded(
-                      child: CategoryCard(
-                        text: "Medical".tr(),
-                        image: AppImages.medical,
-                      ),
-                    ),
-                    Expanded(
-                      child: CategoryCard(
-                        text: "Offline Resources".tr(),
-                        image: AppImages.offlineResources,
-                        onTap: () {
-                          Navigator.of(context)
-                              .pushNamed('OfflineResourcesScreen');
-                        },
-                      ),
-                    ),
+                    FeatureCard(title: 'Mental health', imageUrl: AppImages.mentalHealthSupport,
+                      onClicked: (){
+                        Navigator.of(context).pushNamed('mentalHealthSupport');
+                      },),
+                    FeatureCard(title: 'Medical support', imageUrl: AppImages.medical,
+                      onClicked: (){
+                        Navigator.of(context).pushNamed('OfflineResourcesScreen');
+                      },),
+
+
+                    FeatureCard(title: 'Emergency', imageUrl: AppImages.emergency,
+                      onClicked: (){
+                        Navigator.of(context).pushNamed('OfflineResourcesScreen');
+                      },),
+
                   ],
-                ),
+                ),),
               ],
-            ),
+            )
           ),
           SizedBox(
             height: HomeCubit.get(context).screenHeight(context) * .03,
