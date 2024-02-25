@@ -1,8 +1,7 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/features/market_place/domain/product.dart';
-import 'package:google_solution_challenge_2024/features/market_place/presentation/dummy_product_data.dart';
+import 'package:google_solution_challenge_2024/features/market_place/dummy_product_data.dart';
 import 'package:google_solution_challenge_2024/features/market_place/presentation/widget/cart_item_card_widget.dart';
 
 class ShoppingCartScreen extends StatefulWidget {
@@ -164,7 +163,16 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                   SizedBox(
                     height: screenHeight * .01,
                   ),
-                  getTestButton(screenWidth, screenHeight, 'Checkout'),
+                  Container(
+                    height: screenHeight * 0.07,
+                    width: screenWidth * 0.9,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.oliveGreen3),
+                    child: const Center(
+                        child: Text('Checkout',
+                            style: TextStyle(color: Colors.white, fontSize: 24))),
+                  ),
                   SizedBox(
                     height: screenHeight * .05,
                   ),
@@ -176,20 +184,4 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
       ),
     );
   }
-}
-
-Widget getTestButton(screenWidth, screenHeight, textToDisplay) {
-  return GestureDetector(
-    onTap: () {},
-    child: Container(
-      height: screenHeight * 0.07,
-      width: screenWidth * 0.9,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: AppColors.oliveGreen3),
-      child: Center(
-          child: Text(textToDisplay,
-              style: const TextStyle(color: Colors.white, fontSize: 24))),
-    ),
-  );
 }

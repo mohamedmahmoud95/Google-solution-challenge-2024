@@ -1,8 +1,5 @@
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/features/market_place/domain/product.dart';
 
@@ -72,7 +69,15 @@ class ProductInfoScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Text('\$${product.price}', style: const TextStyle(fontSize: 32),),
-                                getTestButton(screenWidth, screenHeight, 'Add to Cart')
+                                Container(
+                                  height: screenHeight*0.07,
+                                  width: screenWidth*0.55,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: AppColors.oliveGreen3
+                                  ),
+                                  child: const Center(child: Text('Add to Cart', style: TextStyle(color: Colors.white, fontSize: 24))),
+                                ),
                               ],
                             )
                           ],
@@ -97,7 +102,6 @@ Widget ratingIndicator(rating) {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         color: AppColors.oliveGreen1.withOpacity(1),
-        border: Border.all(width: 0.5, color: AppColors.oliveGreen1),
         borderRadius: const BorderRadius.all(
             Radius.circular(25)),
       ),
@@ -126,18 +130,3 @@ Widget ratingIndicator(rating) {
       ),
     );
   }
-
-  Widget getTestButton(screenWidth, screenHeight, textToDisplay){
-  return GestureDetector(
-    onTap: (){},
-    child: Container(
-      height: screenHeight*0.07,
-      width: screenWidth*0.55,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: AppColors.oliveGreen3
-      ),
-      child: Center(child: Text(textToDisplay, style: const TextStyle(color: Colors.white, fontSize: 24))),
-    ),
-  );
-}
