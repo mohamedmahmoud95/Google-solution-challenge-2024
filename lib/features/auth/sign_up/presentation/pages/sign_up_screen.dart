@@ -209,7 +209,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final FirebaseAuthServices firebaseAuthServices =  FirebaseAuthServices(FirebaseAuth.instance);
 
   Future<void> signUp() async {
-      bool signUpSuccess = false;
       try {
 
         final signUpResult = (await firebaseAuthServices
@@ -217,7 +216,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
              emailController.text, passwordController.text, (){}, (){}));
 
         if (signUpResult != null) {
-          signUpSuccess = true;
           currentAppUser = signUpResult;
           Navigator.of(context).pushReplacementNamed('home');
         }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/open_close_time.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_professionals_cubit/get_professionals_cubit.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/therapist_card.dart';
@@ -21,7 +20,7 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
     ProfessionalsFirestoreRepo().addProfessional(Professional(
         id: "id",
         name: "Mohamed Raslan",
-        photoUrl: "${AppImages.raslan.toString()}",
+        photoUrl: AppImages.raslan.toString(),
         jobTitle: "PTSD Therapist",
         rating: 4.9,
         timeOfSlotes: [OpenCloseTime(id: '1', openTime: TimeOfDay.now(), closeTime: TimeOfDay.now())],
@@ -56,7 +55,7 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
         builder: (context, state) {
           if (state is GetProfessionalsLoading) {
 
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (state is GetProfessionalsLoaded) {
 
             return ListView.builder(
@@ -75,13 +74,6 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
           }
         },
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: AppColors.oliveGreen2,
-      //   onPressed: () {
-      //     context.read<GetProfessionalsCubit>().getAllProfessionals();
-      //   },
-      //   child: const Icon(Icons.refresh, color: AppColors.white,),
-      // ),
     );
   }
 }

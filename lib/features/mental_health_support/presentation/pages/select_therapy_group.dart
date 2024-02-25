@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/group.dart';
-import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/open_close_time.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/repo/groups_firestore_repo.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/dummy_data.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/manager/get_groups_cubit/get_groups_cubit.dart';
@@ -30,7 +28,6 @@ class _SelectTherapyGroupScreenState extends State<SelectTherapyGroupScreen> {
   @override
   void initState(){
     super.initState();
-   // addSampleGroups();
     BlocProvider.of<GetGroupsCubit>(context).getAllGroups();
   }
 
@@ -52,7 +49,7 @@ class _SelectTherapyGroupScreenState extends State<SelectTherapyGroupScreen> {
         builder: (context, state) {
           if (state is GetGroupsLoading) {
 
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           } else if (state is GetGroupsLoaded) {
 
             return ListView.builder(

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/buttons/rectangular_button_widget.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/professional.dart';
-
-import '../../domain/entities/appointment.dart';
 import '../widget/therapist_card.dart';
 
 class BookOneToOneSessionScreen extends StatefulWidget {
@@ -32,7 +30,6 @@ class _BookOneToOneSessionScreenState extends State<BookOneToOneSessionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
           iconTheme: const IconThemeData(color: AppColors.oliveGreen2, size: 30),
@@ -139,14 +136,6 @@ class _BookOneToOneSessionScreenState extends State<BookOneToOneSessionScreen> {
                         ],
                       ),
                     );
-                  } else {
-                    final appointment = Appointment(
-                      status: Status.upcoming, id: 'sampleAppUser2', professionalId: '', userId: '', dateTime: _selectedDate!, videoCallLink: '',
-                    );
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => ConfirmBookingScreen(appointment: appointment)),
-                    // );
                   }
                 },
 

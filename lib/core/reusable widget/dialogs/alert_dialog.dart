@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
@@ -137,6 +139,75 @@ showErrorDialog(context, errorText, fontSize){
                 ),
               ],
             ),
+          ),
+        ),
+      );
+    }
+  );
+}
+
+Future<dynamic> showInformationDialog(context, informationText, fontSize){
+  return showDialog(
+    context: context,
+    builder: (context) {
+      double screenWidth = MediaQuery.of(context).size.width;
+      double screenHeight = MediaQuery.of(context).size.height;
+      return Center(
+        child: Container(
+          width: screenWidth*0.85,
+          height: screenHeight*0.2,
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(50))
+          ),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Stack(
+                children: [
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      height: screenHeight * 0.15,
+                      decoration: const BoxDecoration(
+                        color: AppColors.grey1,
+                        borderRadius: BorderRadius.all(Radius.circular(50))
+                      )
+                    ),
+                  ),
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: CircleAvatar(
+                      radius: screenWidth * 0.12,
+                      backgroundColor: AppColors.grey1,
+                      child: CircleAvatar(
+                        radius: screenWidth * 0.1,
+                        backgroundColor: AppColors.oliveGreen2,
+                        child: Text(
+                          "!",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 48,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: GoogleFonts.mPlusRounded1c().fontFamily
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: screenHeight * 0.07,),
+                  Text(informationText, textAlign: TextAlign.center, style: TextStyle(color: Colors.black, fontSize: fontSize, fontFamily: GoogleFonts.openSans().fontFamily, fontWeight: FontWeight.w500, decoration: TextDecoration.none)),
+                ],
+              ),
+            ],
           ),
         ),
       );
