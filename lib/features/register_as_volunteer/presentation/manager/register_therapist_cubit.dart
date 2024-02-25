@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_solution_challenge_2024/features/register_therapist/presentation/manager/register_therapist_state.dart';
+import 'package:google_solution_challenge_2024/features/register_as_volunteer/presentation/manager/register_therapist_state.dart';
 
 class RegisterTherapistCubit extends Cubit<RegisterTherapistState> {
   RegisterTherapistCubit() : super(RegisterTherapistInitState());

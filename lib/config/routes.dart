@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/features/I_want_to_help_screen/presentation/pages/volunteering_options_screen.dart';
 import 'package:google_solution_challenge_2024/features/articles_details/presentation/pages/articles_details.dart';
 import 'package:google_solution_challenge_2024/features/charity/data/models/charity_model.dart';
 import 'package:google_solution_challenge_2024/features/charity/presentation/pages/charity_details_screen.dart';
@@ -35,7 +36,7 @@ import '../features/lost and found/domain/entities/lost_or_found_person.dart';
 import '../features/lost and found/presentation/pages/add_new_person.dart';
 import '../features/offline_resource/presentation/pages/emergency_contacts_screen.dart';
 import '../features/offline_resource/presentation/pages/offline_resource_details_screen.dart';
-import '../features/register_therapist/presentation/pages/register_therapist_screen.dart';
+import '../features/register_as_volunteer/presentation/pages/register_therapist_screen.dart';
 import '../features/settings/presentation/pages/setting_screen.dart';
 import '../features/charity/presentation/pages/payment_screen.dart';
 import '../features/offline_resource/domain/entities/offline_resource.dart';
@@ -61,7 +62,7 @@ class Routes {
   static const String selectTherapistScreen = "selectTherapistScreen";
 
   ///--- therapist register ---///
-  static const String registerTherapistScreen = "registerTherapistScreen";
+  static const String registerTherapistScreen = "registerAsVolunteerScreen";
   static const String sessionBookingScreen = "sessionBookingScreen";
   static const String selectTherapyGroupScreen = "selectTherapyGroupScreen";
   static const String addNewLostOrFoundPerson = "addNewLostOrFoundPerson";
@@ -77,6 +78,7 @@ class Routes {
   static const String productInfoScreen = "ProductInfoScreen";
   static const String categoriesScreen = "CategoriesScreen";
   static const String categorySearchScreen = "CategorySearchScreen";
+  static const String iWantToHelpScreen = "IWantToHelpScreen";
 
 }
 
@@ -156,7 +158,7 @@ class AppRoutes {
 
       case Routes.registerTherapistScreen:
         return MaterialPageRoute(
-            builder: (context) => const RegisterTherapist());
+            builder: (context) => const RegisterAsVolunteer());
       case Routes.offlineResourcesScreen:
         return MaterialPageRoute(
             builder: (context) => const OfflineResourcesScreen());
@@ -217,6 +219,10 @@ class AppRoutes {
             builder: (context) => CategorySearchScreen(
               category: args as String,
             ));
+
+      case Routes.iWantToHelpScreen:
+        return MaterialPageRoute(
+            builder: (context) => VolunteeringOptionsScreen());
 
       default:
         return MaterialPageRoute(

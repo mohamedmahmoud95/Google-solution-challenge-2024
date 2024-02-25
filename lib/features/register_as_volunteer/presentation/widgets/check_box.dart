@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_solution_challenge_2024/features/register_therapist/presentation/widgets/upload_widget.dart';
+import 'package:google_solution_challenge_2024/features/register_as_volunteer/presentation/widgets/upload_widget.dart';
 
 class MyCheckBox extends StatelessWidget {
   final String title;
