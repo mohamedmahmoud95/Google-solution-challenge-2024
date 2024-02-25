@@ -33,6 +33,7 @@ class OneOfflineResourceStepCard extends StatelessWidget {
             const SizedBox(height: 10,),
             Text(step.bodyText.toString()),
             const SizedBox(height: 15,),
+            step.imageLink == null? const SizedBox() :
             Image(image: imageProvider!,),
             const SizedBox(height: 10,),
 
