@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/text_fields_and_search_bar/text_field.dart';
-import 'package:google_solution_challenge_2024/features/offline_resource/presentation/widget/emergency_contacts_widget.dart';
 
 class CountrySelector extends StatefulWidget {
   final bool? showSearchField;

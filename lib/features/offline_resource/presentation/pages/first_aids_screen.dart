@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/buttons/rectangular_button_widget.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/text_fields_and_search_bar/search_bar.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import 'package:google_solution_challenge_2024/features/home/presentation/widgets/category_card.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/first_aids_category.dart';
 
 import '../../dummy_data/dummy_data.dart';

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
-import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 
 import '../../utils/image_utilities.dart';

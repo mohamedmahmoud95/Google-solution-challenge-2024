@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/general_data.dart';
 
 class AppFirestoreCollections {
   static const String lostPersonsCollection = "lost_persons_collection";
