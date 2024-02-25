@@ -95,9 +95,8 @@ class _NewsFeedCardState extends State<NewsFeedCard> {
 
                       Text(
                         widget.newsFeedPost.title ??
-                            (widget.newsFeedPost.content != null &&
-                                    widget.newsFeedPost.content!.length > 400
-                                ? widget.newsFeedPost.content!.substring(0, 400)
+                            (widget.newsFeedPost.content.length > 400
+                                ? widget.newsFeedPost.content.substring(0, 400)
                                 : widget.newsFeedPost.content),
                         maxLines: 2,
                         style: const TextStyle(

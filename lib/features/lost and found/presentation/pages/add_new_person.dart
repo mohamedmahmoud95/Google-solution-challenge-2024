@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/buttons/rectangular_button_widget.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/text_fields_and_search_bar/text_field.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
@@ -34,10 +35,45 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
 
   TextEditingController careGiverPhoneNumberController = TextEditingController();
 
+  bool isImageFileValid(String filePath) {
+    String extension = filePath.split('.').last.toLowerCase();
+    return extension == 'jpeg' || extension == 'jpg' || extension == 'png';
+  }
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          GestureDetector(
+            onTap: (){
+              showInformationDialog(context, 'Uploads must be in JPEG, JPG, or PNG format\n and feature only one person', 13.0);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                width: screenWidth * 0.09,
+                decoration: BoxDecoration(
+                  border: Border.all(color: AppColors.oliveGreen2),
+                  borderRadius: BorderRadius.circular(50),
+                  color: AppColors.offWhite
+                ),
+                child: Center(
+                  child: Text(
+                    '!',
+                    style: TextStyle(
+                      color: AppColors.oliveGreen2,
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: GoogleFonts.mPlusRounded1c().fontFamily
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
         title: Text("Add new ${widget.lostOrFound == LostOrFound.lost? 'lost' : 'found'} person"),
       ),
 
@@ -46,7 +82,7 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            imagePicker(),
+            imagePicker(context),
             TextFieldWidget(title: 'First name', textEditingController: firstNameController),
             TextFieldWidget(title: 'Last name',  textEditingController: lastNameController),
             TextFieldWidget(title: 'Last seen location', textEditingController: lastSeenlocationController),
@@ -70,10 +106,14 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
     );
   }
 
-  Widget imagePicker() {
+  Widget imagePicker(context) {
     return GestureDetector(
       onTap: () async {
         File? tempImage = await getImage();
+        if(!isImageFileValid(tempImage!.path)){
+          showInformationDialog(context, 'Uploads must be in JPEG, JPG, or PNG format\n and feature only one person', 13.0);
+          return;
+        }
         setState(() {
           imageFile = tempImage; 
         });
@@ -92,7 +132,7 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
                     backgroundColor: AppColors.oliveGreen1,
                     child: imageFile == null ?  CircleAvatar(
                       radius: 85,
-                      backgroundImage: AssetImage(AppImages.profile),
+                      backgroundImage: const AssetImage(AppImages.profile),
                       backgroundColor: AppColors.oliveGreen1,
                     ):
                     CircleAvatar(
@@ -119,7 +159,6 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
   }
 
   Future<String?> submit(context) {
-    //1- create a new instance of lostOrFoundPerson
     LostOrFoundPerson newLostOrFoundPerson = LostOrFoundPerson();
     
     if (firstNameController.text.isNotEmpty) {
@@ -150,7 +189,6 @@ class _AddNewLostOrFoundPersonState extends State<AddNewLostOrFoundPerson> {
     if (imageFile != null && imageFile
         .toString()
         .isNotEmpty == false) {
-      //edit this one
       newLostOrFoundPerson.imageUrl = imageFile.toString();
     }
 

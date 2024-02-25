@@ -1,10 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/manager/scan_lost_or_found_person_cubit/scan_lost_or_found_person_cubit.dart';
-
 import '../../../../config/routes.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../domain/entities/lost_or_found_person.dart';
@@ -63,7 +61,7 @@ class _LostTabState extends State<LostTab> {
                   ),
                   LostAndFoundSearchBar(
                     getImage: getImage,
-                    searchText: (text) {
+                    searchText: (text) async {
                       setState(() {
                         textToSearchBy = text;
                         BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
@@ -115,7 +113,7 @@ class _LostTabState extends State<LostTab> {
       ),
       floatingActionButton: FloatingActionButton(
 
-        backgroundColor: AppColors.oliveGreen2,//Theme.of(context).primaryColorDark,
+        backgroundColor: AppColors.oliveGreen2,
 
         onPressed: () {
           Navigator.pushNamed(

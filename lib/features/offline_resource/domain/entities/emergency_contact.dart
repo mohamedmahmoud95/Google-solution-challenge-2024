@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 
 class EmergencyResponse {
   EmergencyData data;
 
   EmergencyResponse({required this.data});
 
-  factory EmergencyResponse.fromJson(Map<dynamic?, dynamic?> json) {
+  factory EmergencyResponse.fromJson(Map<dynamic, dynamic> json) {
     return EmergencyResponse(
       data: EmergencyData.fromJson(json['data']),
     );
@@ -27,7 +26,7 @@ class EmergencyData {
     required this.dispatch,
   });
 
-  factory EmergencyData.fromJson(Map<dynamic?, dynamic?> json) {
+  factory EmergencyData.fromJson(Map<dynamic, dynamic> json) {
     return EmergencyData(
       country: Country.fromJson(json['country']) ,
       ambulance: EmergencyService.fromJson(json['ambulance']),
@@ -47,7 +46,7 @@ class Country {
     this.ISOCode,
   });
 
-  factory Country.fromJson(Map<dynamic?, dynamic?> json) {
+  factory Country.fromJson(Map<dynamic, dynamic> json) {
     return Country(
       name: json['name'] ?? "",
       ISOCode: json['ISOCode'] ?? "",
@@ -66,7 +65,7 @@ class EmergencyService {
     this.fixed,
   });
 
-  factory EmergencyService.fromJson(Map<String?, dynamic?> json) {
+  factory EmergencyService.fromJson(Map<String?, dynamic> json) {
     return EmergencyService(
       all: List<String?>.from(json['all'] ?? []),
       gsm: json['gsm'] ?? 'default_gsm_value',

@@ -17,7 +17,7 @@ class AppComponents {
       TextFormField(
         controller: controller,
         validator: (value) {
-          validate(value);
+          return validate(value);
         },
         obscureText: isPassword,
         decoration: InputDecoration(

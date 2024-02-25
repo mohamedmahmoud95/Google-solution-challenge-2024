@@ -20,9 +20,7 @@ class ExpansionCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (onTap != null) {
           onTap();
-        }
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -55,7 +53,7 @@ class ExpansionCardWidget extends StatelessWidget {
                       ),
                       clipBehavior: Clip.hardEdge,
                       child: Image(
-                        image: ImageUtils.getImage(imageUrl),
+                        image: ImageUtils.getImage(imageUrl!)!,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -80,12 +78,12 @@ class ExpansionCardWidget extends StatelessWidget {
                             ),
                           ),
                           subtitle == null
-                              ? SizedBox()
+                              ? const SizedBox()
                               : const SizedBox(
                                   height: 10,
                                 ),
                           subtitle == null
-                              ? SizedBox()
+                              ? const SizedBox()
                               : SizedBox(
                                   width:
                                       ScreenUtils.getScreenWidth(context) / 2,

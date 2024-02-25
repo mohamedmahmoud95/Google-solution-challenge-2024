@@ -41,10 +41,6 @@ class _SignInScreenState extends State<SignInScreen> {
             const SizedBox(
               height: 30,
             ),
-            // loginTitle(),
-            // const SizedBox(
-            //   height: 20,
-            // ),
             emailTextField(),
             passwordTextField(),
             const SizedBox(
@@ -126,7 +122,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   Widget passwordTextField() {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -191,28 +187,14 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Future<void> signIn() async {
-    bool signInSuccess = false;
     try {
       final signInResult = (await firebaseAuthServices
           .loginWithEmailAndPassword(
           email: emailController.text, password: passwordController.text))!;
 
-      if (signInResult != null) {
-        signInSuccess = true;
-        currentAppUser = signInResult;
-        Navigator.of(context).pushReplacementNamed('home');
-      }
-      else {
-        showDialog(
-          context: context,
-          builder: (context) => const AlertDialogWidget(
-            title: 'Sign in Error',
-            contentText:
-            'Invalid email or password, \nplease try again',
-          ),
-        );
-      }
-    }catch(e){
+      currentAppUser = signInResult;
+      Navigator.of(context).pushReplacementNamed('home');
+        }catch(e){
       debugPrint("\n unable to login, \n$e\n");
       showDialog(
         context: context,

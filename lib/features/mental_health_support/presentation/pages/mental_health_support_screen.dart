@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/dummy_data.dart';
-import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/feature_card.dart';
+import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/service_card.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/presentation/widget/sessions_card.dart';
 
 class MentalHealthSupportScreen extends StatefulWidget {
@@ -100,7 +100,7 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            FeatureCard(
+            ServiceCard(
                 title: "one to one",
                 imageUrl: AppImages.mentalHealthSupport,
               onClicked: (){
@@ -108,7 +108,7 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
               },
 
             ),
-             FeatureCard(
+             ServiceCard(
                 title: "Group therapy", imageUrl: AppImages.groupTherapy,
               onClicked: (){
                 Navigator.of(context).pushNamed('selectTherapyGroupScreen');
@@ -149,7 +149,7 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
 
                       child:
 
-                  FeatureCard(
+                  ServiceCard(
                         title: 'Articles',
                         imageUrl: AppImages.reading2,
                       )),
@@ -172,7 +172,7 @@ class _MentalHealthSupportScreenState extends State<MentalHealthSupportScreen> {
               //     return
                     const SizedBox(
 
-                      child: FeatureCard(
+                      child: ServiceCard(
                         title: 'Videos',
                         imageUrl: AppImages.video_tutorial,
                       )),
