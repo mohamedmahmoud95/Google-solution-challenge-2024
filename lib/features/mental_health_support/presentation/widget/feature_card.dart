@@ -6,7 +6,7 @@ import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:hive/hive.dart';
 
-class ServiceCard extends StatelessWidget {
+class FeatureCard extends StatelessWidget {
   final String title;
   final String? imageUrl;
   final double? height;
@@ -15,7 +15,7 @@ class ServiceCard extends StatelessWidget {
   final double? imageWidth;
   final Function? onClicked;
 
-  const ServiceCard({super.key, required this.title, this.imageUrl, this.height, this.width, this.imageHeight, this.imageWidth, this.onClicked});
+  const FeatureCard({super.key, required this.title, this.imageUrl, this.height, this.width, this.imageHeight, this.imageWidth, this.onClicked});
 
   @override
   Widget build(BuildContext context) {
