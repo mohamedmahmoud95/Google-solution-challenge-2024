@@ -30,9 +30,9 @@ class HomeTab extends StatelessWidget {
                 children: [
 
                   FeatureCard(title: 'Mental health', imageUrl: AppImages.mentalHealthSupport,
-                  onClicked: (){
-                    Navigator.of(context).pushNamed('mentalHealthSupport');
-                  },),
+                    onClicked: (){
+                      Navigator.of(context).pushNamed('mentalHealthSupport');
+                    },),
 
                   FeatureCard(title: 'Find a lost person', imageUrl: AppImages.faceRecognition,
                     onClicked: (){
