@@ -15,7 +15,7 @@ class _OfflineResourcesScreenState extends State<OfflineResourcesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Offline resources".tr()),
+        title: Text("Emergency resources".tr()),
       ),
 
       body: SingleChildScrollView(

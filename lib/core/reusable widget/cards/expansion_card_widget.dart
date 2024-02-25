@@ -55,7 +55,7 @@ class ExpansionCardWidget extends StatelessWidget {
                       ),
                       clipBehavior: Clip.hardEdge,
                       child: Image(
-                        image: ImageUtils.getImage(imageUrl!)!,
+                        image: ImageUtils.getImage(imageUrl),
                         fit: BoxFit.cover,
                       ),
                     ),
