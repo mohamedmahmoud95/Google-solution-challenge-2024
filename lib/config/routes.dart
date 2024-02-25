@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_solution_challenge_2024/features/I_want_to_help_screen/presentation/pages/helping_options_screen.dart';
 import 'package:google_solution_challenge_2024/features/I_want_to_help_screen/presentation/pages/volunteering_options_screen.dart';
 import 'package:google_solution_challenge_2024/features/articles_details/presentation/pages/articles_details.dart';
 import 'package:google_solution_challenge_2024/features/charity/data/models/charity_model.dart';
@@ -79,6 +80,7 @@ class Routes {
   static const String categoriesScreen = "CategoriesScreen";
   static const String categorySearchScreen = "CategorySearchScreen";
   static const String iWantToHelpScreen = "IWantToHelpScreen";
+  static const String helpingOptionsScreen = "HelpingOptionsScreen";
 
 }
 
@@ -223,6 +225,11 @@ class AppRoutes {
       case Routes.iWantToHelpScreen:
         return MaterialPageRoute(
             builder: (context) => VolunteeringOptionsScreen());
+
+      case Routes.helpingOptionsScreen:
+        return MaterialPageRoute(
+            builder: (context) => HelpingOptionsScreen());
+
 
       default:
         return MaterialPageRoute(

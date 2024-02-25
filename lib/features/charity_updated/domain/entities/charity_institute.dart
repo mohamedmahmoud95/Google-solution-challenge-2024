@@ -24,6 +24,7 @@ class CharityInstitute {
     List<String>? supportedCauses,
     double? fundsRaised,
   }) {
+
     return CharityInstitute(
       name: name ?? this.name,
       mission: mission ?? this.mission,

@@ -109,8 +109,8 @@ HelpingOption supportThereBusiness = HelpingOption(
   id: '4',
   title: 'Empowerment Market',
   subtitle: "Support War Survivors Through Purchases",
-  imageUrl: AppImages.volunteering_online_doctor,
+  imageUrl: AppImages.market_place,
   nextPageName: 'MarketPlaceScreen',
 );
-List<HelpingOption> helpingOptions = [moneyDonation, clothingDonation, volunteering];
+List<HelpingOption> helpingOptions = [volunteering, supportThereBusiness, moneyDonation, clothingDonation, ];
 

@@ -29,7 +29,7 @@ class HomeTab extends StatelessWidget {
                 children: [
                   CategoryCard(
                     text: "Mental Health".tr(),
-                    image: AppImages.mentalHealth,
+                    image: AppImages.mentalHealth2,
                     onTap: () {
                       Navigator.of(context).pushNamed('mentalHealthSupport');
                       //   builder: (context) => const LostAndFoundScreen()));

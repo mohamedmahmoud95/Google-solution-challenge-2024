@@ -1,5 +1,6 @@
-import 'package:google_solution_challenge_2024/features/amr_charity/data/charity_institute_firebase.dart';
-import 'package:google_solution_challenge_2024/features/amr_charity/domain/entities/charity_institute.dart';
+
+import '../../data/charity_institute_firebase.dart';
+import '../entities/charity_institute.dart';
 
 class CharityInstituteFirebaseRepo {
   final CharityInstituteFirebase _charityInstituteFirebase =

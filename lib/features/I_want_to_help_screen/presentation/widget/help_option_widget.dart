@@ -24,22 +24,22 @@ class _HelpingOptionWidgetState extends State<HelpingOptionWidget> {
         }
       },
       child: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Container(
-          height: ScreenUtils.getScreenHeight(context) / 4,
-          width: ScreenUtils.getScreenWidth(context) / 2 - 30,
+          height: ScreenUtils.getScreenHeight(context) / 5,
+          width: ScreenUtils.getScreenWidth(context) - 20,
           decoration: BoxDecoration(
             color: AppColors.offWhite,
             borderRadius:
                 BorderRadius.circular(AppMeasures.defaultCircularRadius),
           ),
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: ScreenUtils.getScreenHeight(context) / 6,
+                  height: ScreenUtils.getScreenHeight(context) / 5.5,
                   width: ScreenUtils.getScreenWidth(context) / 2 - 30,
                   decoration: BoxDecoration(
                     color: AppColors.offWhite,
@@ -52,16 +52,41 @@ class _HelpingOptionWidgetState extends State<HelpingOptionWidget> {
                   ),
                 ),
                 const SizedBox(
-                  height: 5,
+                  width: 10,
                 ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            children: [
                 SizedBox(
+                    width: ScreenUtils.getScreenWidth(context)/2.6,
                     child: Text(
                   widget.helpingOption.title!,
                   style:
-                      const TextStyle(fontSize: 16, overflow: TextOverflow.ellipsis),
-                  textAlign: TextAlign.center,
+                      const TextStyle(fontSize: 18, overflow: TextOverflow.ellipsis),
+                  textAlign: TextAlign.start,
+                      overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                 )),
+              const SizedBox(
+                height: 10,
+              ),
+                widget.helpingOption.subtitle == null? const SizedBox() :
+                SizedBox(
+                    width: ScreenUtils.getScreenWidth(context)/3,
+                    height: 60,
+                    child: Text(
+                      widget.helpingOption.subtitle!,
+                      style:
+                      const TextStyle(fontSize: 14, overflow: TextOverflow.ellipsis),
+                      textAlign: TextAlign.start,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                    )),
+
+
+              ],),
               ],
             ),
           ),

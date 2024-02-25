@@ -22,6 +22,11 @@ class _HelpingOptionsScreenState extends State<HelpingOptionsScreen> {
           child: Column(
             children: [
               ...helpingOptions.map((helpingOption) => HelpingOptionWidget(helpingOption: helpingOption)),
+
+
+              const SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),

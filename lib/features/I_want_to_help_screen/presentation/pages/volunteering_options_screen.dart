@@ -24,7 +24,7 @@ class _VolunteeringOptionsScreenState extends State<VolunteeringOptionsScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
 
-              const Padding(padding: EdgeInsets.all(20),child:Text("I'm a:", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400),),),
+              const Padding(padding: EdgeInsets.all(20),child:Text("I'm a", style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400),),),
 
               Center(
                 child:Wrap(
