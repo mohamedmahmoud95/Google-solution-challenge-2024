@@ -8,7 +8,7 @@ import 'app.dart';
 import 'core/utils/cache_helper.dart';
 import 'core/utils/store_dummy_data.dart';
 import 'firebase_options.dart';
-
+  
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
