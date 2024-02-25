@@ -110,11 +110,14 @@ class AppImages {
   static const String education = "${Constants.baseImageUrl}/education.png";
   static const String education2 = "${Constants.baseImageUrl}/online_certificates.jpg";
 
-  static const String medical = "${Constants.baseImageUrl}/medical.png";
+  static const String medical = "${Constants.baseImageUrl}/online_doc.png";
   static const String offlineResources = "${Constants.baseImageUrl}/offline_resources.png";
 
   static const String lost = "${Constants.baseImageUrl}/lost.png";
   static const String faceScan = "${Constants.baseImageUrl}/face_scan.png";
+  static const String faceRecognition = "${Constants.baseImageUrl}/face_recognition.jpg";
+  static const String emergency = "${Constants.baseImageUrl}/emergency.jpg";
+
 //==========================================================================================//
 
 
