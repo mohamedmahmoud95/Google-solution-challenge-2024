@@ -20,7 +20,6 @@ class FoundTab extends StatefulWidget {
 
 class _FoundTabState extends State<FoundTab> {
   String? textToSearchBy;
-  TextEditingController searchTextEditingController = TextEditingController();
 
   @override
   void initState() {
@@ -38,18 +37,8 @@ class _FoundTabState extends State<FoundTab> {
       image = image;
       BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
           .scanForLostOrFoundPerson(
-              image: image,
-              isLostPerson: true,
-              textToSearchBy: searchTextEditingController.text);
+              image: image, isLostPerson: false, textToSearchBy: textToSearchBy);
     });
-  }
-
-  void search() {
-    BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
-        .scanForLostOrFoundPerson(
-            image: image,
-            isLostPerson: true,
-            textToSearchBy: searchTextEditingController.text);
   }
 
   @override
@@ -74,13 +63,14 @@ class _FoundTabState extends State<FoundTab> {
                     ),
                     LostAndFoundSearchBar(
                       getImage: getImage,
-                      // textEditingController: searchTextEditingController,
                       searchText: (text) {
                         setState(() {
-                          textToSearchBy = text;
-                        });
+                        textToSearchBy = text;
+                        BlocProvider.of<ScanLostOrFoundPersonCubit>(context)
+                        .scanForLostOrFoundPerson(
+                            image: image, isLostPerson: false, textToSearchBy: textToSearchBy);
+                      });
                       },
-                      // onSubmitted: (){search();},
                     ),
                     ...state.lostOrFoundPersons.map(
                       (person) => widget.compactMode

@@ -48,8 +48,10 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
             ),
           ],
           bottom: const TabBar(
+            isScrollable: false,
             indicatorColor: AppColors.oliveGreen2,
             indicatorSize: TabBarIndicatorSize.tab,
+
             tabs: [
               Text(
                 "Lost",
@@ -69,6 +71,7 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
           ),
         ),
         body: TabBarView(
+          physics: NeverScrollableScrollPhysics(),
           children: [
             LostTab(
               compactMode: compactMode,
@@ -78,14 +81,6 @@ class _LostAndFoundScreenState extends State<LostAndFoundScreen> {
             ),
           ],
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   backgroundColor: AppColors.green,
-        //   onPressed: () {},
-        //   child: const Icon(
-        //     Icons.add,
-        //     color: AppColors.white,
-        //   ),
-        // ),
       ),
     );
   }
