@@ -62,36 +62,60 @@ class _EmergencyContactsWidgetState extends State<EmergencyContactsWidget> {
           );
         } else {
           final emergencyContact = snapshot.data!;
-          return Container(
-            height: ScreenUtils.getScreenHeight(context)/1.5,
+          return
+            Padding(padding: EdgeInsets.all(8)
+            ,child: Container(
+            height: ScreenUtils.getScreenHeight(context)/2.5,
             width: ScreenUtils.getScreenHeight(context) - 50,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppMeasures.defaultCircularRadius),
               color: AppColors.offWhite,
             ),
-            child: SingleChildScrollView(
+            child: Center(child:SingleChildScrollView(
               child: Column(
+
                 children: [
-                  tile('Country:', emergencyContact.country.name.toString()),
-                  tile('Ambulance:', emergencyContact.ambulance.all!.first!),
-                  tile('Fire-fighting:', emergencyContact.fire.all!.first!),
-                  tile('Police:', emergencyContact.police.all!.first!),
-                  tile('Dispatch:', emergencyContact.dispatch.all!.first!),
+                  tile(const Icon(Icons.location_on_outlined), 'Country:', emergencyContact.country.name.toString()),
+                 Divider(),
+                  tile(const Icon(Icons.nightlight_outlined, color: AppColors.red,), 'Ambulance:', emergencyContact.ambulance.all!.first!),
+                  Divider(),
+
+                  tile(const Icon(Icons.local_fire_department_outlined, color: AppColors.red),'Fire-fighting:', emergencyContact.fire.all!.first!),
+                  Divider(),
+                  tile(const Icon(Icons.local_police_outlined, color: AppColors.cadetBlue2),'Police:', emergencyContact.police.all!.first!),
+                  Divider(),
+                  tile(const Icon(Icons.local_police_outlined, color: AppColors.cadetBlue2),'Dispatch:', emergencyContact.dispatch.all!.first!),
                 ],
-              ),
-            ),
+              ),),
+            ),),
           );
         }
       },
     );
   }
 
-  Widget tile(String title, String info) {
-    return Row(
+  Widget tile(Widget prefix,String title, String info) {
+    return
+   Padding(padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 40),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16, overflow: TextOverflow.ellipsis), maxLines: 2,),
-        Text(info, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 16, overflow: TextOverflow.ellipsis), maxLines: 2,),
+        Row(
+          children:[
+        prefix,
+        const SizedBox(width: 10,),
+        Text(title, style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 20, overflow: TextOverflow.ellipsis), maxLines: 2,),
+        const SizedBox(width: 10,),
+],),
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children:[
+          Text(info.isNotEmpty? info: 'unknown', style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 20, overflow: TextOverflow.ellipsis), maxLines: 2,),
+
+    ],),
       ],
+      ),
     );
   }
 }

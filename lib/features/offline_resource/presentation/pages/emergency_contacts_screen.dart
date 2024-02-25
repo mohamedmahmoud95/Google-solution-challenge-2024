@@ -33,7 +33,7 @@ class _EmergencyContactsScreenState extends State<EmergencyContactsScreen> {
               },
             ),
             const SizedBox(height: 20),
-            selectedCountryCode == null ? const SizedBox() :
+            selectedCountryCode == null ? const Center(child: Text("Please select a country", style: TextStyle(fontSize: 20),)) :
             EmergencyContactsWidget(key: _emergencyContactsKey, countryCode: selectedCountryCode!),
           ],
         ),
