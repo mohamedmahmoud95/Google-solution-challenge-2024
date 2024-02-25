@@ -204,7 +204,7 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
       height: 32.5,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: AppColors.oliveGreen1.withOpacity(0.4),
+        color: AppColors.oliveGreen1.withOpacity(1),
         border: Border.all(width: 0.5, color: AppColors.oliveGreen1),
         borderRadius: const BorderRadius.all(
             Radius.circular(25)),

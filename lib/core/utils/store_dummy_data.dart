@@ -6,11 +6,11 @@
 // import 'package:uuid/uuid.dart';
 
 import 'package:google_solution_challenge_2024/core/firebase_service/general_crud_firestore.dart';
+import 'package:google_solution_challenge_2024/features/amr_charity/domain/entities/charity_institute.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/general_data.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource_step.dart';
 import 'package:uuid/uuid.dart';
-
-import '../../features/charity_updated/domain/entities/charity_institute.dart';
 
 class StoreDummyData {
   static generateCharityInstitutes() {
