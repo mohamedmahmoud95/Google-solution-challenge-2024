@@ -49,3 +49,10 @@ Zaitoon is a comprehensive platform designed to support individuals in war-torn 
 - Our volunteers and contributors who make this project possible.
 
 Together, we can make a significant impact and bring solace to those affected by war.
+
+=========
+
+App Demo video:
+https://youtu.be/SO7pv9c8fZQ
+
+
