@@ -42,7 +42,7 @@ class CardWidget extends StatelessWidget {
           width: width ?? ScreenUtils.getScreenWidth(context) / 2 - 20,
           child: Card(
             elevation: 0,
-            color: Theme.of(context).cardColor,
+            color: AppColors.oliveGreen0,
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
@@ -56,7 +56,7 @@ class CardWidget extends StatelessWidget {
                               ScreenUtils.getScreenHeight(context) / 5.5 - 75,
                           width: imageWidth ??
                               ScreenUtils.getScreenWidth(context) / 2 - 20,
-                          child: Image(image: imageProvider!, fit: BoxFit.contain,),
+                          child: Image(image: imageProvider!, fit: BoxFit.contain, ),
 
         ),
                   const SizedBox(

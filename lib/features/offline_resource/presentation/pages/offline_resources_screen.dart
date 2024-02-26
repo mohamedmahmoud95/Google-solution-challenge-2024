@@ -34,7 +34,7 @@ class _OfflineResourcesScreenState extends State<OfflineResourcesScreen> {
 
   Widget emergencyNumbersCard(){
     return CardWidget(title: "Emergency contacts".tr(),
-    imageUrl: AppImages.emergency_contact3,
+    imageUrl: AppImages.emergency_contact,
     onClicked: (){
       Navigator.of(context).pushNamed('EmergencyContactsScreen');
     },);

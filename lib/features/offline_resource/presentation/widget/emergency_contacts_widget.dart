@@ -96,7 +96,7 @@ class _EmergencyContactsWidgetState extends State<EmergencyContactsWidget> {
 
   Widget tile(Widget prefix,String title, String info) {
     return
-   Padding(padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 40),
+   Padding(padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
