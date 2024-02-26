@@ -129,7 +129,7 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.center,
                           maxLines: 2,
-                          'Mohammed Dummy Data',
+                          'Mohammed Raslan',
                           style: TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 18),
                         ),

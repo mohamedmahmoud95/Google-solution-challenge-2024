@@ -18,33 +18,30 @@ class HomeTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: HomeCubit.get(context).screenWidth(context) * .02,
+                  horizontal: 3,
                   vertical: HomeCubit.get(context).screenWidth(context) * .02),
               child: Row(
                 children: [
-
-                  FeatureCard(title: 'Mental health', imageUrl: AppImages.mentalHealthSupport,
-                  onClicked: (){
-                    Navigator.of(context).pushNamed('mentalHealthSupport');
-                  },),
-
-                  FeatureCard(title: 'Find a lost person', imageUrl: AppImages.faceRecognition,
-                    onClicked: (){
+                  FeatureCard(
+                    title: 'Find a lost person',
+                    imageUrl: AppImages.faceRecognition,
+                    onClicked: () {
                       Navigator.of(context).pushNamed('lostAndFound');
-                    },),
-
-                  FeatureCard(title: 'Empowerment market', imageUrl: AppImages.market_place,
-                    onClicked: (){
+                    },
+                  ),
+                  FeatureCard(
+                    title: 'Empowerment market',
+                    imageUrl: AppImages.market_place,
+                    onClicked: () {
                       Navigator.of(context).pushNamed('MarketPlaceScreen');
-                    },),
-
-
+                    },
+                  ),
                 ],
               ),
             ),
@@ -118,7 +115,7 @@ class HomeTab extends StatelessWidget {
           ),
           Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: HomeCubit.get(context).screenWidth(context) * .03,
+              horizontal: 3,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -131,29 +128,43 @@ class HomeTab extends StatelessWidget {
                 SizedBox(
                   height: HomeCubit.get(context).screenHeight(context) * .001,
                 ),
-
-                Row(
-                  children: [
-
-                    FeatureCard(title: 'Medical support', imageUrl: AppImages.medical,
-                      onClicked: (){
-                        Navigator.of(context).pushNamed('OfflineResourcesScreen');
-                      },),
-
-
-                    FeatureCard(title: 'Emergency', imageUrl: AppImages.emergency,
-                      onClicked: (){
-                        Navigator.of(context).pushNamed('OfflineResourcesScreen');
-                      },),
-
-                  ],
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      FeatureCard(
+                        title: 'Mental health support',
+                        imageUrl: AppImages.mentalHealthSupport,
+                        onClicked: () {
+                          Navigator.of(context)
+                              .pushNamed('mentalHealthSupport');
+                        },
+                      ),
+                      FeatureCard(
+                        title: 'Medical support',
+                        imageUrl: AppImages.medical,
+                        onClicked: () {
+                          Navigator.of(context)
+                              .pushNamed('OfflineResourcesScreen');
+                        },
+                      ),
+                      FeatureCard(
+                        title: 'Emergency',
+                        imageUrl: AppImages.emergency,
+                        onClicked: () {
+                          Navigator.of(context)
+                              .pushNamed('OfflineResourcesScreen');
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          SizedBox(
-            height: HomeCubit.get(context).screenHeight(context) * .03,
-          ),
+          // SizedBox(
+          //   height: HomeCubit.get(context).screenHeight(context) * .03,
+          // ),
           // Padding(
           //   padding: EdgeInsets.symmetric(
           //       horizontal: HomeCubit.get(context).screenWidth(context) * .03),

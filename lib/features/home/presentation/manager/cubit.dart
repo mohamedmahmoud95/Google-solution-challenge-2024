@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
+import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/pages/lost_and_found_screen.dart';
+import 'package:google_solution_challenge_2024/features/offline_resource/presentation/pages/offline_resources_screen.dart';
 
-import '../pages/bottom_tabs/fav_tab.dart';
+import '../pages/bottom_tabs/medical_and_mental_health_support.dart';
 import '../pages/bottom_tabs/home_tab.dart';
+import '../pages/bottom_tabs/medical_and_mental_health_support.dart';
 import '../pages/bottom_tabs/search_tab.dart';
-import '../pages/bottom_tabs/services_tab.dart';
-
+import '../pages/bottom_tabs/emergencies_tab.dart';
+import '';
 class HomeCubit extends Cubit<HomeStates> {
   HomeCubit() : super(HomeInitState());
 
@@ -20,9 +23,9 @@ class HomeCubit extends Cubit<HomeStates> {
 
   final List<Widget> widgetOptions = [
     const HomeTab(),
+    MedicalAndMentalHealthSupport(),
     const SearchTab(),
-    const FavTab(),
-    const ServiceTab(),
+    const EmergencyTab(),
   ];
 
   /// -- details screens  ---///

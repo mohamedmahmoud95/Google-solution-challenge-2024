@@ -164,7 +164,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                     height: screenHeight * .01,
                   ),
                   Container(
-                    height: screenHeight * 0.07,
+                    height: screenHeight * 0.05,
                     width: screenWidth * 0.9,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
@@ -173,9 +173,9 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                         child: Text('Checkout',
                             style: TextStyle(color: Colors.white, fontSize: 24))),
                   ),
-                  SizedBox(
-                    height: screenHeight * .05,
-                  ),
+                  // SizedBox(
+                  //   height: screenHeight * .05,
+                  // ),
                 ],
               ),
             ),
