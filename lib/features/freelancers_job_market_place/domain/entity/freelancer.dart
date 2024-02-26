@@ -8,6 +8,7 @@ class Freelancer{
   String? bio;
   String? imageUrl;
   String? location;
+  double? rating;
   List<Skill?>? skills;
 
   Freelancer({
@@ -17,7 +18,8 @@ class Freelancer{
     this.jobTitle,
     this.bio,
     this.location,
-    this.skills
+    this.skills,
+    this.rating,
 });
 }
 

@@ -26,7 +26,7 @@ class _HelpingOptionWidgetState extends State<HelpingOptionWidget> {
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Container(
-          height: ScreenUtils.getScreenHeight(context) / 5,
+          height: ScreenUtils.getScreenHeight(context) /  5.5,
           width: ScreenUtils.getScreenWidth(context) - 20,
           decoration: BoxDecoration(
             color: AppColors.offWhite,
@@ -39,8 +39,8 @@ class _HelpingOptionWidgetState extends State<HelpingOptionWidget> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: ScreenUtils.getScreenHeight(context) / 5.5,
-                  width: ScreenUtils.getScreenWidth(context) / 2 - 30,
+                  height: ScreenUtils.getScreenHeight(context) / 4.5,
+                  width: ScreenUtils.getScreenWidth(context) / 2 - 40,
                   decoration: BoxDecoration(
                     color: AppColors.offWhite,
                     image: DecorationImage(
@@ -60,14 +60,14 @@ class _HelpingOptionWidgetState extends State<HelpingOptionWidget> {
 
             children: [
                 SizedBox(
-                    width: ScreenUtils.getScreenWidth(context)/2.6,
+                    width: ScreenUtils.getScreenWidth(context)/2.2,
                     child: Text(
                   widget.helpingOption.title!,
                   style:
                       const TextStyle(fontSize: 18, overflow: TextOverflow.ellipsis),
                   textAlign: TextAlign.start,
                       overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                  maxLines: 3,
                 )),
               const SizedBox(
                 height: 10,
@@ -84,8 +84,6 @@ class _HelpingOptionWidgetState extends State<HelpingOptionWidget> {
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
                     )),
-
-
               ],),
               ],
             ),

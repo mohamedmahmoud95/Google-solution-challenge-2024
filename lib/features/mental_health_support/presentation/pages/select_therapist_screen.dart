@@ -16,7 +16,6 @@ class SelectTherapistScreen extends StatefulWidget {
 }
 
 class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
-
   // void addSampleTherapist(){
   //   ProfessionalsFirestoreRepo().addProfessional(Professional(
   //       id: "0",
@@ -67,11 +66,10 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
   //   );
   // }
 
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
-   // addSampleTherapist();
+    // addSampleTherapist();
     BlocProvider.of<GetProfessionalsCubit>(context).getAllProfessionals();
   }
 
@@ -82,19 +80,18 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
         title: const Text('Select a therapist'),
         actions: [
           IconButton(
-    onPressed:(){
-    context.read<GetProfessionalsCubit>().getAllProfessionals();
-    },
-      icon: const Icon(Icons.refresh),),
+            onPressed: () {
+              context.read<GetProfessionalsCubit>().getAllProfessionals();
+            },
+            icon: const Icon(Icons.refresh),
+          ),
         ],
       ),
       body: BlocBuilder<GetProfessionalsCubit, GetProfessionalsState>(
         builder: (context, state) {
           if (state is GetProfessionalsLoading) {
-
             return Center(child: CircularProgressIndicator());
           } else if (state is GetProfessionalsLoaded) {
-
             return ListView.builder(
               itemCount: state.professionals.length,
               itemBuilder: (context, index) {
@@ -103,10 +100,9 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
               },
             );
           } else if (state is GetProfessionalsError) {
-
-            return const Center(child: Text('Failed to load professionals data'));
+            return const Center(
+                child: Text('Failed to load professionals data'));
           } else {
-
             return const Center(child: Text('No professionals data available'));
           }
         },
