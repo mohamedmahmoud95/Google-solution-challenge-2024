@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/professional.dart';
+import 'package:line_icons/line_icons.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/screen_utils.dart';
 import '../../domain/entity/freelancer.dart';
@@ -17,16 +18,19 @@ class FreelancerCard extends StatelessWidget {
 
       },
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         child: Card(
           elevation: 0,
           color: Colors.grey.shade200,
           // color: Colors.green.shade100,
           child: Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
               child: Row(
+
                 children: [
+
                   Container(
                     height: 100,
                     width: 100,
@@ -61,15 +65,16 @@ class FreelancerCard extends StatelessWidget {
                         ),
 
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
 
                         Row(
                           children: [
-                            Icon(
-                              Icons.cases_outlined,
-                              color: AppColors.grey6,
-                              size: 20,
+                            const Text(
+                              textAlign: TextAlign.start,
+                              "Job title: ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 12),
                             ),
                             SizedBox(
                               width: ScreenUtils.getScreenWidth(context) / 2,
@@ -84,6 +89,33 @@ class FreelancerCard extends StatelessWidget {
                             ),
                           ],
                         ),
+
+                        Row(
+                          children: [
+                            const Text(
+                              textAlign: TextAlign.start,
+                              "Skills: ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 12),
+                            ),
+                            SizedBox(
+                              width: ScreenUtils.getScreenWidth(context) / 2,
+                              height: 20,
+                              child:
+                              Wrap(children: [
+                                ...freelancer.skills!.map((skill) => Text(
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.start,
+                                maxLines: 2,
+                                " ${skill?.name}, ",
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500, fontSize: 12),
+                              ),),
+                              ],)
+                            ),
+                          ],
+                        ),
+
 
                         // Row(
                         //   children: [
@@ -109,7 +141,7 @@ class FreelancerCard extends StatelessWidget {
                         // ),
 
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
 
                         ratingIndicator(),
@@ -127,8 +159,8 @@ class FreelancerCard extends StatelessWidget {
 
   Widget ratingIndicator() {
     return Container(
-      width: 75,
-      height: 32.5,
+      width: 70,
+      height: 25,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
         color: AppColors.oliveGreen1.withOpacity(0.3),

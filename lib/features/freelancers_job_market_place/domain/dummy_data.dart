@@ -47,19 +47,16 @@ Freelancer Abdulrahman = Freelancer(
     rating: 5,
     skills: [
       Skill(
-        name: 'Machine Learning',
+        name: 'ML',
       ),
       Skill(
-        name: 'Full-stack developer',
+        name: 'Full-stack dev',
       ),
       Skill(
         name: 'Firebase',
       ),
       Skill(
         name: 'Flutter',
-      ),
-      Skill(
-        name: 'Media buying',
       ),
     ],
     location: 'Cairo, Egypt'
