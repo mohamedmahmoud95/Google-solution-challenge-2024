@@ -25,6 +25,12 @@ class _SignInScreenState extends State<SignInScreen> {
   final FirebaseAuthServices firebaseAuthServices = FirebaseAuthServices(FirebaseAuth.instance);
 
   @override
+  void initState(){
+    super.initState();
+    emailController.text = 'm.raslan97@gmail.com';
+    passwordController.text = 'Test1234#';
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(

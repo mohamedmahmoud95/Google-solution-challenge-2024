@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_solution_challenge_2024/features/lost%20and%20found/presentation/services.dart';
 import 'package:image_picker/image_picker.dart';
@@ -12,6 +13,7 @@ class CustomSearchBar extends StatelessWidget {
   final Function? onSuffixIconPressed;
   final Function? onFieldSubmitted;
   final TextEditingController textEditingController;
+  final double? width;
 
   final String? hintText;
   const CustomSearchBar(
@@ -22,14 +24,14 @@ class CustomSearchBar extends StatelessWidget {
       this.onPrefixIconPressed,
       this.onSuffixIconPressed,
       this.onFieldSubmitted,
-      this.hintText});
+      this.hintText, this.width});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: SizedBox(
-        width: double.infinity,
+        width: width?? double.infinity,
         child: TextFormField(
           controller: textEditingController,
           onFieldSubmitted: (value) {

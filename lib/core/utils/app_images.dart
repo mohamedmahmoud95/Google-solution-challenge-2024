@@ -146,7 +146,10 @@ class AppImages {
   static const String clothing_dontation = "${Constants.baseImageUrl}/helping_options/clothing_donation.jpg";
   static const String volunteering_online_doctor = "${Constants.baseImageUrl}/helping_options/online_doc2.jpg";
   static const String market_place = "${Constants.baseImageUrl}/market_place/market_place.jpg";
-  //==========================================================================================//
+  static const String freelancer = "${Constants.baseImageUrl}/helping_options/freelancer.jpg";
+  static const String freelancer2 = "${Constants.baseImageUrl}/helping_options/freelancer2.jpg";
+
+//==========================================================================================//
 
 
 

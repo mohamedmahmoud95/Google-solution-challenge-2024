@@ -85,21 +85,22 @@ List<VolunteeringOption> volunteeringOptions = [
 
 
 
-HelpingOption moneyDonation = HelpingOption(
-  id: '1',
-  title: 'Money donation',
-  imageUrl: AppImages.money_dontation,
-);
+// HelpingOption moneyDonation = HelpingOption(
+//   id: '1',
+//   title: 'Money donation',
+//   imageUrl: AppImages.money_dontation,
+// );
 
 HelpingOption clothingDonation = HelpingOption(
   id: '2',
-  title: 'Clothing donation',
+  title: 'Donate money, clothing, and more',
   imageUrl: AppImages.clothing_dontation,
 );
 
 HelpingOption volunteering = HelpingOption(
   id: '3',
   title: 'Volunteer',
+  subtitle: 'Make a difference, from home, an hour a day',
   imageUrl: AppImages.volunteering_online_doctor,
   nextPageName: 'IWantToHelpScreen',
 );
@@ -112,5 +113,13 @@ HelpingOption supportThereBusiness = HelpingOption(
   imageUrl: AppImages.market_place,
   nextPageName: 'MarketPlaceScreen',
 );
-List<HelpingOption> helpingOptions = [volunteering, supportThereBusiness, moneyDonation, clothingDonation, ];
+
+HelpingOption hireFreelancerRefugee = HelpingOption(
+  id: '4',
+  title: 'Hire a freelancer refugee',
+  subtitle: "Help them get back on their feet",
+  imageUrl: AppImages.freelancer,
+  nextPageName: 'HireFreelancerRefugeeScreen',
+);
+List<HelpingOption> helpingOptions = [volunteering, supportThereBusiness, clothingDonation, hireFreelancerRefugee ];
 

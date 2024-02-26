@@ -27,6 +27,22 @@ List<FirstAidsCategory> listOfFistAidsCategories = [
   sampleFirstAidsCategory5
 ];
 
+
+OfflineResource offlineResource2 = OfflineResource(
+id: '2',
+  title: "Giving CPR to a Person Without a Pulse".tr(),
+  imageUrl: 'https://www.wikihow.com/images/thumb/a/a4/Assess-Level-of-Consciousness-During-First-Aid-Step-18.jpg/aid1215069-v4-728px-Assess-Level-of-Consciousness-During-First-Aid-Step-18.jpg',
+  generalIntro: '', offlineResourceSteps: [], summary: '',
+
+);
+
+OfflineResource offlineResource3 = OfflineResource(
+  id: '3',
+  title: "How to Perform First Aid Assists and Carries".tr(),
+  imageUrl: 'https://www.wikihow.com/images/thumb/c/c4/Perform-First-Aid-Assists-and-Carries-Step-9-Version-3.jpg/aid658944-v4-728px-Perform-First-Aid-Assists-and-Carries-Step-9-Version-3.jpg',
+        generalIntro: '', offlineResourceSteps: [], summary: '',
+);
+
 OfflineResource offlineResource1 = OfflineResource(
   id: '1',
   title: "How to Bandage a Wound During First Aid".tr(),
@@ -153,8 +169,8 @@ OfflineResource offlineResource1 = OfflineResource(
 
 List<OfflineResource> dummyOfflineResources = [
   offlineResource1,
-  offlineResource1,
-  offlineResource1
+  offlineResource2,
+  offlineResource3
 ];
 
 EmergencyData sampleEmergencyData = EmergencyData(

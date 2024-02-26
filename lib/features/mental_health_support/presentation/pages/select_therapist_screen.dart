@@ -16,26 +16,60 @@ class SelectTherapistScreen extends StatefulWidget {
 }
 
 class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
-
-  void addSampleTherapist(){
-    ProfessionalsFirestoreRepo().addProfessional(Professional(
-        id: "id",
-        name: "Mohamed Raslan",
-        photoUrl: "${AppImages.raslan.toString()}",
-        jobTitle: "PTSD Therapist",
-        rating: 4.9,
-        timeOfSlotes: [OpenCloseTime(id: '1', openTime: TimeOfDay.now(), closeTime: TimeOfDay.now())],
-        isAvailable: true,
-        phoneNumber: "52252252",
-        allAppointeesIds: ['1','2'])
-    );
-  }
-
+  // void addSampleTherapist(){
+  //   ProfessionalsFirestoreRepo().addProfessional(Professional(
+  //       id: "0",
+  //       name: "Mohamed Raslan",
+  //       photoUrl: "${AppImages.raslan.toString()}",
+  //       jobTitle: "PTSD Therapist",
+  //       rating: 4.9,
+  //       timeOfSlotes: [OpenCloseTime(id: '1', openTime: TimeOfDay.now(), closeTime: TimeOfDay.now())],
+  //       isAvailable: true,
+  //       phoneNumber: "52252252",
+  //       allAppointeesIds: ['1','2'])
+  //   );
+  //
+  //   ProfessionalsFirestoreRepo().addProfessional(Professional(
+  //       id: "1",
+  //       name: "Amr Haithem",
+  //       photoUrl: "${AppImages.Amr.toString()}",
+  //       jobTitle: "Anxiety and Depression Therapist",
+  //       rating: 4.8,
+  //       timeOfSlotes: [OpenCloseTime(id: '1', openTime: TimeOfDay.now(), closeTime: TimeOfDay.now())],
+  //       isAvailable: true,
+  //       phoneNumber: "52252252",
+  //       allAppointeesIds: ['1','2'])
+  //   );
+  //
+  //   ProfessionalsFirestoreRepo().addProfessional(Professional(
+  //       id: "2",
+  //       name: "Abdulrahman Ayman",
+  //       photoUrl: "${AppImages.Abdulrahman.toString()}",
+  //       jobTitle: "Addiction Therapist",
+  //       rating: 4.9,
+  //       timeOfSlotes: [OpenCloseTime(id: '1', openTime: TimeOfDay.now(), closeTime: TimeOfDay.now())],
+  //       isAvailable: true,
+  //       phoneNumber: "52252252",
+  //       allAppointeesIds: ['1','2'])
+  //   );
+  //
+  //   ProfessionalsFirestoreRepo().addProfessional(Professional(
+  //       id: "3",
+  //       name: "Eman Pepars",
+  //       photoUrl: "${AppImages.Eman.toString()}",
+  //       jobTitle: "OCD Therapist",
+  //       rating: 4.9,
+  //       timeOfSlotes: [OpenCloseTime(id: '1', openTime: TimeOfDay.now(), closeTime: TimeOfDay.now())],
+  //       isAvailable: true,
+  //       phoneNumber: "52252252",
+  //       allAppointeesIds: ['1','2'])
+  //   );
+  // }
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    addSampleTherapist();
+    // addSampleTherapist();
     BlocProvider.of<GetProfessionalsCubit>(context).getAllProfessionals();
   }
 
@@ -46,19 +80,18 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
         title: const Text('Select a therapist'),
         actions: [
           IconButton(
-    onPressed:(){
-    context.read<GetProfessionalsCubit>().getAllProfessionals();
-    },
-      icon: const Icon(Icons.refresh),),
+            onPressed: () {
+              context.read<GetProfessionalsCubit>().getAllProfessionals();
+            },
+            icon: const Icon(Icons.refresh),
+          ),
         ],
       ),
       body: BlocBuilder<GetProfessionalsCubit, GetProfessionalsState>(
         builder: (context, state) {
           if (state is GetProfessionalsLoading) {
-
             return Center(child: CircularProgressIndicator());
           } else if (state is GetProfessionalsLoaded) {
-
             return ListView.builder(
               itemCount: state.professionals.length,
               itemBuilder: (context, index) {
@@ -67,10 +100,9 @@ class _SelectTherapistScreenState extends State<SelectTherapistScreen> {
               },
             );
           } else if (state is GetProfessionalsError) {
-
-            return const Center(child: Text('Failed to load professionals data'));
+            return const Center(
+                child: Text('Failed to load professionals data'));
           } else {
-
             return const Center(child: Text('No professionals data available'));
           }
         },
