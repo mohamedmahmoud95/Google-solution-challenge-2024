@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/domain/entities/offline_resource.dart';
 import 'package:google_solution_challenge_2024/features/offline_resource/presentation/widget/one_offline_resource_step_card.dart';
 
@@ -46,9 +47,11 @@ class OfflineResourceDetailsScreen extends StatelessWidget {
       child: Container(
         child: Column(
           children: [
-            Image(
-              image: imageProvider!,
-            ),
+            offlineResource.imageUrl == null
+                ? const SizedBox()
+                : Image(
+                    image: imageProvider!,
+                  ),
             const SizedBox(
               height: 5,
             ),

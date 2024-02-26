@@ -115,7 +115,7 @@ class GroupCard extends StatelessWidget {
       height: 32.5,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: AppColors.oliveGreen1.withOpacity(0.3),
+        color:  AppColors.oliveGreen0,
         border: Border.all(width: 0.5, color: AppColors.oliveGreen1),
         borderRadius: const BorderRadius.all(
             Radius.circular(AppMeasures.defaultCircularRadius)),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:provider/provider.dart';
 
 import '../home/presentation/pages/home_screen.dart';
 import '../landing_screen/presentation/pages/landing_screen.dart';

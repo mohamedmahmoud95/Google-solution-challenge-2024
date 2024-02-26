@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/buttons/rectangular_button_widget.dart';
 import 'package:google_solution_challenge_2024/core/reusable%20widget/dialogs/alert_dialog.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_colors.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 import 'package:google_solution_challenge_2024/features/mental_health_support/domain/entities/group.dart';
 class BookGroupSessionScreen extends StatefulWidget {
@@ -17,6 +18,7 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
@@ -127,7 +129,7 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
                           overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.center,
                           maxLines: 2,
-                          'Mohammed Dummy Data',
+                          'Mohammed Raslan',
                           style: TextStyle(
                               fontWeight: FontWeight.w300, fontSize: 18),
                         ),
@@ -202,7 +204,7 @@ class _BookGroupSessionScreenState extends State<BookGroupSessionScreen> {
       height: 32.5,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-        color: AppColors.oliveGreen1.withOpacity(1),
+        color: AppColors.oliveGreen1.withOpacity(0.4),
         border: Border.all(width: 0.5, color: AppColors.oliveGreen1),
         borderRadius: const BorderRadius.all(
             Radius.circular(25)),

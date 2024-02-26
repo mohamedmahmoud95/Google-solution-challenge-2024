@@ -2,12 +2,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:google_solution_challenge_2024/config/routes.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
+import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
 import 'package:google_solution_challenge_2024/features/auth/firebase_auth_services.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/cubit.dart';
 import 'package:google_solution_challenge_2024/features/home/presentation/manager/states.dart';
+import 'package:line_icons/line_icons.dart';
+import '../../../../core/reusable widget/bottom_navigation_bar.dart';
 import '../../../../core/utils/app_colors.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,9 +27,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return BlocConsumer<HomeCubit, HomeStates>(
       listener: (BuildContext context, state) {},
       builder: (context, state) => Scaffold(
+        bottomNavigationBar: ZaitoonBottomNavigationBar(),
+
         drawer: Drawer(
           width: ScreenUtils.getScreenWidth(context) / 1.5,
           backgroundColor: AppColors.white,
@@ -35,7 +43,25 @@ class HomeScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: AppColors.oliveGreen1,
                 ),
-                child: const SizedBox(),
+                child:
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                Container(
+                  height: ScreenUtils.getScreenHeight(context)/7.5 ,
+                  width:  ScreenUtils.getScreenWidth(context)/3.5,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(image: ImageUtils.getImage(AppImages.raslan), fit: BoxFit.cover, ),
+                      borderRadius: BorderRadius.circular(AppMeasures.defaultCircularRadius)
+
+                  ),
+                ),
+                  SizedBox(
+                    height:ScreenUtils.getScreenHeight(context)/15 ,
+                    width:  ScreenUtils.getScreenWidth(context)/4,
+                    child: const Text("Mohamed Raslan", maxLines: 2,overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 20, ), ),),
+                ],),
                 // Text(
                 //   'Drawer Header',
                 //   style: TextStyle(
@@ -95,7 +121,6 @@ class HomeScreen extends StatelessWidget {
             SliverAppBar(
               floating: true,
               snap: true,
-              //غيره من هنا
               pinned: true,
               elevation: 0,
               backgroundColor: AppColors.white,
@@ -113,7 +138,7 @@ class HomeScreen extends StatelessWidget {
                     const Text(
                       "Mohamed",
                       style: TextStyle(
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                           color: AppColors.darkGreen2),
                       textAlign: TextAlign.start,
                     ),

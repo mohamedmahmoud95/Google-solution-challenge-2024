@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_solution_challenge_2024/core/utils/app_images.dart';
 import 'package:google_solution_challenge_2024/core/utils/app_measures.dart';
 import 'package:google_solution_challenge_2024/core/utils/image_utilities.dart';
 import 'package:google_solution_challenge_2024/core/utils/screen_utils.dart';
@@ -25,6 +26,7 @@ class _SessionCardState extends State<SessionCard> {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onTap: () {
+        // Navigator.pushNamed(context, Routes.articlesDetails);
       },
       child: Card(
         elevation: 0,
@@ -58,7 +60,7 @@ class _SessionCardState extends State<SessionCard> {
                       Text(
                         "${widget.onlineSession.title}",
                         maxLines: 2,
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w600),
                       ),
                        SizedBox(
@@ -67,7 +69,7 @@ class _SessionCardState extends State<SessionCard> {
                         child: Text(
                         "${widget.onlineSession.subTitle}",
                         maxLines: 2,
-                        style: const TextStyle(
+                        style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w400, overflow: TextOverflow.ellipsis,
                         ),
                         ),
