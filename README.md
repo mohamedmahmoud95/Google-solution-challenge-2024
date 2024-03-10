@@ -39,6 +39,10 @@ Zaitoon is a comprehensive platform designed to support individuals in war-torn 
 1. Clone the repository.
 2. Install the required dependencies.
 
+### Testing user credentials:
+email: m.raslan97@gmail.com
+password: Test1234#
+
 ## Usage
 - Navigate through the app using the tabs at the bottom of the screen.
 - Access various features from the home dashboard.
